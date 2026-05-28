@@ -10,6 +10,8 @@
 library("here")
 library("tidyverse")
 library("dplyr")
+# ------------------------------------------------------------------------------
+
 
 
 # ----- 2. Load raw data -------------------------------------------------------
@@ -21,6 +23,7 @@ questionnaire_bls_raw <- read.csv(here("study_2", "raw_data",
                                        "questionnaire_bls_raw.csv"))
 
 lextale_bls_raw <- read.csv(here("study_2", "raw_data", "lextale_bls_raw.csv"))
+# ------------------------------------------------------------------------------
 
 
 # ----- 3. Tidy experiment data ------------------------------------------------
@@ -73,7 +76,8 @@ experiment_bls_tidy <- experiment_bls_tidy |>
   filter(!(participant == "HS_050" & session == 1 & Trial == "Span" 
            & Lista == 2))
 
-experiment_bls_tidy |> count(participant)
+experiment_bls_tidy |> 
+  count(participant)
 
 # Merge 'Lista' and 'List' values by creating a new variable, 'list_assigned'
 experiment_bls_tidy <- experiment_bls_tidy |>
@@ -104,8 +108,118 @@ experiment_bls_final <- experiment_bls_tidy |>
     form == "c" ~ "PP")) |>
   relocate(stim_lang, .after = "list")
 
+# Convert list (character) into integers 
+#class(experiment_bls_final$list)
+experiment_bls_final <- experiment_bls_final |>
+  mutate(
+    list = str_remove(list, "list")) |>
+  mutate(list = as.integer(list))
+
+# Remove sessions/lists not assigned/completed
+experiment_bls_final <- experiment_bls_final |>
+  filter(
+    Trial == "Span" & stim_lang == "sp" | Trial == "Eng" & stim_lang == "en") |>
+  filter(list == list_assigned)
+
+experiment_bls_final |>
+  count(participant, Trial, stim_lang, list, list_assigned) |>
+  arrange(n) |>
+  print(n = 168)
+
+# Create new (i.e., manipulated) variables: temporal distance and plan certainty
+experiment_bls_final <- experiment_bls_final |>
+  mutate(
+    temp_dist = NA,
+    plan_cert = NA) |>
+  relocate(temp_dist, plan_cert, .after = condition) |>
+  mutate(temp_dist = if_else(
+      condition %in% c("cond1", "cond4"), "immediate",
+      if_else(condition %in% c("cond2", "cond5"), "near", "distant"))) |>
+  mutate(plan_cert = if_else(
+      condition %in% c("cond1", "cond2", "cond3"), "certain", "uncertain"))
+
+experiment_bls_final |>
+  count(condition, temp_dist, plan_cert)
+
+# Create item column
+# Convert 'context' number (character) into integer
+#class(experiment_bls_final$context_num)
+experiment_bls_final <- experiment_bls_final |>
+  mutate(
+    context_num = as.integer(context_num))
+
+experiment_bls_final <- experiment_bls_final |>
+  mutate(
+    item = case_when(
+      condition == "cond1" ~ 0,
+      condition == "cond2" ~ 6,
+      condition == "cond3" ~ 12,
+      condition == "cond4" ~ 18,
+      condition == "cond5" ~ 24,
+      condition == "cond6" ~ 30) + context_num,
+    item = paste("Q", item, sep = "")) |>
+  relocate(item, .before = "condition")
+
+experiment_bls_final |>
+  count(condition, temp_dist, plan_cert, item) |>
+  arrange(condition, item) |>
+  print(n = 36)
+  
+# Delete redundant columns ('Trial' vs 'stim_lang'; 'list_assigned' vs 'list';
+# 'condition', 'context')
+experiment_bls_final <- experiment_bls_final |>
+  select(-c("Trial", "list_assigned", "condition", "context_num")) |>
+  rename(language = stim_lang) |>
+  relocate(language, .after = "session")
+
+colnames(experiment_bls_final)
+
+# Scale ratings for beta regression (0-1)
+# Come back to this after going over Heiss' tutorial to see what type of 
+# additional transformations are needed: 
+# "One problem with beta regression, though, is that the beta distribution does 
+# not include 0 and 1. As we saw earlier, if your data has has 0s or 1s, the 
+# model breaks."
+
+experiment_bls_final <- experiment_bls_final |>
+  mutate(rating_scaled = rating / 100) |>
+  rename(rating_pct = rating) |>
+  rename(rating = rating_scaled) |>
+  select(-rating_pct)
+
+# Write csv for tidy experiment data
+write_csv(experiment_bls_final,
+          here("study_2", "tidy_data", "experiment_bls_tidy.csv"))
+# ------------------------------------------------------------------------------
+
+# ----- 3.2. Monolinguals-Sp ---------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# ----- 3.3. Monolinguals-En ---------------------------------------------------
+# ------------------------------------------------------------------------------
+
+
+
+# ----- 4. Tidy BLP data -------------------------------------------------------
+# ----- 4.1. Bilinguals --------------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# ----- 4.2. Monolinguals-Sp ---------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# ----- 4.3. Monolinguals-En ---------------------------------------------------
+# ------------------------------------------------------------------------------
 
 
 
 
+# ----- 5. Tidy LexTale data ---------------------------------------------------
+# ----- 5.1. Bilinguals --------------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# ----- 5.2. Monolinguals-Sp ---------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# ----- 5.3. Monolinguals-En ---------------------------------------------------
+# ------------------------------------------------------------------------------
 
