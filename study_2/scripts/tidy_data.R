@@ -202,6 +202,279 @@ write_csv(experiment_bls_final,
 
 # ----- 4. Tidy BLP data ---------------------------------------------------
 # ----- 4.1. Bilinguals --------------------------------------------------------
+# Visualize data
+head(questionnaire_bls_raw)
+glimpse(questionnaire_bls_raw)
+
+# Check column index numbers
+data.frame(colnames(questionnaire_bls_raw))
+
+#Q3-Q10: Biographical Info.
+#Q11-Q16: Module 1 (Lang. History)
+#Q17-Q21: Module 2 (Lang. Use)
+#Q22-Q25: Module 3 (Lang. Proficiency)
+#Q26-Q29: Module 4 (Lang. Attitudes)
+
+# Remove participants who did not finish Session 1 (e.g. no BLP data), who 
+# completed the samesession twice by mistake, or who showed inconsistent data 
+# (e.g., between the responses in the interest form and the BLP)
+
+questionnaire_bls_tidy <- questionnaire_bls_raw |>
+  filter(!participant %in% c("HS_006", "HS_010","HS_019", "HS_023", "HS_024", 
+                             "HS_025", "HS_026", "HS_027", "HS_028","HS_045",
+                             "HS_048", "HS_055")) |>
+  filter(!is.na(participant))
+
+questionnaire_bls_tidy <- questionnaire_bls_tidy |>
+  filter(!(participant == "HS_013" & session == 1 & Trial == "Span"  
+           & Lista  == 1)) |>
+  filter(!(participant == "HS_014" & session == 1 & Trial == "Eng"  
+           & List  == 3)) |>
+  filter(!(participant == "HS_029" & session == 1 & Trial == "Eng"  
+           & List  == 1)) |>
+  filter(!(participant == "HS_036" & session == 1 & Trial == "Span" 
+           & is.na(Lista))) |>
+  filter(!(participant == "HS_043" & session == 1 & Trial == "Span" 
+           & is.na(Lista))) |>
+  filter(!(participant == "HS_050" & session == 1 & Trial == "Span" 
+           & Lista == 2))
+
+questionnaire_bls_tidy |> 
+  count(participant) |>
+  filter( n > 1)
+
+# Merge 'Lista' and 'List' values by creating a new variable, 'list_assigned'
+questionnaire_bls_tidy <- questionnaire_bls_tidy |>
+  mutate(list_assigned = case_when(
+    !is.na(Lista) ~ Lista,
+    !is.na(List) ~ List)) |>
+  relocate(list_assigned, .after = "List") |>
+  select(-Lista, -List)
+
+# Rename variables/values to match experiment dataset
+questionnaire_bls_tidy <- questionnaire_bls_tidy |>
+  rename(list = list_assigned) |>
+  rename(language = Trial) |>
+  mutate(language = case_when(
+    language == "Eng" ~ "en",
+    language == "Span" ~ "sp"))
+
+questionnaire_bls_tidy <- questionnaire_bls_tidy |>
+  rename(
+    # Biographical Information
+    age                = Q3,
+    gender             = Q4,
+    gender_other       = Q4_3_TEXT,
+    residence_city     = Q5,
+    residence_count    = Q6,
+    country_origin     = Q7,
+    origin_mom         = Q8,
+    origin_dad         = Q9,
+    education          = Q10,
+    # Module 1: Language History
+    age_acq_sp         = Q11_1,
+    age_acq_en         = Q11_2,
+    age_comfort_sp     = Q12_1,
+    age_comfort_en     = Q12_2,
+    years_school_sp    = Q13_1,
+    years_school_en    = Q13_2,
+    years_country_sp   = Q14_1,
+    years_country_en   = Q14_2,
+    years_family_sp    = Q15_1,
+    years_family_en    = Q15_2,
+    years_work_sp      = Q16_1,
+    years_work_en      = Q16_2,
+    # Module 2: Language Use
+    use_family_sp      = Q17_1,
+    use_family_en      = Q17_2,
+    use_family_other   = Q17_3,
+    use_friends_sp     = Q18_1,
+    use_friends_en     = Q18_2,
+    use_friends_other  = Q18_3,
+    use_work_sp        = Q19_1,
+    use_work_en        = Q19_2,
+    use_work_other     = Q19_3,
+    use_self_sp        = Q20_1,
+    use_self_en        = Q20_2,
+    use_self_other     = Q20_3,
+    use_count_sp       = Q21_1,
+    use_count_en       = Q21_2,
+    use_count_other    = Q21_3,
+    # Module 3: Language Proficiency
+    prof_speak_sp      = Q22_1,
+    prof_speak_en      = Q22_2,
+    prof_understand_sp = Q23_1,
+    prof_understand_en = Q23_2,
+    prof_read_sp       = Q24_1,
+    prof_read_en       = Q24_2,
+    prof_write_sp      = Q25_1,
+    prof_write_en      = Q25_2,
+    # Module 4: Language Attitudes
+    att_self_sp        = Q26_1,
+    att_self_en        = Q26_2,
+    att_culture_sp     = Q27_1,
+    att_culture_en     = Q27_2,
+    att_native_sp      = Q28_1,
+    att_native_en      = Q28_2,
+    att_perceived_sp   = Q29_1,
+    att_perceived_en   = Q29_2)
+
+data.frame(colnames(questionnaire_bls_tidy))
+
+# Tidy responses in Module 1: Language History
+questionnaire_bls_final <- questionnaire_bls_tidy |>
+  mutate(
+    age_acq_sp = case_when(
+      age_acq_sp == "Since birth" ~ "0",
+      TRUE ~ age_acq_sp),
+    age_acq_en = case_when(
+      age_acq_en == "Since birth" ~ "0",
+      TRUE ~ age_acq_en),
+    age_comfort_sp = case_when(
+      age_comfort_sp == "As early as I can remember" ~ "0",
+      age_comfort_sp == "Not yet" ~ "20",
+      TRUE ~ age_comfort_sp),
+    age_comfort_en = case_when(
+      age_comfort_en == "As early as I can remember" ~ "0",
+      age_comfort_en == "Not yet" ~ "20",
+      TRUE ~ age_comfort_en),
+    years_country_sp = case_when(
+      years_country_sp == "My whole life" ~ "20",
+      TRUE ~ years_country_sp),
+    years_country_en = case_when(
+      years_country_en == "My whole life" ~ "20",
+      TRUE ~ years_country_en),
+    years_family_sp = case_when(
+      years_family_sp == "My whole life" ~ "20",
+      TRUE ~ years_family_sp),
+    years_family_en = case_when(
+      years_family_en == "My whole life" ~ "20",
+      TRUE ~ years_family_en)) |>
+  mutate(across(age_acq_sp:years_work_en, as.numeric))
+
+# Score responses in Module 1: Language History
+  # 6 questions: each worth between 0 and 20
+  # Each item is worth the numerical value given in the response, with three 
+  # exceptions:
+    # (1)The first two items (AoA and AoC) are scored in the reverse: A “20” 
+    # response is worth 0, a “19” is worth 1, and so on
+    # (2) Phrasal responses “Since birth” and “For as long as I can remember” 
+    # are worth 20 points
+    # (3) “Not yet” is worth 0 points
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    age_acq_sp_score     = 20 - age_acq_sp,
+    age_acq_en_score     = 20 - age_acq_en,
+    age_comfort_sp_score = 20 - age_comfort_sp,
+    age_comfort_en_score = 20 - age_comfort_en,
+    years_school_sp_score  = years_school_sp,
+    years_school_en_score  = years_school_en,
+    years_country_sp_score = years_country_sp,
+    years_country_en_score = years_country_en,
+    years_family_sp_score  = years_family_sp,
+    years_family_en_score  = years_family_en,
+    years_work_sp_score    = years_work_sp,
+    years_work_en_score    = years_work_en) 
+
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    history_sp = rowSums(across(c(age_acq_sp_score, age_comfort_sp_score, 
+                                  years_school_sp,years_country_sp, 
+                                  years_family_sp, years_work_sp)), 
+                         na.rm = TRUE),
+    history_en = rowSums(across(c(age_acq_en_score, age_comfort_en_score, 
+                                  years_school_en,years_country_en, 
+                                  years_family_en, years_work_en)), 
+                         na.rm = TRUE))
+
+# Score responses in Module 2: Language Use
+  # 5 questions: each worth between 0 and 10
+  # Each item is worth the numerical value given in the response
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    use_sp = (use_family_sp + use_friends_sp + use_work_sp + 
+                use_self_sp + use_count_sp) / 10,
+    use_en = (use_family_en + use_friends_en + use_work_en + 
+                use_self_en + use_count_en) / 10)
+
+# Score responses in Module 3: Language Proficiency
+  # 4 questions: each worth between 0 and 6
+  # Each item is worth the numerical value given in the response
+  # Module 3: Language Proficiency
+  # 4 questions, each worth 0-6, max = 24
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    proficiency_sp = rowSums(across(c(prof_speak_sp, prof_understand_sp, 
+                                      prof_read_sp, prof_write_sp)), 
+                             na.rm = TRUE),
+    proficiency_en = rowSums(across(c(prof_speak_en, prof_understand_en, 
+                                      prof_read_en, prof_write_en)), 
+                             na.rm = TRUE))
+
+# Score responses in Module 4: Language Attitudes
+  # 4 questions: each worth between 0 and 6
+  # Each item is worth the numerical value given in the response
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    attitudes_sp = rowSums(across(c(att_self_sp, att_culture_sp, 
+                                    att_native_sp, att_perceived_sp)), 
+                           na.rm = TRUE),
+    attitudes_en = rowSums(across(c(att_self_en, att_culture_en, 
+                                    att_native_en, att_perceived_en)), 
+                           na.rm = TRUE))
+
+# Apply adjustment factors and calculate global score
+  # To ensure that each module receives equal weighting in the global language 
+  # index, you need to multiply the score for each module (each language 
+  # calculated separately) by the following adjustment factors:
+  # Module	Adjustment factor
+  # Language History	0.454
+  # Language Use	1.09
+  # Language Proficiency	2.27
+  # Language Attitudes	2.27
+  # Add the adjusted module totals together to yield a global score for each 
+  # language. Total points possible is 218.
+blp_scores_bls <- questionnaire_bls_final |>
+  relocate(history_sp, history_en, use_sp, use_en, proficiency_sp, 
+           proficiency_en, attitudes_sp, attitudes_en, .after = education) 
+
+blp_scores_bls <- blp_scores_bls |>
+  mutate(
+    global_sp = (history_sp * 0.454) + (use_sp * 1.09) + (proficiency_sp * 2.27) 
+    + (attitudes_sp * 2.27),
+    global_en = (history_en * 0.454) + (use_en * 1.09) + (proficiency_en * 2.27) 
+    + (attitudes_en * 2.27)) |>
+  relocate(global_sp, global_en, .after = education)
+
+# Calculate dominance index
+  # To obtain the language dominance index, subtract one language total from the 
+  # other to render a dominance score that ranges from -218 to +218. 
+  # Scores approaching zero indicate balanced bilingualism. More positive or 
+  # more negative scores reflect increased language dominance.
+  # More positive scores = Spanish dominant
+  # More negative scores = English dominant
+blp_scores_bls <- blp_scores_bls |>
+  mutate(blp_score = global_sp - global_en) |>
+  relocate(blp_score, .after = education)
+
+# Prepare and write final dataset
+blp_scores_bls |>
+  filter(!is.na(gender_other)) |>
+  select(participant, gender, gender_other)
+
+blp_scores_bls <- blp_scores_bls |>
+  mutate(gender = case_when(
+    participant == "HS_047" ~ "non-binary",
+    TRUE ~ gender)) |>
+  select(-gender_other) |>
+  mutate(gender = case_when(
+    gender == "Female" ~ "female",
+    gender == "Male" ~ "male",
+    TRUE ~ gender))
+
+blp_final_bls <- blp_scores_bls |>
+  select(-c(residence_city, residence_count, history_sp:years_work_en_score)) |>
+  write_csv(here("study_2", "tidy_data", "questionnaire_bls_tidy.csv"))
 # ------------------------------------------------------------------------------
 
 # ----- 4.2. Monolinguals-Sp ---------------------------------------------------
