@@ -200,8 +200,20 @@ write_csv(experiment_bls_final,
 
 
 
-# ----- 4. Tidy BLP data -------------------------------------------------------
+# ----- 4. Tidy BLP data ---------------------------------------------------
 # ----- 4.1. Bilinguals --------------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# ----- 4.2. Monolinguals-Sp ---------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# ----- 4.3. Monolinguals-En ---------------------------------------------------
+# ------------------------------------------------------------------------------
+
+
+
+# ----- 5. Tidy LexTale data -------------------------------------------------------
+# ----- 5.1. Bilinguals --------------------------------------------------------
 # Visualize data
 head(lextale_bls_raw)
 glimpse(lextale_bls_raw)
@@ -304,13 +316,13 @@ lextale_answer_key_sp <- tibble(
   item = names(correct_responses),
   is_real = correct_responses)
 
-# Merge participant responses and correct responses (Spanish answer key)
+# Merge participant responses and correct responses (LexTale-Esp)
 lextale_bl_sp_final <- left_join (
   lextale_bls_sp,
   lextale_answer_key_sp,
   by = "item")
 
-# Check if participant was correct or not
+# Check if participant was correct or not (LexTale-Esp)
 # 1 = correct (match between participant and answer key)
 # 0 = incorrect (mismatch between participant and answer key)
 lextale_bl_sp_final <- lextale_bl_sp_final |>
@@ -364,22 +376,128 @@ lextale_bl_sp_scores_final <- lextale_bl_sp_scores |>
   select(participant:lextale_avg_sp) |>
   write_csv(here("study_2", "tidy_data", "lextale_sp_bls_tidy.csv"))
 
+# Create English subset
+lextale_bls_en <- lextale_bls_tidy |>
+  filter(language == "en") |>
+  select(-c(lextale_terzo:lextale_clavel)) |>
+  rename_with(~ str_remove(., "^lextale_"), starts_with("lextale_")) |>
+  rename(ablaze = abalze,
+         alberation = albertion) |>
+  select(-platery)
 
+data.frame(colnames(lextale_bls_en))
 
+# Tidy English subset
+lextale_bls_en <- lextale_bls_en |>
+  pivot_longer(
+    cols = -c(participant, session, language, list),
+    names_to = "item",
+    values_to = "response") |>
+    mutate(response = case_when(
+    response == "word" ~ 1, 
+    response == "nonword" ~ 0))
 
-# ------------------------------------------------------------------------------
+# Correct responses (LexTale-English)
+# Answer key: 0 = nonword; 1 = word
+# For some reason 'breeding' was not recorded in any participant (bls/mls). 
+# Check what the issue might have been and acknowledge it in the methods section.
+# Also, adjust the scores formula accordingly. 
+correct_responses_en <- c(
+  "mensible" = 0, "scornful" = 1, "stoutly" = 1, "ablaze" = 1, "kermshaw" = 0, 
+  "moonlit" = 1, "lofty" = 1, "hurricane" = 1, "flaw" = 1, "alberation" = 0, 
+  "unkempt" = 1, "festivity" = 1, "screech" = 1, "savory" = 1, "plaudate" = 0, 
+  "shin" = 1, "fluid" = 1, "spaunch" = 0, "allied" = 1, "slain" = 1, 
+  "recipient" = 1, "exprate" = 0, "eloquence" = 1, "cleanliness" = 1,
+  "dispatch" = 1, "rebondicate" = 0, "ingenious" = 1,"bewitch" = 1, "skave" = 0, 
+  "plaintively" = 1, "kilp" = 0, "interfate" = 0, "hasty" = 1, "lengthy" = 1, 
+  "fray" = 1, "crumper" = 0, "upkeep" = 1, "majestic" = 1, "magrity" = 0, 
+  "nourishment" = 1, "abergy" = 0, "proom" = 0, "turmoil" = 1, 
+  "carbohydrate" = 1, "scholar" = 1, "turtle" = 1, "fellick" = 0, 
+  "destription" = 0, "cylinder" = 1, "censorship" = 1, "celestial" = 1, 
+  "rascal" = 1, "purrage" = 0, "pulsh" = 0, "muddy" = 1, "quirty" = 0, 
+  "pudour" = 0, "listless" = 1, "wrought" = 1)
 
-# ----- 4.2. Monolinguals-Sp ---------------------------------------------------
-# ------------------------------------------------------------------------------
+lextale_answer_key_en <- tibble(
+  item = names(correct_responses_en),
+  is_real = correct_responses_en)
 
-# ----- 4.3. Monolinguals-En ---------------------------------------------------
-# ------------------------------------------------------------------------------
+# Merge participant responses and correct responses (LexTale-English)
+lextale_bl_en_final <- left_join (
+  lextale_bls_en,
+  lextale_answer_key_en,
+  by = "item")
 
+# Check if participant was correct or not (LexTale-English)
+# 1 = correct (match between participant and answer key)
+# 0 = incorrect (mismatch between participant and answer key)
+lextale_bl_en_final <- lextale_bl_en_final |>
+  mutate(is_correct = case_when(
+    is_real == 1 & response == 1 ~ 1,
+    is_real == 0 & response == 0 ~ 1,
+    TRUE ~ 0))
 
+# Summarize responses per participant (LexTale-English)
+# word_correct = word exists and participant said it exists (match)
+# word_incorrect = word exists but participant said it doesn't exist (mismatch)
+# nonword_correct = word doesn't exist and participant said it doesn't exist (match)
+# nonword_incorrect = word doesn't exist but participant said it exists (mismatch)
+lextale_bl_en_scores <- lextale_bl_en_final |>
+  group_by(participant, session, language, list) |>
+  summarize(
+    total_items = n(),
+    word_correct = sum(is_real == 1 & is_correct == 1, na.rm = TRUE),
+    word_incorrect = sum(is_real == 1 & is_correct == 0, na.rm = TRUE),
+    nonword_correct = sum(is_real == 0 & is_correct == 1, na.rm = TRUE),
+    nonword_incorrect = sum(is_real == 0 & is_correct == 0, na.rm = TRUE),
+    .groups = "drop") |>
+  relocate(total_items, .after = nonword_incorrect)
 
+# Score LexTale-English - Method 1 ("traditional method")
+# Formula: score = (word_correct) − (2 * nonword_incorrect)
+lextale_bl_en_scores <- lextale_bl_en_scores |>
+  mutate(lextale_traditional = word_correct - 2 * nonword_incorrect)
 
-# ----- 5. Tidy LexTale data ---------------------------------------------------
-# ----- 5.1. Bilinguals --------------------------------------------------------
+# Score LexTale-English - Method 2 ("averaged % correct")
+# Formula:
+# ((n_corr_real / n_real_words * 100) + (n_corr_nonse / n_nonse_words * 100)) / 2
+# The percentage of correct responses, corrected for the unequal proportion of 
+# words and nonwords in the test by averaging the percentages correct for these 
+# two item types. 
+lextale_bl_en_scores <- lextale_bl_en_scores |>
+  mutate(
+    total_word = word_correct + word_incorrect,
+    total_nonword = nonword_correct + nonword_incorrect,
+    pct_word = (word_correct / total_word) * 100,
+    pct_nonword = (nonword_correct / total_nonword) * 100,
+    lextale_avg = (pct_word + pct_nonword) / 2)
+
+# Tidy final scores (LexTale-English)
+lextale_bl_en_scores_final <- lextale_bl_en_scores |>
+  relocate(lextale_traditional, lextale_avg, .after = list) |>
+  mutate(
+    lextale_avg = round(lextale_avg, 2)) |>
+  rename(lextale_trad_en = lextale_traditional,
+         lextale_avg_en = lextale_avg) |>
+  select(participant:lextale_avg_en) |>
+  write_csv(here("study_2", "tidy_data", "lextale_en_bls_tidy.csv"))
+
+# Create final dataset for bilingual scores (LexTale-Esp + English)
+lextale_sp_bls <- read.csv(here("study_2", "tidy_data", 
+                                "lextale_sp_bls_tidy.csv"))
+lextale_en_bls <- read.csv(here("study_2", "tidy_data", 
+                                "lextale_en_bls_tidy.csv"))
+
+lextale_bls_tidy <- bind_rows(
+  lextale_sp_bls,
+  lextale_en_bls) |>
+  arrange(participant, session)
+
+lextale_bls_final <- lextale_bls_tidy |>
+  mutate(
+    lextale_trad = coalesce(lextale_trad_sp, lextale_trad_en),
+    lextale_avg = coalesce(lextale_avg_sp, lextale_avg_en)) |>
+  select(-lextale_trad_sp, -lextale_trad_en, -lextale_avg_sp, -lextale_avg_en) |>
+  write_csv(here("study_2", "tidy_data", "lextale_bls_tidy.csv"))
 # ------------------------------------------------------------------------------
 
 # ----- 5.2. Monolinguals-Sp ---------------------------------------------------
@@ -387,4 +505,6 @@ lextale_bl_sp_scores_final <- lextale_bl_sp_scores |>
 
 # ----- 5.3. Monolinguals-En ---------------------------------------------------
 # ------------------------------------------------------------------------------
+
+
 
