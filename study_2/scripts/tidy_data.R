@@ -202,6 +202,171 @@ write_csv(experiment_bls_final,
 
 # ----- 4. Tidy BLP data -------------------------------------------------------
 # ----- 4.1. Bilinguals --------------------------------------------------------
+# Visualize data
+head(lextale_bls_raw)
+glimpse(lextale_bls_raw)
+
+# Check column index numbers
+data.frame(colnames(lextale_bls_raw))
+
+# Remove participants who did not finish Session 1 (e.g. no BLP data), who 
+# completed the samesession twice by mistake, or who showed inconsistent data 
+# (e.g., between the responses in the interest form and the BLP)
+
+lextale_bls_tidy <- lextale_bls_raw |>
+  filter(!participant %in% c("HS_006", "HS_010","HS_019", "HS_023", "HS_024", 
+                             "HS_025", "HS_026", "HS_027", "HS_028","HS_045",
+                             "HS_048", "HS_055")) |>
+  filter(!is.na(participant))
+
+lextale_bls_tidy <- lextale_bls_tidy |>
+  filter(!(participant == "HS_002" & session == 2 & Trial == "Span" 
+           & Lista == 2)) |>
+  filter(!(participant == "HS_004" & session == 2 & Trial == "Span" 
+           & Lista == 2)) |>
+  filter(!(participant == "HS_005" & session == 2 & Trial == "Span" 
+           & Lista == 3)) |>
+  filter(!(participant == "HS_007" & session == 2 & Trial == "Span" 
+           & Lista == 2)) |>
+  filter(!(participant == "HS_013" & session == 1 & Trial == "Span"  
+           & Lista  == 1)) |>
+  filter(!(participant == "HS_014" & session == 1 & Trial == "Eng"  
+           & List  == 3)) |>
+  filter(!(participant == "HS_029" & session == 1 & Trial == "Eng"  
+           & List  == 1)) |>
+  filter(!(participant == "HS_036" & session == 1 & Trial == "Span" 
+           & is.na(Lista))) |>
+  filter(!(participant == "HS_043" & session == 1 & Trial == "Span" 
+           & is.na(Lista))) |>
+  filter(!(participant == "HS_050" & session == 1 & Trial == "Span" 
+           & Lista == 2))
+
+lextale_bls_tidy |> 
+  count(participant)
+
+# Merge 'Lista' and 'List' values by creating a new variable, 'list_assigned'
+lextale_bls_tidy <- lextale_bls_tidy |>
+  mutate(list_assigned = case_when(
+    !is.na(Lista) ~ Lista,
+    !is.na(List) ~ List)) |>
+  relocate(list_assigned, .after = "List") |>
+  select(-Lista, -List)
+
+# Rename variables/values to match experiment dataset
+lextale_bls_tidy <- lextale_bls_tidy |>
+  rename(list = list_assigned) |>
+  rename(language = Trial) |>
+  mutate(language = case_when(
+    language == "Eng" ~ "en",
+    language == "Span" ~ "sp"))
+
+# Create Spanish subset
+lextale_bls_sp <- lextale_bls_tidy |>
+  filter(language == "sp") |>
+  select(-c(lextale_mensible:lextale_wrought)) |>
+  rename_with(~ str_remove(., "^lextale_"), starts_with("lextale_"))
+
+data.frame(colnames(lextale_bls_sp))
+
+# Tidy Spanish subset
+lextale_bls_sp <- lextale_bls_sp |>
+  pivot_longer(
+    cols = -c(participant, session, language, list),
+    names_to = "item",
+    values_to = "response") |>
+  mutate(response = case_when(
+    response == "word" ~ 1, 
+    response == "nonword" ~ 0))
+
+# Correct responses (LexTale-Esp)
+# Answer key: 0 = nonword; 1 = word
+correct_responses <- c(
+  "terzo" = 0, "pellizcar" = 1, "pulmones" = 1, "batillon" = 0, "zapato" = 1, 
+  "tergiversar" = 1, "pesimo" = 1, "cadena" = 0, "hacha" = 1, "antar" = 0, 
+  "cenefa" = 1, "asesinato" = 1, "helar" = 1, "yunque" = 1, "regar" = 1, 
+  "abracer" = 0, "floroso" = 0, "arsa" = 0, "brecedad" = 0, "avido" = 1, 
+  "capillo" = 0, "lacayo" = 1, "lampera" = 0, "latigo" = 1, "bisagra" = 1, 
+  "secuestro" = 1, "acutacion" = 0, "merodear" = 1, "decar" = 0, "alardio" = 0, 
+  "pandilla" = 1, "fatacidad" = 0, "pauca" = 0, "aviso" = 1, "rompido" = 0, 
+  "loro" = 1, "granuja" = 1, "estornudar" = 1, "torpe" = 1, "alfombra" = 1, 
+  "rebuscar" = 1, "cadallo" = 0, "canela" = 1, "cuchara" = 1, "jilguero" = 1, 
+  "martillo" = 1, "cartinar" = 0, "ladron" = 1, "ganar" = 1, "flamida" = 0, 
+  "candado" = 1, "camisa" = 1, "vegada" = 0, "fomentar" = 1, "nevar" = 1, 
+  "musgo" = 1, "tacano" = 1, "plaudir" = 0, "besar" = 1, "matar" = 1, 
+  "seda" = 1, "flaco" = 1, "esposante" = 0, "orgulloso" = 1, "bizcocho" = 1, 
+  "hacido" = 0, "cabello" = 1, "alegre" = 1, "engatusar" = 1, "temblo" = 0, 
+  "polvoriento" = 1, "pemicion" = 0, "hervidor" = 1, "cintro" = 0, "yacer" = 1, 
+  "atar" = 1, "tiburon" = 1, "frondoso" = 1, "tropaje" = 0, "hormiga" = 1, 
+  "pozo" = 1, "empirador" = 0, "guante" = 1, "escuto" = 0, "laud" = 1, 
+  "barato" = 1, "grodo" = 0, "acantilado" = 1, "prisa" = 1, "clavel" = 1)
+
+lextale_answer_key_sp <- tibble(
+  item = names(correct_responses),
+  is_real = correct_responses)
+
+# Merge participant responses and correct responses (Spanish answer key)
+lextale_bl_sp_final <- left_join (
+  lextale_bls_sp,
+  lextale_answer_key_sp,
+  by = "item")
+
+# Check if participant was correct or not
+# 1 = correct (match between participant and answer key)
+# 0 = incorrect (mismatch between participant and answer key)
+lextale_bl_sp_final <- lextale_bl_sp_final |>
+  mutate(is_correct = case_when(
+    is_real == 1 & response == 1 ~ 1,
+    is_real == 0 & response == 0 ~ 1,
+    TRUE ~ 0))
+
+# Summarize responses per participant (LexTale-Esp)
+# word_correct = word exists and participant said it exists (match)
+# word_incorrect = word exists but participant said it doesn't exist (mismatch)
+# nonword_correct = word doesn't exist and participant said it doesn't exist (match)
+# nonword_incorrect = word doesn't exist but participant said it exists (mismatch)
+lextale_bl_sp_scores <- lextale_bl_sp_final |>
+  group_by(participant, session, language, list) |>
+  summarize(
+    total_items = n(),
+    word_correct = sum(is_real == 1 & is_correct == 1, na.rm = TRUE),
+    word_incorrect = sum(is_real == 1 & is_correct == 0, na.rm = TRUE),
+    nonword_correct = sum(is_real == 0 & is_correct == 1, na.rm = TRUE),
+    nonword_incorrect = sum(is_real == 0 & is_correct == 0, na.rm = TRUE),
+    .groups = "drop") |>
+  relocate(total_items, .after = nonword_incorrect)
+
+# Score LexTale-Esp - Method 1 ("traditional method")
+# Formula: score = (word_correct) − (2 * nonword_incorrect)
+lextale_bl_sp_scores <- lextale_bl_sp_scores |>
+  mutate(lextale_traditional = word_correct - 2 * nonword_incorrect)
+
+# Score LexTale-Esp - Method 2 ("averaged % correct")
+# Formula:
+# ((n_corr_real / n_real_words * 100) + (n_corr_nonse / n_nonse_words * 100)) / 2
+# The percentage of correct responses, corrected for the unequal proportion of 
+# words and nonwords in the test by averaging the percentages correct for these 
+# two item types. 
+lextale_bl_sp_scores <- lextale_bl_sp_scores |>
+  mutate(
+    total_word = word_correct + word_incorrect,
+    total_nonword = nonword_correct + nonword_incorrect,
+    pct_word = (word_correct / total_word) * 100,
+    pct_nonword = (nonword_correct / total_nonword) * 100,
+    lextale_avg = (pct_word + pct_nonword) / 2)
+
+# Tidy final scores (LexTale-Esp)
+lextale_bl_sp_scores_final <- lextale_bl_sp_scores |>
+  relocate(lextale_traditional, lextale_avg, .after = list) |>
+  mutate(
+    lextale_avg = round(lextale_avg, 2)) |>
+  rename(lextale_trad_sp = lextale_traditional,
+         lextale_avg_sp = lextale_avg) |>
+  select(participant:lextale_avg_sp) |>
+  write_csv(here("study_2", "tidy_data", "lextale_sp_bls_tidy.csv"))
+
+
+
+
 # ------------------------------------------------------------------------------
 
 # ----- 4.2. Monolinguals-Sp ---------------------------------------------------
