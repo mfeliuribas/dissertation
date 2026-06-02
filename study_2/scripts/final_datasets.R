@@ -51,6 +51,7 @@ data_bls_final <- data_bls |>
             lextale_trad_en, lextale_avg_en))
 
 # Should I z-score here?
+# z-score by language (lextale-esp separate from lextale-eng)
 
 
 # Write final dataset
