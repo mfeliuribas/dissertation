@@ -50,8 +50,39 @@ data_bls_final <- data_bls |>
   select(-c(global_sp, global_en, lextale_trad_sp, lextale_avg_sp, 
             lextale_trad_en, lextale_avg_en))
 
-# Should I z-score here?
-# z-score by language (lextale-esp separate from lextale-eng)
+# Standardze BLP and LexTale scores
+  # Z-score LexTale by language (lextale-esp separate from lextale-eng)
+data_bls_final <- data_bls_final |>
+  mutate(
+    blp_z = (blp_score - mean(blp_score)) / sd(blp_score)) |>
+  #mutate(
+    #blp_z = round(blp_z, 2)) |>
+  relocate(blp_z, .after = blp_score)
+
+data_bls_final |>
+  summarize(
+    mean_blp_z = mean(blp_z),
+    sd_blp_z = sd(blp_z))
+
+data_bls_final <- data_bls_final |>
+  group_by(language) |>
+  mutate(
+    lextale_trad_z = (lextale_trad - mean(lextale_trad)) / sd(lextale_trad),
+    lextale_avg_z = (lextale_avg - mean(lextale_avg)) / sd(lextale_avg)) |>
+  ungroup() |>
+  #mutate(
+    #lextale_trad_z = round(lextale_trad_z, 2),
+    #lextale_avg_z = round(lextale_avg_z, 2)) |>
+  relocate(lextale_trad_z, .after = lextale_trad) |>
+  relocate(lextale_avg_z, .after = lextale_avg)
+  
+data_bls_final |>
+  group_by(language) |>
+  summarize(
+    mean_lextale_trad_z = mean(lextale_trad_z),
+    sd_lextale_trad_z = sd(lextale_trad_z),
+    mean_lextale_avg_z = mean(lextale_avg_z),
+    sd_lextale_avg_z = sd(lextale_avg_z))
 
 
 # Write final dataset
