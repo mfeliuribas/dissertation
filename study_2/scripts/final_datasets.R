@@ -84,7 +84,6 @@ data_bls_final |>
     mean_lextale_avg_z = mean(lextale_avg_z),
     sd_lextale_avg_z = sd(lextale_avg_z))
 
-
 # Write final dataset
 data_bls_final |>
   write_csv(here("study_2", "final_data", "bls_final.csv"))
