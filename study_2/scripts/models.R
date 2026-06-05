@@ -12,14 +12,13 @@ library("dplyr")
 library("tibble")
 library("knitr")
 library("marginaleffects")
-
-library(tidyverse)
+library("tidyverse")
 library(bayesplot)
 library(tidybayes)
-
-#library("ggdist")
+library("ggdist")
+library("scales")
 #library("tidyverse")
-#library("glue")
+library("glue")
 # ------------------------------------------------------------------------------
 
 # ----- 2. Set seed for reproducibility ----------------------------------------
@@ -86,7 +85,7 @@ data_bls |>
     zoi_check        = mean(rating %in% c(0, 1))) |>
   round(3)
 
-# ----- 4.3. Model 1 (verb form) -----------------------------------------------
+# ----- 4.2. Model 1 (verb form) -----------------------------------------------
 # Specify model formula
 # I think I should add phi, etc. in the model. Check Heiss. 
 # Should dominance be added to phi?
@@ -147,7 +146,6 @@ pp_check(m, type = "stat", stat = "prop_one", ndraws = 1000) +
 
 
 
-
 as_draws_df(bls_model_1) |>
   as_tibble() |>
   mutate(
@@ -190,11 +188,11 @@ epred |>
   median_qi(.epred) |>
   knitr::kable(digits = 3)
 
-# Obs:
-  # Expected rating for each verb form.
-  # The expected rating for PF (.74) is higher than the PI (.58)and PP
-    # (.62) - comparison values are negative and don't cross the 0.
-  # PF > PP > PI.
+  # Obs:
+    # Expected rating for each verb form.
+    # The expected rating for PF (.74) is higher than the PI (.58)and PP
+      # (.62) - comparison values are negative and don't cross the 0.
+    # PF > PP > PI.
 
 # ----- 3. Pairwise contrasts: the actual "effect of form" ---------------------
 # ----- 4. Plot the three contrasts --------------------------------------------
@@ -223,20 +221,15 @@ contrasts |>
   labs(x = "Difference in expected rating", y = NULL,
        title = "Effect of verb form (pairwise contrasts)")
 
-# Obs:
-  # Form has an effect on rating (effect of form on rating).
-  # Both PI and PP are rated lower than the PF: 
-    # PI sits 0.151 below PF
-    # PP sits 0.117 below PF.
-    # Both intervals are negative (below 0) and away from it, thus the PI and 
-    # the PP reduce the relative rating to PF.
-  # PP is rated 0.034 higher than the PI. The interval excludes 0, so there 
-    # seems to be a difference (the difference is nonzero), albeit small. 
-
-
-
-
-
+  # Obs:
+    # Form has an effect on rating (effect of form on rating).
+    # Both PI and PP are rated lower than the PF: 
+      # PI sits 0.151 below PF
+      # PP sits 0.117 below PF.
+     # Both intervals are negative (below 0) and away from it, thus the PI and 
+      # the PP reduce the relative rating to PF.
+    # PP is rated 0.034 higher than the PI. The interval excludes 0, so there 
+      # seems to be a difference (the difference is nonzero), albeit small. 
 
 
 ## Average predicted rating by form (response scale, already back-transformed)
@@ -262,5 +255,227 @@ mod1_post %>%
     Form     = form,
     Estimate = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
 
+# ------------------------------------------------------------------------------
+
+
+
+
+# ----- 4.3. Model 2 (verb form, temporal reference) ---------------------------
+# Specify model formula
+# I think I should add phi, etc. in the model. Check Heiss. 
+# Should dominance be added to phi?
+form2 <- bf(rating ~ 0 + Intercept + form * temp_dist +
+              (1 + form * temp_dist * plan_cert | participant) +
+              (1 | item) +
+              (1 | list))
+
+# Figure out the priors
+get_prior(formula = form2, family = zero_one_inflated_beta(), data = data_bls)
+
+# Set priors
+priors2 <- c(prior(normal(0, 1.5), class = b),
+             prior(normal(0, 2),   class = b, coef = "Intercept"))
+
+## Fit simple model
+bls_model_2 <- brm(
+  formula = form2, 
+  prior = priors2, 
+  iter = 2000, warmup = 1000, cores = 4, 
+  data = data_bls, 
+  family = zero_one_inflated_beta(), 
+  file = here("study_2", "models", "bls_model_2"))
+
+# Warning message: 4: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
+
+## Model output
+summary(bls_model_2)
+
+
+m <- bls_model_2
+y <- data_bls$rating
+
+# ----- 1. Overall shape: does the simulated distribution match? --------------
+# dens_overlay smears the spikes, so pair it with a view that respects [0,1].
+pp_check(m, type = "dens_overlay", ndraws = 100) +
+  coord_cartesian(xlim = c(0, 1)) +
+  ggtitle("Density overlay (interior shape — diagnoses mu and phi)")
+
+# ----- 2. The endpoints: the heart of the matter ------------------------------
+# Define test statistics = the fraction of responses exactly at each endpoint.
+# These are governed by zoi (alpha) and coi (gamma). If the model's simulated
+# fractions don't bracket the observed fraction, those parameters need a formula.
+prop_zero <- function(x) mean(x == 0)
+prop_one  <- function(x) mean(x == 1)
+
+pp_check(m, type = "stat", stat = "prop_zero", ndraws = 1000) +
+  ggtitle("Proportion of ratings exactly 0  (tests zoi & coi)")
+
+pp_check(m, type = "stat", stat = "prop_one", ndraws = 1000) +
+  ggtitle("Proportion of ratings exactly 1  (tests zoi & coi)")
+
+
+## Remove this?
+as_draws_df(bls_model_1) |>
+  as_tibble() |>
+  mutate(
+    PF_dist  = plogis(b_Intercept),
+    PI_dist  = plogis(b_Intercept + b_formPI),
+    PP_dist  = plogis(b_Intercept + b_formPP),
+    PF_imm   = plogis(b_Intercept + b_temp_distimmediate),
+    PI_imm   = plogis(b_Intercept + b_formPI + b_temp_distimmediate + 
+                       `b_formPI:temp_distimmediate`),
+    PP_imm  = plogis(b_Intercept + b_formPP + b_temp_distimmediate + 
+                       `b_formPP:temp_distimmediate`),
+    PF_near = plogis(b_Intercept + b_temp_distnear),
+    PI_near = plogis(b_Intercept + b_formPI + b_temp_distnear + 
+                       `b_formPI:temp_distnear`),
+    PP_near = plogis(b_Intercept + b_formPP + b_temp_distnear + 
+                       `b_formPP:temp_distnear`)) |>
+  select(PF_dist, PI_dist, PP_dist,
+         PF_imm, PI_imm, PP_imm,
+         PF_near, PI_near, PP_near,
+         phi, zoi, coi) |>
+  posterior_summary() |>
+  as.data.frame() |>
+  rownames_to_column("Parameter") |>
+  kable(digits = 2)
+
+
+
+## Average predicted rating by form and temporal distance
+mod2_pred <- avg_predictions(
+  model      = bls_model_2,
+  variables  = c("form", "temp_dist"),
+  re_formula = NULL)
+
+mod2_post <- posterior_draws(mod2_pred) # |> write_csv(here("mod2_post.csv"))
+
+## Marginal over form: temp_dist on its own
+mod2_post_tempdist <- avg_predictions(
+  model      = bls_model_2,
+  variables  = "temp_dist",
+  re_formula = NULL) |>
+  posterior_draws()
+
+## Table: form by temp_dist
+mod2_post |>
+  group_by(form, temp_dist) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    Reference = temp_dist,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
+
+  # Obs:
+    # PF: near > distant > immediate
+    # PI: near > immediate > distant
+    # PP: near > immediate > distant
+    # But... the intervals overlap with each other, probably because the model
+    # is not considering language yet? 
+
+## Table: temp_dist only
+mod2_post_tempdist |>
+  group_by(temp_dist) |>
+  median_qi(x = draw) |>
+  transmute(
+    Reference = temp_dist,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+## Plot (mod2_post) - posterior medians of predicted rating with 95% and 65% credible intervals
+mod2_post |>
+  ggplot() + 
+  aes(x = draw, y = form, fill = temp_dist) + 
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") + 
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) + 
+  labs(y = NULL, x = "Avg Predicted Rating|Form * Temporal Distance)") + 
+  theme(legend.position = c(1, 0), legend.justification = c(1, 0), 
+        legend.background = element_blank())
+
+
+
+
+
+
+# ----- 4.4. Model 3 (verb form, temporal reference, plan certainty) -----------
+# Specify model formula
+# I think I should add phi, etc. in the model. Check Heiss. 
+# Should dominance be added to phi?
+form3 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert +
+              (1 + form * temp_dist * plan_cert | participant) +
+              (1 | item) +
+              (1 | list))
+
+# Figure out the priors
+get_prior(formula = form3, family = zero_one_inflated_beta(), data = data_bls)
+
+# Set priors
+priors3 <- c(prior(normal(0, 1.5), class = b),
+             prior(normal(0, 2),   class = b, coef = "Intercept"))
+
+## Fit simple model
+bls_model_3 <- brm(
+  formula = form3, 
+  prior = priors3, 
+  iter = 2000, warmup = 1000, cores = 4, 
+  data = data_bls, 
+  family = zero_one_inflated_beta(), 
+  file = here("study_2", "models", "bls_model_3"))
+
+## Model output
+summary(bls_model_3)
+
+## Average predicted rating by form and temporal distance
+mod3_pred <- avg_predictions(
+  model      = bls_model_3,
+  variables  = c("form", "temp_dist", "plan_cert"),
+  re_formula = NULL)
+
+mod3_post <- posterior_draws(mod3_pred) # |> write_csv(here("mod3_post.csv"))
+
+## Marginal over form: temp_dist on its own
+mod3_post_cert <- avg_predictions(
+  model      = bls_model_3,
+  variables  = "plan_cert",
+  re_formula = NULL) |>
+  posterior_draws()
+
+## Table: form by temp_dist by plan_cet
+mod3_post |>
+  group_by(form, temp_dist, plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    Reference = temp_dist,
+    Plan      = plan_cert,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
+
+mod3_post |>
+  group_by(form, plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    Plan      = plan_cert,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
+
+## Table: plan_cert only
+mod3_post_cert |>
+  group_by(plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Plan = plan_cert,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% credible intervals
+mod3_post |>
+  ggplot() + 
+  aes(x = draw, y = form, fill = temp_dist) + 
+  facet_grid(. ~ plan_cert) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") + 
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) + 
+  labs(y = NULL, x = "Avg Predicted Rating|Form * Distance * Certainty)") + 
+  theme(legend.position = "bottom", legend.justification = c(1, 0), 
+        legend.background = element_blank())
 
 
