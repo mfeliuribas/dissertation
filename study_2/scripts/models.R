@@ -13,11 +13,8 @@ library("tibble")
 library("knitr")
 library("marginaleffects")
 library("tidyverse")
-library(bayesplot)
-library(tidybayes)
 library("ggdist")
 library("scales")
-#library("tidyverse")
 library("glue")
 # ------------------------------------------------------------------------------
 
@@ -110,41 +107,8 @@ bls_model_1 <- brm(
   family = zero_one_inflated_beta(), 
   file = here("study_2", "models", "bls_model_1"))
 
-#bls_model_1 <- readRDS(here("study_2", "models", "bls_model_1.rds"))
-
 ## Model output
 summary(bls_model_1)
-
-
-
-
-
-m <- bls_model_1
-y <- data_bls$rating
-
-# ----- 1. Overall shape: does the simulated distribution match? --------------
-# dens_overlay smears the spikes, so pair it with a view that respects [0,1].
-pp_check(m, type = "dens_overlay", ndraws = 100) +
-  coord_cartesian(xlim = c(0, 1)) +
-  ggtitle("Density overlay (interior shape — diagnoses mu and phi)")
-
-# ----- 2. The endpoints: the heart of the matter ------------------------------
-# Define test statistics = the fraction of responses exactly at each endpoint.
-# These are governed by zoi (alpha) and coi (gamma). If the model's simulated
-# fractions don't bracket the observed fraction, those parameters need a formula.
-prop_zero <- function(x) mean(x == 0)
-prop_one  <- function(x) mean(x == 1)
-
-pp_check(m, type = "stat", stat = "prop_zero", ndraws = 1000) +
-  ggtitle("Proportion of ratings exactly 0  (tests zoi & coi)")
-
-pp_check(m, type = "stat", stat = "prop_one", ndraws = 1000) +
-  ggtitle("Proportion of ratings exactly 1  (tests zoi & coi)")
-
-
-
-
-
 
 as_draws_df(bls_model_1) |>
   as_tibble() |>
@@ -169,76 +133,11 @@ as_draws_df(bls_model_1) |>
   # The intervals for PP and PI overlap. 
 
 
-
-# ----- 1. A grid: one row per form, random effects marginalized out ----------
-# re_formula = NA  -> population-level prediction (averages over participants,
-#                     items, lists), which is what "the effect of form" means.
-form_grid <- data_bls |>
-  distinct(form) # PF, PI, PP
-
-epred <- form_grid |>
-  add_epred_draws(bls_model_1, re_formula = NA)
-# .epred is now the FULL expected rating per draw: it folds in the
-# Beta mean, the zero/one inflation, everything. This is E[rating | form],
-# the marginal expectation, not the conditional interior mu.
-
-# ----- 2. Summarize the per-form expected rating -----------------------------
-epred |>
-  group_by(form) |>
-  median_qi(.epred) |>
-  knitr::kable(digits = 3)
-
-  # Obs:
-    # Expected rating for each verb form.
-    # The expected rating for PF (.74) is higher than the PI (.58)and PP
-      # (.62) - comparison values are negative and don't cross the 0.
-    # PF > PP > PI.
-
-# ----- 3. Pairwise contrasts: the actual "effect of form" ---------------------
-# ----- 4. Plot the three contrasts --------------------------------------------
-contrasts <- epred |>
-  ungroup() |>
-  select(form, .draw, .epred) |>
-  pivot_wider(names_from = form, values_from = .epred) |>
-  mutate(
-    PI_vs_PF = PI - PF,
-    PP_vs_PF = PP - PF,
-    PP_vs_PI = PP - PI)
-
-contrasts |>
-  select(PI_vs_PF, PP_vs_PF, PP_vs_PI) |>
-  pivot_longer(everything(), names_to = "contrast", values_to = "diff") |>
-  group_by(contrast) |>
-  median_qi(diff) |>
-  knitr::kable(digits = 3)
-
-contrasts |>
-  select(PI_vs_PF, PP_vs_PF, PP_vs_PI) |>
-  pivot_longer(everything(), names_to = "contrast", values_to = "diff") |>
-  ggplot(aes(x = diff, y = contrast)) +
-  stat_halfeye() +
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  labs(x = "Difference in expected rating", y = NULL,
-       title = "Effect of verb form (pairwise contrasts)")
-
-  # Obs:
-    # Form has an effect on rating (effect of form on rating).
-    # Both PI and PP are rated lower than the PF: 
-      # PI sits 0.151 below PF
-      # PP sits 0.117 below PF.
-     # Both intervals are negative (below 0) and away from it, thus the PI and 
-      # the PP reduce the relative rating to PF.
-    # PP is rated 0.034 higher than the PI. The interval excludes 0, so there 
-      # seems to be a difference (the difference is nonzero), albeit small. 
-
-
 ## Average predicted rating by form (response scale, already back-transformed)
 mod1_preds <- avg_predictions(
   model     = bls_model_1,
   variables = "form",
   re_formula = NULL)
-
-mod1_preds  # quick look: `estimate` is the predicted mean rating per form level
 
 ## Posterior draws of those predictions
 mod1_post <- avg_predictions(
@@ -256,6 +155,7 @@ mod1_post %>%
     Estimate = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
 
 # ------------------------------------------------------------------------------
+
 
 
 
@@ -284,63 +184,11 @@ bls_model_2 <- brm(
   data = data_bls, 
   family = zero_one_inflated_beta(), 
   file = here("study_2", "models", "bls_model_2"))
-
-# Warning message: 4: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
+# Warning message: 4: Bulk Effective Samples Size (ESS) is too low, indicating 
+# posterior means and medians may be unreliable.
 
 ## Model output
 summary(bls_model_2)
-
-
-m <- bls_model_2
-y <- data_bls$rating
-
-# ----- 1. Overall shape: does the simulated distribution match? --------------
-# dens_overlay smears the spikes, so pair it with a view that respects [0,1].
-pp_check(m, type = "dens_overlay", ndraws = 100) +
-  coord_cartesian(xlim = c(0, 1)) +
-  ggtitle("Density overlay (interior shape — diagnoses mu and phi)")
-
-# ----- 2. The endpoints: the heart of the matter ------------------------------
-# Define test statistics = the fraction of responses exactly at each endpoint.
-# These are governed by zoi (alpha) and coi (gamma). If the model's simulated
-# fractions don't bracket the observed fraction, those parameters need a formula.
-prop_zero <- function(x) mean(x == 0)
-prop_one  <- function(x) mean(x == 1)
-
-pp_check(m, type = "stat", stat = "prop_zero", ndraws = 1000) +
-  ggtitle("Proportion of ratings exactly 0  (tests zoi & coi)")
-
-pp_check(m, type = "stat", stat = "prop_one", ndraws = 1000) +
-  ggtitle("Proportion of ratings exactly 1  (tests zoi & coi)")
-
-
-## Remove this?
-as_draws_df(bls_model_1) |>
-  as_tibble() |>
-  mutate(
-    PF_dist  = plogis(b_Intercept),
-    PI_dist  = plogis(b_Intercept + b_formPI),
-    PP_dist  = plogis(b_Intercept + b_formPP),
-    PF_imm   = plogis(b_Intercept + b_temp_distimmediate),
-    PI_imm   = plogis(b_Intercept + b_formPI + b_temp_distimmediate + 
-                       `b_formPI:temp_distimmediate`),
-    PP_imm  = plogis(b_Intercept + b_formPP + b_temp_distimmediate + 
-                       `b_formPP:temp_distimmediate`),
-    PF_near = plogis(b_Intercept + b_temp_distnear),
-    PI_near = plogis(b_Intercept + b_formPI + b_temp_distnear + 
-                       `b_formPI:temp_distnear`),
-    PP_near = plogis(b_Intercept + b_formPP + b_temp_distnear + 
-                       `b_formPP:temp_distnear`)) |>
-  select(PF_dist, PI_dist, PP_dist,
-         PF_imm, PI_imm, PP_imm,
-         PF_near, PI_near, PP_near,
-         phi, zoi, coi) |>
-  posterior_summary() |>
-  as.data.frame() |>
-  rownames_to_column("Parameter") |>
-  kable(digits = 2)
-
-
 
 ## Average predicted rating by form and temporal distance
 mod2_pred <- avg_predictions(
@@ -396,7 +244,6 @@ mod2_post |>
 
 
 
-
 # ----- 4.4. Model 3 (verb form, temporal reference, plan certainty) -----------
 # Specify model formula
 # I think I should add phi, etc. in the model. Check Heiss. 
@@ -425,7 +272,7 @@ bls_model_3 <- brm(
 ## Model output
 summary(bls_model_3)
 
-## Average predicted rating by form and temporal distance
+## Average predicted rating by form, temporal distance, and plan certainty
 mod3_pred <- avg_predictions(
   model      = bls_model_3,
   variables  = c("form", "temp_dist", "plan_cert"),
@@ -433,12 +280,35 @@ mod3_pred <- avg_predictions(
 
 mod3_post <- posterior_draws(mod3_pred) # |> write_csv(here("mod3_post.csv"))
 
-## Marginal over form: temp_dist on its own
+## Marginal over form: plan_cert on its own
 mod3_post_cert <- avg_predictions(
   model      = bls_model_3,
   variables  = "plan_cert",
   re_formula = NULL) |>
   posterior_draws()
+
+## Table: plan_cert only
+mod3_post_cert |>
+  group_by(plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Plan = plan_cert,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+mod3_post |>
+  group_by(form, plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    Plan      = plan_cert,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
+
+  # Obs:
+    # Overall, all forms receive higher ratings in the certain condition.
+    # The CrI for certain-uncertain conditions by specific form overlap, but the     # estimate does not. 
+    # Must perform comparisons to see what this means in terms of stats.
+    # When only certainty is considered (and not form), there is no overlap 
+    # between the CrI.
 
 ## Table: form by temp_dist by plan_cet
 mod3_post |>
@@ -450,21 +320,13 @@ mod3_post |>
     Plan      = plan_cert,
     Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
 
-mod3_post |>
-  group_by(form, plan_cert) |>
-  median_qi(x = draw) |>
-  transmute(
-    Form      = form,
-    Plan      = plan_cert,
-    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
+# Obs:
+  # Overall it seems that forms get higher ratings the closer and certain the 
+    # plan, with the exception of the PF.
+  # Interestingly, the near-certain condition gets higher ratings than the 
+    # immediate for the PF and the PP. In the PI, the pattern resembles what 
+    # would be expected (immediate > near > distant).
 
-## Table: plan_cert only
-mod3_post_cert |>
-  group_by(plan_cert) |>
-  median_qi(x = draw) |>
-  transmute(
-    Plan = plan_cert,
-    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
 
 ## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% credible intervals
 mod3_post |>
@@ -478,4 +340,49 @@ mod3_post |>
   theme(legend.position = "bottom", legend.justification = c(1, 0), 
         legend.background = element_blank())
 
+
+
+
+
+# ----- 4.5. Model 4 (verb form, temporal reference, plan certainty, language) -
+# Specify model formula
+# Should dominance be added to phi?
+form4 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * language +
+              (1 + form * temp_dist * plan_cert | participant) +
+              (1 | item) +
+              (1 | list))
+
+# Figure out the priors
+get_prior(formula = form4, family = zero_one_inflated_beta(), data = data_bls)
+
+
+# Set priors
+priors4 <- c(prior(normal(0, 1.5), class = b),
+             prior(normal(0, 2),   class = b, coef = "Intercept"),
+             prior(lkj(2),         class = cor),
+             prior(gamma(2, 0.5),  class = phi))
+
+## Fit simple model
+bls_model_4 <- brm(
+  formula = form4, 
+  prior = priors4, 
+  iter = 2000, warmup = 1000, cores = 4, 
+  data = data_bls, 
+  family = zero_one_inflated_beta(), 
+  file = here("study_2", "models", "bls_model_4"))
+
+## Model output
+summary(bls_model_4)
+
+## Average predicted rating by form, temporal distance, and plan certainty
+mod4_pred <- avg_predictions(
+  model      = bls_model_4,
+  variables  = c("form", "temp_dist", "plan_cert", "language"),
+  re_formula = NULL)
+
+  # Error
+  # Unable to compute predicted values with this model. You can try to supply a 
+  # different dataset to the `newdata` argument. This error was also raised:
+  # vector memory limit of 16.0 Gb reached, see mem.maxVSize()
+  # Bug Tracker: https://github.com/vincentarelbundock/marginaleffects/issues
 
