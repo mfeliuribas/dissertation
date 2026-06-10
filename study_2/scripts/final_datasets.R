@@ -1,7 +1,9 @@
 # ----- Create final datasets --------------------------------------------------
 #
-# This script contains the code used to create the final dataset for Study 2.
-#
+# This script contains the code used to create the final datasets for Study 2:
+#   1. Bilingual data
+#   2. Spanish data (bilinguals + monolinguals)
+#   3. English data (bilinguals + monolinguals) - coming soon!
 # ------------------------------------------------------------------------------
 
 
@@ -25,11 +27,13 @@ lextale_sp_bls <- read.csv(here("study_2", "tidy_data",
   
 lextale_en_bls <- read.csv(here("study_2", "tidy_data", 
                                 "lextale_en_bls_tidy.csv"))
+
+spanish_mls <- read.csv(here("study_2", "tidy_data", "spanish_mls_tidy.csv"))
 # ------------------------------------------------------------------------------
 
 
 
-# ----- 3. Join datasets -------------------------------------------------------
+# ----- 3. Join bilingual datasets ---------------------------------------------
 data_bls <- experiment_bls |>
   left_join(questionnaire_bls |> select(-c(session:list)), 
             by = "participant")|>
@@ -87,6 +91,83 @@ data_bls_final |>
 # Write final dataset
 data_bls_final |>
   write_csv(here("study_2", "final_data", "bls_final.csv"))
-
 # ------------------------------------------------------------------------------
 
+
+
+# ----- 3. Join Spanish datasets -----------------------------------------------
+# Remove English data from BLs
+experiment_sp_bls <- experiment_bls |>
+  filter(language == "sp")
+
+count(experiment_bls, language)
+
+# Merge BLs datasets
+spanish_bls <- experiment_sp_bls |>
+  left_join(questionnaire_bls, by = "participant") |>
+
+spanish_bls <- spanish_bls |>
+  select(-c(session.y, language.y, list.y)) |>
+  rename(session = session.x,
+         language = language.x,
+         list = list.x)
+
+# Check if merging worked (BL data)
+sample_participants <- c("HS_002", "HS_052", "HS_101")
+
+experiment_bls |>
+  filter(participant %in% sample_participants) |>
+  arrange(participant) |>
+  view()
+
+experiment_sp_bls |>
+  filter(participant %in% sample_participants) |>
+  arrange(participant) |>
+  view()
+
+spanish_bls |>
+  filter(participant %in% sample_participants) |>
+  arrange(participant) |>
+  view()
+
+# Drop columns not necessary for Spanish analysis (BL data)
+spanish_bls <- spanish_bls |>
+  select(-c(session, blp_score, global_sp, global_en))
+
+# Prepare ML dataset for merging (i.e., delete BLP/LexTale columns, transform 
+# gender options to lowercase)
+data.frame(colnames(spanish_mls))
+
+spanish_mls <- spanish_mls |>
+  select(-c(residence_city, residence_count, age_acq_sp:lextale_clavel)) |>
+  mutate(gender = tolower(gender))
+
+# Check if BL and ML datasets have the same columns and in the same order
+setdiff(names(spanish_bls), names(spanish_mls))
+setdiff(names(spanish_mls), names(spanish_bls))
+
+identical(names(spanish_bls), names(spanish_mls))
+
+# Merge BL and ML datasets
+spanish_dataset <- bind_rows(spanish_bls, spanish_mls)
+
+# Delete 'language' column and create new variable 'group' (Spanish dataset)
+spanish_dataset <- spanish_dataset |>
+  select(-language)
+
+spanish_dataset <- spanish_dataset |>
+  separate(
+    col = participant,
+    into = c("group", "participant"),
+    sep = "_") |>
+  relocate(group, .before = participant) |>
+  mutate(group = case_when(
+    group == "HS" ~ "bilingual",
+    group == "ML" ~ "monolingual"))
+
+count(spanish_dataset, group)
+
+# Write final Spanish dataset
+spanish_dataset |>
+  write_csv(here("study_2", "final_data", "spanish_final.csv"))
+# ------------------------------------------------------------------------------
