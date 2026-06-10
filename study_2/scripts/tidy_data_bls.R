@@ -1,7 +1,7 @@
-# ----- Tidy data --------------------------------------------------------------
+# ----- Tidy data: Bilinguals --------------------------------------------------
 #
-# This script contains the code used to tidy the data and create the final
-# dataset for Study 2.
+# This script contains the code used to tidy the bilingual data and create the 
+# final dataset for Study 2.
 #
 # ------------------------------------------------------------------------------
 
@@ -15,7 +15,6 @@ library("dplyr")
 
 
 # ----- 2. Load raw data -------------------------------------------------------
-# Bilinguals
 experiment_bls_raw <- read.csv(here("study_2", "raw_data", 
                                 "experiment_bls_raw.csv"))
 
@@ -23,11 +22,14 @@ questionnaire_bls_raw <- read.csv(here("study_2", "raw_data",
                                        "questionnaire_bls_raw.csv"))
 
 lextale_bls_raw <- read.csv(here("study_2", "raw_data", "lextale_bls_raw.csv"))
+
+# Monolinguals
+spanish_mls_raw <- read.csv(here("study_2", "raw_data", "spanish_mls_raw.csv"))
 # ------------------------------------------------------------------------------
 
 
-# ----- 3. Tidy experiment data ------------------------------------------------
-# ----- 3.1. Bilinguals --------------------------------------------------------
+# ----- 3. Bilinguals ----------------------------------------------------------
+# ----- 3.1. Experiment --------------------------------------------------------
 
 # Visualize data
 head(experiment_bls_raw)
@@ -45,7 +47,7 @@ data.frame(colnames(experiment_bls_tidy))
 setdiff(colnames(experiment_bls_raw), colnames(experiment_bls_tidy))
 
 # Remove participants who did not finish Session 1 (e.g. no BLP data), who 
-# completed the samesession twice by mistake, or who showed inconsistent data 
+# completed the same session twice by mistake, or who showed inconsistent data 
 # (e.g., between the responses in the interest form and the BLP)
 
 experiment_bls_tidy <- experiment_bls_tidy |>
@@ -192,16 +194,7 @@ write_csv(experiment_bls_final,
           here("study_2", "tidy_data", "experiment_bls_tidy.csv"))
 # ------------------------------------------------------------------------------
 
-# ----- 3.2. Monolinguals-Sp ---------------------------------------------------
-# ------------------------------------------------------------------------------
-
-# ----- 3.3. Monolinguals-En ---------------------------------------------------
-# ------------------------------------------------------------------------------
-
-
-
-# ----- 4. Tidy BLP data ---------------------------------------------------
-# ----- 4.1. Bilinguals --------------------------------------------------------
+# ----- 3.2. BLP ----------------------------------------------------------------
 # Visualize data
 head(questionnaire_bls_raw)
 glimpse(questionnaire_bls_raw)
@@ -477,16 +470,7 @@ blp_final_bls <- blp_scores_bls |>
   write_csv(here("study_2", "tidy_data", "questionnaire_bls_tidy.csv"))
 # ------------------------------------------------------------------------------
 
-# ----- 4.2. Monolinguals-Sp ---------------------------------------------------
-# ------------------------------------------------------------------------------
-
-# ----- 4.3. Monolinguals-En ---------------------------------------------------
-# ------------------------------------------------------------------------------
-
-
-
-# ----- 5. Tidy LexTale data -------------------------------------------------------
-# ----- 5.1. Bilinguals --------------------------------------------------------
+# ----- 3.3. LexTale -----------------------------------------------------------
 # Visualize data
 head(lextale_bls_raw)
 glimpse(lextale_bls_raw)
@@ -772,12 +756,5 @@ lextale_bls_final <- lextale_bls_tidy |>
   select(-lextale_trad_sp, -lextale_trad_en, -lextale_avg_sp, -lextale_avg_en) |>
   write_csv(here("study_2", "tidy_data", "lextale_bls_tidy.csv"))
 # ------------------------------------------------------------------------------
-
-# ----- 5.2. Monolinguals-Sp ---------------------------------------------------
-# ------------------------------------------------------------------------------
-
-# ----- 5.3. Monolinguals-En ---------------------------------------------------
-# ------------------------------------------------------------------------------
-
 
 
