@@ -380,9 +380,114 @@ mod4_pred <- avg_predictions(
   variables  = c("form", "temp_dist", "plan_cert", "language"),
   re_formula = NULL)
 
-  # Error
-  # Unable to compute predicted values with this model. You can try to supply a 
-  # different dataset to the `newdata` argument. This error was also raised:
-  # vector memory limit of 16.0 Gb reached, see mem.maxVSize()
-  # Bug Tracker: https://github.com/vincentarelbundock/marginaleffects/issues
+mod4_post <- posterior_draws(mod4_pred) # |> write_csv(here("mod4_post.csv"))
+
+## Marginal over form: language on its own
+mod4_post_lang <- avg_predictions(
+  model      = bls_model_4,
+  variables  = "language",
+  re_formula = NULL) |>
+  posterior_draws()
+
+## Table: language only
+mod4_post_lang |>
+  group_by(language) |>
+  median_qi(x = draw) |>
+  transmute(
+    Language = language,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+mod4_post |>
+  group_by(form, language) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    Language  = language,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
+
+# Obs:
+# Overall, all forms receive similar ratings across languages.
+# The predicted average ratings for the PF and the PI are higher in Spanish; 
+  # that of the PP is higher in English.
+# The CrI for all forms overlap. 
+
+## Table: form by language, temp_dist and plan_cert
+mod4_post |>
+  group_by(form, language, temp_dist, plan_cert) |>
+  median_qi(x = draw) |>
+  mutate(
+    Form      = factor(form,      levels = c("PF", "PI", "PP")),
+    Language  = factor(language,  levels = c("sp", "en")),
+    Distance  = factor(temp_dist, levels = c("immediate", "near", "distant")),
+    Plan      = factor(plan_cert, levels = c("certain", "uncertain"))) |>
+  transmute(
+    Form, Language, Distance, Plan,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
+   arrange(Language, Form, Distance, Plan) |>
+ print(n = 36)
+
+# Obs:
+# Overall it seems that certainty might play a role in form rating in both 
+  # Spanish and English, as well as temporal distance. It must be checked, 
+  # though, if there are statistical differences between immediate and near 
+  # conditions. 
+# In both Spanish and English the highest rated form is the PF.
+# The PF in the distant-certain condition receives the higher ratings in Spanish
+  # (estimate = .77), followed by the same form in the near-certain condition 
+  # (estimate = .761). 
+# In English, the form that receives the highest ratings is also the PF in the 
+  # near-certain condition (estimate = .751), followed by the same form in the 
+  # distant-certain (estimate = .738) and immediate-certain (estimate =.732).
+# In Spanish, the lowest rated form is the PP in the immediate-uncertain 
+  # condition (estimate = .552), whereas in English is the PI in the same 
+  # condition (estimate = .503).
+
+## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% credible intervals
+mod3_post |>
+  ggplot() + 
+  aes(x = draw, y = form, fill = temp_dist) + 
+  facet_grid(. ~ plan_cert) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") + 
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) + 
+  labs(y = NULL, x = "Avg Predicted Rating|Form * Distance * Certainty)") + 
+  theme(legend.position = "bottom", legend.justification = c(1, 0), 
+        legend.background = element_blank())
+
+mod4_post |>
+  filter(language == "sp") |>
+  ggplot() +
+  aes(x = draw, y = form, fill = temp_dist) +
+  facet_grid(. ~ plan_cert) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(y = NULL, x = "Avg Predicted Rating | Form * Distance * Certainty",
+       title = "Spanish") +
+  theme(legend.position = "bottom", legend.justification = c(1, 0),
+        legend.background = element_blank())
+
+mod4_post |>
+  filter(language == "en") |>
+  ggplot() +
+  aes(x = draw, y = form, fill = temp_dist) +
+  facet_grid(. ~ plan_cert) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(y = NULL, x = "Avg Predicted Rating | Form * Distance * Certainty",
+       title = "English") +
+  theme(legend.position = "bottom", legend.justification = c(1, 0),
+        legend.background = element_blank())
+
+mod4_post |>
+  ggplot() +
+  aes(x = draw, y = form, fill = temp_dist) +
+  facet_grid(language ~ plan_cert) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(y = NULL, x = "Avg Predicted Rating | Form * Distance * Certainty") +
+  theme(legend.position = "bottom", legend.justification = c(1, 0),
+        legend.background = element_blank())
 
