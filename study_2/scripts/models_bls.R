@@ -81,6 +81,9 @@ data_bls |>
     coi_check        = sum(rating == 1) / sum(rating %in% c(0, 1)),
     zoi_check        = mean(rating %in% c(0, 1))) |>
   round(3)
+# ------------------------------------------------------------------------------
+
+
 
 # ----- 4.2. Model 1 (verb form) -----------------------------------------------
 # Specify model formula
@@ -153,10 +156,7 @@ mod1_post %>%
   transmute(
     Form     = form,
     Estimate = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
-
 # ------------------------------------------------------------------------------
-
-
 
 
 
@@ -239,8 +239,7 @@ mod2_post |>
   labs(y = NULL, x = "Avg Predicted Rating|Form * Temporal Distance)") + 
   theme(legend.position = c(1, 0), legend.justification = c(1, 0), 
         legend.background = element_blank())
-
-
+# ------------------------------------------------------------------------------
 
 
 
@@ -327,7 +326,6 @@ mod3_post |>
     # immediate for the PF and the PP. In the PI, the pattern resembles what 
     # would be expected (immediate > near > distant).
 
-
 ## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% credible intervals
 mod3_post |>
   ggplot() + 
@@ -339,8 +337,7 @@ mod3_post |>
   labs(y = NULL, x = "Avg Predicted Rating|Form * Distance * Certainty)") + 
   theme(legend.position = "bottom", legend.justification = c(1, 0), 
         legend.background = element_blank())
-
-
+# ------------------------------------------------------------------------------
 
 
 
@@ -442,18 +439,8 @@ mod4_post |>
   # condition (estimate = .552), whereas in English is the PI in the same 
   # condition (estimate = .503).
 
-## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% credible intervals
-mod3_post |>
-  ggplot() + 
-  aes(x = draw, y = form, fill = temp_dist) + 
-  facet_grid(. ~ plan_cert) +
-  stat_halfeye(position = position_dodge(0.5), point_fill = "white") + 
-  scale_fill_viridis_d(name = NULL, end = 0.9) +
-  coord_cartesian(xlim = c(0, 1)) + 
-  labs(y = NULL, x = "Avg Predicted Rating|Form * Distance * Certainty)") + 
-  theme(legend.position = "bottom", legend.justification = c(1, 0), 
-        legend.background = element_blank())
-
+## Plot (mod4_post) - posterior medians of predicted rating with 95% and 65% 
+## credible intervals
 mod4_post |>
   filter(language == "sp") |>
   ggplot() +
@@ -490,4 +477,102 @@ mod4_post |>
   labs(y = NULL, x = "Avg Predicted Rating | Form * Distance * Certainty") +
   theme(legend.position = "bottom", legend.justification = c(1, 0),
         legend.background = element_blank())
+# ------------------------------------------------------------------------------
 
+
+
+# ----- 4.6. Model 5 (verb form, temporal reference, plan certainty, language, 
+#                    language dominance) --------------------------------------
+# Specify model formula
+# Should dominance be added to phi?
+form5 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * language + 
+              blp_z +
+              (1 + form * temp_dist * plan_cert | participant) +
+              (1 | item) +
+              (1 | list))
+
+# Figure out the priors
+get_prior(formula = form5, family = zero_one_inflated_beta(), data = data_bls)
+
+
+# Set priors
+priors5 <- c(prior(normal(0, 1.5), class = b),
+             prior(normal(0, 2),   class = b, coef = "Intercept"),
+             prior(lkj(2),         class = cor),
+             prior(gamma(2, 0.5),  class = phi))
+
+## Fit model
+bls_model_5 <- brm(
+  formula = form5, 
+  prior = priors5, 
+  iter = 2000, warmup = 1000, cores = 4, 
+  data = data_bls, 
+  family = zero_one_inflated_beta(), 
+  file = here("study_2", "models", "bls_model_5"))
+
+## Model output
+summary(bls_model_5)
+
+## Average predicted rating by form, temporal distance, plan certainty, language,
+## and BLP score
+## Same error as in the last model (i.e., vector memory limit). Run the model 
+## again and get the posteriors with A's computer.
+mod5_pred <- avg_predictions(
+  model      = bls_model_5,
+  variables  = c("form", "temp_dist", "plan_cert", "language", "blp_z"),
+  re_formula = NULL)
+
+mod5_post <- posterior_draws(mod5_pred) # |> write_csv(here("mod5_post.csv"))
+# ------------------------------------------------------------------------------
+
+
+
+
+
+
+
+# ----- 4.6. Final Model (verb form, temporal reference, plan certainty, 
+#                         language, language dominance, proficiency) -----------
+# Specify model formula
+# Should dominance be added to phi?
+form6 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * language + 
+              blp_z + lextale_avg_z + 
+              (1 + form * temp_dist * plan_cert | participant) +
+              (1 | item) +
+              (1 | list))
+
+# Figure out the priors
+get_prior(formula = form6, family = zero_one_inflated_beta(), data = data_bls)
+
+
+# Set priors
+priors6 <- c(prior(normal(0, 1.5), class = b),
+             prior(normal(0, 2),   class = b, coef = "Intercept"),
+             prior(lkj(2),         class = cor),
+             prior(gamma(2, 0.5),  class = phi))
+
+## Fit model
+bls_model_final <- brm(
+  formula = form6, 
+  prior = priors6, 
+  iter = 2000, warmup = 1000, cores = 4, 
+  data = data_bls, 
+  family = zero_one_inflated_beta(), 
+  file = here("study_2", "models", "bls_model_final"))
+
+## Model output
+summary(bls_model_final)
+
+## Average predicted rating by form, temporal distance, plan certainty, language,
+## BLP score, LexTale score.
+## Same error as in the last models (i.e., vector memory limit). Run the model 
+## again and get the posteriors with A's computer.
+mod_final_pred <- avg_predictions(
+  model      = bls_model_final,
+  variables  = c("form", "temp_dist", "plan_cert", "language", "blp_z", 
+                 "lextale_avg_z"),
+  re_formula = NULL)
+
+mod_final_post <- posterior_draws(mod_final_pred) # |> 
+#   write_csv(here("mod_final_bls_post.csv"))
+# ------------------------------------------------------------------------------
