@@ -485,6 +485,9 @@ mod4_post |>
 #                    language dominance) --------------------------------------
 # Specify model formula
 # Should dominance be added to phi?
+# BLP score should interact with form in order to find out how language dominance
+# affects form rating (and not just rating). This is not modified in this model
+# but in the final one.
 form5 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * language + 
               blp_z +
               (1 + form * temp_dist * plan_cert | participant) +
@@ -515,8 +518,11 @@ summary(bls_model_5)
 
 ## Average predicted rating by form, temporal distance, plan certainty, language,
 ## and BLP score
-## Same error as in the last model (i.e., vector memory limit). Run the model 
-## again and get the posteriors with A's computer.
+## I could not get the posteriors - I tried multiple times and R aborts the 
+## session. Apparently there is not enough memory in the computer. Perhaps 
+## reducing the number of draws might help? Or would it make sense to get 
+## the posteriors multiple times with different predictors (e.g., language 
+## dominance just with form).
 mod5_pred <- avg_predictions(
   model      = bls_model_5,
   variables  = c("form", "temp_dist", "plan_cert", "language", "blp_z"),
@@ -536,7 +542,7 @@ mod5_post <- posterior_draws(mod5_pred) # |> write_csv(here("mod5_post.csv"))
 # Specify model formula
 # Should dominance be added to phi?
 form6 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * language + 
-              blp_z + lextale_avg_z + 
+              form:blp_z + form:lextale_avg_z + 
               (1 + form * temp_dist * plan_cert | participant) +
               (1 | item) +
               (1 | list))
@@ -560,6 +566,8 @@ bls_model_final <- brm(
   family = zero_one_inflated_beta(), 
   file = here("study_2", "models", "bls_model_final"))
 
+bls_model_final <- readRDS(here("study_2", "models", "bls_model_final.rds"))
+
 ## Model output
 summary(bls_model_final)
 
@@ -567,11 +575,119 @@ summary(bls_model_final)
 ## BLP score, LexTale score.
 ## Same error as in the last models (i.e., vector memory limit). Run the model 
 ## again and get the posteriors with A's computer.
+mod_final_scores <- avg_predictions(
+  model      = bls_model_final,
+  variables  = c("form", "blp_z", "lextale_avg_z"),
+  re_formula = NULL,
+  draw_ids = sample(1:4000, 500))
+
+mod_final_scores_post <- posterior_draws(mod_final_scores) 
+
+mod_final_scores <- avg_predictions(
+  model      = bls_model_final,
+  variables  = c("form", "blp_z", "lextale_avg_z"),
+  re_formula = NULL,
+  draw_ids = sample(1:4000, 500)) |>
+  posterior_draws()
+
+mod_final_scores |>
+  group_by(form, blp_z) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    Dominance = blp_z,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+mod_final_scores |>
+  group_by(form, blp_z) |>
+  median_qi(draw, .width = c(0.65, 0.95)) |>
+  ggplot(aes(x = blp_z, y = draw)) +
+  geom_lineribbon(aes(ymin = .lower, ymax = .upper, fill = factor(.width))) +
+  facet_wrap(~ form) +
+  scale_fill_brewer(name = "CrI", palette = "Blues") +
+  coord_cartesian(ylim = c(0, 1)) +
+  labs(x = "Bilingual dominance (z)",
+       y = "Avg Predicted Rating") +
+  theme(legend.position = "bottom")
+
+
+blp_mean <- mean(data_bls$blp_score, na.rm = TRUE)
+blp_sd   <- sd(data_bls$blp_score,   na.rm = TRUE)
+
+mod_final_scores |>
+  group_by(form, blp_z) |>
+  median_qi(draw, .width = c(0.65, 0.95)) |>
+  mutate(dominance = blp_z * blp_sd + blp_mean) |>
+  ggplot(aes(x = dominance, y = draw)) +
+  geom_lineribbon(aes(ymin = .lower, ymax = .upper, fill = factor(.width))) +
+  facet_wrap(~ form) +
+  scale_fill_brewer(name = "CrI", palette = "Blues") +
+  coord_cartesian(ylim = c(0, 1)) +
+  labs(x = "Bilingual dominance (BLP score)",
+       y = "Avg Predicted Rating") +
+  theme(legend.position = "bottom")
+
+# Obs:
+  # It seems that language dominance plays a role in the ratings for PI and PP.
+  # In the case of the PP, there is a steep, negative slope, which implies that
+  # higher Spanish dominance leads to lower average predicted ratings for this 
+  # form. 
+  # As for the PI, there is also a negative slope, but it is less steep. 
+  # The slope for the PF is relatively flat with possibly a slight positive 
+  # inclination.
+
+mod_final_lextale <- avg_predictions(
+  bls_model_final,
+  variables  = c("form", "language", "lextale_avg_z"),
+  re_formula = NULL,
+  draw_ids   = sample(1:4000, 500)) |>
+  posterior_draws()
+
+mod_final_lextale |>
+  group_by(form, language, lextale_avg_z) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    language  = language,
+    Proficiency = lextale_avg_z,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+lex_stats <- data_bls |>
+  group_by(language) |>
+  summarize(lex_mean = mean(lextale_avg),
+            lex_sd   = sd(lextale_avg),
+            .groups = "drop")
+
+mod_final_lextale |>
+  group_by(form, language, lextale_avg_z) |>
+  median_qi(draw, .width = c(0.65, 0.95)) |>
+  left_join(lex_stats, by = "language") |>
+  mutate(proficiency = lextale_avg_z * lex_sd + lex_mean) |>
+  ggplot(aes(x = proficiency, y = draw)) +
+  geom_lineribbon(aes(ymin = .lower, ymax = .upper, fill = factor(.width))) +
+  facet_grid(language ~ form) +
+  scale_fill_brewer(name = "CrI", palette = "Blues") +
+  coord_cartesian(ylim = c(0, 1)) +
+  labs(x = "Proficiency (LexTALE score)",
+       y = "Avg Predicted Rating") +
+  theme(legend.position = "bottom")
+
+# Obs:
+  # It seems that language proficiency plays a role in the ratings for all forms.
+  # In all cases and in both Spanish and English there are steep, negative 
+  # slopes, which imply that higher proficiency scores (as measured by the 
+  # LexTale) lead to lower average predicted ratings for all forms. 
+  # If I calculated the estimates correctly for the LexTale and the BLP, these
+  # results contradict previous studies that reported no effect whatsoever 
+  # (e.g., Zahler and Leguisamon Tolentino, 2024).
+
+
+# This code must be checked.
 mod_final_pred <- avg_predictions(
   model      = bls_model_final,
   variables  = c("form", "temp_dist", "plan_cert", "language", "blp_z", 
                  "lextale_avg_z"),
-  re_formula = NULL)
+  re_formula = NA)
 
 mod_final_post <- posterior_draws(mod_final_pred) # |> 
 #   write_csv(here("mod_final_bls_post.csv"))
