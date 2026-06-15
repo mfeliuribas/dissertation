@@ -22,13 +22,10 @@ questionnaire_bls_raw <- read.csv(here("study_2", "raw_data",
                                        "questionnaire_bls_raw.csv"))
 
 lextale_bls_raw <- read.csv(here("study_2", "raw_data", "lextale_bls_raw.csv"))
-
-# Monolinguals
-spanish_mls_raw <- read.csv(here("study_2", "raw_data", "spanish_mls_raw.csv"))
 # ------------------------------------------------------------------------------
 
 
-# ----- 3. Bilinguals ----------------------------------------------------------
+# ----- 3. Tidy data -----------------------------------------------------------
 # ----- 3.1. Experiment --------------------------------------------------------
 
 # Visualize data
@@ -756,5 +753,3 @@ lextale_bls_final <- lextale_bls_tidy |>
   select(-lextale_trad_sp, -lextale_trad_en, -lextale_avg_sp, -lextale_avg_en) |>
   write_csv(here("study_2", "tidy_data", "lextale_bls_tidy.csv"))
 # ------------------------------------------------------------------------------
-
-
