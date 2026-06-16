@@ -1,4 +1,4 @@
-group,participant,list,item,temp_dist,plan_cert,form,rating,age,gender,country_origin,origin_mom,origin_dad,education
+ling_profile,participant,list,item,temp_dist,plan_cert,form,rating,age,gender,country_origin,origin_mom,origin_dad,education
 bilingual,001,2,Q1,immediate,certain,PI,1,19,female,United States of America,United States of America,Mexico,High school
 bilingual,001,2,Q2,immediate,certain,PF,0.24,19,female,United States of America,United States of America,Mexico,High school
 bilingual,001,2,Q3,immediate,certain,PP,0.25,19,female,United States of America,United States of America,Mexico,High school

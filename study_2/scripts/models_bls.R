@@ -562,7 +562,7 @@ bls_model_final <- brm(
   family = zero_one_inflated_beta(), 
   file = here("study_2", "models", "bls_model_final"))
 
-bls_model_final <- readRDS(here("study_2", "models", "bls_model_final.rds"))
+# bls_model_final <- readRDS(here("study_2", "models", "bls_model_final.rds"))
 
 ## Model output
 summary(bls_model_final)

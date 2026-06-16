@@ -161,14 +161,14 @@ spanish_dataset <- spanish_dataset |>
 spanish_dataset <- spanish_dataset |>
   separate(
     col = participant,
-    into = c("group", "participant"),
+    into = c("ling_profile", "participant"),
     sep = "_") |>
-  relocate(group, .before = participant) |>
-  mutate(group = case_when(
-    group == "HS" ~ "bilingual",
-    group == "ML" ~ "monolingual"))
+  relocate(ling_profile, .before = participant) |>
+  mutate(ling_profile = case_when(
+    ling_profile == "HS" ~ "bilingual",
+    ling_profile == "ML" ~ "monolingual"))
 
-count(spanish_dataset, group)
+count(spanish_dataset, ling_profile)
 
 # Write final Spanish dataset
 spanish_dataset |>
@@ -238,14 +238,14 @@ english_dataset <- english_dataset |>
 english_dataset <- english_dataset |>
   separate(
     col = participant,
-    into = c("group", "participant"),
+    into = c("ling_profile", "participant"),
     sep = "_") |>
-  relocate(group, .before = participant) |>
-  mutate(group = case_when(
-    group == "HS" ~ "bilingual",
-    group == "ML" ~ "monolingual"))
+  relocate(ling_profile, .before = participant) |>
+  mutate(ling_profile = case_when(
+    ling_profile == "HS" ~ "bilingual",
+    ling_profile == "ML" ~ "monolingual"))
 
-count(english_dataset, group)
+count(english_dataset, ling_profile)
 
 # Write final English dataset
 english_dataset |>
