@@ -17,6 +17,7 @@ library("tidyverse")
 library("ggdist")
 library("scales")
 library("glue")
+library("cmdstanr")
 # ------------------------------------------------------------------------------
 
 # ----- 2. Set seed for reproducibility ----------------------------------------
@@ -346,44 +347,41 @@ priors4 <- c(prior(normal(0, 1.5), class = b),
 sp_model_final <- brm(
   formula = form4, 
   prior = priors4, 
-  iter = 4000, warmup = 2000, cores = 4, 
+  iter = 8000, warmup = 2000, cores = 8, 
+  backend = "cmdstanr",
   data = data_spanish, 
   family = zero_one_inflated_beta(), 
   file = here("study_2", "models", "sp_model_final"))
-# Warning messages: There were 181 divergent transitions after warmup.
+# Warning messages: 355 of 24000 (14.0%) transitions ended with a divergence.
 # I increased iter/warmup because when I first ran the model both the Bulk and 
 # the Tail Effective Samples Sizes were too low. 
 
+# install.packages("cmdstanr", repos = c('https://stan-dev.r-universe.dev', getOption("repos")))
+
+
 ## Model output
 summary(sp_model_final)
+
+# 1: Parts of the model have not converged (some Rhats are > 1.05). Be careful 
+# when analysing the results! We recommend running more iterations and/or 
+# setting stronger priors. 
+# Should I increase adapt_delta above 0.8? (due to divergent transitions).
 
 
 
 ## Average predicted rating by form, temporal distance, plan certainty, profile 
 ## There is (again) the vector memory limit problem, so I cannot get the 
 ## posteriors. Run the final model (+ posteriors, etc.) with A's computer.
-mod_final_pred <- avg_predictions(
+
+#sp_model_final <- readRDS(here("study_2", "models", "sp_model_final.rds"))
+
+mod_final_post <- avg_predictions(
   model      = sp_model_final,
   variables  = c("form", "temp_dist", "plan_cert", "ling_profile"),
-  re_formula = NULL)
-
-mod_final_post <- posterior_draws(mod_final_pred) #|> 
-  #write_csv(here("study_2", "models", "mod_final_sp_post.csv"))
-
-## Marginal over form: profile on its own
-mod_final_post_profile <- avg_predictions(
-  model      = sp_model_final,
-  variables  = "ling_profile",
-  re_formula = NULL) |>
-  posterior_draws()
-
-## Table: profile only
-mod_final_post_profile |>
-  group_by(ling_profile) |>
-  median_qi(x = draw) |>
-  transmute(
-    Group = ling_profile,
-    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+  re_formula = NULL,
+  draw_ids   = sample(1:4000, 500)) |>
+  posterior_draws() |> 
+write_csv(here("study_2", "models", "mod_final_sp_post.csv"))
 
 mod_final_post |>
   group_by(form, ling_profile) |>
@@ -394,19 +392,22 @@ mod_final_post |>
     Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
 
 # Obs:
-
+# The average predicted rating for the PF is similar between monolinguals (.724)
+# and bilinguals (.706).
+# The average predicted ratings for the PP and the PI are lower in the 
+# monolingual group, especially for the PP (.327 - .53 for bilinguals).
+# The interval for PI in the monolingual group is considerably wide - perhaps 
+# adding the other preds might better explain the ratings for this form?
 
 ## Table: form by group, temp_dist and plan_cert
 mod_final_post |>
-  group_by(form, language, temp_dist, plan_cert) |>
+  group_by(form, ling_profile, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
-  mutate(
-    Form      = factor(form,      levels = c("PF", "PI", "PP")),
-    Group     = factor(ling_profile,  levels = c("bilinguals", "monolinguals")),
-    Distance  = factor(temp_dist, levels = c("immediate", "near", "distant")),
-    Plan      = factor(plan_cert, levels = c("certain", "uncertain"))) |>
   transmute(
-    Form, Group, Distance, Plan,
+    Form      = form,
+    Group     = ling_profile,
+    Distance  = temp_dist,
+    Plan      = plan_cert,
     Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
   arrange(Group, Form, Distance, Plan) |>
   print(n = 36)
