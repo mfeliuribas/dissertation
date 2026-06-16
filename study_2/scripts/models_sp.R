@@ -324,9 +324,9 @@ mod3_post |>
 
 
 
-# ----- 4.5. Final Model (verb form, temporal reference, plan certainty, group) -
+# ----- 4.5. Final Model (verb form, temporal reference, plan certainty, profile) -
 # Specify model formula
-form4 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * group +
+form4 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * ling_profile +
               (1 + form * temp_dist * plan_cert | participant) +
               (1 | item) +
               (1 | list))
@@ -346,127 +346,77 @@ priors4 <- c(prior(normal(0, 1.5), class = b),
 sp_model_final <- brm(
   formula = form4, 
   prior = priors4, 
-  iter = 2000, warmup = 1000, cores = 4, 
+  iter = 4000, warmup = 2000, cores = 4, 
   data = data_spanish, 
   family = zero_one_inflated_beta(), 
   file = here("study_2", "models", "sp_model_final"))
-# Warning messages: 
-  # 2: There were 157 divergent transitions after warmup.
-  # 4: Tail Effective Samples Size (ESS) is too low, indicating posterior 
-  # variances and tail quantiles may be unreliable.
+# Warning messages: There were 181 divergent transitions after warmup.
+# I increased iter/warmup because when I first ran the model both the Bulk and 
+# the Tail Effective Samples Sizes were too low. 
 
 ## Model output
 summary(sp_model_final)
 
-## Average predicted rating by form, temporal distance, plan certainty, group
-## 'Group' must be renamed (it causes some issues when trying to get the post.)
-## Must run the final model again, after changing the name of the variable 'group'
+
+
+## Average predicted rating by form, temporal distance, plan certainty, profile 
+## There is (again) the vector memory limit problem, so I cannot get the 
+## posteriors. Run the final model (+ posteriors, etc.) with A's computer.
 mod_final_pred <- avg_predictions(
   model      = sp_model_final,
-  variables  = c("form", "temp_dist", "plan_cert", "group"),
+  variables  = c("form", "temp_dist", "plan_cert", "ling_profile"),
   re_formula = NULL)
 
-mod_final_post <- posterior_draws(mod_final_pred) |> 
-  write_csv(here("study_2", "models", "mod_final_sp_post.csv"))
+mod_final_post <- posterior_draws(mod_final_pred) #|> 
+  #write_csv(here("study_2", "models", "mod_final_sp_post.csv"))
 
-## Marginal over form: language on its own
-mod_final_post_lang <- avg_predictions(
-  model      = sp_model_4,
-  variables  = "language",
+## Marginal over form: profile on its own
+mod_final_post_profile <- avg_predictions(
+  model      = sp_model_final,
+  variables  = "ling_profile",
   re_formula = NULL) |>
   posterior_draws()
 
-## Table: language only
-mod4_post_lang |>
-  group_by(language) |>
+## Table: profile only
+mod_final_post_profile |>
+  group_by(ling_profile) |>
   median_qi(x = draw) |>
   transmute(
-    Language = language,
+    Group = ling_profile,
     Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
 
-mod4_post |>
-  group_by(form, language) |>
+mod_final_post |>
+  group_by(form, ling_profile) |>
   median_qi(x = draw) |>
   transmute(
     Form      = form,
-    Language  = language,
+    Group     = ling_profile,
     Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
 
 # Obs:
-# Overall, all forms receive similar ratings across languages.
-# The predicted average ratings for the PF and the PI are higher in Spanish; 
-# that of the PP is higher in English.
-# The CrI for all forms overlap. 
 
-## Table: form by language, temp_dist and plan_cert
-mod4_post |>
+
+## Table: form by group, temp_dist and plan_cert
+mod_final_post |>
   group_by(form, language, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
   mutate(
     Form      = factor(form,      levels = c("PF", "PI", "PP")),
-    Language  = factor(language,  levels = c("sp", "en")),
+    Group     = factor(ling_profile,  levels = c("bilinguals", "monolinguals")),
     Distance  = factor(temp_dist, levels = c("immediate", "near", "distant")),
     Plan      = factor(plan_cert, levels = c("certain", "uncertain"))) |>
   transmute(
-    Form, Language, Distance, Plan,
+    Form, Group, Distance, Plan,
     Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
-  arrange(Language, Form, Distance, Plan) |>
+  arrange(Group, Form, Distance, Plan) |>
   print(n = 36)
 
 # Obs:
-# Overall it seems that certainty might play a role in form rating in both 
-# Spanish and English, as well as temporal distance. It must be checked, 
-# though, if there are statistical differences between immediate and near 
-# conditions. 
-# In both Spanish and English the highest rated form is the PF.
-# The PF in the distant-certain condition receives the higher ratings in Spanish
-# (estimate = .77), followed by the same form in the near-certain condition 
-# (estimate = .761). 
-# In English, the form that receives the highest ratings is also the PF in the 
-# near-certain condition (estimate = .751), followed by the same form in the 
-# distant-certain (estimate = .738) and immediate-certain (estimate =.732).
-# In Spanish, the lowest rated form is the PP in the immediate-uncertain 
-# condition (estimate = .552), whereas in English is the PI in the same 
-# condition (estimate = .503).
 
-## Plot (mod4_post) - posterior medians of predicted rating with 95% and 65% 
-## credible intervals
-mod4_post |>
-  filter(language == "sp") |>
-  ggplot() +
-  aes(x = draw, y = form, fill = temp_dist) +
-  facet_grid(. ~ plan_cert) +
-  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
-  scale_fill_viridis_d(name = NULL, end = 0.9) +
-  coord_cartesian(xlim = c(0, 1)) +
-  labs(y = NULL, x = "Avg Predicted Rating | Form * Distance * Certainty",
-       title = "Spanish") +
-  theme(legend.position = "bottom", legend.justification = c(1, 0),
-        legend.background = element_blank())
 
-mod4_post |>
-  filter(language == "en") |>
-  ggplot() +
-  aes(x = draw, y = form, fill = temp_dist) +
-  facet_grid(. ~ plan_cert) +
-  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
-  scale_fill_viridis_d(name = NULL, end = 0.9) +
-  coord_cartesian(xlim = c(0, 1)) +
-  labs(y = NULL, x = "Avg Predicted Rating | Form * Distance * Certainty",
-       title = "English") +
-  theme(legend.position = "bottom", legend.justification = c(1, 0),
-        legend.background = element_blank())
+## Plot (mod_final_post) - posterior medians of predicted rating with 95% and 
+## 65% credible intervals
 
-mod4_post |>
-  ggplot() +
-  aes(x = draw, y = form, fill = temp_dist) +
-  facet_grid(language ~ plan_cert) +
-  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
-  scale_fill_viridis_d(name = NULL, end = 0.9) +
-  coord_cartesian(xlim = c(0, 1)) +
-  labs(y = NULL, x = "Avg Predicted Rating | Form * Distance * Certainty") +
-  theme(legend.position = "bottom", legend.justification = c(1, 0),
-        legend.background = element_blank())
 # ------------------------------------------------------------------------------
 
 
