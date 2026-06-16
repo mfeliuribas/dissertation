@@ -1,6 +1,6 @@
-# ----- Build models -----------------------------------------------------------
+# ----- Build models: Bilinguals -----------------------------------------------
 #
-# This script contains the code used to build the models for Study 2.
+# This script contains the code used to build the bilingual models for Study 2.
 #
 # ------------------------------------------------------------------------------
 
@@ -533,10 +533,6 @@ mod5_post <- posterior_draws(mod5_pred) # |> write_csv(here("mod5_post.csv"))
 
 
 
-
-
-
-
 # ----- 4.6. Final Model (verb form, temporal reference, plan certainty, 
 #                         language, language dominance, proficiency) -----------
 # Specify model formula
@@ -573,8 +569,11 @@ summary(bls_model_final)
 
 ## Average predicted rating by form, temporal distance, plan certainty, language,
 ## BLP score, LexTale score.
-## Same error as in the last models (i.e., vector memory limit). Run the model 
-## again and get the posteriors with A's computer.
+## I could not get the posteriors at first - I tried multiple times and R aborts 
+## the session. Apparently there is not enough memory in the computer. I tried 
+## reducing the number of draws and only getting the posteriors from form, 
+## language dominance, lextale, and language and it worked.
+
 mod_final_scores <- avg_predictions(
   model      = bls_model_final,
   variables  = c("form", "blp_z", "lextale_avg_z"),
@@ -687,8 +686,26 @@ mod_final_pred <- avg_predictions(
   model      = bls_model_final,
   variables  = c("form", "temp_dist", "plan_cert", "language", "blp_z", 
                  "lextale_avg_z"),
-  re_formula = NA)
+  re_formula = NULL)
 
 mod_final_post <- posterior_draws(mod_final_pred) # |> 
 #   write_csv(here("mod_final_bls_post.csv"))
+
+# TO DO:
+  # Think about the priors... 
+    # If I expect PF to have higher ratings (perhaps even more 1 than any other 
+      # form) would it make sense to add it as a pred. in coi (e.g., coi ~ form)?
+      # This might also be motivated by previous studies which report the PF to 
+      # be the default form for futurity.
+    # If I expect that variability among speakers might be better explained by
+      # language dominance, would it make sense to add it as a pred. in phi 
+      # (e.g., phi ~ blp_z)?
+  # Check final model.
+    # Should language interact with BLP and LexTale scores? Think about it. 
+    # Without this interaction, it is assumed that each form's dominance and 
+    # proficiency slope is identical in Spanish and English, so I could not say, 
+    # for example, that more Spanish-dominant speakers behave differently when 
+    # rating Spanish than English-dominant ones do, right?
+  # Try to get the posteriors for all variables (not just BLP and LexTale).
+  # Perform comparisons to test my hypotheses (in a separate script).
 # ------------------------------------------------------------------------------
