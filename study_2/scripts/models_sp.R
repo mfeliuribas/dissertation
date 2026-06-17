@@ -310,7 +310,8 @@ mod3_post |>
 #   reported in the literature as the default form for the future. However, 
 #   comparisons must be performed to see if there are really differences or not.
 
-## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% credible intervals
+## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% 
+# credible intervals
 mod3_post |>
   ggplot() + 
   aes(x = draw, y = form, fill = temp_dist) + 
@@ -356,24 +357,18 @@ sp_model_final <- brm(
 # I increased iter/warmup because when I first ran the model both the Bulk and 
 # the Tail Effective Samples Sizes were too low. 
 
-# install.packages("cmdstanr", repos = c('https://stan-dev.r-universe.dev', getOption("repos")))
-
-
 ## Model output
 summary(sp_model_final)
-
 # 1: Parts of the model have not converged (some Rhats are > 1.05). Be careful 
 # when analysing the results! We recommend running more iterations and/or 
 # setting stronger priors. 
 # Should I increase adapt_delta above 0.8? (due to divergent transitions).
 
 
-
 ## Average predicted rating by form, temporal distance, plan certainty, profile 
 ## There is (again) the vector memory limit problem, so I cannot get the 
-## posteriors. Run the final model (+ posteriors, etc.) with A's computer.
-
-#sp_model_final <- readRDS(here("study_2", "models", "sp_model_final.rds"))
+## posteriors. Run the final model (+ posteriors, etc.) with A's computer - I
+## encountered the same problem, so I had to limit the draws using draw_ids.
 
 mod_final_post <- avg_predictions(
   model      = sp_model_final,
@@ -393,13 +388,13 @@ mod_final_post |>
 
 # Obs:
 # The average predicted rating for the PF is similar between monolinguals (.724)
-# and bilinguals (.706).
+#   and bilinguals (.706).
 # The average predicted ratings for the PP and the PI are lower in the 
-# monolingual group, especially for the PP (.327 - .53 for bilinguals).
+#   monolingual group, especially for the PP (.327; .53 for bilinguals).
 # The interval for PI in the monolingual group is considerably wide - perhaps 
-# adding the other preds might better explain the ratings for this form?
+#   adding the other preds might better explain the ratings for this form?
 
-## Table: form by group, temp_dist and plan_cert
+## Table: form by group, temp_dist, plan_cert, and ling_profile
 mod_final_post |>
   group_by(form, ling_profile, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
@@ -412,13 +407,121 @@ mod_final_post |>
   arrange(Group, Form, Distance, Plan) |>
   print(n = 36)
 
+mod_final_post |>
+  filter(form == "PF") |>
+  group_by(form, ling_profile, temp_dist, plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Group    = ling_profile,
+    Distance = temp_dist,
+    Plan     = plan_cert,
+    Estimate = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
+  arrange(Distance, Plan, Group) |>
+  print(n = 12)
+
+mod_final_post |>
+  filter(form == "PI") |>
+  group_by(form, ling_profile, temp_dist, plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Group    = ling_profile,
+    Distance = temp_dist,
+    Plan     = plan_cert,
+    Estimate = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
+  arrange(Distance, Plan, Group) |>
+  print(n = 12)
+
+mod_final_post |>
+  filter(form == "PP") |>
+  group_by(form, ling_profile, temp_dist, plan_cert) |>
+  median_qi(x = draw) |>
+  transmute(
+    Group    = ling_profile,
+    Distance = temp_dist,
+    Plan     = plan_cert,
+    Estimate = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
+  arrange(Distance, Plan, Group) |>
+  print(n = 12)
+
 # Obs:
+# The average predicted rating for the PF is similar between the bilingual and 
+#   the monolingual group; some of the CrI overlap too. However, in some 
+#   specific conditions (e.g., immediate certain) the ratings seem to differ 
+#   more and there is no overlapping between CrI. 
+# As for the PI, the average predicted rating is in some conditions considerably 
+#   different. For example, bilinguals rate the PI higher in distant-certain 
+#   events (.569) compared to monolinguals (.346). Overall, bilinguals give 
+#   higher ratings, except in the immediate/near-certain contexts.
+# With the PP, bilinguals give higher ratings in all conditions. In fact, 
+#   the monolingual estimates are between .30 and .33, with the exception of 
+#   near-certain (.37) and immediate-certain (.497) contexts. Even though 
+#   monolinguals accept to some degree the PP (there is no categorical 0), 
+#   they appear to report less preference for this form compared to bilinguals.
+# As always, all these obs must be tested through comparisons!
 
 
 ## Plot (mod_final_post) - posterior medians of predicted rating with 95% and 
 ## 65% credible intervals
+mod_final_post |>
+  ggplot() +
+  aes(x = draw, y = form, fill = temp_dist) +
+  facet_grid(ling_profile ~ plan_cert, labeller = label_both) +
+  geom_vline(xintercept = 0.5, linetype = "dashed",
+             colour = "grey60", linewidth = 0.3) +
+  stat_halfeye(position = position_dodge(0.6), point_fill = "white") +
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(y = NULL, 
+       x = "Avg Predicted Rating by Form, Group, Distance and Certainty") +
+  theme(legend.position = "bottom",
+        legend.justification = c(1, 0),
+        legend.background = element_blank())
 
+mod_final_post |>
+  filter(form == "PF") |>
+  ggplot() +
+  aes(x = draw, y = temp_dist, fill = ling_profile) + 
+  facet_grid(. ~ plan_cert, labeller = label_both) +
+  geom_vline(xintercept = 0.5, linetype = "dashed",
+             colour = "grey60", linewidth = 0.3) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(y = NULL, x = "Avg Predicted Rating by Group, Distance and Certainty", 
+       title = "Periphrastic Future") +
+  theme(legend.position = "bottom",
+        legend.justification = c(1, 0),
+        legend.background = element_blank())
+
+mod_final_post |>
+  filter(form == "PI") |>
+  ggplot() +
+  aes(x = draw, y = temp_dist, fill = ling_profile) + 
+  facet_grid(. ~ plan_cert, labeller = label_both) +
+  geom_vline(xintercept = 0.5, linetype = "dashed",
+             colour = "grey60", linewidth = 0.3) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(y = NULL, x = "Avg Predicted Rating by Group, Distance and Certainty", 
+       title = "Futurate Present Indicative") +
+  theme(legend.position = "bottom",
+        legend.justification = c(1, 0),
+        legend.background = element_blank())
+
+mod_final_post |>
+  filter(form == "PP") |>
+  ggplot() +
+  aes(x = draw, y = temp_dist, fill = ling_profile) + 
+  facet_grid(. ~ plan_cert, labeller = label_both) +
+  geom_vline(xintercept = 0.5, linetype = "dashed",
+             colour = "grey60", linewidth = 0.3) +
+  stat_halfeye(position = position_dodge(0.5), point_fill = "white") +
+  scale_fill_viridis_d(name = NULL, end = 0.9) +
+  coord_cartesian(xlim = c(0, 1)) +
+  labs(y = NULL, x = "Avg Predicted Rating by Group, Distance and Certainty", 
+       title = "Futurate Present Progressive") +
+  theme(legend.position = "bottom",
+        legend.justification = c(1, 0),
+        legend.background = element_blank())
 # ------------------------------------------------------------------------------
-
-
-

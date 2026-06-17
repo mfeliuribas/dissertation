@@ -7,10 +7,10 @@ This is the repository for my dissertation. You will find the following folders 
     - final_data: final datasets for bilinguals, for Spanish (bilinguals + monolinguals), and for English (bilinguals + monolinguals)
     - models: intercept-only model for bilinguals and Spanish
     - raw_data: raw data for bilinguals (experiment, LexTale, BLP), for Spanish monolinguals, and for English monolinguals
-    - scripts: tidy_data_bls, tidy_data_mls, final_datasets, descriptives, models_bls, models_sp
+    - scripts: tidy_data_bls, tidy_data_mls, final_datasets, descriptives, models_bls, models_sp, comparisons_sp
     - tidy_data: tidy data for bilinguals (experiment, LexTale, BLP), for Spanish monolinguals, and for English monolinguals
 - study_3
 
 
-Last updated: June 16, 2026
+Last updated: June 17, 2026
 
