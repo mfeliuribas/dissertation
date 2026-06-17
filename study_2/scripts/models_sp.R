@@ -337,7 +337,6 @@ form4 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * ling_profile
 get_prior(formula = form4, family = zero_one_inflated_beta(), 
           data = data_spanish)
 
-
 # Set priors
 priors4 <- c(prior(normal(0, 1.5), class = b),
              prior(normal(0, 2),   class = b, coef = "Intercept"),

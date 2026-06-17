@@ -16,6 +16,7 @@ library("tidyverse")
 library("ggdist")
 library("scales")
 library("glue")
+library("cmdstanr")
 # ------------------------------------------------------------------------------
 
 # ----- 2. Set seed for reproducibility ----------------------------------------
@@ -538,14 +539,13 @@ mod5_post <- posterior_draws(mod5_pred) # |> write_csv(here("mod5_post.csv"))
 # Specify model formula
 # Should dominance be added to phi?
 form6 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * language + 
-              form:blp_z + form:lextale_avg_z + 
+              form:blp_z + form:lextale_avg_z:language + 
               (1 + form * temp_dist * plan_cert | participant) +
               (1 | item) +
               (1 | list))
 
 # Figure out the priors
 get_prior(formula = form6, family = zero_one_inflated_beta(), data = data_bls)
-
 
 # Set priors
 priors6 <- c(prior(normal(0, 1.5), class = b),
@@ -557,15 +557,21 @@ priors6 <- c(prior(normal(0, 1.5), class = b),
 bls_model_final <- brm(
   formula = form6, 
   prior = priors6, 
-  iter = 2000, warmup = 1000, cores = 4, 
+  iter = 8000, warmup = 2000, cores = 8, 
+  backend = "cmdstanr",
   data = data_bls, 
   family = zero_one_inflated_beta(), 
   file = here("study_2", "models", "bls_model_final"))
-
-# bls_model_final <- readRDS(here("study_2", "models", "bls_model_final.rds"))
+# Warning messages: 2252 of 24000 (9.0%) transitions ended with a divergence.
 
 ## Model output
 summary(bls_model_final)
+
+# Parts of the model have not converged (some Rhats are > 1.05). Be careful 
+# when analysing the results! We recommend running more iterations and/or 
+# setting stronger priors. 
+
+bls_model_final <- readRDS(here("study_2", "models", "bls_model_final.rds"))
 
 ## Average predicted rating by form, temporal distance, plan certainty, language,
 ## BLP score, LexTale score.
@@ -573,7 +579,115 @@ summary(bls_model_final)
 ## the session. Apparently there is not enough memory in the computer. I tried 
 ## reducing the number of draws and only getting the posteriors from form, 
 ## language dominance, lextale, and language and it worked.
+# mod_final_pred <- avg_predictions(
+#   model      = bls_model_final,
+#   variables  = c("form", "temp_dist", "plan_cert", "language", 
+#                  "blp_z", "lextale_avg_z"),
+#   re_formula = NULL,
+#   draw_ids = sample(1:4000, 500))
 
+# Posteriors from only categorical preds
+mod_final_pred_1 <- avg_predictions(
+  model      = bls_model_final,
+  variables  = c("form", "temp_dist", "plan_cert", "language"),
+  re_formula = NULL,
+  draw_ids = sample(1:4000, 500))
+
+mod_final_post_1 <- posterior_draws(mod_final_pred_1) |> 
+  write_csv(here("study_2", "models", "mod_final_bls_post1.csv"))
+
+# Posteriors from form by language dominance
+mod_final_pred_2 <- avg_predictions(
+  model      = bls_model_final,
+  variables  = c("form", "blp_z"),
+  re_formula = NULL)
+
+mod_final_post_2 <- posterior_draws(mod_final_pred_2) |> 
+  write_csv(here("study_2", "models", "mod_final_bls_post2.csv"))
+
+mod_final_post_2 |>
+  group_by(form, blp_z) |>
+  median_qi(x = draw) |>
+  transmute(
+    Form      = form,
+    Dominance = blp_z,
+    Estimate  = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+mod_final_post_2 |>
+  group_by(form, blp_z) |>
+  median_qi(draw, .width = c(0.65, 0.95)) |>
+  ggplot(aes(x = blp_z, y = draw)) +
+  geom_lineribbon(aes(ymin = .lower, ymax = .upper, fill = factor(.width))) +
+  facet_wrap(~ form) +
+  scale_fill_brewer(name = "CrI", palette = "Blues") +
+  coord_cartesian(ylim = c(0, 1)) +
+  labs(x = "Bilingual dominance (z)",
+       y = "Avg Predicted Rating") +
+  theme(legend.position = "bottom")
+
+
+# Posteriors from form by language by lextale score
+# Ask Joseph if the code for the posterior draws is correct. The results are 
+# not what I was expecting (especially for English) but when plotting the data
+# (not the posteriors) the trend is similar.
+
+# mod_final_pred_3 <- avg_predictions(
+#   model      = bls_model_final,
+#   by         = c("form", "language", "lextale_avg_z"),
+#   re_formula = NULL,
+#   draw_ids   = sample(1:4000, 500))
+
+# mod_final_post_3 <- posterior_draws(mod_final_pred_3) |> 
+#   write_csv(here("study_2", "models", "mod_final_bls_post3.csv"))
+
+mod_final_pred_3 <- avg_predictions(
+  model      = bls_model_final,
+  variables  = list(
+    form          = unique(data_bls$form),
+    language      = unique(data_bls$language),
+    lextale_avg_z = seq(-3, 2.5, length.out = 25)),
+  re_formula = NULL,
+  draw_ids   = sample(1:ndraws(bls_model_final), 500))
+
+mod_final_post_3 <- posterior_draws(mod_final_pred_3) |>
+  write_csv(here("study_2", "models", "mod_final_bls_post3.csv"))
+
+mod_final_post_3 |>
+  group_by(form, language, lextale_avg_z) |>
+  median_qi(draw, .width = c(0.65, 0.95)) |>
+  left_join(lex_stats, by = "language") |>
+  mutate(proficiency = lextale_avg_z * lex_sd + lex_mean) |>
+  ggplot(aes(x = proficiency, y = draw)) +
+  geom_lineribbon(aes(ymin = .lower, ymax = .upper, fill = factor(.width))) +
+  facet_grid(language ~ form) +
+  scale_fill_brewer(name = "CrI", palette = "Blues") +
+  coord_cartesian(ylim = c(0, 1)) +
+  labs(x = "Proficiency (LexTALE score)",
+       y = "Avg Predicted Rating") +
+  theme(legend.position = "bottom")
+
+
+ndraws(bls_model_final)
+
+ggplot(data_bls, aes(x = lextale_avg, y = rating)) +
+  geom_point(alpha = 0.2, position = position_jitter(height = 0.02)) +
+  geom_smooth(method = "lm", se = TRUE, color = "steelblue") +
+  facet_grid(language ~ form) +
+  labs(x = "Proficiency (LexTALE score)",
+       y = "Rating") +
+  theme_minimal()
+  
+
+
+
+
+
+
+## Code from June 16 (old final model)
+## I could not get the posteriors at first - I tried multiple times and R aborts 
+## the session. Apparently there is not enough memory in the computer. I tried 
+## reducing the number of draws and only getting the posteriors from form, 
+## language dominance, lextale, and language and it worked.
 mod_final_scores <- avg_predictions(
   model      = bls_model_final,
   variables  = c("form", "blp_z", "lextale_avg_z"),
@@ -641,6 +755,9 @@ mod_final_lextale <- avg_predictions(
   re_formula = NULL,
   draw_ids   = sample(1:4000, 500)) |>
   posterior_draws()
+
+
+
 
 mod_final_lextale |>
   group_by(form, language, lextale_avg_z) |>
