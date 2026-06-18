@@ -16,7 +16,7 @@ library("ggdist")
 set.seed(20260616)
 
 # ----- 3. Load model ----------------------------------------------------------
-#model_sp <- readRDS(here("study_2", "model", "sp_model_final.rds"))
+#model_en <- readRDS(here("study_2", "model", "en_model_final.rds"))
 post_en <- read.csv(here("study_2", "models", "mod_final_en_post.csv"))
 # ------------------------------------------------------------------------------
 

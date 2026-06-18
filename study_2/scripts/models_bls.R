@@ -631,12 +631,12 @@ mod_final_post_2 |>
 # not what I was expecting (especially for English) but when plotting the data
 # (not the posteriors) the trend is similar.
 
+# This code was causing problems, that is why we switch to the next chunk.
 # mod_final_pred_3 <- avg_predictions(
 #   model      = bls_model_final,
 #   by         = c("form", "language", "lextale_avg_z"),
 #   re_formula = NULL,
 #   draw_ids   = sample(1:4000, 500))
-
 # mod_final_post_3 <- posterior_draws(mod_final_pred_3) |> 
 #   write_csv(here("study_2", "models", "mod_final_bls_post3.csv"))
 
