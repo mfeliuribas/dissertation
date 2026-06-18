@@ -40,7 +40,7 @@ simple_priors <- prior(normal(0, 1.5), class = b)
 
 ## Fit simple model
 bls_model_0 <- brm(
-  formula = form0, 
+  formula = form0_bls, 
   prior = simple_priors, 
   iter = 2000, warmup = 1000, cores = 4, 
   data = data_bls, 
@@ -817,12 +817,4 @@ mod_final_post <- posterior_draws(mod_final_pred) # |>
     # If I expect that variability among speakers might be better explained by
       # language dominance, would it make sense to add it as a pred. in phi 
       # (e.g., phi ~ blp_z)?
-  # Check final model.
-    # Should language interact with BLP and LexTale scores? Think about it. 
-    # Without this interaction, it is assumed that each form's dominance and 
-    # proficiency slope is identical in Spanish and English, so I could not say, 
-    # for example, that more Spanish-dominant speakers behave differently when 
-    # rating Spanish than English-dominant ones do, right?
-  # Try to get the posteriors for all variables (not just BLP and LexTale).
-  # Perform comparisons to test my hypotheses (in a separate script).
 # ------------------------------------------------------------------------------

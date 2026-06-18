@@ -37,7 +37,7 @@ post_sp <- read.csv(here("study_2", "models", "mod_final_sp_post.csv"))
 #   order to get the difference between the groups. This difference is stored in 
 #   a new variable called 'diff'. Every value within 'diff' is one draw of the 
 #   difference.
-contrast_draws <- post_sp |>
+contrast_draws_sp <- post_sp |>
   select(drawid, form, temp_dist, plan_cert, ling_profile, draw) |>
   pivot_wider(
     names_from = ling_profile, 
@@ -48,7 +48,7 @@ contrast_draws <- post_sp |>
 # established for each combination of draw-form-cond., the difference should be 
 # grouped by form-condition (i.e., group the draws within the same conditions) 
 # and the estimates and intervals per form-condition should be drawn.
-contrast_summary <- contrast_draws |>
+contrast_summary_sp <- contrast_draws_sp |>
   group_by(form, temp_dist, plan_cert) |>
   summarize(
     estimate  = median(diff),
@@ -57,7 +57,7 @@ contrast_summary <- contrast_draws |>
     .groups   = "drop")
 
 # Plot the posterior difference between bilinguals and monolinguals with 95% CrI 
-contrast_draws |>
+contrast_draws_sp |>
   mutate(temp_dist = factor(temp_dist, c("immediate", "near", "distant"))) |>
   ggplot(aes(x = diff, y = temp_dist, fill = plan_cert)) +
   facet_wrap(form ~ .) +
@@ -69,7 +69,7 @@ contrast_draws |>
   theme_minimal() +
   theme(legend.position = "bottom")
 
-contrast_draws |>
+contrast_draws_sp |>
   mutate(
     temp_dist = factor(temp_dist, c("immediate", "near", "distant")),
     plan_cert = factor(plan_cert, c("certain", "uncertain")),

@@ -30,19 +30,19 @@ data_english <- read.csv(here("study_2", "final_data", "english_final.csv"))
 # ----- 4. Fit English models --------------------------------------------------
 # ----- 4.1. Intercept-only model ----------------------------------------------
 # Specify model formula
-form0 <- bf(rating ~ 0 + Intercept)
+form0_en_en <- bf(rating ~ 0 + Intercept)
 
 # Figure out the priors
-get_prior(formula = form0, family = zero_one_inflated_beta(), 
+get_prior(formula = form0_en, family = zero_one_inflated_beta(), 
           data = data_english)
 
 # Set priors
-simple_priors <- prior(normal(0, 1.5), class = b)
+simple_priors_en <- prior(normal(0, 1.5), class = b)
 
 ## Fit simple model
 en_model_0 <- brm(
-  formula = form0, 
-  prior = simple_priors, 
+  formula = form0_en, 
+  prior = simple_priors_en, 
   iter = 2000, warmup = 1000, cores = 4, 
   data = data_english, 
   family = zero_one_inflated_beta(), 
@@ -89,23 +89,23 @@ data_english |>
 
 # ----- 4.2. Model 1 (verb form) -----------------------------------------------
 # Specify model formula
-form1 <- bf(rating ~ 0 + Intercept + form +
+form1_en <- bf(rating ~ 0 + Intercept + form +
               (1 + form * temp_dist * plan_cert | participant) +
               (1 | item) +
               (1 | list))
 
 # Figure out the priors
-get_prior(formula = form1, family = zero_one_inflated_beta(), 
+get_prior(formula = form1_en, family = zero_one_inflated_beta(), 
           data = data_english)
 
 # Set priors
-priors1 <- c(prior(normal(0, 1.5), class = b),
+priors1_en <- c(prior(normal(0, 1.5), class = b),
              prior(normal(0, 2),   class = b, coef = "Intercept"))
 
 ## Fit simple model
 en_model_1 <- brm(
-  formula = form1, 
-  prior = priors1, 
+  formula = form1_en, 
+  prior = priors1_en, 
   iter = 2000, warmup = 1000, cores = 4, 
   data = data_english, 
   family = zero_one_inflated_beta(), 
@@ -146,20 +146,20 @@ as_draws_df(en_model_1) |>
 #   Spanish model it was PF > PI > PP.
 
 ## Average predicted rating by form (response scale, already back-transformed)
-mod1_preds <- avg_predictions(
+mod1_preds_en <- avg_predictions(
   model     = en_model_1,
   variables = "form",
   re_formula = NULL)
 
 ## Posterior draws of those predictions
-mod1_post <- avg_predictions(
+mod1_post_en <- avg_predictions(
   model     = en_model_1,
   variables = "form",
   re_formula = NULL) %>%
   posterior_draws()
 
 ## Formatted table: median [95% CrI] by form
-mod1_post %>%
+mod1_post_en %>%
   group_by(form) %>%
   median_qi(x = draw) %>%
   transmute(
@@ -171,23 +171,23 @@ mod1_post %>%
 
 # ----- 4.3. Model 2 (verb form, temporal reference) ---------------------------
 # Specify model formula
-form2 <- bf(rating ~ 0 + Intercept + form * temp_dist +
+form2_en <- bf(rating ~ 0 + Intercept + form * temp_dist +
               (1 + form * temp_dist * plan_cert | participant) +
               (1 | item) +
               (1 | list))
 
 # Figure out the priors
-get_prior(formula = form2, family = zero_one_inflated_beta(), 
+get_prior(formula = form2_en, family = zero_one_inflated_beta(), 
           data = data_english)
 
 # Set priors
-priors2 <- c(prior(normal(0, 1.5), class = b),
+priors2_en <- c(prior(normal(0, 1.5), class = b),
              prior(normal(0, 2),   class = b, coef = "Intercept"))
 
 ## Fit simple model
 en_model_2 <- brm(
-  formula = form2, 
-  prior = priors2, 
+  formula = form2_en, 
+  prior = priors2_en, 
   iter = 2000, warmup = 1000, cores = 4, 
   backend = "cmdstanr",
   data = data_english, 
@@ -200,15 +200,15 @@ en_model_2 <- brm(
 summary(en_model_2)
 
 ## Average predicted rating by form and temporal distance
-mod2_pred <- avg_predictions(
+mod2_pred_en <- avg_predictions(
   model      = en_model_2,
   variables  = c("form", "temp_dist"),
   re_formula = NULL)
 
-mod2_post <- posterior_draws(mod2_pred)
+mod2_post_en <- posterior_draws(mod2_pred_en)
 
 ## Table: form by temp_dist
-mod2_post |>
+mod2_post_en |>
   group_by(form, temp_dist) |>
   median_qi(x = draw) |>
   transmute(
@@ -226,7 +226,7 @@ mod2_post |>
 
 ## Plot (mod2_post) - posterior medians of predicted rating with 95% and 65% 
 ##  credible intervals
-mod2_post |>
+mod2_post_en |>
   ggplot() + 
   aes(x = draw, y = form, fill = temp_dist) + 
   stat_halfeye(position = position_dodge(0.5), point_fill = "white") + 
@@ -241,23 +241,23 @@ mod2_post |>
 
 # ----- 4.4. Model 3 (verb form, temporal reference, plan certainty) -----------
 # Specify model formula
-form3 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert +
+form3_en <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert +
               (1 + form * temp_dist * plan_cert | participant) +
               (1 | item) +
               (1 | list))
 
 # Figure out the priors
-get_prior(formula = form3, family = zero_one_inflated_beta(), 
+get_prior(formula = form3_en, family = zero_one_inflated_beta(), 
           data = data_english)
 
 # Set priors
-priors3 <- c(prior(normal(0, 1.5), class = b),
+priors3_en <- c(prior(normal(0, 1.5), class = b),
              prior(normal(0, 2),   class = b, coef = "Intercept"))
 
 ## Fit simple model
 en_model_3 <- brm(
-  formula = form3, 
-  prior = priors3, 
+  formula = form3_en, 
+  prior = priors3_en, 
   iter = 2000, warmup = 1000, cores = 4, 
   backend = "cmdstanr",
   data = data_english, 
@@ -271,14 +271,14 @@ en_model_3 <- brm(
 summary(en_model_3)
 
 ## Average predicted rating by form, temporal distance, and plan certainty
-mod3_pred <- avg_predictions(
+mod3_pred_en <- avg_predictions(
   model      = en_model_3,
   variables  = c("form", "temp_dist", "plan_cert"),
   re_formula = NULL)
 
-mod3_post <- posterior_draws(mod3_pred)
+mod3_post_en <- posterior_draws(mod3_pred_en)
 
-mod3_post |>
+mod3_post_en |>
   group_by(form, plan_cert) |>
   median_qi(x = draw) |>
   transmute(
@@ -290,7 +290,7 @@ mod3_post |>
 # Overall, all forms receive higher ratings in the certain condition.
 
 ## Table: form by temp_dist by plan_cet
-mod3_post |>
+mod3_post_en |>
   group_by(form, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
   transmute(
@@ -306,7 +306,7 @@ mod3_post |>
 
 ## Plot (mod3_post) - posterior medians of predicted rating with 95% and 65% 
 # credible intervals
-mod3_post |>
+mod3_post_en |>
   ggplot() + 
   aes(x = draw, y = form, fill = temp_dist) + 
   facet_grid(. ~ plan_cert) +
@@ -322,25 +322,25 @@ mod3_post |>
 
 # ----- 4.5. Final Model (verb form, temporal reference, plan certainty, profile) -
 # Specify model formula
-form4 <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * ling_profile +
+form4_en <- bf(rating ~ 0 + Intercept + form * temp_dist * plan_cert * ling_profile +
               (1 + form * temp_dist * plan_cert | participant) +
               (1 | item) +
               (1 | list))
 
 # Figure out the priors
-get_prior(formula = form4, family = zero_one_inflated_beta(), 
+get_prior(formula = form4_en, family = zero_one_inflated_beta(), 
           data = data_english)
 
 # Set priors
-priors4 <- c(prior(normal(0, 1.5), class = b),
+priors4_en <- c(prior(normal(0, 1.5), class = b),
              prior(normal(0, 2),   class = b, coef = "Intercept"),
              prior(lkj(2),         class = cor),
              prior(gamma(2, 0.5),  class = phi))
 
 ## Fit simple model
 en_model_final <- brm(
-  formula = form4, 
-  prior = priors4, 
+  formula = form4_en, 
+  prior = priors4_en, 
   iter = 8000, warmup = 2000, cores = 8, 
   backend = "cmdstanr",
   data = data_english, 
@@ -358,7 +358,7 @@ summary(en_model_final)
 ## There is (again) the vector memory limit problem, so I cannot get the 
 ## posteriors. I used draw_ids to specify the number of draws to be used.
 
-mod_final_post <- avg_predictions(
+mod_final_post_en <- avg_predictions(
   model      = en_model_final,
   variables  = c("form", "temp_dist", "plan_cert", "ling_profile"),
   re_formula = NULL,
@@ -366,7 +366,7 @@ mod_final_post <- avg_predictions(
   posterior_draws() |> 
   write_csv(here("study_2", "models", "mod_final_en_post.csv"))
 
-mod_final_post |>
+mod_final_post_en |>
   group_by(form, ling_profile) |>
   median_qi(x = draw) |>
   transmute(
@@ -383,7 +383,7 @@ mod_final_post |>
 #   adding the other preds might better explain the ratings for this form?
 
 ## Table: form by group, temp_dist, plan_cert, and ling_profile
-mod_final_post |>
+mod_final_post_en |>
   group_by(form, ling_profile, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
   transmute(
@@ -395,7 +395,7 @@ mod_final_post |>
   arrange(Group, Form, Distance, Plan) |>
   print(n = 36)
 
-mod_final_post |>
+mod_final_post_en |>
   filter(form == "PF") |>
   group_by(form, ling_profile, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
@@ -407,7 +407,7 @@ mod_final_post |>
   arrange(Distance, Plan, Group) |>
   print(n = 12)
 
-mod_final_post |>
+mod_final_post_en |>
   filter(form == "PI") |>
   group_by(form, ling_profile, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
@@ -419,7 +419,7 @@ mod_final_post |>
   arrange(Distance, Plan, Group) |>
   print(n = 12)
 
-mod_final_post |>
+mod_final_post_en |>
   filter(form == "PP") |>
   group_by(form, ling_profile, temp_dist, plan_cert) |>
   median_qi(x = draw) |>
@@ -451,7 +451,7 @@ mod_final_post |>
 
 ## Plot (mod_final_post) - posterior medians of predicted rating with 95% and 
 ## 65% credible intervals
-mod_final_post |>
+mod_final_post_en |>
   ggplot() +
   aes(x = draw, y = form, fill = temp_dist) +
   facet_grid(ling_profile ~ plan_cert, labeller = label_both) +
@@ -466,7 +466,7 @@ mod_final_post |>
         legend.justification = c(1, 0),
         legend.background = element_blank())
 
-mod_final_post |>
+mod_final_post_en |>
   filter(form == "PF") |>
   ggplot() +
   aes(x = draw, y = temp_dist, fill = ling_profile) + 
@@ -482,7 +482,7 @@ mod_final_post |>
         legend.justification = c(1, 0),
         legend.background = element_blank())
 
-mod_final_post |>
+mod_final_post_en |>
   filter(form == "PI") |>
   ggplot() +
   aes(x = draw, y = temp_dist, fill = ling_profile) + 
@@ -498,7 +498,7 @@ mod_final_post |>
         legend.justification = c(1, 0),
         legend.background = element_blank())
 
-mod_final_post |>
+mod_final_post_en |>
   filter(form == "PP") |>
   ggplot() +
   aes(x = draw, y = temp_dist, fill = ling_profile) + 
