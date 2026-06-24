@@ -16,11 +16,85 @@ library("ggplot2")
 
 # ----- 2. Load data -----------------------------------------------------------
 data_bls <- read.csv(here("study_2", "final_data", "bls_final.csv"))
+data_bls_
+data_mls_sp <- read.csv(here("study_2", "tidy_data", "spanish_mls_tidy.csv"))
+data_mls_en <- read.csv(here("study_2", "tidy_data", "english_mls_tidy.csv"))
 # ------------------------------------------------------------------------------
 
 
 
-# ----- 3. Check BL data -------------------------------------------------------
+# ----- 3. Descriptive stats for BLs -------------------------------------------
+# Total number of participants
+data_bls |>
+  summarize(total_participants = n_distinct(participant))
+
+data_bls |>
+  group_by(participant) %>%
+  filter(n_distinct(language) == 1) %>%
+  summarise(language = first(language))
+
+# Obs:
+  # A total of 89 bilinguals were included in the final dataset. However, of 
+  # them, five only completed the English version and six only completed the 
+  # Spanish version.
+
+# Family origin
+data_bls |>
+  group_by(participant) |>
+  summarize(
+    origin_mom = first(origin_mom),
+    origin_dad = first(origin_dad))
+
+data_bls |>
+  group_by(participant) |>
+  summarize(
+    origin_mom = first(origin_mom)) |>
+  count(origin_mom, sort = TRUE) 
+
+data_bls |>
+  group_by(participant) |>
+  summarize(
+    origin_dad = first(origin_dad)) |>
+  count(origin_dad, sort = TRUE) 
+
+data_bls |>
+  group_by(participant) |>
+  summarize(origin_mom = first(origin_mom),
+            origin_dad = first(origin_dad),
+            .groups = "drop") |>
+  pivot_longer(c(origin_mom, origin_dad), values_to = "country") |>
+  filter(!is.na(country)) |>
+  distinct(participant, country) |>
+  count(country, sort = TRUE) |>
+  mutate(pct = round(100 * n / n_distinct(data_bls$participant), 1))
+
+# Origin self
+data_bls |>
+  group_by(participant) |>
+  summarize(country_origin = first(country_origin), .groups = "drop") |>
+  count(country_origin, sort = TRUE)
+
+# Must calculate how many report not being born in the U.S. 
+
+# ------------------------------------------------------------------------------
+
+
+
+# ----- 4. Descriptive stats for MLs -------------------------------------------
+# Total number of participants
+data_mls_sp |>
+  summarize(total_participants = n_distinct(participant))
+
+data_mls_en |>
+  summarize(total_participants = n_distinct(participant))
+
+# Obs:
+  # A total of 35 Spanish monolinguals participated. 
+  # A total of 36 Spanish monolinguals participated. 
+
+
+
+# ----- 5. Check BL data (Austin) ----------------------------------------------
 # Check participant behavior
 data_bls |>
   filter(is.na(rating)) |>
