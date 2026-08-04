@@ -3,6 +3,7 @@
 This is the repository for my dissertation. You will find the following folders and documents:
 
 - study_1
+    - data: preliminary data (all of *cesa* + part of *stc*)
 - study_2
     - final_data: 3 .csv files
         - 'bls_final.csv': final dataset for bilinguals (Spanish and English)
@@ -45,5 +46,5 @@ This is the repository for my dissertation. You will find the following folders 
 - study_3
 
 
-Last updated: June 25, 2026
+Last updated: August 04, 2026
 
