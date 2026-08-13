@@ -3,7 +3,7 @@
 This is the repository for my dissertation. You will find the following folders and documents:
 
 - study_1
-    - data: preliminary data (all of *cesa* + part of *stc*)
+    - data: final data + preliminary data (all of *cesa* + part of *stc*)
     - scripts: 'descriptives.R'
 - study_2
     - final_data: 3 .csv files
@@ -47,5 +47,5 @@ This is the repository for my dissertation. You will find the following folders 
 - study_3
 
 
-Last updated: August 04, 2026
+Last updated: August 13, 2026
 

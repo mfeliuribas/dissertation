@@ -1,6 +1,8 @@
 # ----- Do descriptive stats ---------------------------------------------------
 #
 # This script contains the code used to do descriptive stats for Study 1.
+# The data used in this script is the preliminary dataset, not the final one 
+# (August 13).
 #
 # ------------------------------------------------------------------------------
 
@@ -84,7 +86,7 @@ data_tidy |>
   print(n = Inf) |>
   mutate(pct = round(n / sum(n) * 100, 1))
 
-# Plot: Overall distribution by semantic reading
+# Plot: Overall distribution by semantic reading (without NEEDS REVIEW)
 data_tidy |>
   filter(reading %in% semantic_categories) |>
   count(reading) |>
@@ -162,7 +164,7 @@ data_futurity_tidy |>
   theme_minimal()
 
 # Obs:
-  # There are 1,1217 tokens labeled with either 'future' or 'future_hyp'.
+  # There are 1,217 tokens labeled with either 'future' or 'future_hyp'.
   # Of these, the majority (75.3%) are PF, followed by lexical futures (8.5%), 
   #   the PI (6.8%) and the MF (4.3%).
   # Around 5% of the tokens are other forms, such as conditionals, subjunctive, 
@@ -197,7 +199,7 @@ data_futurity_tidy |>
   filter(form %in% c("PF", "MF", "PI", "PI")) |>
   count(form) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
-  arrange(desc(n)) |>
+  arrange(desc(n))
 
 # Obs:
   # When considering only the PF, MF, and PI, there is a total of 1,052 tokens.
@@ -451,4 +453,58 @@ data_tidy |>
     #   to express some sort of epistemic modality. The other 22.3% is used with 
     #   a purpose other than future-time reference and epistemic modality 
     #   (e.g., habitual). 
+# ------------------------------------------------------------------------------
+
+
+
+# ----- 8. Most suitable analysis? [Austin] ---------------- -------------------
+# the exact data your RQ2 model will use
+data_rq2 <- data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI"),
+         reading == "future",
+         !temp_dist %in% c("nonspecific/distant"),
+         !is.na(temp_dist))
+
+# missingness across the variables you'll model
+data_rq2 |>
+  select(form, temp_dist, gram_pers, verb_class) |>   # swap in your real predictor names
+  summarise(across(everything(), ~ sum(is.na(.x))))
+
+# smallest cells in the full three-way cross-tab
+data_rq2 |>
+  count(temp_dist, gram_pers, form) |>
+  arrange(n)
+
+data_rq2 |> count(temp_dist, gram_pers, form) |> arrange(n) |> print(n = Inf)
+
+data_rq2 |>
+  count(temp_dist, gram_pers, form) |>
+  summarise(cells_under_5 = sum(n < 5),
+            total_cells   = n())
+
+data_rq2 <- data_rq2 |>
+  mutate(person_grp = case_when(
+    gram_pers %in% c("1_sg", "1_pl") ~ "1st",
+    gram_pers %in% c("2_sg")         ~ "2nd",
+    gram_pers %in% c("3_sg", "3_pl") ~ "3rd",
+    TRUE ~ gram_pers))
+
+# re-check with the collapsed version
+data_rq2 |>
+  count(temp_dist, person_grp, form) |>
+  summarise(under5 = sum(n < 5), total = n())
+
+data_rq2 |>
+  mutate(temp_grp = case_when(
+    temp_dist %in% c("immediate", "near") ~ "proximate",
+    temp_dist %in% c("distant", "nonspecific") ~ "distal",
+    TRUE ~ temp_dist)) |>
+  count(temp_grp, person_grp, form) |>
+  summarise(under5 = sum(n < 5), total = n())
+
+# form × person alone
+data_rq2 |> count(person_grp, form) |> summarise(under5 = sum(n < 5), total = n())
+
+# form × temporal distance alone
+data_rq2 |> count(temp_dist, form) |> summarise(under5 = sum(n < 5), total = n())
 # ------------------------------------------------------------------------------
