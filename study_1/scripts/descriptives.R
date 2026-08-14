@@ -1,13 +1,12 @@
 # ----- Do descriptive stats ---------------------------------------------------
 #
 # This script contains the code used to do descriptive stats for Study 1.
-# The data used in this script is the preliminary dataset, not the final one 
-# (August 13).
 #
 # ------------------------------------------------------------------------------
 
 # ----- 1. Load libraries ------------------------------------------------------
 library("here")
+library("readxl")
 library("tidyverse")
 library("dplyr")
 library("ggplot2")
@@ -17,13 +16,7 @@ library("scales")
 
 
 # ----- 2. Load data -----------------------------------------------------------
-# data_raw <- read.csv2(here("study_1", "data", "prelim_data_corpus.csv"))
-
-
-# There are some issues with the accent marks (of course) - must check it for 
-# the final dataset. Meanwhile, use the following code to fix the error:
-data_raw <- read_csv2(here("study_1", "data", "prelim_data_corpus.csv"),
-                      locale = locale(encoding = "Latin1"))
+data_raw <- read_excel(here("study_1", "data", "corpus_bls_raw.xlsx"))
 # ------------------------------------------------------------------------------
 
 
@@ -37,7 +30,7 @@ colnames(data_raw)
 
 # Remove unnecessary columns
 data_tidy <- data_raw |>
-  select(-c(4, 20:23))
+  select(-c(4, 20))
 
 colnames(data_tidy)
 # ------------------------------------------------------------------------------
@@ -49,9 +42,10 @@ colnames(data_tidy)
 data_tidy |>
   count(corpus)
 
-  # Obs:
-    # With the preliminary dataset, 1,664 tokens are from the CESA and 204 from 
-    #   the STC.
+  # Obs: 
+  # Total of 1,821 observations.
+  # 1,347 tokens from cesa.
+  # 474 tokens from stc.
 # ------------------------------------------------------------------------------
 
 
@@ -59,58 +53,29 @@ data_tidy |>
 # ----- 5. Check data distribution: Semantic reading ---------------------------
 # Overall distribution by semantic reading
 data_tidy |>
-  count(reading) |>
-  print(n = 50)
-
-# Overall distribution by target semantic categories
-semantic_categories <- c("EXCLUSION", "ambiguous", "concessive", "ep_hedging",
-                         "epistemic", "epistemic_dm", "exhortative", "future", 
-                         "future_hyp", "habitual", "inf_cert", "lex_form", 
-                         "prot_cond", "prot_temp")
-
-data_tidy |>
-  filter(reading %in% semantic_categories) |>
-  count(reading, sort = TRUE)
-
-# Distribution of tokens to be reviewed
-data_tidy |>
-  filter(!reading %in% semantic_categories) |> 
   count(reading, sort = TRUE) |>
-  print(n = Inf)
-
-# Overall distribution by semantic reading + tokens to be reviewed
-data_tidy |>
-  mutate(category = if_else(reading %in% semantic_categories, reading, 
-                            "NEEDS REVIEW")) |>
-  count(category, sort = TRUE) |>
-  print(n = Inf) |>
   mutate(pct = round(n / sum(n) * 100, 1))
 
-# Plot: Overall distribution by semantic reading (without NEEDS REVIEW)
+
+# Plot: Overall distribution by semantic reading
 data_tidy |>
-  filter(reading %in% semantic_categories) |>
   count(reading) |>
-  mutate(pct = n / sum(n) * 100) |>
   ggplot() +
-  aes(x = pct, y = reorder(reading, pct)) +
+  aes(x = n, y = reorder(reading, n)) +
   geom_col(fill = "gray") +
-  geom_text(aes(label = paste0(round(pct, 1), "%")), hjust = 1, size = 2) +
-  scale_x_continuous(breaks = seq(0, 100, by = 10)) +
   labs(title = "Distribution of semantic readings",
-       x = "Percentage of tokens",
+       x = "Number of tokens",
        y = NULL) +
   theme_minimal()
 
   # Obs/Notes:
-    # There are some misspelled categories --- they must be checked and corrected 
-    #   in the original xlsx file (e.g., exhorative, inf_certainty).
-    # There are many readings right now. However, a considerable amount of these 
-    #   are for not-so-straightforward tokens, that is, tokens that must be 
-    #   reviewed.
-    # As it stands right now (August 4), around 65% of the data has a future 
-    #   reading (future + hypothetical futures), about 10% needs review, and 
-    #   1.5% must be excluded. The rest is a mix of inferred certainty, 
-    #   habitual, epistemic, etc.
+    # Almost 69% of the data has a future reading (either purely temporal or 
+    #   hypothetical).
+    # About 19% of the data has modal readings, including categories within 
+    #   epistemic modalities and other (e.g., deontic).
+    # About 3% of the data must be excluded (EXC + ambiguous).
+    # The rest (~ 9%) is habitual, lexicalized formulae/fixed expressions, and 
+    #   PF within the protesis of conditional and temporal sentences.
 # ------------------------------------------------------------------------------
 
 
@@ -119,30 +84,28 @@ data_tidy |>
 # Select futurity reading and create subset
 future_readings <- c("future", "future_hyp")
 
-data_futurity <- data_tidy |> 
+data_futurity_raw <- data_tidy |> 
   filter(reading %in% future_readings)
 
-nrow(data_futurity) 
+nrow(data_futurity_raw) 
 
-# See distribution of forms in futurity reading (all coded forms, as in the 
-# original dataset)
-data_futurity |>
+# See distribution of forms in futurity reading (all coded forms)
+data_futurity_raw |>
   count(form) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
   arrange(desc(n))
 
 # Collapse lexical futures together and conditional futures together ("recode")
-data_futurity_tidy <- data_futurity |>
+data_futurity_tidy <- data_futurity_raw |>
   mutate(form = fct_recode(form,
                                      "lex_futures" = "querer_inf",
                                      "lex_futures" = "tener_inf",
                                      "lex_futures" = "pensar_inf",
                                      "lex_futures" = "planear_inf",
-                                     "lex_futures" = "estar_apunto",
-                                     "lex_futures" = "estar_para",
-                                     "lex_futures" = "necesitar_inf",
                                      "lex_futures" = "poder_inf",
                                      "lex_futures" = "querer",
+                                     "lex_futures" = "estar_para",
+                                     "lex_futures" = "necesitar_inf",
                                      "cond"        = "cond_inf"))
 
 # Table: Futurity by form (with recoded values)
@@ -164,12 +127,10 @@ data_futurity_tidy |>
   theme_minimal()
 
 # Obs:
-  # There are 1,217 tokens labeled with either 'future' or 'future_hyp'.
-  # Of these, the majority (75.3%) are PF, followed by lexical futures (8.5%), 
-  #   the PI (6.8%) and the MF (4.3%).
-  # Around 5% of the tokens are other forms, such as conditionals, subjunctive, 
-  #   infinitives, and PP. 
-  # The PP must be checked, though.
+  # There are 1,254 tokens labeled with either 'future' or 'future_hyp'.
+  # Of these, the majority (76%) are PF, followed by lexical futures (9.1%), 
+  #   the PI (6.2%) and the MF (3.4%).
+  # Around 5-6% of the tokens are other forms (cond., subj., inf.)
 
 # See distribution within futurity: pure futures vs hypothetical futures
 data_futurity_tidy |>
@@ -183,47 +144,55 @@ data_futurity_tidy |>
   arrange(desc(n))
 
 # Obs:
-  # Of the 1,217 tokens labeled with either 'future' or 'future_hyp', most of 
-  #   them, almost a 92% are considered temporal futures, whereas 8.3% are 
+  # Of the 1,254 tokens labeled with either 'future' or 'future_hyp', most of 
+  #   them (~ 91%) are considered temporal futures, whereas 9% are 
   #   hypothetical futures, usually embedded in conditional clauses.
   # While a variety of forms is used to express future-time reference, in this
   #   dataset, only the PF and the MF are used to talk about hypothetical  
-  #   futures. Within this specific subtype of futures, the most used structure, 
-  #   though, is the PF (95 tokens; MF = 6 tokens). Interestingly, no lexical 
+  #   futures. Within this specific subtype of future, the most used structure 
+  #   is the PF (107 tokens; MF = 7 tokens). Interestingly, no lexical 
   #   futures are used to talk about hypothetical future situations. In the case 
   #   of the PI, that is probably not surprising and generally expected. 
 
 
 # Table: Use of PF, MF, and PI to express futurity
 data_futurity_tidy |>
-  filter(form %in% c("PF", "MF", "PI", "PI")) |>
+  filter(form %in% c("PF", "MF", "PI")) |>
   count(form) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
   arrange(desc(n))
 
 # Obs:
-  # When considering only the PF, MF, and PI, there is a total of 1,052 tokens.
-  # Of these, 917 (or 87.2%) are PF, 83 (or 7.9%) are PI, and 52 (or 4.9%) are
-  #   MF. 
-  # 165 tokens belong to structures other than the targets of the study.
+  # When considering only the PF, MF, and PI, there is a total of 1,074 tokens.
+  # Of these, 953 (88.7%) are PF, 78 (or 7.3%) are PI, and 43 (or 4%) are MF. 
+  # 180 tokens belong to structures other than the targets of the study.
 
 
 # Use of PF, MF, and PI by temporal distance and reading
 data_futurity_tidy |>
-  filter(form %in% c("PF", "MF", "PI", "PI")) |>
+  filter(form %in% c("PF", "MF", "PI")) |>
   count(temp_dist, form, reading) |>
   group_by(temp_dist, reading) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
-  ungroup()
+  ungroup() #|>
+  #arrange(form, desc(n))
 
 # Obs:
-  # Hypothetical futures are always nonspecific. 
-  # There are some hyp_futures with no temp_dist value --- MUST CHECK!
-  # As for the pure futures:
+  # All forms have at least 1 token in each specific temporal category..
+  # The PF is the form most used to express futurity, regardless of the temporal 
+  #   specification.
+  # The MF seems to be favored in nonspecific futures (28), followed by near (6),
+  #   distant (1) and immediate (1).
+  # The PI appears to be favored in near and immediate futures. It is also used 
+  #   to a lesser extent, for distant and nonspecific futures. In the case of 
+  #   the distant futures, they are most likely scheduled events (graduations, 
+  #   birthdays, etc.).
+  # Hypothetical futures are always nonspecific and only occur with the PF (105)
+  #   and the MF (7).
 
 # Use of PF, MF, and PI by temporal distance (future reading only)
 data_futurity_tidy |>
-  filter(form %in% c("PF", "MF", "PI", "PI")) |>
+  filter(form %in% c("PF", "MF", "PI")) |>
   filter(reading == "future") |>
   count(temp_dist) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
@@ -233,10 +202,9 @@ data_futurity_tidy |>
   # Almost 40% of the futures are nonspecific. This means that the temporal 
   #   reference was not explicit. While it might have been for the interview
   #   participants, it was not for the researchers.
-  # Nonspecific futures are followed by near (31.1%) and immediate (18.8%) 
-  #   futures.
-  # Only 10.6% of the tokens refer to events happening in the distance future. 
-  #   Importantly, some of the tokens coded as nonspecific might be distant, but 
+  # Nonspecific futures are followed by near (31.8%) and immediate (15%), and 
+  #   finally distant (13.5%) futures.
+  # Importantly, some of the tokens coded as nonspecific might be distant, but 
   #   with the information provided in the context, and in the absence of clear 
   #   temporal markers (advs, temporal subordinates, etc.), it is impossible to 
   #   tell.
@@ -249,18 +217,20 @@ data_futurity_tidy |>
   count(temp_dist, form) |>
   group_by(temp_dist) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
-  ungroup()
+  ungroup() #|>
+  #arrange(form, desc(n))
 
 # Obs:
   # All forms are used for all temporal distance values.
   # Overall, the PF is the preferred form for any temporal distance value. 
-  # For immediate and near events, the PI is used over the MF (14.5% and 15.2% 
-  #   vs 1.7% and 3.7%). It is also the the case for distant events (6.9% vs 3%). 
-  #   Presumably, these are cases when the event is scheduled and most likely 
-  #   to happen (e.g., graduation, birthday, etc).
-  # Conversely, for nonspecific events the MF is employed over the PI (7.8% vs 
-  #   1.3%).
-  # Again, however, the PF is the preferred form in any case. 
+  # For all temporally marked events, the PI is used over the MF:
+  #   immediate: 13.9 vs 0.7%
+  #   near: 15.4 vs 2%
+  #   distant: 6.2 vs 0.8% 
+  # Conversely, for nonspecific events the MF is employed over the PI (7.3% vs 
+  #   0.8%).
+  # Again, however, the PF is the preferred form in any case, especially for 
+  #   distant (93.1%) and nonspecific events (91.9%).
 
 # Plot: PF, MF, and PI across temporal distance (future reading only)
 plot_temp_dist_data <- data_futurity_tidy |>
@@ -297,14 +267,15 @@ plot_temp_dist_data |>
     legend.title = element_text(size = 8),
     legend.text = element_text(size = 8))
 
-# Table: PF, MF, and PI across grammatical person (future reading only)
+# Table: PF, MF, and PI within grammatical person (future reading only)
 data_futurity_tidy |>
   filter(form %in% c("PF", "MF", "PI")) |>
   filter(reading == "future") |>
   count(gram_pers, form) |>
   group_by(gram_pers) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
-  ungroup()
+  ungroup() |>
+  arrange(form, desc(n))
 
 plot_gram_pers_data <- data_futurity_tidy |>
   filter(form %in% c("PF", "MF", "PI"),
@@ -339,26 +310,64 @@ plot_gram_pers_data |>
     legend.text = element_text(size = 8))
 
 # Obs:
-  # Most tokens of the PF are in the 1 pers.sg.form (366), followed by the
-  #   3 pers. sg. form (190) and the 3 pers. pl. form (107). 
-  # In the case of the MF, it is the 3 pers. sg. and the 1 pers. sg. forms, both 
-  #   having 16 tokens each. 
-  # As for the PI, it is the 1 pers. sg. (49) and the 3 pers. sg. (18).
+  # The percentages are calculated within each grammatical person because of the 
+  #   group_by(). This means that, for each person, the MF, PF, PI are added 
+  #   together, and each count is expressed as a share of that grammatical 
+  #   person's total.
+  # All forms are used for all grammatical person values. There are very small 
+  #   counts for some combinations of form and grammtical person.
+  # The only exception is the 2_pl -- there are no examples as expected.
+  # Most of the tokens are in 1_sg, which makes sense given the nature of the 
+  #   sociolinguistic interviews.
+  # Within each structure, the 1_sg has the most tokens and the 2_sg the least.
+  # The PF is by far the most frequent form across all grammatical person values
+  #   and accounts approximately for 81-96% of tokens in each case.
+  # The PI seem to compete with PF a bit more in the 1_sg.
+  # The use of the MF is very limited and never exceeds the 5% for any person. 
+  # Importantly, while the 3_sg is essentially PF-dominant, the MF makes its 
+  #   strongest showing. Where the first person tends to pull its non-PF share 
+  #   toward PI, the 3_sg instead tips a bit more toward MF. This gives the 3_sg 
+  #   a somewhat more even split between the PI and the MF. I wonder if this 
+  #   observation might be related to the fact that the epistemic MF is typically 
+  #   used in the third person, and especially the 3_sg (at least according to 
+  #   traditional grammars).
 
+
+# Table: Grammatical person within form (future reading only)
+data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI")) |>
+  filter(reading == "future") |>
+  count(gram_pers, form) |>
+  group_by(form) |>
+  mutate(pct = round(n / sum(n) * 100, 1)) |>
+  ungroup() |>
+  arrange(form, desc(n))
+
+# Obs:
+  # All forms follow a similar pattern, yet not identical:
+  #   PF: 1_sg > 3_sg > 3_pl > 1_pl > 2_sg
+  #   MF: 1_sg > 3_sg > 1_pl > 3_pl > 2_sg
+  #   MF: 1_sg > 3_sg > 1_pl > 3_pl > 2_sg
+  # For the PI, approx. 75% of the data fails within the first person. If the 
+  #   grammatical person is considered a marker of certainty, it makes a lot of 
+  #   sense. 
+  # Interestingly, approx. 55% of the MF tokens are also in the first person. If 
+  #   the MF is considered a marker of uncertainty, then this result makes less 
+  #   sense. However, it might be that grammatical person/certainty is 
+  #   interacting with temporal distance. 
 
 # Temporal distance x Grammatical person
 data_futurity_tidy |>
-  filter(form %in% c("PF", "MF", "PI",reading == "future")) |>
+  filter(form %in% c("PF", "MF", "PI"),reading == "future") |>
   count(temp_dist, gram_pers, form) |>
   group_by(temp_dist, gram_pers) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
-  ungroup()
+  ungroup() |>
+  print(n=44)
 
 data_futurity_tidy |>
   filter(form %in% c("PF", "MF", "PI"),
-         reading == "future",
-         !temp_dist %in% c("nonspecific/distant"),
-         !is.na(temp_dist)) |> 
+         reading == "future")|> 
   mutate(temp_dist = factor(temp_dist,
                             levels = c("immediate", "near", "distant", 
                                        "nonspecific"))) |>
@@ -373,138 +382,62 @@ data_futurity_tidy |>
        x = "Grammatical person", y = "Proportion", fill = "Form") +
   theme_minimal()
 
+# Obs:
+  # The PI seems to be favored in immediate and near contexts, especially in the
+  #   first person. The PI is used to some extent to talk about distant and 
+  #   nonspecific events, basically in 1_sg (perhaps adding some certainty to 
+  #   it?)
+  # The pattern for the MF is almost the opposite. It is near absent in the 
+  #   three specific temporal distances, and present when the event is not 
+  #   temporally anchored. 
+  # The PF is the dominant form throughout.
 
-
-# Check verb class (once the dataset is completed)
-
-# ------------------------------------------------------------------------------
-
-
-
-# ----- 7. Check data distribution: Epistemic reading --------------------------
-# Select epistemic reading and create subset
-modal_readings <- c("concessive", "ep_hedging", "epistemic", "epistemic_dm", 
-                    "inf_cert")
-epistemic_readings <- c("ep_hedging", "epistemic", "epistemic_dm", "inf_cert")
-
-
-data_modality <- data_tidy |> 
-  filter(reading %in% modal_readings)
-
-data_epistemic <- data_tidy |> 
-  filter(reading %in% epistemic_readings)
-
-nrow(data_modality) # 251 modal tokens, of which 226 are somehow epistemic
-nrow(data_epistemic)
-
-
-# See distribution of forms in modal-epistemic reading
-data_epistemic |>
-  filter(form %in% c("PF", "MF")) |>
-  count(form) |>
-  mutate(pct = round(n / sum(n) * 100, 1))
-
-data_epistemic |>
-  filter(form %in% c("PF", "MF")) |>
-  count(form, reading) |>
-  mutate(pct = round(n / sum(n) * 100, 1))
-
-data_epistemic |>
-  filter(form == "PF") |>
-  count(reading) |>
-  mutate(pct = round(n / sum(n) * 100, 1))
-
-data_epistemic |>
-  filter(form == "MF") |>
-  count(reading) |>
-  mutate(pct = round(n / sum(n) * 100, 1))
+# Table: verb class (future reading only)
+data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI")) |>
+  filter(reading == "future") |>
+  count(verb_class) |>
+  mutate(pct = round(n / sum(n) * 100, 1)) |>
+  arrange(desc(n))
 
 # Obs:
-  # Both the PF and the MF are used to express some sort of epistemic modality. 
-  # Of the total of tokens, 78.5% are PFs and 21.5% are MFs.
-  # Within modal reading, most of the PF tokens refer to inferred certainty 
-  #   situations. Importantly, the rest 1.7% is used in an epistemic sense, that 
-  #   is, to express conjecture or doubt in the present tense. This use appears 
-  #   to be innovative and 'incorrect' according to traditional grammars. 
-  # As for the MF, it is mainly used to express probability in the present (66% 
-  #   of the cases). It is also used as a discourse marker (25.5%) and as a means 
-  #   of epistemic hedging (8.5%).
+  # Half of the futurity tokens refer to dynamic (non-motion) verbs.
+  # 20% of the tokens refer to motion verbs.
+  # Almost 30% refer to verbs denoting state: stative (20%), modal (3.5%), 
+  #   psychological (3.2%) and perceptual (2.8%).
+  # 0.2% refer to other, which are presumably dynamic verbs.
 
-# Uses of the PF and the MF
-data_tidy |>
-  filter(form %in% c("MF", "PF")) |>
-  mutate(reading_group = case_when(
-    reading %in% future_readings    ~ "future",
-    reading %in% epistemic_readings ~ "epistemic",
-    TRUE                            ~ "other")) |>
-  count(form, reading_group) |>
-  group_by(form) |> 
-  mutate(pct = round(n / sum(n) * 100, 1)) |> 
+
+# Table: PF, MF, and PI across verb class (future reading only)
+data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI")) |>
+  filter(reading == "future") |>
+  count(verb_class, form) |>
+  group_by(verb_class) |>
+  mutate(pct = round(n / sum(n) * 100, 1)) |>
+  ungroup() #|>
+#arrange(form, desc(n))
+
+# Table: Verb class within form (future reading only)
+data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI")) |>
+  filter(reading == "future") |>
+  count(verb_class, form) |>
+  group_by(form) |>
+  mutate(pct = round(n / sum(n) * 100, 1)) |>
   ungroup() |>
-  mutate(cell = paste0(pct, "% (", n, ")")) |> 
-  select(form, reading_group, cell) |>
-  pivot_wider(names_from = reading_group, values_from = cell)
+  arrange(form, desc(n))
 
 # Obs:
-    # Of all the instances of the MF, 42.5% of the time is used to express 
-    #   futurity, while 38.5% to express epistemic modality. In 23 cases (18.9%) 
-    #   is this form used with a different purpose.
-    # As for the PF, 65.5% of the time is used to express futurity, while 12.3% 
-    #   to express some sort of epistemic modality. The other 22.3% is used with 
-    #   a purpose other than future-time reference and epistemic modality 
-    #   (e.g., habitual). 
+  # Within each specific form, the MF is favored in verbs denoting states, that 
+  #   is, stative (41.7%), modal (8.3%), perception (5.6%), and psychological 
+  #   (2.8) verbs. They account for 58.4% of the MF tokens.
+  # 25% of the tokens are for dynamic (non-motion) verbs and 16.7 for motion 
+  #   verbs.
+  # In the case of the PF, almost 70% of the tokens refer to non-states:
+  #   dynamic (52%) and motion (17.7%) verbs.
+  # As for the PI, almost 90% of the verbs are non-states, especially motion 
+  #   (47.4%). Only 11.6% of the PI tokens are states.
 # ------------------------------------------------------------------------------
 
 
-
-# ----- 8. Most suitable analysis? [Austin] ---------------- -------------------
-# the exact data your RQ2 model will use
-data_rq2 <- data_futurity_tidy |>
-  filter(form %in% c("PF", "MF", "PI"),
-         reading == "future",
-         !temp_dist %in% c("nonspecific/distant"),
-         !is.na(temp_dist))
-
-# missingness across the variables you'll model
-data_rq2 |>
-  select(form, temp_dist, gram_pers, verb_class) |>   # swap in your real predictor names
-  summarise(across(everything(), ~ sum(is.na(.x))))
-
-# smallest cells in the full three-way cross-tab
-data_rq2 |>
-  count(temp_dist, gram_pers, form) |>
-  arrange(n)
-
-data_rq2 |> count(temp_dist, gram_pers, form) |> arrange(n) |> print(n = Inf)
-
-data_rq2 |>
-  count(temp_dist, gram_pers, form) |>
-  summarise(cells_under_5 = sum(n < 5),
-            total_cells   = n())
-
-data_rq2 <- data_rq2 |>
-  mutate(person_grp = case_when(
-    gram_pers %in% c("1_sg", "1_pl") ~ "1st",
-    gram_pers %in% c("2_sg")         ~ "2nd",
-    gram_pers %in% c("3_sg", "3_pl") ~ "3rd",
-    TRUE ~ gram_pers))
-
-# re-check with the collapsed version
-data_rq2 |>
-  count(temp_dist, person_grp, form) |>
-  summarise(under5 = sum(n < 5), total = n())
-
-data_rq2 |>
-  mutate(temp_grp = case_when(
-    temp_dist %in% c("immediate", "near") ~ "proximate",
-    temp_dist %in% c("distant", "nonspecific") ~ "distal",
-    TRUE ~ temp_dist)) |>
-  count(temp_grp, person_grp, form) |>
-  summarise(under5 = sum(n < 5), total = n())
-
-# form × person alone
-data_rq2 |> count(person_grp, form) |> summarise(under5 = sum(n < 5), total = n())
-
-# form × temporal distance alone
-data_rq2 |> count(temp_dist, form) |> summarise(under5 = sum(n < 5), total = n())
-# ------------------------------------------------------------------------------
