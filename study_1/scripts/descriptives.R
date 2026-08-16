@@ -162,10 +162,18 @@ data_futurity_tidy |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
   arrange(desc(n))
 
+data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI"), reading == "future") |>
+  count(form) |>
+  mutate(pct = round(n / sum(n) * 100, 1)) |>
+  arrange(desc(n))
+
 # Obs:
   # When considering only the PF, MF, and PI, there is a total of 1,074 tokens.
-  # Of these, 953 (88.7%) are PF, 78 (or 7.3%) are PI, and 43 (or 4%) are MF. 
+  #   for future-time reference (future and future_hyp). Of these, 953 (88.7%) 
+  #   are PF, 78 (or 7.3%) are PI, and 43 (or 4%) are MF. 
   # 180 tokens belong to structures other than the targets of the study.
+  # 960 are  temporal futures: 846 PF, 78 PI, 36 MF). 
 
 
 # Use of PF, MF, and PI by temporal distance and reading
@@ -438,6 +446,76 @@ data_futurity_tidy |>
   #   dynamic (52%) and motion (17.7%) verbs.
   # As for the PI, almost 90% of the verbs are non-states, especially motion 
   #   (47.4%). Only 11.6% of the PI tokens are states.
+
+
+# Forms across speakers
+total_speakers <- n_distinct(data_futurity_tidy$participant)
+
+data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI"), reading == "future") |>
+  group_by(form) |>
+  summarize(
+    num_tokens    = n(),
+    num_speakers  = n_distinct(participant),
+    pct_speakers = round(100 * num_speakers / total_speakers, 1),
+    tokens_per_speaker = round(num_tokens / num_speakers, 1)) |>
+  ungroup()
+
+# Obs:
+  # MF: 36 tokens produced by 21 speakers (23.9% of speakers in the dataset).
+  # PI: 78 tokens produced by 36 speakers (40.9% of speakers in the dataset).
+  # PF: 846 tokens produced by 86 speakers (97.7% of speakers in the dataset).
 # ------------------------------------------------------------------------------
 
 
+
+# ----- 7. Check data distribution: Modal reading ------------------------------
+# ------------------------------------------------------------------------------
+
+
+
+# ----- 8. Check data distribution: tables for futurity and modality -----------
+# Define the analysis set for temporal futures (excluding future_hyp)
+futurity_set <- data_futurity_tidy |>
+  filter(form %in% c("PF", "MF", "PI"), reading == "future") |>
+  droplevels()
+
+nrow(analysis_set)
+
+# Table: distributions of tokens per speaker + summary of distribution
+futurity_set |>
+  count(participant, name = "n_tokens") |>
+  arrange(n_tokens) |>
+  print(n = 86)
+
+futurity_set |>
+  count(participant, name = "num_tokens") |>
+  summarise(
+    num_speakers   = n(),
+    min = min(num_tokens), median = median(num_tokens),
+    mean = mean(num_tokens), max = max(num_tokens))
+
+# Table: form by temporal distance (futurity)
+futurity_set |>
+  count(form, temp_dist) |>
+  pivot_wider(names_from = temp_dist, values_from = n, values_fill = 0)
+
+# Table: form by grammatical person (futurity)
+futurity_set |>
+  count(form, gram_pers) |>
+  pivot_wider(names_from = gram_pers, values_from = n, values_fill = 0)
+
+# Table: form by verb class (futurity)
+futurity_set |>
+  count(form, verb_class) |>
+  pivot_wider(names_from = verb_class, values_from = n, values_fill = 0)
+
+# Table: form by grammatical person and temporal distance (futurity)
+futurity_set |>
+  mutate(temp_dist = factor(temp_dist,
+                            levels = c("immediate", "near", "distant", "nonspecific"))) |>
+  count(form, gram_pers, temp_dist) |>
+  pivot_wider(names_from = temp_dist, values_from = n, values_fill = 0,
+              names_sort = TRUE) |>
+  arrange(form, gram_pers)
+# ------------------------------------------------------------------------------
