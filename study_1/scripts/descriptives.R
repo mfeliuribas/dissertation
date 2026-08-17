@@ -37,7 +37,7 @@ colnames(data_tidy)
 
 
 
-# ----- 4. Check data distribution: Corpus -------------------------------------
+# ----- 4. Check data distribution: Corpus and Demographics --------------------
 # Tokens by corpus
 data_tidy |>
   count(corpus)
@@ -46,6 +46,53 @@ data_tidy |>
   # Total of 1,821 observations.
   # 1,347 tokens from cesa.
   # 474 tokens from stc.
+
+# Participants by corpus
+data_tidy |>
+  distinct(corpus, participant) |>
+  count(corpus)
+
+# Obs: 
+  # Total of 90 participants.
+  # 48 from cesa.
+  # 42 from stc.
+
+# Age
+data_tidy |>
+  group_by(corpus, participant) |>
+  summarize(age = first(age)) |>
+  summarize(
+    mean_age = mean(age),
+    sd_age   = sd(age),
+    min_age  = min(age),
+    max_age  = max(age))
+
+  # Obs:
+    #   corpus    mean_age    sd_age    min_age    max_age
+    #   cesa       24.7        8.18        18        55
+    #   stc        29.4        13.3        18        59
+
+# Gender
+data_tidy |>
+  group_by(participant, corpus) |>
+  summarize(gender = first(gender), .groups = "drop") |>
+  count(corpus, gender)
+
+  # Obs:
+    # cesa = 30 fem, 18 male
+    # stc =  24 fem, 18 male
+
+# Bilingualism
+data_tidy |>
+  group_by(corpus, participant) |>
+  summarize(type_bil = first(type_bil), .groups = "drop") |>
+  count(corpus, type_bil)
+
+  # Obs:
+    # cesa   seq         35
+    # cesa   sim         13
+    # stc    seq         34
+    # stc    sim          8
 # ------------------------------------------------------------------------------
 
 
