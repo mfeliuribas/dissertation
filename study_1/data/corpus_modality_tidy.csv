@@ -1,0 +1,388 @@
+participant,corpus,token,form,reading,temp_dist,gram_pers,inf,verb_class,adv_spec,adv,polarity,subj_animacy,clause_type,sentence_type,age,gender,type_bil
+001,cesa,hace,PI,lex_form,NA,3_sg,hacer,dynamic,no,NA,positive,animate,subordinate,exclamative,55,fem,sim
+002,cesa,voy a hacer,PF,inf_cert,NA,1_sg,hacer,dynamic,no,NA,negative,animate,main,declarative,20,fem,seq
+002,cesa,va,PI,lex_form,NA,3_sg,ir,motion,no,NA,positive,inanimate,subordinate,exclamative,20,fem,seq
+002,cesa,vas a tener,PF,inf_cert,NA,2_sg,tener,stative,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,voy a seguir,PF,inf_cert,NA,1_sg,seguir,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,vas a ir,PF,inf_cert,NA,2_sg,ir,motion,no,NA,negative,animate,main,declarative,20,fem,seq
+002,cesa,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,vas a ver,PF,inf_cert,NA,2_sg,ver,stative,no,NA,positive,animate,subordinate,declarative,20,fem,seq
+003,cesa,diré,MF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,dirá,MF,epistemic,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,ind_interrogative,23,fem,seq
+003,cesa,voy a estar,PF,inf_cert,NA,1_sg,estar,stative,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,vamos a decir,PF,inf_cert,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,se te van a abrir,PF,inf_cert,NA,3_sg,abrir,dynamic,no,NA,positive,inanimate,main,declarative,23,fem,seq
+003,cesa,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,van a entender,PF,inf_cert,NA,3_pl,entender,stative,no,NA,negative,animate,subordinate,declarative,23,fem,seq
+003,cesa,diré,MF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,diré,MF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,voy a decir,PF,attenuation,NA,1_sg,decir,dynamic,no,NA,negative,animate,subordinate,declarative,23,fem,seq
+004,cesa,pasa,PI,lex_form,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,subordinate,exclamative,43,male,seq
+004,cesa,vamos a ver,PF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,43,male,seq
+004,cesa,vamos a ver,PF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,43,male,seq
+005,cesa,van a saber,PF,inf_cert,NA,3_pl,saber,stative,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,me voy a consuhderir [considerar],PF,concessive,NA,1_sg,considerar,stative,no,NA,negative,animate,main,declarative,20,male,sim
+005,cesa,van a saber,PF,inf_cert,NA,3_pl,saber,stative,no,NA,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,van a hablar [pueden hablar],PF,inf_cert,NA,3_pl,hablar,dynamic,no,NA,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,voy a entender,PF,inf_cert,NA,1_sg,entender,stative,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,vamos a decir,PF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,vamos a decir,PF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,20,male,sim
+006,cesa,pasa,PI,lex_form,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,18,fem,seq
+006,cesa,vas,PI,lex_form,NA,2_sg,ir,motion,no,NA,positive,animate,subordinate,ind_interrogative,18,fem,seq
+006,cesa,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,pasa,PI,lex_form,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,18,fem,seq
+006,cesa,voy a decir,PF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,vas a preguntar,PF,concessive,NA,2_sg,preguntar,dynamic,no,NA,positive,animate,main,interrogative,18,fem,seq
+007,cesa,se me van a cerrar,PF,inf_cert,NA,3_pl,cerrarse,dynamic,no,NA,positive,inanimate,main,declarative,19,fem,seq
+008,cesa,verás,MF,lex_form,NA,2_sg,ver,dynamic,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,33,fem,seq
+008,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,33,fem,seq
+008,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,33,fem,seq
+008,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,33,fem,seq
+008,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,33,fem,seq
+008,cesa,verás,MF,epistemic_dm,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,33,fem,seq
+008,cesa,van a aprender,PF,inf_cert,NA,3_pl,aprender,dynamic,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,van a enseñar,PF,inf_cert,NA,3_pl,enseñar,dynamic,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,verás,MF,epistemic_dm,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,van a entender,PF,inf_cert,NA,3_pl,entender,stative,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,van a entender,PF,inf_cert,NA,3_pl,entender,stative,no,NA,negative,animate,main,declarative,33,fem,seq
+009,cesa,se va a hacer,PF,inf_cert,NA,3_sg,hacerse,stative,no,NA,positive,inanimate,main,declarative,27,fem,sim
+009,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,27,fem,sim
+009,cesa,se van a acordar,PF,inf_cert,NA,3_pl,acordarse,stative,no,NA,positive,animate,main,declarative,27,fem,sim
+009,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,27,fem,sim
+009,cesa,nos vamos a quedar,PF,inf_cert,NA,1_pl,quedarse,stative,no,NA,positive,animate,main,declarative,27,fem,sim
+009,cesa,va a ser,PF,concessive,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,exclamative,27,fem,sim
+009,cesa,va a entrar,PF,inf_cert,NA,3_sg,entrar,motion,no,NA,positive,animate,subordinate,declarative,27,fem,sim
+009,cesa,va a pasársela,PF,inf_cert,NA,3_sg,pasarse,dynamic,no,NA,positive,animate,subordinate,declarative,27,fem,sim
+009,cesa,vas a escuchar,PF,inf_cert,NA,2_sg,escuchar,stative,no,NA,positive,animate,main,declarative,27,fem,sim
+009,cesa,voy a entender,PF,concessive,NA,1_sg,entender,stative,no,NA,negative,animate,main,exclamative,27,fem,sim
+010,cesa,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,yes_nonspec,cuando yo entregue mi currículum o cuando yo esté aplicando en otros lugares,positive,animate,main,declarative,24,fem,seq
+010,cesa,vas a ver,PF,lex_form,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,24,fem,seq
+011,cesa,se van a enamorar,PF,inf_cert,NA,3_pl,enamorarse,stative,no,NA,positive,animate,subordinate,declarative,49,fem,seq
+012,cesa,vamos a ver,PF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,22,fem,seq
+012,cesa,vas a creer,PF,epistemic_dm,NA,2_sg,creer,stative,no,NA,negative,animate,main,declarative,22,fem,seq
+012,cesa,vas a encontrar,PF,concessive,NA,2_sg,encontrar,dynamic,no,NA,positive,animate,main,interrogative,22,fem,seq
+012,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,interrogative,22,fem,seq
+012,cesa,va a hacerlo,PF,concessive,NA,3_sg,hacer,dynamic,no,NA,positive,animate,main,interrogative,22,fem,seq
+013,cesa,van a estar,PF,inf_cert,NA,3_pl,estar,stative,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,van a ser,PF,inf_cert,NA,3_pl,ser,stative,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,van a tratar,PF,inf_cert,NA,3_pl,tratar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,va a reaccionar,PF,inf_cert,NA,3_sg,reaccionar,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,25,male,seq
+013,cesa,vas a decir,PF,inf_cert,NA,2_sg,decir,dynamic,no,NA,negative,animate,subordinate,declarative,25,male,seq
+013,cesa,voy a echar,PF,epistemic_dm,NA,1_sg,echar,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,vas a conseguir,PF,inf_cert,NA,2_sg,conseguir,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,no,NA,negative,inanimate,main,declarative,25,male,seq
+013,cesa,va a seguir,PF,inf_cert,NA,3_sg,seguir viviendo,stative,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,vas a llegar,PF,inf_cert,NA,2_sg,llegar,motion,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,vas a decir,PF,inf_cert,NA,2_sg,decir,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,25,male,seq
+013,cesa,vas a arreglar,PF,concessive,NA,2_sg,arreglar,dynamic,no,NA,positive,animate,main,interrogative,25,male,seq
+013,cesa,van a ser,PF,concessive,NA,3_pl,ser,stative,no,NA,positive,inanimate,main,interrogative,25,male,seq
+013,cesa,se va a arreglar,PF,concessive,NA,3_sg,arreglar,dynamic,no,NA,positive,inanimate,main,declarative,25,male,seq
+013,cesa,vas a ver,PF,concessive,NA,2_sg,ver,stative,no,NA,positive,animate,main,interrogative,25,male,seq
+013,cesa,será,MF,epistemic,NA,3_sg,ser,stative,yes_spec,ahora,positive,inanimate,main,declarative,25,male,seq
+013,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,yes_nonspec,todo el tiempo [siempre],positive,inanimate,subordinate,declarative,25,male,seq
+013,cesa,va a hablar,PF,inf_cert,NA,3_sg,hablar,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,25,male,seq
+013,cesa,van a hablar,PF,inf_cert,NA,3_pl,hablar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,van a hablar,PF,inf_cert,NA,3_pl,hablar,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,vas a aprender,PF,inf_cert,NA,2_sg,aprender,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,vas a practicar,PF,inf_cert,NA,2_sg,practicar,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,25,male,seq
+013,cesa,van a entender,PF,inf_cert,NA,3_sg,entender,stative,no,NA,negative,animate,subordinate,declarative,25,male,seq
+013,cesa,vamos a hablar,PF,exhortative,NA,1_pl,hablar,dynamic,no,NA,positive,animate,subordinate,declarative,25,male,seq
+013,cesa,vamos a juntarnos,PF,exhortative,NA,1_pl,juntarse,motion,no,NA,positive,animate,subordinate,declarative,25,male,seq
+013,cesa,vamos a hacer,PF,exhortative,NA,1_pl,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,25,male,seq
+013,cesa,vamos a hacer,PF,exhortative,NA,1_pl,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,25,male,seq
+014,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,fem,seq
+014,cesa,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+014,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,21,fem,seq
+014,cesa,tendrás,MF,inf_cert,NA,2_sg,tener,stative,no,NA,positive,animate,main,declarative,21,fem,seq
+014,cesa,van a clasificar,PF,inf_cert,NA,3_pl,clasificar,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+014,cesa,vamos a saber,PF,concessive,NA,1_pl,saber,stative,no,NA,positive,animate,main,interrogative,21,fem,seq
+015,cesa,dirá,MF,epistemic,NA,3_sg,decir,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,24,fem,seq
+015,cesa,vamos a comprar,PF,exhortative,NA,1_pl,comprar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,vamos a hacer,PF,exhortative,NA,1_pl,hacer,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,verás,MF,lex_form,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,vamos a meter,PF,exhortative,NA,1_pl,meter,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,vamos a casarnos,PF,exhortative,NA,1_pl,casarse,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,vamos a casarnos,PF,exhortative,NA,1_pl,casarse,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,vas a pensar,PF,inf_cert,NA,2_sg,pensar,stative,yes_spec,ahora,positive,animate,main,declarative,24,fem,seq
+015,cesa,vas a viajar,PF,inf_cert,NA,2_sg,viajar,dynamic,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,yes_nonspec,siempre,positive,inanimate,main,declarative,24,fem,seq
+015,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+015,cesa,va a hablar,PF,inf_cert,NA,3_sg,hablar,dynamic,no,NA,negative,animate,subordinate,declarative,24,fem,seq
+015,cesa,va a hablar,PF,inf_cert,NA,3_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+016,cesa,vas a vivir,PF,inf_cert,NA,2_sg,vivir,stative,yes_nonspec,muchas veces,positive,animate,main,declarative,21,fem,sim
+016,cesa,vas a tener,PF,inf_cert,NA,2_sg,tener,stative,no,NA,negative,animate,main,declarative,21,fem,sim
+016,cesa,van a enseñar,PF,inf_cert,NA,3_pl,enseñar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+016,cesa,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+016,cesa,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+017,cesa,voy a querer tener,PF,concessive,NA,1_sg,querer,modal,no,NA,positive,animate,main,interrogative,19,fem,sim
+017,cesa,vas a tener,PF,inf_cert,NA,2_sg,tener,stative,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,vas a respetar,PF,inf_cert,NA,2_sg,respetar,stative,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,vas a estar,PF,inf_cert,NA,2_sg,estar,stative,no,NA,positive,animate,main,declarative,19,fem,sim
+019,cesa,va a pasar,PF,inf_cert,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,main,declarative,24,male,seq
+019,cesa,vas a caminar,PF,inf_cert,NA,2_sg,caminar,motion,no,NA,positive,animate,subordinate,declarative,24,male,seq
+019,cesa,van a asaltar,PF,inf_cert,NA,3_pl,asaltar,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+019,cesa,va a entrar,PF,inf_cert,NA,3_sg,entrar,motion,no,NA,negative,animate,main,declarative,24,male,seq
+019,cesa,se va a lastimar,PF,inf_cert,NA,3_sg,lastimarse,dynamic,no,NA,negative,animate,subordinate,declarative,24,male,seq
+019,cesa,va a robar,PF,inf_cert,NA,3_sg,robar,dynamic,no,NA,negative,animate,subordinate,declarative,24,male,seq
+019,cesa,voy a quitar,PF,inf_cert,NA,1_sg,quitar,dynamic,no,NA,negative,animate,main,declarative,24,male,seq
+019,cesa,vamos a pistear,PF,exhortative,NA,1_pl,pistear,dynamic,no,NA,positive,animate,main,exclamative,24,male,seq
+019,cesa,va a venir,PF,inf_cert,NA,3_sg,venir,motion,no,NA,positive,animate,subordinate,declarative,24,male,seq
+019,cesa,vamos a hacer,PF,exhortative,NA,1_pl,hacer,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,voy a venir,PF,inf_cert,NA,1_sg,venir,motion,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,voy a tratar,PF,inf_cert,NA,1_sg,tratar,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+019,cesa,voy a decir,PF,inf_cert,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,no,para siempre,positive,inanimate,main,declarative,24,male,seq
+020,cesa,vamos a tomar,PF,exhortative,NA,1_pl,tomar,dynamic,no,NA,positive,animate,main,declarative,25,fem,seq
+020,cesa,van a estar [batallando],PF,inf_cert,NA,3_pl,estar,stative,no,NA,positive,animate,main,declarative,25,fem,seq
+020,cesa,vamos a comer,PF,exhortative,NA,1_pl,comer,dynamic,no,NA,positive,animate,main,declarative,25,fem,seq
+020,cesa,va a salir,PF,inf_cert,NA,3_sg,salir,motion,no,NA,positive,animate,subordinate,declarative,25,fem,seq
+020,cesa,vas a buscar,PF,inf_cert,NA,2_sg,buscar,dynamic,no,NA,negative,animate,main,declarative,25,fem,seq
+020,cesa,voy a estar [contestando],PF,inf_cert,NA,1_sg,estar,stative,no,NA,negative,animate,subordinate,declarative,25,fem,seq
+020,cesa,vamos a casarnos,PF,exhortative,NA,1_pl,casarse,dynamic,no,NA,positive,animate,main,declarative,25,fem,seq
+021,cesa,vamos a ver,PF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,25,male,sim
+021,cesa,se van a parar,PF,inf_cert,NA,3_pl,parar,dynamic,no,NA,positive,animate,main,declarative,25,male,sim
+021,cesa,va a ser,PF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,25,male,sim
+021,cesa,voy a decir,PF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,25,male,sim
+022,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,25,male,seq
+022,cesa,hago,PI,lex_form,NA,1_sg,hacer,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,25,male,seq
+022,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,25,male,seq
+022,cesa,va a durar,PF,inf_cert,NA,3_sg,durar,stative,no,NA,positive,inanimate,main,declarative,25,male,seq
+022,cesa,va a empezar,PF,inf_cert,NA,3_sg,empezar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,va a salir,PF,concessive,NA,3_sg,salir,motion,no,NA,negative,inanimate,main,interrogative,25,male,seq
+022,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,25,male,seq
+022,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,25,male,seq
+023,cesa,vamos a salir,PF,exhortative,NA,1_pl,salir,motion,no,NA,positive,animate,main,declarative,30,fem,sim
+023,cesa,voy a escribir,PF,concessive,NA,1_sg,escribir,dynamic,no,NA,positive,animate,main,interrogative,30,fem,sim
+023,cesa,vas a enseñar,PF,concessive,NA,2_sg,enseñar,dynamic,no,NA,positive,animate,main,interrogative,30,fem,sim
+023,cesa,voy a tener,PF,inf_cert,NA,1_sg,tener,stative,no,NA,positive,animate,main,declarative,30,fem,sim
+023,cesa,vas a conocer,PF,inf_cert,NA,2_sg,conocer,stative,yes_nonspec,jamás,negative,animate,main,declarative,30,fem,sim
+024,cesa,va a conocer,PF,inf_cert,NA,3_sg,conocer,stative,no,NA,positive,animate,main,declarative,32,male,sim
+024,cesa,va a hacer,PF,inf_cert,NA,3_sg,hacer,stative,no,NA,positive,inanimate,subordinate,declarative,32,male,sim
+025,cesa,van a estar [agarrando],PF,inf_cert,NA,3_pl,estar,stative,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,voy a estar [tomando],PF,inf_cert,NA,1_sg,estar,stative,no,NA,negative,animate,main,declarative,22,male,seq
+026,cesa,van a seguir hablando,PF,inf_cert,NA,3_pl,seguir hablando,dynamic,no,NA,positive,animate,main,declarative,32,fem,seq
+026,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,32,fem,seq
+026,cesa,van a subir,PF,inf_cert,NA,3_pl,subir,motion,no,NA,positive,animate,subordinate,declarative,32,fem,seq
+026,cesa,voy a mirar,PF,inf_cert,NA,1_sg,mirar,stative,no,NA,negative,animate,subordinate,declarative,32,fem,seq
+026,cesa,va a mirar,PF,inf_cert,NA,3_sg,mirar,stative,no,NA,negative,animate,subordinate,declarative,32,fem,seq
+026,cesa,van a ir,PF,inf_cert,NA,3_pl,ir,motion,no,NA,positive,animate,main,declarative,32,fem,seq
+027,cesa,vas a criar,PF,inf_cert,NA,2_sg,criar,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+028,cesa,vas a necesitar,PF,inf_cert,NA,2_sg,necesitar,stative,no,NA,positive,animate,subordinate,declarative,20,male,seq
+028,cesa,vas a trabajar,PF,inf_cert,NA,2_sg,trabajar,dynamic,no,NA,negative,animate,main,declarative,20,male,seq
+028,cesa,vas a trabajar,PF,inf_cert,NA,2_sg,trabajar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+028,cesa,vas a soñar,PF,inf_cert,NA,2_sg,soñar,stative,no,NA,positive,animate,subordinate,declarative,20,male,seq
+028,cesa,va a afectar,PF,inf_cert,NA,3_sg,afectar,dynamic,yes_nonspec,en el futuro,positive,inanimate,subordinate,declarative,20,male,seq
+028,cesa,se va a necesitar,PF,inf_cert,NA,3_sg,necesitarse,stative,no,NA,positive,inanimate,subordinate,declarative,20,male,seq
+029,cesa,vas a ser,PF,inf_cert,NA,2_sg,ser,stative,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,vamos a meter,PF,exhortative,NA,1_pl,meter,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,vamos a hacer,PF,exhortative,NA,1_pl,hacer,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,van a ir,PF,inf_cert,NA,3_pl,ir,motion,no,NA,positive,animate,subordinate,declarative,29,fem,seq
+029,cesa,vamos a entender,PF,inf_cert,NA,1_pl,entender,stative,no,NA,positive,animate,main,declarative,29,fem,seq
+030,cesa,va a golpear,PF,inf_cert,NA,3_sg,golpear,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,va a estar,PF,epistemic,NA,3_sg,estar,stative,no,NA,positive,inanimate,subordinate,declarative,24,male,seq
+030,cesa,van a dejar,PF,inf_cert,NA,3_pl,dejar,dynamic,no,NA,negative,animate,main,declarative,24,male,seq
+030,cesa,vamos a comer,PF,exhortative,NA,1_pl,comer,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,van a entender,PF,inf_cert,NA,3_pl,entender,stative,no,NA,negative,animate,main,declarative,24,male,seq
+030,cesa,van a entender,PF,inf_cert,NA,3_pl,entender,stative,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,sabré,MF,attenuation,NA,1_sg,saber,stative,no,NA,negative,animate,main,declarative,24,male,seq
+030,cesa,sabré,MF,attenuation,NA,1_sg,saber,stative,no,NA,negative,animate,main,declarative,24,male,seq
+030,cesa,voy a morir,PF,inf_cert,NA,1_sg,morir,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,mantendrá,MF,inf_cert,NA,3_sg,mantener,stative,no,NA,positive,inanimate,subordinate,declarative,24,male,seq
+031,cesa,va a saber,PF,inf_cert,NA,3_sg,saber,stative,no,NA,negative,animate,main,declarative,20,male,seq
+031,cesa,va a querer ir,PF,concessive,NA,3_sg,querer ir,modal,no,NA,positive,animate,main,interrogative,20,male,seq
+031,cesa,verás,MF,lex_form,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,va a salir,PF,inf_cert,NA,3_sg,salir,motion,no,NA,positive,inanimate,subordinate,declarative,20,male,seq
+031,cesa,se te va a quebrar,PF,concessive,NA,3_sg,quebrarse,dynamic,no,NA,positive,inanimate,main,interrogative,20,male,seq
+031,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,20,male,seq
+031,cesa,verás,MF,lex_form,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,[me] voy a [enamorar],PF,inf_cert,NA,1_sg,enamorarse,stative,no,NA,negative,animate,main,declarative,20,male,seq
+031,cesa,verás,MF,lex_form,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,20,male,seq
+032,cesa,vamos a ocupar,PF,concessive,NA,1_pl,ocupar,stative,no,NA,positive,animate,subordinate,ind_interrogative,21,male,seq
+032,cesa,va a haber,PF,inf_cert,NA,3_sg,haber,stative,yes_nonspec,siempre,positive,inanimate,subordinate,declarative,21,male,seq
+032,cesa,va a decir,PF,inf_cert,NA,3_sg,decir,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+033,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,20,fem,sim
+034,cesa,vamos a ver,PF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,21,male,seq
+034,cesa,vas a sufrir,PF,inf_cert,NA,2_sg,sufrir,stative,no,NA,positive,animate,main,declarative,21,male,seq
+034,cesa,vas a aprender,PF,inf_cert,NA,2_sg,aprender,dynamic,no,NA,negative,animate,main,declarative,21,male,seq
+034,cesa,vamos a leer,PF,inf_cert,NA,1_pl,leer,dynamic,no,NA,negative,animate,main,declarative,21,male,seq
+035,cesa,van a pensar,PF,inf_cert,NA,3_pl,pensar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,vas a encontrar,PF,inf_cert,NA,2_sg,encontrar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,vas a vivir,PF,inf_cert,NA,2_sg,vivir,stative,no,NA,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,vas a encontrar,PF,inf_cert,NA,2_sg,encontrar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,va a seguir,PF,inf_cert,NA,3_sg,seguir,stative,yes_spec,cinco o diez años,negative,inanimate,subordinate,declarative,20,male,seq
+035,cesa,vas a perder,PF,inf_cert,NA,2_sg,perder,dynamic,no,NA,negative,animate,subordinate,declarative,20,male,seq
+035,cesa,vas a perder,PF,inf_cert,NA,2_sg,perder,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,vas a decir,PF,inf_cert,NA,2_sg,decir,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,se va a caer,PF,inf_cert,NA,3_sg,caerse,motion,no,NA,positive,inanimate,main,declarative,20,male,seq
+035,cesa,vas a ir,PF,inf_cert,NA,2_sg,ir,motion,no,NA,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,van a robar,PF,inf_cert,NA,3_pl,robar,dynamic,no,NA,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,vamos a hablar,PF,exhortative,NA,1_pl,hablar,dynamic,no,NA,negative,animate,main,declarative,20,male,seq
+035,cesa,voy a hacer,PF,concessive,NA,1_sg,hacer,dynamic,no,NA,positive,animate,main,interrogative,20,male,seq
+036,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,21,fem,seq
+037,cesa,dirá,MF,epistemic,NA,3_sg,decir,dynamic,no,NA,positive,inanimate,main,interrogative,19,fem,seq
+037,cesa,harán,MF,epistemic,NA,3_pl,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,dirá,MF,epistemic,NA,3_sg,decir,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,19,fem,seq
+037,cesa,van a entender,PF,inf_cert,NA,3_pl,entender,stative,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,dirá,MF,epistemic,NA,3_sg,decir,dynamic,no,NA,positive,inanimate,main,interrogative,19,fem,seq
+038,cesa,vamos a jugar,PF,exhortative,NA,1_pl,jugar,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,vamos a comer,PF,exhortative,NA,1_pl,comer,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,vamos a decirlo,PF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,voy a poner,PF,concessive,NA,1_sg,poner,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+038,cesa,voy a pagarlo,PF,concessive,NA,1_sg,pagar,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+039,cesa,[se] van a burlar,PF,inf_cert,NA,3_pl,burlarse,stative,no,NA,positive,animate,main,declarative,21,fem,seq
+039,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,21,fem,seq
+039,cesa,va a querer,PF,concessive,NA,3_sg,querer,stative,no,NA,positive,animate,main,interrogative,21,fem,seq
+039,cesa,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+039,cesa,voy a empezar a hablar,PF,inf_cert,NA,1_sg,empezar,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+040,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,25,male,sim
+040,cesa,va a ser,PF,inf_cert,NA,3_sg,ser,stative,no,NA,positive,animate,main,declarative,25,male,sim
+041,cesa,sabré,MF,attenuation,NA,1_sg,saber,stative,no,NA,negative,animate,main,declarative,19,male,sim
+041,cesa,van a dar,PF,inf_cert,NA,3_pl,dar,dynamic,no,NA,positive,animate,subordinate,declarative,19,male,sim
+041,cesa,va a hacer,PF,inf_cert,NA,3_pl,hacer,stative,no,NA,positive,inanimate,main,declarative,19,male,sim
+041,cesa,sabrán,MF,epistemic,NA,3_pl,saber,stative,no,NA,positive,animate,subordinate,declarative,19,male,sim
+042,cesa,voy a estar,PF,inf_cert,NA,1_sg,estar,stative,no,NA,negative,animate,subordinate,declarative,23,male,seq
+042,cesa,tendrá,MF,epistemic,NA,3_sg,tener,stative,no,NA,positive,animate,main,interrogative,23,male,seq
+042,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,interrogative,23,male,seq
+042,cesa,pasa,PI,lex_form,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,23,male,seq
+042,cesa,estará,MF,epistemic,NA,3_sg,estar,stative,no,NA,positive,animate,main,declarative,23,male,seq
+043,cesa,vamos a caminar,PF,exhortative,NA,1_pl,caminar,motion,no,NA,positive,animate,main,declarative,18,fem,seq
+043,cesa,vamos a ver,PF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,18,fem,seq
+043,cesa,vas a creer,PF,epistemic_dm,NA,2_sg,creer,stative,no,NA,negative,animate,main,declarative,18,fem,seq
+044,cesa,me voy a quedar,PF,concessive,NA,1_sg,quedarse,stative,no,NA,positive,animate,main,declarative,21,fem,sim
+045,cesa,me va a gustar,PF,inf_cert,NA,3_sg,gustar,stative,no,NA,positive,inanimate,main,declarative,46,fem,seq
+045,cesa,verás,MF,lex_form,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,46,fem,seq
+045,cesa,voy a decir,PF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,46,fem,seq
+045,cesa,vamos a decir,PF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,46,fem,seq
+045,cesa,voy a decir,PF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,46,fem,seq
+045,cesa,voy a escuchar,PF,inf_cert,NA,1_sg,escuchar,stative,no,NA,positive,animate,subordinate,declarative,46,fem,seq
+046,cesa,vamos a aprender,PF,exhortative,NA,1_pl,aprender,dynamic,no,NA,positive,animate,main,declarative,23,male,seq
+047,cesa,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+047,cesa,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,18,fem,seq
+047,cesa,van a tener,PF,inf_cert,NA,3_pl,tener,stative,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+047,cesa,vas a encontrar,PF,inf_cert,NA,2_sg,encontrar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,vamos a rezar,PF,exhortative,NA,1_pl,rezar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,vamos a comer,PF,exhortative,NA,1_pl,comer,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,vamos a rezar,PF,exhortative,NA,1_pl,rezar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,estarán haciendo,MF,epistemic,NA,3_pl,estar,stative,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+047,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,18,fem,seq
+048,cesa,serán,MF,epistemic,NA,3_pl,ser,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+049,stc,van a enfermar,PF,concessive,NA,3_pl,enfermar,dynamic,no,NA,positive,animate,main,interrogative,59,male,seq
+049,stc,vamos a darle,PF,exhortative,NA,1_pl,dar,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy a ver,PF,lex_form,NA,1_sg,ver,stative,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,vamos a cruzar,PF,exhortative,NA,1_pl,cruzar,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,vamos a cruzar,PF,exhortative,NA,1_pl,cruzar,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,verás,MF,lex_form,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,vamos a darle,PF,exhortative,NA,1_pl,ir a dar,motion,no,NA,positive,animate,main,declarative,59,male,seq
+050,stc,veremos,MF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,22,fem,seq
+050,stc,va,PI,lex_form,NA,3_sg,ir,motion,no,NA,positive,inanimate,subordinate,ind_interrogative,22,fem,seq
+051,stc,va a haber,PF,inf_cert,NA,3_sg,haber,stative,yes_nonspec,siempre,positive,inanimate,subordinate,declarative,18,fem,seq
+051,stc,va a meter,PF,inf_cert,NA,3_sg,meter,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+051,stc,recordarán,MF,epistemic,NA,3_pl,recordar,stative,no,NA,positive,animate,main,interrogative,18,fem,seq
+051,stc,va a entender,PF,inf_cert,NA,3_sg,entender,stative,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+051,stc,vas a poner,PF,inf_cert,NA,2_sg,poner,dynamic,no,NA,negative,animate,main,declarative,18,fem,seq
+051,stc,va a ser,PF,inf_cert,NA,3_sg,ser,stative,yes_nonspec,siempre,positive,inanimate,main,declarative,18,fem,seq
+051,stc,va a haber,PF,inf_cert,NA,3_sg,haber,stative,yes_nonspec,siempre,positive,inanimate,main,declarative,18,fem,seq
+051,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,18,fem,seq
+051,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,declarative,18,fem,seq
+052,stc,vas a conocer,PF,inf_cert,NA,2_sg,conocer,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+053,stc,vamos a pagar,PF,exhortative,NA,1_pl,pagar,dynamic,no,NA,positive,animate,main,declarative,43,fem,seq
+053,stc,va a seguir,PF,inf_cert,NA,3_sg,seguir,dynamic,no,NA,positive,animate,main,declarative,43,fem,seq
+054,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,23,male,seq
+054,stc,serán,MF,epistemic,NA,3_pl,ser,stative,no,NA,positive,inanimate,subordinate,declarative,23,male,seq
+054,stc,serán,MF,epistemic,NA,3_pl,ser,stative,no,NA,positive,inanimate,subordinate,declarative,23,male,seq
+054,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,declarative,23,male,seq
+054,stc,vas a pensar,PF,inf_cert,NA,2_sg,pensar,stative,no,NA,positive,animate,main,declarative,23,male,seq
+056,stc,vamos a decir,PF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+056,stc,vamos a hacer,PF,inf_cert,NA,1_pl,hacer,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+057,stc,diré,MF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,47,male,seq
+057,stc,vas a encontrar,PF,inf_cert,NA,2_sg,encontrar,dynamic,no,NA,positive,animate,subordinate,declarative,47,male,seq
+057,stc,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,47,male,seq
+057,stc,vas a confrontar,PF,inf_cert,NA,2_sg,confrontar,dynamic,no,NA,positive,animate,subordinate,declarative,47,male,seq
+057,stc,vas a conocer,PF,inf_cert,NA,2_sg,conocer,stative,no,NA,positive,animate,subordinate,declarative,47,male,seq
+057,stc,va a ayudar,PF,inf_cert,NA,2_sg,ayudar,dynamic,no,NA,positive,inanimate,main,declarative,47,male,seq
+057,stc,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,47,male,seq
+057,stc,va a haber,PF,inf_cert,NA,3_sg,haber,stative,yes_nonspec,siempre,positive,inanimate,subordinate,declarative,47,male,seq
+057,stc,te va a dar,PF,concessive,NA,3_sg,dar,dynamic,no,NA,positive,inanimate,main,interrogative,47,male,seq
+057,stc,va a pasar,PF,inf_cert,NA,3_sg,pasar,dynamic,yes_spec,hoy,positive,inanimate,subordinate,declarative,47,male,seq
+057,stc,vas a aprender,PF,inf_cert,NA,2_sg,aprender,dynamic,no,NA,positive,animate,subordinate,declarative,47,male,seq
+057,stc,va a pasar,PF,inf_cert,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,main,declarative,47,male,seq
+058,stc,vas a aprender,PF,inf_cert,NA,2_sg,aprender,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,vas a entender,PF,inf_cert,NA,2_sg,entender,stative,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,vas a aprender,PF,inf_cert,NA,2_sg,aprender,dynamic,yes_nonspec,nunca,negative,animate,main,declarative,21,male,seq
+058,stc,va a ser,PF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+059,stc,va a haber,PF,inf_cert,NA,3_sg,haber,stative,yes_nonspec,siempre,positive,inanimate,main,declarative,20,fem,seq
+059,stc,va a discriminar,PF,inf_cert,NA,3_sg,discriminar,dynamic,no,NA,positive,animate,subordinate,declarative,20,fem,seq
+059,stc,seré,MF,concessive,NA,1_sg,ser,stative,no,NA,negative,animate,main,declarative,20,fem,seq
+059,stc,voy a mentir,PF,epistemic_dm,NA,1_sg,mentir,dynamic,no,NA,negative,animate,main,declarative,20,fem,seq
+059,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,declarative,20,fem,seq
+059,stc,va a ser,PF,inf_cert,NA,3_sg,ser,stative,yes_spec,cuando te mueres,positive,inanimate,main,declarative,20,fem,seq
+059,stc,voy a mentir,PF,epistemic_dm,NA,1_sg,mentir,dynamic,no,NA,negative,animate,main,declarative,20,fem,seq
+061,stc,me voy a llamar,PF,inf_cert,NA,1_sg,llamarse,dynamic,no,NA,positive,animate,main,declarative,23,fem,sim
+062,stc,va a estar,PF,inf_cert,NA,3_sg,estar,stative,no,NA,positive,animate,main,declarative,18,fem,seq
+062,stc,va a estar,PF,inf_cert,NA,3_sg,estar,stative,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+063,stc,vamos a ver,PF,lex_form,NA,1_pl,ver,stative,no,NA,positive,animate,main,declarative,29,male,sim
+063,stc,se va a pegar,PF,inf_cert,NA,3_sg,pegarse,dynamic,no,NA,positive,inanimate,subordinate,declarative,29,male,sim
+064,stc,va a seguir,PF,inf_cert,NA,3_sg,seguir,dynamic,no,NA,positive,inanimate,main,declarative,18,fem,sim
+065,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,56,fem,seq
+066,stc,van a corregir,PF,inf_cert,NA,3_pl,corregir,dynamic,no,NA,positive,animate,subordinate,declarative,36,fem,seq
+066,stc,se van a burlar,PF,inf_cert,NA,3_pl,burlarse,stative,no,NA,positive,animate,subordinate,declarative,36,fem,seq
+067,stc,pasa,PI,lex_form,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,22,male,seq
+067,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,22,male,seq
+067,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,subordinate,declarative,22,male,seq
+067,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,22,male,seq
+067,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,22,male,seq
+068,stc,vas a poder comunicarte,PF,inf_cert,NA,2_sg,poder comunicarse,modal,no,NA,positive,animate,main,declarative,19,fem,sim
+069,stc,será,MF,epistemic,NA,3_sg,ser,stative,no,NA,positive,inanimate,main,declarative,52,fem,seq
+069,stc,diré,MF,epistemic_dm,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,interrogative,52,fem,seq
+069,stc,tendré,MF,epistemic,NA,1_sg,tener,stative,no,NA,positive,animate,main,declarative,52,fem,seq
+069,stc,dirán,MF,inf_cert,NA,3_pl,decir,dynamic,no,NA,positive,animate,main,declarative,52,fem,seq
+069,stc,voy a decir,PF,inf_cert,NA,1_sg,decir,dynamic,no,NA,negative,animate,main,declarative,52,fem,seq
+070,stc,pensaré,MF,inf_cert,NA,1_sg,pensar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+071,stc,vas a ver,PF,epistemic_dm,NA,2_sg,ver,stative,no,NA,positive,animate,main,declarative,20,male,seq
+073,stc,van a llevar,PF,inf_cert,NA,3_pl,llevar,motion,no,NA,negative,inanimate,subordinate,declarative,19,male,seq
+073,stc,va a llevar,PF,inf_cert,NA,3_sg,llevar,motion,no,NA,negative,inanimate,subordinate,declarative,19,male,seq
+073,stc,va a tener que quedarse,PF,inf_cert,NA,3_sg,tener que quedarse,modal,no,NA,positive,animate,subordinate,declarative,19,male,seq
+074,stc,se van a oír,PF,inf_cert,NA,3_pl,oírse,stative,no,NA,positive,animate,subordinate,declarative,20,male,seq
+077,stc,va a pasar,PF,inf_cert,NA,3_sg,pasar,dynamic,no,NA,positive,inanimate,main,declarative,22,male,seq
+077,stc,va a mixtear,PF,inf_cert,NA,3_sg,mixtear,dynamic,no,NA,positive,inanimate,main,declarative,22,male,seq
+077,stc,te vas a sentir,PF,inf_cert,NA,2_sg,sentirse,stative,no,NA,negative,animate,subordinate,declarative,22,male,seq
+077,stc,vas a poder ver,PF,inf_cert,NA,2_sg,poder ver,modal,no,NA,positive,animate,subordinate,declarative,22,male,seq
+078,stc,voy a poder decir,PF,inf_cert,NA,1_sg,decir,dynamic,no,NA,negative,animate,subordinate,declarative,22,fem,seq
+078,stc,se va a encontrar,PF,inf_cert,NA,3_sg,encontrarse,dynamic,yes_nonspec,siempre,positive,inanimate,main,declarative,22,fem,seq
+078,stc,van a poder ir a hacer,PF,inf_cert,NA,3_pl,poder ir,modal,no,NA,negative,animate,main,declarative,22,fem,seq
+078,stc,voy a hablarles,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+081,stc,diré,MF,attenuation,NA,1_sg,decir,dynamic,no,NA,positive,animate,main,declarative,56,fem,sim
+084,stc,vas a entender,PF,inf_cert,NA,2_sg,entender,stative,no,NA,negative,animate,main,declarative,50,fem,seq
+084,stc,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,no,NA,positive,animate,main,declarative,50,fem,seq
+084,stc,va a ir,PF,inf_cert,NA,3_sg,ir,motion,no,NA,positive,inanimate,subordinate,declarative,50,fem,seq
+084,stc,van a decir,PF,inf_cert,NA,3_pl,decir,dynamic,no,NA,positive,animate,main,declarative,50,fem,seq
+085,stc,se va a aprender,PF,inf_cert,NA,3_sg,aprenderse,dynamic,no,NA,positive,inanimate,main,declarative,22,fem,seq
+086,stc,diremos,MF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,voy a hacer,PF,inf_cert,NA,1_sg,hacer,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,voy a seguir,PF,inf_cert,NA,1_sg,seguir,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,voy a hablar,PF,inf_cert,NA,1_sg,hablar,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,diremos,MF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,diremos,MF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,diremos,MF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,diremos,MF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,se nos van a presentar,PF,inf_cert,NA,3_pl,presentarse,dynamic,no,NA,positive,inanimate,subordinate,declarative,36,fem,seq
+088,stc,va a ser,PF,concessive,NA,3_sg,ser,stative,no,NA,negative,inanimate,main,declarative,38,male,seq
+089,stc,se va a reflejar,PF,inf_cert,NA,3_sg,reflejar,dynamic,no,NA,positive,inanimate,main,declarative,19,male,seq
+089,stc,va a haber,PF,inf_cert,NA,3_sg,haber,stative,yes_nonspec,siempre,positive,inanimate,main,declarative,19,male,seq
+089,stc,vamos a ser,PF,inf_cert,NA,1_pl,ser,stative,yes_nonspec,siempre,positive,animate,main,declarative,19,male,seq
+089,stc,van a venir,PF,inf_cert,NA,3_pl,venir,motion,no,NA,positive,animate,subordinate,declarative,19,male,seq
+089,stc,va a hacer,PF,inf_cert,NA,3_sg,hacer,dynamic,no,NA,positive,inanimate,main,declarative,19,male,seq
+090,stc,vamos a decir,PF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,35,male,seq
+090,stc,vamos a decir,PF,lex_form,NA,1_pl,decir,dynamic,no,NA,positive,animate,main,declarative,35,male,seq
+090,stc,va a utilitzar,PF,inf_cert,NA,3_sg,utilizar,dynamic,no,NA,positive,animate,main,declarative,35,male,seq
+090,stc,se van a tratar,PF,inf_cert,NA,3_pl,tratarse,dynamic,no,NA,positive,animate,main,declarative,35,male,seq

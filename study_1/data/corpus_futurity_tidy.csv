@@ -1,0 +1,1254 @@
+participant,corpus,token,form,reading,temp_dist,gram_pers,inf,verb_class,adv_spec,adv,polarity,subj_animacy,clause_type,sentence_type,age,gender,type_bil
+001,cesa,tenemos que hacerlos,lex_futures,future,near,1pers,tener que hacer,modal,yes_spec,ahora,positive,animate,main,declarative,55,fem,sim
+001,cesa,van a seguir,PF,future,near,3pers,seguir,dynamic,no,NA,negative,inanimate,subordinate,declarative,55,fem,sim
+001,cesa,tenemos que ponerlos,lex_futures,future,near,1pers,tener que poner,modal,no,NA,positive,animate,main,declarative,55,fem,sim
+001,cesa,van a dar,PF,future,distant,3pers,dar,dynamic,no,NA,positive,inanimate,subordinate,declarative,55,fem,sim
+001,cesa,tenemos que pagar,lex_futures,future,nonspecific,1pers,tener que pagar,modal,no,NA,positive,animate,subordinate,declarative,55,fem,sim
+001,cesa,van a trabajar,PF,future,nonspecific,3pers,trabajar,dynamic,no,NA,positive,animate,subordinate,declarative,55,fem,sim
+001,cesa,voy a buscar,PF,future,immediate,1pers,buscar,dynamic,no,NA,positive,animate,main,declarative,55,fem,sim
+001,cesa,voy a cambiar,PF,future,immediate,1pers,cambiar,dynamic,no,NA,positive,animate,main,declarative,55,fem,sim
+001,cesa,me gustaría,cond,future,nonspecific,1pers,gustar,stative,no,NA,positive,animate,main,declarative,55,fem,sim
+001,cesa,me gustaría visitar,cond,future,nonspecific,1pers,visitar,dynamic,no,NA,positive,animate,subordinate,declarative,55,fem,sim
+001,cesa,me gustaría ir,cond,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,55,fem,sim
+001,cesa,me gustaría viajar,cond,future,nonspecific,1pers,viajar,dynamic,no,NA,positive,animate,main,declarative,55,fem,sim
+001,cesa,les gustaría hablar,cond,future,nonspecific,3pers,hablar,dynamic,no,NA,positive,animate,main,declarative,55,fem,sim
+001,cesa,va a pasar,PF,future,near,3pers,pasar,dynamic,no,NA,positive,inanimate,main,interrogative,55,fem,sim
+001,cesa,vayan,subj,future,nonspecific,3pers,ir,motion,no,NA,positive,animate,subordinate,declarative,55,fem,sim
+002,cesa,haré,MF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,20,fem,seq
+002,cesa,vamos a ver,PF,future,immediate,1pers,ver,stative,yes_spec,hoy,positive,animate,main,declarative,20,fem,seq
+002,cesa,quiero conseguir,lex_futures,future,distant,1pers,querer conseguir,modal,yes_spec,después,positive,animate,main,declarative,20,fem,seq
+002,cesa,me gustaría irme,cond,future,distant,1pers,irse,motion,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,me gustaría hacer,cond,future,distant,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,graduarte,inf,future,distant,inf,graduarse,dynamic,no,NA,positive,inanimate,subordinate,interrogative,20,fem,seq
+002,cesa,me gustaría ser,cond,future,distant,1pers,ser,stative,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,me gustaría ser,cond,future,distant,1pers,ser,stative,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,[me gustaría] estar viviendo,cond,future,distant,1pers,vivir,stative,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,[me gustaría estar] enseñando,cond,future,distant,1pers,enseñar,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,sería,cond,future,distant,3pers,ser,stative,no,NA,positive,inanimate,main,interrogative,20,fem,seq
+002,cesa,sería,cond,future,distant,3pers,ser,stative,no,NA,positive,inanimate,main,interrogative,20,fem,seq
+002,cesa,me encantaría vivir,cond,future,distant,1pers,vivir,stative,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,quiero vivir,lex_futures,future,near,1pers,querer vivir,modal,yes_nonspec,ya,negative,animate,subordinate,declarative,20,fem,seq
+002,cesa,me gustaría visitar,cond,future,nonspecific,1pers,visitar,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,ir a verlo,inf,future,nonspecific,inf,ver,stative,no,NA,positive,inanimate,subordinate,declarative,20,fem,seq
+002,cesa,quiero hacerlo,lex_futures,future,distant,1pers,querer hacer,modal,yes_spec,el próximo verano,positive,animate,subordinate,declarative,20,fem,seq
+002,cesa,ir,inf,future,distant,inf,ir,motion,yes_spec,el próximo verano,positive,inanimate,subordinate,declarative,20,fem,seq
+002,cesa,regresaría,cond,future,nonspecific,1pers,regresar,motion,no,NA,negative,animate,main,declarative,20,fem,seq
+002,cesa,va a decir,PF,future_hyp,nonspecific,3pers,decir,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+002,cesa,seré,MF,future,near,1pers,ser,stative,yes_spec,después de que cumpla los 21,positive,animate,subordinate,exclamative,20,fem,seq
+002,cesa,atropelle,subj,future,nonspecific,1pers,tener,stative,no,NA,positive,inanimate,subordinate,declarative,20,fem,seq
+002,cesa,se voltea,PI,future,immediate,3pers,voltearse,motion,yes_spec,ahorita,positive,inanimate,main,declarative,20,fem,seq
+002,cesa,voy a hacer,PF,future,immediate,1pers,hacer,dynamic,yes_spec,ahorita,positive,animate,subordinate,ind_interrogative,20,fem,seq
+002,cesa,voy a pegar,PF,future,immediate,1pers,pegar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,20,fem,seq
+002,cesa,me voy,PI,future,immediate,1pers,irse,motion,no,NA,negative,animate,main,declarative,20,fem,seq
+003,cesa,me voy a olvidar,PF,future,nonspecific,1pers,olvidarse,stative,yes_nonspec,nunca,negative,animate,subordinate,declarative,23,fem,seq
+003,cesa,me va a gustar,PF,future,nonspecific,1pers,gustar,stative,yes_nonspec,nunca,negative,animate,main,declarative,23,fem,seq
+003,cesa,voy a tener,PF,future,near,1pers,tener,stative,yes_spec,en noviembre,positive,animate,main,declarative,23,fem,seq
+003,cesa,quiero ayudarle,lex_futures,future,distant,1pers,querer ayudar,modal,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,nos juntamos,PI,future,near,1pers,juntarse,motion,yes_spec,este mes,positive,animate,main,declarative,23,fem,seq
+003,cesa,voy a votar,PF,future,near,1pers,votar,dynamic,no,NA,negative,animate,main,declarative,23,fem,seq
+003,cesa,voy a votar,PF,future,near,1pers,votar,dynamic,no,NA,negative,animate,main,declarative,23,fem,seq
+003,cesa,haya,subj,future,nonspecific,3pers,haber,stative,yes_nonspec,en el futuro,positive,inanimate,subordinate,declarative,23,fem,seq
+003,cesa,va a estar,PF,future,nonspecific,3pers,estar,stative,yes_nonspec,siempre,positive,animate,subordinate,declarative,23,fem,seq
+003,cesa,quiero ser,lex_futures,future,nonspecific,1pers,querer ser,modal,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,va a decir,PF,future_hyp,nonspecific,3pers,decir,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,me voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,yes_nonspec,nunca,negative,animate,subordinate,declarative,23,fem,seq
+003,cesa,se me va a olvidar,PF,future,nonspecific,1pers,olvidarse,stative,yes_nonspec,nunca,negative,inanimate,main,declarative,23,fem,seq
+003,cesa,voy a rechazar,PF,future,nonspecific,1pers,rechazar,dynamic,no,NA,negative,animate,main,declarative,23,fem,seq
+003,cesa,quiero mejorar,lex_futures,future,nonspecific,1pers,querer mejorar,modal,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,quiero expresarme,lex_futures,future,nonspecific,1pers,querer expresar,modal,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,me gustaría mejorar,cond,future,nonspecific,1pers,mejorar,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+003,cesa,tiene que escribir,lex_futures,future,near,3pers,tener que escribir,modal,no,NA,positive,animate,main,interrogative,23,fem,seq
+003,cesa,va a pasar,PF,future,near,3pers,pasar,dynamic,no,NA,positive,inanimate,main,interrogative,23,fem,seq
+004,cesa,va a yunar [unir],PF,future,near,3pers,unir,dynamic,no,NA,positive,animate,subordinate,declarative,43,male,seq
+004,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,negative,inanimate,subordinate,declarative,43,male,seq
+004,cesa,me voy a quedar,PF,future,nonspecific,1pers,quedarse,stative,no,NA,positive,animate,main,declarative,43,male,seq
+004,cesa,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_nonspec,ya,positive,animate,main,declarative,43,male,seq
+004,cesa,tengo que preguntarte,lex_futures,future,immediate,1pers,tener que preguntar,modal,no,NA,positive,animate,main,declarative,43,male,seq
+004,cesa,va a salir,PF,future,near,3pers,salir,motion,no,NA,positive,animate,subordinate,declarative,43,male,seq
+004,cesa,quiero aprender,lex_futures,future,nonspecific,1pers,querer aprender,modal,no,NA,positive,animate,main,declarative,43,male,seq
+005,cesa,me graduo [gradue],subj,future,distant,1pers,graduarse,dynamic,no,NA,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,quiero ser,lex_futures,future,distant,1pers,querer ser,modal,yes_spec,cuando me graduo,positive,animate,main,declarative,20,male,sim
+005,cesa,voy a entrar,PF,future,distant,1pers,entrar,motion,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,voy a ser,PF,future,distant,1pers,ser,stative,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,vas a poder ser [puedes hacer],PF,future,distant,3pers,ser,stative,yes_nonspec,luego,positive,animate,main,declarative,20,male,sim
+005,cesa,voy a graduar,PF,future,distant,1pers,graduarse,dynamic,yes_spec,el próximo año,positive,animate,main,declarative,20,male,sim
+005,cesa,voy a graduar,PF,future,distant,1pers,graduarse,dynamic,yes_spec,en tres años,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,voy a poder graduarme [puedo graduar],PF,future,distant,1pers,graduarse,dynamic,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,quiere ir,lex_futures,future,distant,3pers,querer ir,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,quiere ir,lex_futures,future,distant,3pers,querer ir,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,quiere hacer,lex_futures,future,distant,3pers,querer hacer,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,quiere ser,lex_futures,future,distant,3pers,querer ser,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,quiere ir,lex_futures,future,distant,3pers,querer ir,modal,no,NA,negative,animate,main,declarative,20,male,sim
+005,cesa,me va a ayudar,PF,future,nonspecific,3pers,ayudar,dynamic,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,quiero vivir,lex_futures,future,nonspecific,1pers,querer vivir,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,tenemos que ir,lex_futures,future,nonspecific,1pers,tener que ir,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,quiero ser,lex_futures,future,distant,1pers,querer ser,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,me quiero quedar,lex_futures,future,distant,1pers,querer quedarse,modal,no,NA,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,será,MF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,20,male,sim
+005,cesa,voy a extrañar,PF,future_hyp,nonspecific,1pers,extrañar,stative,no,NA,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,voy a hacer,PF,future_hyp,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,20,male,sim
+005,cesa,puedo hacer,lex_futures,future,distant,1pers,poder hacer,modal,yes_spec,unos cinco a diez años,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,puedo hacer,lex_futures,future,distant,1pers,poder hacer,modal,yes_spec,después de eso,positive,animate,subordinate,declarative,20,male,sim
+005,cesa,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,20,male,sim
+005,cesa,van a decir,PF,future_hyp,nonspecific,3pers,decir,dynamic,no,NA,negative,animate,subordinate,declarative,20,male,sim
+005,cesa,voy a decir,PF,future,immediate,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,será,MF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,20,male,sim
+005,cesa,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,20,male,sim
+005,cesa,van a querer hablar,PF,future_hyp,nonspecific,3pers,querer,modal,no,NA,positive,animate,main,declarative,20,male,sim
+005,cesa,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,20,male,sim
+005,cesa,van a aprender,PF,future_hyp,nonspecific,3pers,aprender,dynamic,no,NA,positive,animate,main,declarative,20,male,sim
+006,cesa,quiero ir,lex_futures,future,nonspecific,1pers,querer ir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,quiero vivir,lex_futures,future,distant,1pers,querer vivir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,me gradue,subj,future,distant,1pers,graduarse,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+006,cesa,quiero ir,lex_futures,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,quiero ir,lex_futures,future,near,1pers,querer ir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,agarren,subj,future,nonspecific,3pers,agarrar,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+006,cesa,podamos ir,subj,future,nonspecific,1pers,poder ir,modal,yes_nonspec,cuando ya agarren sus pasaportes,positive,animate,subordinate,declarative,18,fem,seq
+006,cesa,queremos ir,lex_futures,future,near,1pers,querer ir,modal,yes_spec,para thanksgiving o para navidad,positive,animate,main,declarative,18,fem,seq
+006,cesa,los vamos a ver,PF,future,near,1pers,ver,stative,yes_spec,para navidad,positive,animate,main,declarative,18,fem,seq
+006,cesa,quieren ir,lex_futures,future,near,3pers,querer ir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,queremos ir,lex_futures,future,near,1pers,querer ir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,tengo que cuidar,lex_futures,future,immediate,1pers,tener que cuiar,modal,yes_spec,hoy,positive,animate,subordinate,declarative,18,fem,seq
+006,cesa,quiero ir,lex_futures,future,immediate,1pers,querer ir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,voy a ir,PF,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,me gradue,subj,future,distant,1pers,graduarse,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+006,cesa,voy a ir,PF,future,distant,1pers,ir,motion,yes_spec,cuando me gradúe de la high school,positive,animate,main,declarative,18,fem,seq
+006,cesa,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_nonspec,ya,positive,animate,main,declarative,18,fem,seq
+006,cesa,me voy a graduar,PF,future,near,1pers,graduarse,dynamic,yes_nonspec,ya,positive,animate,main,declarative,18,fem,seq
+006,cesa,me van a pedir,PF,future,distant,3pers,pedir,dynamic,yes_spec,hasta que tenga treinta,positive,animate,main,declarative,18,fem,seq
+006,cesa,nos va a cuidar,PF,future,distant,3pers,cuidar,dynamic,yes_spec,cuando seamos mayores,positive,animate,main,declarative,18,fem,seq
+006,cesa,voy a revisar,PF,future,immediate,1pers,revisar,stative,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,tengo que hacer,lex_futures,future,near,1pers,tener que hacer,modal,yes_spec,ahora,positive,animate,main,declarative,18,fem,seq
+006,cesa,quiero hacerlo,lex_futures,future,nonspecific,1pers,querer hacer,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+006,cesa,me gustaría hacerlo,cond,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+007,cesa,gradúe,subj,future,distant,1pers,graduarse,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+007,cesa,tomo,PI,future,distant,1pers,tomar,dynamic,yes_spec,cuando me gradúe,positive,animate,main,declarative,19,fem,seq
+007,cesa,vas [a ir],PF,future,nonspecific,2pers,ir,motion,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,19,fem,seq
+007,cesa,quiero viajar,lex_futures,future,nonspecific,1pers,querer viajar,modal,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,me gustaría saber,cond,future,nonspecific,1pers,saber,stative,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,voy,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,voy,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,voy,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,ir,inf,future,immediate,inf,ir,motion,no,NA,positive,inanimate,subordinate,interrogative,19,fem,seq
+007,cesa,voy a lavar,PF,future,immediate,1pers,lavar,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,va a pasar,PF,future,nonspecific,3pers,pasar,dynamic,yes_nonspec,nunca,negative,inanimate,subordinate,declarative,19,fem,seq
+007,cesa,me gustaría trabajar,cond,future,distant,1pers,trabajar,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,pienso trabajar,lex_futures,future,distant,1pers,pensar trabajar,modal,no,NA,negative,animate,main,declarative,19,fem,seq
+007,cesa,te van a preguntar,PF,future,nonspecific,3pers,preguntar,dynamic,yes_nonspec,nunca,positive,animate,subordinate,declarative,19,fem,seq
+007,cesa,quiero comprar,lex_futures,future,distant,1pers,querer comprar,modal,yes_spec,el semestre que viene,positive,animate,main,declarative,19,fem,seq
+007,cesa,quiero aprender,lex_futures,future,distant,1pers,querer aprender,modal,yes_spec,el semestre que viene,positive,animate,main,declarative,19,fem,seq
+007,cesa,van a chocar,PF,future,immediate,3pers,chocar,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+007,cesa,va a pasar,PF,future,nonspecific,3pers,pasar,dynamic,no,NA,negative,inanimate,subordinate,declarative,19,fem,seq
+007,cesa,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_nonspec,ya,positive,animate,main,declarative,19,fem,seq
+007,cesa,necesito ahorrar,lex_futures,future,distant,1pers,necesitar ahorrar,modal,yes_spec,el año que viene,positive,animate,main,declarative,19,fem,seq
+007,cesa,voy a ir,PF,future,nonspecific,1pers,ir,motion,yes_nonspec,otra vez,positive,animate,subordinate,ind_interrogative,19,fem,seq
+007,cesa,va a ser,PF,future,distant,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,19,fem,seq
+007,cesa,voy a estar [aprendiendo],PF,future,distant,1pers,aprender,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,voy a estudiar,PF,future,distant,1pers,estudiar,dynamic,no,NA,negative,animate,main,declarative,19,fem,seq
+007,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,quiero estudiar,lex_futures,future,nonspecific,1pers,querer estudiar,modal,no,NA,negative,animate,main,declarative,19,fem,seq
+007,cesa,se le va a hacer,PF,future,nonspecific,3pers,hacer,stative,no,NA,positive,inanimate,main,declarative,19,fem,seq
+007,cesa,va a batallar,PF,future,nonspecific,3pers,batallar,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+007,cesa,entramos [se entra],PI,future,immediate,1pers,entrar,motion,yes_nonspec,en un poquito,positive,animate,main,declarative,19,fem,seq
+008,cesa,voy,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,me voy a amargar,PF,future_hyp,nonspecific,1pers,amargar,stative,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,voy a cargar,PF,future,nonspecific,1pers,cargar,dynamic,no,NA,negative,animate,main,declarative,33,fem,seq
+008,cesa,quiero entrar,lex_futures,future,distant,1pers,querer entrar,modal,yes_nonspec,otra vez,positive,animate,subordinate,declarative,33,fem,seq
+008,cesa,voy a preguntar,PF,future,nonspecific,1pers,preguntar,dynamic,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,pienso quedarme,lex_futures,future,distant,1pers,pensar quedarse,modal,yes_nonspec,toda mi vida,negative,animate,main,declarative,33,fem,seq
+008,cesa,quiero salirme,lex_futures,future,distant,1pers,querer salirse,modal,yes_spec,ya cuando termine la escuela,positive,animate,main,declarative,33,fem,seq
+008,cesa,vamos a salir,PF,future,near,1pers,salir,motion,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_spec,este año,positive,animate,subordinate,declarative,33,fem,seq
+008,cesa,me voy a ir,PF,future,nonspecific,1pers,ir a practicar,motion,no,NA,positive,animate,subordinate,declarative,33,fem,seq
+008,cesa,me voy a inmiscuir,PF,future,nonspecific,1pers,inmiscuirse,motion,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,voy a conseguir,PF,future,distant,1pers,conseguir,dynamic,no,NA,positive,animate,subordinate,declarative,33,fem,seq
+008,cesa,quiero matricularme,lex_futures,future,distant,1pers,matricularse,dynamic,yes_nonspec,otra vez,positive,animate,main,declarative,33,fem,seq
+008,cesa,voy a decirles,PF,future_hyp,nonspecific,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,subordinate,declarative,33,fem,seq
+008,cesa,me van a hacer,PF,future_hyp,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,33,fem,seq
+008,cesa,me van a ver,PF,future_hyp,nonspecific,3pers,ver,stative,no,NA,positive,animate,subordinate,declarative,33,fem,seq
+008,cesa,voy a pasar,PF,future_hyp,nonspecific,1pers,pasar,dynamic,no,NA,negative,animate,main,declarative,33,fem,seq
+008,cesa,me van a decir,PF,future_hyp,nonspecific,3pers,decir,dynamic,no,NA,positive,animate,main,declarative,33,fem,seq
+008,cesa,vamos a poder,PF,future_hyp,nonspecific,1pers,poder,modal,no,NA,negative,animate,main,declarative,33,fem,seq
+008,cesa,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,33,fem,seq
+008,cesa,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,33,fem,seq
+008,cesa,va a costar,PF,future_hyp,nonspecific,3pers,costar,stative,no,NA,positive,inanimate,subordinate,declarative,33,fem,seq
+008,cesa,van a escuchar,PF,future_hyp,nonspecific,3pers,escuchar,stative,no,NA,positive,animate,subordinate,declarative,33,fem,seq
+009,cesa,quiera ir,subj,future,nonspecific,1pers,querer ir,modal,yes_nonspec,en un futuro,negative,animate,subordinate,declarative,27,fem,sim
+009,cesa,voy a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,27,fem,sim
+009,cesa,tengo que hacer,lex_futures,future,nonspecific,1pers,tener que hacer,modal,no,NA,positive,animate,main,declarative,27,fem,sim
+009,cesa,voy a servir,PF,future,near,1pers,servir,dynamic,no,NA,positive,animate,main,interrogative,27,fem,sim
+009,cesa,pensamos ir,lex_futures,future,distant,1pers,ir,motion,yes_spec,el próximo [año],positive,animate,main,declarative,27,fem,sim
+009,cesa,va a aprender,PF,future,nonspecific,3pers,aprender,dynamic,no,NA,positive,animate,subordinate,declarative,27,fem,sim
+009,cesa,va a aprender,PF,future,nonspecific,3pers,aprender,dynamic,no,NA,positive,animate,subordinate,declarative,27,fem,sim
+009,cesa,vamos a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_spec,17 de marzo,positive,animate,main,declarative,27,fem,sim
+009,cesa,enseñe,subj,future,nonspecific,1pers,enseñar,dynamic,no,NA,positive,animate,subordinate,declarative,27,fem,sim
+010,cesa,termino,PI,future,near,1pers,terminar,dynamic,yes_nonspec,ya,positive,animate,main,declarative,24,fem,seq
+010,cesa,acabo,PI,future,near,1pers,acabo,dynamic,yes_nonspec,ya,positive,animate,main,declarative,24,fem,seq
+010,cesa,me voy a encerrar,PF,future,distant,1pers,encerrarse,motion,yes_spec,ese día,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a poner,PF,future,immediate,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a poner,PF,future,immediate,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,yes_nonspec,cuando voy a tener un hijo,positive,animate,subordinate,ind_interrogative,24,fem,seq
+010,cesa,entregue,subj,future,nonspecific,1pers,entregar,dynamic,no,NA,positive,animate,subordinate,declarative,24,fem,seq
+010,cesa,vamos a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_spec,este mes que viene,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a tener,PF,future_hyp,nonspecific,1pers,tener,stative,yes_nonspec,en el futuro,positive,animate,main,declarative,24,fem,seq
+010,cesa,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,ahora,positive,animate,main,declarative,24,fem,seq
+010,cesa,voy a tener,PF,future,distant,1pers,tener,stative,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,me voy a quedar,PF,future,near,1pers,quedarse,stative,yes_spec,por un o dos años,positive,animate,main,declarative,24,fem,seq
+010,cesa,me voy,PI,future,nonspecific,1pers,irse,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,nos iremos,MF,future,nonspecific,1pers,irse,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a ir,PF,future,near,1pers,ir,motion,yes_spec,en un mes,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a vacacionar,PF,future,near,1pers,vacacionar,motion,yes_spec,en un mes,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a ir,PF,future,near,1pers,ir,motion,yes_spec,en un mes,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a estar,PF,future,near,1pers,estar,stative,yes_spec,en un mes,positive,animate,main,declarative,24,fem,seq
+010,cesa,vamos a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+010,cesa,voy a decir,PF,future,nonspecific,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,voy a ir,PF,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,voy a ir,PF,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+010,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+010,cesa,voy a trabajar,PF,future,nonspecific,1pers,trabajar,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+010,cesa,voy a extrañar,PF,future,nonspecific,1pers,extrañar,stative,yes_nonspec,cuando me vaya,positive,animate,main,declarative,24,fem,seq
+011,cesa,van a ser,PF,future,near,3pers,ser,stative,yes_spec,ahora en abril,positive,inanimate,subordinate,declarative,49,fem,seq
+011,cesa,vamos a tener,PF,future,distant,1pers,tener,stative,no,NA,positive,animate,main,interrogative,49,fem,seq
+011,cesa,va a cumplir,PF,future,nonspecific,3pers,cumplir,dynamic,no,NA,positive,animate,main,declarative,49,fem,seq
+011,cesa,cumple,PI,future,near,3pers,cumplir,dynamic,yes_nonspec,casi,positive,animate,main,declarative,49,fem,seq
+011,cesa,voy a tener,PF,future,distant,1pers,tener,stative,no,NA,positive,animate,main,declarative,49,fem,seq
+011,cesa,voy a tener,PF,future,near,1pers,tener,stative,yes_spec,en mayo,positive,animate,main,declarative,49,fem,seq
+011,cesa,cumple,PI,future,near,3pers,cumplir,dynamic,yes_nonspec,en julio ya,positive,animate,main,declarative,49,fem,seq
+011,cesa,voy a recoger,PF,future,immediate,1pers,recoger,dynamic,yes_spec,ahorita a las cinco,positive,animate,main,declarative,49,fem,seq
+011,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,yes_nonspec,siempre,positive,inanimate,main,declarative,49,fem,seq
+012,cesa,va a ser,PF,future,immediate,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,22,fem,seq
+012,cesa,va a estar,PF,future,immediate,3pers,estar,stative,no,NA,positive,inanimate,subordinate,declarative,22,fem,seq
+012,cesa,va a sacar,PF,future,immediate,3pers,sacar,dynamic,yes_nonspec,al rato,positive,animate,main,declarative,22,fem,seq
+012,cesa,van a crecer,PF,future,distant,3pers,crecer,dynamic,no,NA,positive,animate,main,declarative,22,fem,seq
+012,cesa,van a tener,PF,future,distant,3pers,tener,stative,yes_spec,a los diez años,positive,animate,main,declarative,22,fem,seq
+012,cesa,voy a terminar,PF,future,nonspecific,1pers,terminar,dynamic,no,NA,negative,animate,main,declarative,22,fem,seq
+012,cesa,voy a hablar,PF,future,immediate,1pers,hablar,dynamic,no,NA,negative,animate,main,declarative,22,fem,seq
+012,cesa,va a tener,PF,future,nonspecific,3pers,tener,stative,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+012,cesa,irán,MF,future,nonspecific,3pers,ir,motion,no,NA,positive,animate,main,declarative,22,fem,seq
+012,cesa,van a regalar,PF,future,nonspecific,3pers,regalar,dynamic,no,NA,positive,animate,main,declarative,22,fem,seq
+012,cesa,va a ir,PF,future,nonspecific,3pers,ir,motion,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+012,cesa,van a querer ayudar,PF,future,nonspecific,3pers,querer ayudar,modal,no,NA,positive,animate,main,declarative,22,fem,seq
+012,cesa,será,MF,future,nonspecific,3pers,ser,stative,no,NA,negative,inanimate,main,declarative,22,fem,seq
+012,cesa,va a necesitar,PF,future,nonspecific,3pers,necesitar,stative,no,NA,positive,animate,main,declarative,22,fem,seq
+013,cesa,cumplimos,PI,future,near,1pers,cumplir,dynamic,yes_spec,"en marzo, el mes que viene",positive,animate,main,declarative,25,male,seq
+013,cesa,voy a ser,PF,future,near,1pers,ser,stative,no,NA,positive,animate,subordinate,declarative,25,male,seq
+013,cesa,vamos a jugar,PF,future,near,1pers,jugar,dynamic,yes_spec,la otra,positive,animate,main,declarative,25,male,seq
+013,cesa,tenga,subj,future,nonspecific,1pers,tener,stative,no,NA,positive,animate,subordinate,declarative,25,male,seq
+013,cesa,quiero implementar,lex_futures,future,nonspecific,1pers,querer implementar,modal,yes_nonspec,cuando yo tenga hijos,positive,animate,main,declarative,25,male,seq
+013,cesa,vamos a correr,PF,future,immediate,1pers,correr,motion,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,voy a buscar,PF,future,near,1pers,buscar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,van a correr [echar],PF,future,nonspecific,3pers,correr,motion,yes_nonspec,nunca,negative,animate,main,declarative,25,male,seq
+013,cesa,me quiero ir,lex_futures,future,near,1pers,irse,motion,yes_nonspec,ya,positive,animate,main,declarative,25,male,seq
+013,cesa,me voy a agarrar,PF,future,near,1pers,agarrar,dynamic,yes_nonspec,ya,positive,animate,main,declarative,25,male,seq
+013,cesa,va a pasar,PF,future,immediate,3pers,pasar,dynamic,yes_spec,ahora,positive,inanimate,main,interrogative,25,male,seq
+013,cesa,va a morir,PF,future,immediate,3pers,morir,dynamic,no,NA,positive,animate,main,interrogative,25,male,seq
+013,cesa,va a pasar,PF,future,immediate,3pers,pasar,dynamic,no,NA,positive,inanimate,main,interrogative,25,male,seq
+013,cesa,vas a ensuciar,PF,future,immediate,2pers,ensuciar,dynamic,yes_nonspec,luego,positive,animate,main,declarative,25,male,seq
+013,cesa,voy a pagar,PF,future,near,1pers,pagar,dynamic,yes_spec,cuando le quite el sticker,positive,animate,main,declarative,25,male,seq
+013,cesa,vamos a enseñar,PF,future,near,1pers,enseñar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,voy a aprender,PF,future,nonspecific,1pers,aprender,dynamic,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,quiero jugar,lex_futures,future,immediate,1pers,querer jugar,modal,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,quiero hacer,lex_futures,future,immediate,1pers,querer hacer,modal,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,quiero regresar,lex_futures,future,nonspecific,1pers,querer regresar,modal,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,quiero ir,lex_futures,future,nonspecific,1pers,querer ir,modal,no,NA,negative,animate,main,declarative,25,male,seq
+013,cesa,vamos a emparamentar,PF,future,nonspecific,1pers,emparamentar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,van a matar,PF,future,nonspecific,3pers,matar,dynamic,no,NA,positive,animate,subordinate,declarative,25,male,seq
+013,cesa,van a cambiar,PF,future,near,3pers,cambiar,dynamic,yes_spec,ahorita,positive,inanimate,main,declarative,25,male,seq
+013,cesa,van a cambiar,PF,future,distant,3pers,cambiar,dynamic,yes_spec,en diez años,positive,inanimate,main,declarative,25,male,seq
+013,cesa,van a cambiar,PF,future,distant,3pers,cambiar,dynamic,yes_spec,en veinte años,positive,inanimate,main,declarative,25,male,seq
+013,cesa,se va a dar,PF,future,immediate,3pers,dar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,25,male,seq
+013,cesa,va a parar,PF,future,immediate,3pers,parar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,25,male,seq
+013,cesa,vamos a tener,PF,future,immediate,1pers,tener,stative,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,voy a decir,PF,future,immediate,1pers,decir,dynamic,yes_nonspec,"ya, cuando me los des",positive,animate,main,declarative,25,male,seq
+013,cesa,voy a agarrar,PF,future,immediate,1pers,agarrar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+013,cesa,te vas,PI,future,immediate,2pers,irse,motion,yes_nonspec,ya,positive,animate,main,declarative,25,male,seq
+013,cesa,se va a arreglar,PF,future,nonspecific,3pers,arreglar,dynamic,yes_nonspec,nunca,negative,collective,main,declarative,25,male,seq
+013,cesa,se va a arreglar,PF,future,nonspecific,3pers,arreglar,dynamic,yes_nonspec,nunca,negative,collective,main,declarative,25,male,seq
+013,cesa,tendremos,MF,future,nonspecific,1pers,tener,stative,yes_nonspec,después,positive,animate,subordinate,declarative,25,male,seq
+013,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,ahora,positive,inanimate,main,declarative,25,male,seq
+013,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,ahora,negative,inanimate,main,declarative,25,male,seq
+013,cesa,vas a hablar,PF,future,immediate,2pers,hablar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,25,male,seq
+014,cesa,voy a poner,PF,future,near,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+014,cesa,voy a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+014,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,fem,seq
+014,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+014,cesa,voy a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,seré,MF,future,distant,1pers,ser,stative,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,se van a dar cuenta,PF,future,nonspecific,3pers,darse cuenta,stative,yes_nonspec,luego,positive,animate,main,declarative,21,fem,seq
+014,cesa,van a entrar,PF,future,near,3pers,entrar,motion,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,van a empezar,PF,future,near,3pers,empezar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+014,cesa,van a ir,PF,future,distant,3pers,ir,stative,no,NA,positive,animate,main,interrogative,21,fem,seq
+014,cesa,van a ir,PF,future,distant,3pers,ir,stative,no,NA,positive,animate,main,interrogative,21,fem,seq
+014,cesa,vas a hacer,PF,future,nonspecific,2pers,hacer,dynamic,yes_nonspec,en el futuro,positive,animate,main,interrogative,21,fem,seq
+014,cesa,va a salir,PF,future,near,3pers,salir,motion,yes_nonspec,pronto,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,va a cambiar,PF,future,nonspecific,3pers,cambiar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,va a procurar,PF,future,nonspecific,3pers,procurar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,está para graduarse,lex_futures,future,distant,3pers,estar para graduarse,modal,yes_spec,el próximo año,positive,animate,main,declarative,21,fem,seq
+014,cesa,voy a dejar,PF,future,nonspecific,1pers,dejar,dynamic,yes_nonspec,nunca,negative,animate,main,declarative,21,fem,seq
+014,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+014,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,yes_nonspec,siempre,positive,inanimate,subordinate,declarative,21,fem,seq
+014,cesa,voy a usar,PF,future,nonspecific,1pers,usar,dynamic,yes_spec,el resto de mi vida,positive,animate,subordinate,declarative,21,fem,seq
+014,cesa,usaré,MF,future,nonspecific,1pers,usar,dynamic,yes_nonspec,siempre,positive,animate,main,declarative,21,fem,seq
+014,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,fem,seq
+014,cesa,estará,MF,future,nonspecific,3pers,estar,stative,yes_nonspec,siempre,positive,inanimate,subordinate,declarative,21,fem,seq
+014,cesa,estará,MF,future,nonspecific,3pers,estar,stative,yes_nonspec,siempre,positive,inanimate,subordinate,declarative,21,fem,seq
+014,cesa,será,MF,future,nonspecific,3pers,ser,stative,yes_nonspec,siempre,positive,inanimate,main,declarative,21,fem,seq
+014,cesa,será,MF,future,nonspecific,3pers,ser,stative,yes_nonspec,siempre,positive,inanimate,subordinate,declarative,21,fem,seq
+014,cesa,voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,yes_nonspec,nunca,negative,animate,main,declarative,21,fem,seq
+015,cesa,voy a gastar,PF,future,nonspecific,1pers,gastar,dynamic,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,quiero ser,lex_futures,future,distant,1pers,querer ser,modal,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,me gustaría regresar,cond,future,distant,1pers,regresar,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,[me gustaría] estudiar,cond,future,distant,1pers,estudiar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,quiero agarrar,lex_futures,future,distant,1pers,querer agarrar,modal,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,quiero especializarme,lex_futures,future,distant,1pers,querer especializarse,modal,no,NA,positive,animate,subordinate,ind_interrogative,24,fem,seq
+015,cesa,quiero seguir,lex_futures,future,distant,1pers,querer seguir,modal,no,NA,positive,animate,subordinate,ind_interrogative,24,fem,seq
+015,cesa,voy a saber,PF,future,distant,1pers,saber,stative,yes_nonspec,"después, en unos años",positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a ser,PF,future_hyp,nonspecific,1pers,ser,stative,no,NA,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,me voy a pintar,PF,future_hyp,nonspecific,1pers,pintar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,me voy a pintar,PF,future_hyp,nonspecific,1pers,pintar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,van a dar,PF,future,distant,3pers,darse cuenta,stative,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,voy a aplicar,PF,future,distant,1pers,aplicar,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+015,cesa,va a pasar,PF,future_hyp,nonspecific,3pers,pasar,dynamic,yes_nonspec,luego,positive,inanimate,main,interrogative,24,fem,seq
+015,cesa,van a dar,PF,future_hyp,nonspecific,3pers,dar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a agarrar,PF,future,near,1pers,agarrar,dynamic,yes_spec,cuando me di cuenta [que me faltaba un semestre],positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+015,cesa,voy a meterme,PF,future,distant,1pers,meterse,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a poder,PF,future,near,1pers,poder,modal,yes_nonspec,ya,negative,animate,main,declarative,24,fem,seq
+015,cesa,voy a poder,PF,future,near,1pers,poder,modal,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,voy a pagar,PF,future,nonspecific,1pers,pagar,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+015,cesa,vas a agarrar,PF,future,distant,2pers,agarrar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,va a ayudar,PF,future,distant,3pers,ayudar,dynamic,no,NA,positive,collective,main,declarative,24,fem,seq
+015,cesa,voy a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a decir,PF,future_hyp,nonspecific,1pers,decir,dynamic,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,vamos a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,vamos a tomar,PF,future,near,1pers,tomar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,va a gustar,PF,future,nonspecific,1pers,gustar,stative,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,vamos a comer,PF,future,immediate,1pers,comer,dynamic,yes_spec,ahora,positive,animate,main,declarative,24,fem,seq
+015,cesa,vamos a regresar,PF,future,nonspecific,1pers,regresar,motion,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,queremos ir,lex_futures,future,distant,1pers,querer ir,modal,yes_spec,cuando yo me gradúe,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,voy a ir,PF,future,near,1pers,ir,motion,yes_nonspec,luego,positive,animate,main,interrogative,24,fem,seq
+015,cesa,me voy a quedar,PF,future,near,1pers,quedarse,stative,yes_nonspec,luego,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,te vas a casar,PF,future,immediate,2pers,casarse,dynamic,no,NA,positive,animate,main,interrogative,24,fem,seq
+015,cesa,me voy a casar,PF,future,immediate,1pers,casarse,dynamic,yes_spec,ese mismo día,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,me voy a casar,PF,future,immediate,1pers,casarse,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,vamos a casarnos,PF,future,immediate,1pers,casarse,dynamic,yes_spec,a las cinco,positive,animate,main,declarative,24,fem,seq
+015,cesa,damos,PI,future,immediate,1pers,dar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a rechazar,PF,future,nonspecific,1pers,rechazar,dynamic,no,NA,negative,animate,main,declarative,24,fem,seq
+015,cesa,voy a agarrar,PF,future,nonspecific,1pers,agarrar,dynamic,no,NA,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,voy,PF,future,nonspecific,1pers,ir,motion,yes_nonspec,en el futuro,positive,animate,main,declarative,24,fem,seq
+015,cesa,van a perder,PF,future,nonspecific,3pers,perder,dynamic,no,NA,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,van a perder,PF,future,nonspecific,3pers,perder,dynamic,no,NA,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,voy a hablar,PF,future_hyp,nonspecific,1pers,hablar,dynamic,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a tener,PF,future,distant,1pers,tener,stative,yes_nonspec,cuando tenemos hijos,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy a ser,PF,future,distant,1pers,ser,stative,yes_nonspec,para ese entonces,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,me voy a fijar,PF,future,nonspecific,1pers,fijarse,stative,no,NA,positive,animate,main,declarative,24,fem,seq
+015,cesa,voy,PI,future,near,1pers,irse,motion,yes_spec,ahorita,positive,animate,subordinate,declarative,24,fem,seq
+015,cesa,van a hablar,PF,future,near,3pers,hablar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,24,fem,seq
+016,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,este año,positive,animate,main,declarative,21,fem,sim
+016,cesa,voy a estudiar,PF,future,distant,1pers,estudiar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+016,cesa,voy a tener,PF,future,near,1pers,tener,stative,yes_spec,ahorita,positive,animate,subordinate,ind_interrogative,21,fem,sim
+016,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+016,cesa,voy a tratar,PF,future,distant,1pers,tratar,dynamic,yes_nonspec,cuando [mis hijos] están grandes,positive,animate,main,declarative,21,fem,sim
+016,cesa,voy a enseñar,PF,future,distant,1pers,enseñar,dynamic,yes_nonspec,cuando [mis hijos] están grandes,positive,animate,main,declarative,21,fem,sim
+016,cesa,va a cumplir,PF,future,distant,3pers,cumplir,dynamic,yes_spec,en un año,positive,animate,subordinate,declarative,21,fem,sim
+016,cesa,vamos a tener,PF,future,distant,1pers,tener,stative,yes_spec,la última [semana de agosto],positive,animate,subordinate,declarative,21,fem,sim
+016,cesa,vamos a ir,PF,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,21,fem,sim
+017,cesa,voy a preguntarte,PF,future,immediate,1pers,preguntar,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,se va a graduar,PF,future,near,3pers,graduarse,dynamic,yes_spec,ahorita en mayo,positive,animate,main,declarative,19,fem,sim
+017,cesa,viene,PI,future,near,3pers,venir,motion,yes_spec,ahorita en mayo,positive,animate,main,declarative,19,fem,sim
+017,cesa,van a estar,PF,future,nonspecific,3pers,estar,stative,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,va a entrar,PF,future,near,3pers,entrar,motion,yes_spec,en enero,positive,animate,main,declarative,19,fem,sim
+017,cesa,va a entrar,PF,future,distant,3pers,entrar,motion,yes_spec,en agosto,positive,animate,main,declarative,19,fem,sim
+017,cesa,voy a dar,PF,future,distant,1pers,dar,dynamic,yes_nonspec,cuando te vas a casar [cases],positive,animate,main,declarative,19,fem,sim
+017,cesa,voy a ser,PF,future,near,1pers,ser,stative,yes_spec,a partir de ahora,positive,animate,main,declarative,19,fem,sim
+017,cesa,voy a cambiar,PF,future,near,1pers,cambiar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,19,fem,sim
+017,cesa,voy a cambiar,PF,future,near,1pers,cambiar,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,vas a ver,PF,future,nonspecific,2pers,ver,stative,yes_nonspec,nunca,negative,animate,subordinate,declarative,19,fem,sim
+017,cesa,voy a extrañar,PF,future,nonspecific,1pers,extrañar,stative,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,negative,animate,main,declarative,19,fem,sim
+017,cesa,[me] casaré,MF,future,nonspecific,1pers,casarse,dynamic,"""no [nunca]""",NA,negative,animate,subordinate,declarative,19,fem,sim
+017,cesa,voy a ser,PF,future,nonspecific,1pers,ser,stative,yes_nonspec,después de dejarlo,negative,animate,subordinate,declarative,19,fem,sim
+017,cesa,vas a seguir,PF,future,nonspecific,2pers,seguir,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,sim
+017,cesa,voy a enseñar,PF,future,nonspecific,1pers,enseñar,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,voy a tratar,PF,future,nonspecific,1pers,tratar,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,sim
+017,cesa,vas a seguir,PF,future,nonspecific,2pers,seguir,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,voy a seguir,PF,future,nonspecific,1pers,seguir,dynamic,no,NA,negative,animate,main,declarative,19,fem,sim
+017,cesa,me voy,PF,future,immediate,1pers,irse,motion,yes_spec,a las cuatro y media,positive,animate,main,declarative,19,fem,sim
+017,cesa,va a pasar,PF,future,immediate,3pers,pasar,dynamic,no,NA,positive,inanimate,main,interrogative,19,fem,sim
+017,cesa,van a venir,PF,future,immediate,3pers,venir,motion,yes_spec,a las dos de la mañana,positive,animate,main,declarative,19,fem,sim
+017,cesa,van a llamar,PF,future,immediate,3pers,llamar,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+017,cesa,va a pasar,PF,future,immediate,3pers,pasar,dynamic,no,NA,positive,inanimate,main,interrogative,19,fem,sim
+018,cesa,voy a tener [que tomar],PF,future,distant,1pers,tener,stative,no,NA,positive,animate,main,declarative,19,fem,seq
+018,cesa,va a cumplir,PF,future,nonspecific,3pers,cumplir,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+018,cesa,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,19,fem,seq
+018,cesa,va a jugar,PF,future,immediate,3pers,jugar,dynamic,yes_nonspec,ya,positive,animate,main,declarative,19,fem,seq
+018,cesa,voy a sacar,PF,future_hyp,nonspecific,3pers,sacar,dynamic,no,NA,negative,animate,main,declarative,19,fem,seq
+018,cesa,es,PI,future,near,3pers,ser,stative,yes_spec,la próxima semana,positive,inanimate,main,declarative,19,fem,seq
+018,cesa,voy a tener [que ver],PF,future,nonspecific,1pers,tener,stative,no,NA,positive,animate,main,declarative,19,fem,seq
+018,cesa,va a quitar,PF,future,near,3pers,quitar,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+018,cesa,termina,PI,future,near,3pers,terminar,dynamic,yes_spec,en enero,positive,animate,subordinate,declarative,19,fem,seq
+018,cesa,me voy a ir,PF,future,immediate,1pers,irse,motion,yes_nonspec,ya,positive,animate,main,declarative,19,fem,seq
+018,cesa,voy a tener [que seguir usar],PF,future,nonspecific,1pers,tener,stative,yes_nonspec,en el futuro,positive,animate,main,declarative,19,fem,seq
+019,cesa,iré,MF,future,near,1pers,ir,motion,yes_spec,en octobre,positive,animate,main,declarative,24,male,seq
+019,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,24,male,seq
+019,cesa,voy a conocer,PF,future,near,3pers,conocer,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,se van a criar,PF,future_hyp,nonspecific,3pers,criar,dynamic,no,NA,negative,animate,subordinate,declarative,24,male,seq
+019,cesa,van a criar,PF,future_hyp,nonspecific,3pers,criar,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,van a ir,PF,future_hyp,nonspecific,3pers,ir,motion,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,se van a quedar,PF,future_hyp,nonspecific,3pers,quedarse,stative,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,el mes que entra,positive,animate,main,declarative,24,male,seq
+019,cesa,voy a poner,PF,future,near,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,me gustaría ir,cond,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,me gustaría ir,cond,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,te vas a ir,PF,future,near,2pers,irse,motion,yes_spec,un mes antes o dos meses,positive,animate,subordinate,declarative,24,male,seq
+019,cesa,va a [llegar],PF,future,immediate,3pers,llegar,motion,yes_spec,en cinco minutos,positive,inanimate,subordinate,declarative,24,male,seq
+019,cesa,voy a ver,PF,future,immediate,1pers,ver,stative,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,van a agarrar,PF,future,near,3pers,agarrar,dynamic,yes_spec,ahora,positive,collective,main,declarative,24,male,seq
+019,cesa,van a hacer,PF,future,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,24,male,seq
+019,cesa,va a jugar,PF,future_hyp,nonspecific,3pers,jugar,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,va a perder,PF,future,near,3pers,perder,dynamic,yes_spec,este año,positive,collective,main,declarative,24,male,seq
+019,cesa,hay,PI,future,near,3pers,haber,stative,yes_spec,este fin de semana,positive,inanimate,main,declarative,24,male,seq
+019,cesa,va a estar,PF,future,near,3pers,estar,stative,yes_spec,mañana,positive,inanimate,main,declarative,24,male,seq
+019,cesa,va a pasar,PF,future,near,3pers,pasar,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,24,male,seq
+019,cesa,vamos a seguir,PF,future,nonspecific,1pers,seguir,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+019,cesa,voy a ir,PF,future,distant,1pers,ir,motion,yes_spec,el quince (en 2015),positive,animate,main,declarative,24,male,seq
+020,cesa,voy a descansar,PF,future,near,1pers,descansar,dynamic,yes_nonspec,ahorita,positive,animate,subordinate,declarative,25,fem,seq
+020,cesa,salgo,PI,future,immediate,1pers,salir,motion,no,NA,negative,animate,main,declarative,25,fem,seq
+020,cesa,va a cumplir,PF,future,nonspecific,3pers,cumplir,dynamic,no,NA,positive,animate,main,declarative,25,fem,seq
+020,cesa,se va a graduar,PF,future,distant,3pers,graduarse,dynamic,yes_spec,en mayo del año que entra,positive,animate,main,declarative,25,fem,seq
+020,cesa,voy a estar [trabajando],PF,future,near,1pers,estar,stative,yes_spec,ahorita,positive,animate,subordinate,declarative,25,fem,seq
+020,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_nonspec,ya,positive,animate,main,declarative,25,fem,seq
+020,cesa,vamos a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,interrogative,25,fem,seq
+020,cesa,vamos a comer,PF,future,nonspecific,1pers,comer,dynamic,no,NA,positive,animate,main,interrogative,25,fem,seq
+020,cesa,vamos a cenar,PF,future,nonspecific,1pers,cenar,dynamic,no,NA,positive,animate,main,interrogative,25,fem,seq
+020,cesa,voy a aprender,PF,future,near,1pers,aprender,dynamic,yes_spec,mañana,positive,animate,main,declarative,25,fem,seq
+020,cesa,hay,PI,future,near,3pers,haber,stative,yes_nonspec,ahora,positive,inanimate,main,declarative,25,fem,seq
+020,cesa,tenemos que renovar,lex_futures,future,distant,1pers,tener que renovar,modal,yes_spec,el año que entra,positive,animate,main,declarative,25,fem,seq
+020,cesa,van a hacer,PF,future,distant,3pers,hacer,dynamic,yes_spec,el año que entra,positive,animate,subordinate,declarative,25,fem,seq
+021,cesa,voy a llegar,PF,future,immediate,1pers,llegar,motion,yes_spec,[en] un rato,positive,animate,main,declarative,25,male,sim
+021,cesa,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_nonspec,ya,positive,animate,main,declarative,25,male,sim
+021,cesa,vas a trabajar,PF,future,distant,2pers,trabajar,dynamic,no,NA,positive,animate,main,interrogative,25,male,sim
+021,cesa,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_spec,en noviembre,positive,animate,main,declarative,25,male,sim
+021,cesa,vas a salir,PF,future,nonspecific,2pers,salir,motion,no,NA,negative,animate,main,declarative,25,male,sim
+021,cesa,va a dar,PF,future,nonspecific,3pers,dar,dynamic,no,NA,positive,inanimate,main,declarative,25,male,sim
+021,cesa,se casa,PI,future,near,3pers,casarse,dynamic,yes_spec,este noviembre,positive,animate,main,declarative,25,male,sim
+021,cesa,se casa,PI,future,near,3pers,casarse,dynamic,yes_spec,este noviembre,positive,animate,main,declarative,25,male,sim
+021,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,animate,subordinate,declarative,25,male,sim
+021,cesa,se van a pasar,PF,future,near,3pers,pasar,dynamic,no,NA,positive,animate,subordinate,declarative,25,male,sim
+021,cesa,se van a pasar,PF,future,near,3pers,pasar,dynamic,no,NA,positive,animate,subordinate,declarative,25,male,sim
+022,cesa,voy a ser,PF,future,near,1pers,ser,stative,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,voy a seguir,PF,future,near,1pers,seguir,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,voy a seguir marcando,PF,future,nonspecific,1pers,seguir marcando,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,voy a necesitar,PF,future,near,1pers,necesitar,stative,yes_spec,en diciembre,positive,animate,main,declarative,25,male,seq
+022,cesa,va a hacer,PF,future,near,3pers,hacer,dynamic,yes_spec,en diciembre,positive,inanimate,subordinate,declarative,25,male,seq
+022,cesa,vas a regresar,PF,future,nonspecific,2pers,regresar,motion,no,NA,negative,animate,main,interrogative,25,male,seq
+022,cesa,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,ahora,positive,animate,main,declarative,25,male,seq
+022,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,ahora,negative,animate,subordinate,declarative,25,male,seq
+022,cesa,voy a celebrar,PF,future,nonspecific,1pers,celebrar,dynamic,yes_nonspec,nunca,negative,animate,main,declarative,25,male,seq
+022,cesa,vas a tener,PF,future,nonspecific,2pers,tener,stative,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,voy a conseguir,PF,future,nonspecific,1pers,conseguir,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,enseño,PI,future,nonspecific,1pers,enseñar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,vamos a cancelar,PF,future,near,1pers,cancelar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,octubre doce,positive,inanimate,main,interrogative,25,male,seq
+022,cesa,participará,MF,future,near,3pers,participar,dynamic,yes_spec,este año,positive,animate,subordinate,declarative,25,male,seq
+022,cesa,voy a usar,PF,future,immediate,1pers,usar,dynamic,no,NA,positive,animate,main,declarative,25,male,seq
+022,cesa,voy a tener,PF,future,immediate,1pers,tener,stative,no,NA,negative,animate,main,declarative,25,male,seq
+022,cesa,va a estar,PF,future,immediate,3pers,estar,stative,no,NA,positive,inanimate,main,declarative,25,male,seq
+022,cesa,voy a tener,PF,future,immediate,1pers,tener,stative,no,NA,negative,animate,main,declarative,25,male,seq
+023,cesa,voy a hacer,PF,future_hyp,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,30,fem,sim
+023,cesa,tendré que preguntar,MF,future,nonspecific,1pers,tener que preguntar,modal,yes_nonspec,algún día,positive,animate,main,declarative,30,fem,sim
+023,cesa,vamos a salir,PF,future,immediate,1pers,salir,motion,no,NA,positive,animate,subordinate,declarative,30,fem,sim
+023,cesa,voy a salir,PF,future,immediate,1pers,salir,motion,no,NA,positive,animate,main,declarative,30,fem,sim
+023,cesa,va a estar [haber],PF,future,nonspecific,3pers,estar,stative,yes_nonspec,este día,negative,animate,main,declarative,30,fem,sim
+023,cesa,va a cambiar,PF,future,nonspecific,3pers,cambiar,dynamic,no,NA,negative,inanimate,main,declarative,30,fem,sim
+023,cesa,vamos a hablar,PF,future,immediate,1pers,hablar,dynamic,no,NA,positive,animate,main,declarative,30,fem,sim
+023,cesa,tomaré,MF,future,immediate,1pers,tomar,dynamic,yes_nonspec,luego,positive,animate,main,declarative,30,fem,sim
+023,cesa,se van a comunciar,PF,future_hyp,nonspecific,3pers,comunicarse,dynamic,no,NA,positive,animate,main,interrogative,30,fem,sim
+023,cesa,voy a revisar,PF,future,immediate,1pers,revisar,stative,no,NA,positive,animate,main,declarative,30,fem,sim
+023,cesa,van a ser,PF,future,distant,3pers,ser,stative,no,NA,positive,animate,main,declarative,30,fem,sim
+023,cesa,voy a salir,PF,future,immediate,1pers,salir,motion,yes_spec,ahora,positive,animate,main,declarative,30,fem,sim
+023,cesa,voy a hacer,PF,future,immediate,1pers,hacer,dynamic,yes_spec,después a las tres,positive,animate,main,declarative,30,fem,sim
+023,cesa,vamos a dar,PF,future,immediate,1pers,dar,dynamic,yes_spec,hoy,negative,animate,main,declarative,30,fem,sim
+023,cesa,van a sacar,PF,future,nonspecific,3pers,sacar,dynamic,no,NA,positive,animate,main,exclamative,30,fem,sim
+023,cesa,voy a trabajar,PF,future,near,1pers,trabajar,dynamic,no,NA,positive,animate,main,declarative,30,fem,sim
+024,cesa,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_spec,en marzo,positive,animate,main,declarative,32,male,sim
+024,cesa,voy,PI,future,near,1pers,ir,motion,yes_spec,para spring break,positive,animate,main,declarative,32,male,sim
+024,cesa,vamos a llevar,PF,future,near,1pers,llevar,motion,yes_spec,ahora,positive,animate,main,declarative,32,male,sim
+024,cesa,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,en mayo,positive,animate,main,declarative,32,male,sim
+024,cesa,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,32,male,sim
+024,cesa,va a estar,PF,future,near,2pers,estar,stative,no,NA,positive,inanimate,subordinate,declarative,32,male,sim
+024,cesa,voy a hacer,PF,future,near,1pers,hacer,dynamic,yes_spec,este año,positive,animate,subordinate,ind_interrogative,32,male,sim
+024,cesa,me gustaría viajar,cond,future,nonspecific,1pers,viajar,dynamic,no,NA,positive,animate,main,declarative,32,male,sim
+024,cesa,voy,PI,future,near,1pers,ir,motion,yes_spec,en mayo,positive,animate,main,declarative,32,male,sim
+024,cesa,va a estar,PF,future,near,3pers,estar,stative,no,NA,positive,inanimate,main,declarative,32,male,sim
+024,cesa,van a estar [pasando],PF,future,near,3pers,estar,stative,no,NA,positive,animate,main,declarative,32,male,sim
+024,cesa,va a casar[se],PF,future,distant,3pers,casarse,dynamic,no,NA,positive,animate,subordinate,interrogative,32,male,sim
+024,cesa,van a ir,PF,future,near,3pers,ir,motion,yes_spec,en mayo,positive,animate,main,declarative,32,male,sim
+024,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,en mayo,positive,inanimate,subordinate,declarative,32,male,sim
+024,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,en mayo,positive,inanimate,subordinate,declarative,32,male,sim
+024,cesa,se casa,PI,future,distant,3pers,casarse,dynamic,yes_spec,en agosto,positive,animate,main,declarative,32,male,sim
+024,cesa,van,PI,future,near,3pers,ir,motion,no,NA,positive,animate,main,declarative,32,male,sim
+024,cesa,voy,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,32,male,sim
+024,cesa,van a estar [jugando],PF,future,near,3pers,estar,stative,yes_spec,ahora,positive,collective,main,declarative,32,male,sim
+024,cesa,van a jugar,PF,future,near,3pers,jugar,dynamic,no,NA,positive,collective,main,declarative,32,male,sim
+024,cesa,va a jugar,PF,future,near,3pers,jugar,dynamic,no,NA,positive,collective,main,declarative,32,male,sim
+024,cesa,van a llegar,PF,future,near,3pers,llegar,motion,yes_nonspec,ya,positive,animate,main,declarative,32,male,sim
+025,cesa,quiero ir,lex_futures,future,near,1pers,querer ir,modal,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,vamos a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,vamos a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,subordinate,declarative,22,male,seq
+025,cesa,vas a estar,PF,future,nonspecific,2pers,estar,stative,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,vamos a tratar de salvar [ahorrar],PF,future,nonspecific,1pers,tratar,dynamic,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,voy a ordenar,PF,future,immediate,1pers,ordenar,dynamic,no,NA,negative,animate,main,declarative,22,male,seq
+025,cesa,vamos,PI,future,near,1pers,ir,motion,yes_spec,el diecinueve de abril,positive,animate,main,declarative,22,male,seq
+025,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,22,male,seq
+025,cesa,voy a decir,PF,future,immediate,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,vas a hacer,PF,future,immediate,2pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,22,male,seq
+025,cesa,voy a ir,PF,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,voy,PI,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,me voy a ir,PF,future,immediate,1pers,irse,motion,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,me voy a bañar,PF,future,immediate,1pers,bañarse,dynamic,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,voy a salir,PF,future,immediate,1pers,salir,motion,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,me voy a quedar,PF,future,immediate,1pers,quedarse,stative,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,voy a ir [a desayunar],PF,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,va a mover,PF,future_hyp,nonspecific,3pers,mover,motion,no,NA,positive,inanimate,main,declarative,22,male,seq
+025,cesa,voy a caminar,PF,future,immediate,1pers,caminar,motion,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,tienes que entregar,lex_futures,future,nonspecific,2pers,tener que entregar,modal,no,NA,positive,animate,main,interrogative,22,male,seq
+025,cesa,voy a hablar,PF,future,nonspecific,1pers,hablar,dynamic,no,NA,negative,animate,main,declarative,22,male,seq
+025,cesa,van a hacer,PF,future,nonspecific,3pers,hacer,dynamic,no,NA,negative,collective,subordinate,declarative,22,male,seq
+025,cesa,van a cobrar,PF,future_hyp,nonspecific,3pers,cobrar,dynamic,no,NA,positive,collective,main,declarative,22,male,seq
+025,cesa,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_nonspec,ya,positive,animate,main,declarative,22,male,seq
+025,cesa,me voy a graduar,PF,future,nonspecific,1pers,graduarse,dynamic,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,voy a tener que ir,PF,future,nonspecific,1pers,tener que ir,modal,no,NA,positive,animate,main,declarative,22,male,seq
+025,cesa,voy a construir,PF,future,nonspecific,1pers,construir,dynamic,no,NA,positive,animate,main,declarative,22,male,seq
+026,cesa,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_spec,el tres de marzo,positive,animate,main,declarative,32,fem,seq
+026,cesa,cumple,PI,future,near,3pers,cumplir,dynamic,yes_spec,el nueve de mayo,positive,animate,main,declarative,32,fem,seq
+026,cesa,vamos,PF,future,distant,1pers,ir,motion,yes_spec,el año que viene,positive,animate,main,declarative,32,fem,seq
+026,cesa,vamos a ir a visitar,PF,future,near,1pers,ir a visitar,motion,no,NA,positive,animate,main,declarative,32,fem,seq
+026,cesa,van a conocer,PF,future,near,3pers,conocer,stative,no,NA,positive,animate,main,declarative,32,fem,seq
+026,cesa,pensamos ir,lex_futures,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,32,fem,seq
+026,cesa,va a tener,PF,future,near,3pers,tener,stative,yes_spec,en mayo,positive,animate,main,declarative,32,fem,seq
+026,cesa,van a hacer,PF,future,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,main,declarative,32,fem,seq
+026,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,32,fem,seq
+026,cesa,vamos a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_spec,ya el cuatro de junio,positive,animate,main,declarative,32,fem,seq
+026,cesa,voy a ser,PF,future,distant,1pers,ser,stative,no,NA,positive,animate,main,declarative,32,fem,seq
+026,cesa,va a graduarse,PF,future,near,3pers,graduarse,dynamic,yes_nonspec,"pronto, en un año",positive,animate,main,interrogative,32,fem,seq
+026,cesa,vamos a ir,PF,future,near,1pers,ir,motion,yes_spec,finales de abril,positive,animate,main,declarative,32,fem,seq
+026,cesa,termina,PI,future,near,3pers,terminar,dynamic,yes_spec,finales de abril,positive,inanimate,subordinate,declarative,32,fem,seq
+026,cesa,vamos,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,32,fem,seq
+027,cesa,trabaje,subj,future,distant,1pers,trabajar,dynamic,yes_nonspec,luego,positive,animate,subordinate,declarative,18,fem,seq
+027,cesa,voy a usar,PF,future,nonspecific,1pers,usar,dynamic,yes_nonspec,en el futuro,positive,animate,subordinate,declarative,18,fem,seq
+028,cesa,planeo ir,lex_futures,future,near,1pers,ir,motion,yes_nonspec,en los próximos años,positive,animate,main,declarative,20,male,seq
+028,cesa,me gustaría hacer,cond,future,distant,1pers,hacer,dynamic,yes_spec,después de colegio,positive,animate,main,declarative,20,male,seq
+028,cesa,me gustaría trabajar,cond,future,distant,1pers,trabajar,dynamic,yes_spec,después de colegio,positive,animate,main,declarative,20,male,seq
+028,cesa,quiero viajar,lex_futures,future,distant,1pers,viajar,dynamic,yes_spec,el año que viene,positive,animate,main,declarative,20,male,seq
+028,cesa,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,este verano,positive,animate,main,declarative,20,male,seq
+028,cesa,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,20,male,seq
+028,cesa,van a estar,PF,future,near,3pers,estar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+028,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,20,male,seq
+028,cesa,voy,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,20,male,seq
+028,cesa,voy a quedarme,PF,future,near,1pers,quedarse,stative,no,NA,positive,animate,main,declarative,20,male,seq
+029,cesa,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_nonspec,apenas,positive,animate,main,declarative,29,fem,seq
+029,cesa,van a aprender,PF,future,nonspecific,3pers,aprender,dynamic,no,NA,positive,animate,main,interrogative,29,fem,seq
+029,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a regresar,PF,future,nonspecific,1pers,regresar,motion,no,NA,negative,animate,main,declarative,29,fem,seq
+029,cesa,voy a preguntar,PF,future,nonspecific,1pers,preguntar,dynamic,yes_nonspec,nunca,negative,animate,main,declarative,29,fem,seq
+029,cesa,quiero ser,lex_futures,future,distant,1pers,ser,stative,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a decir,PF,future,nonspecific,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a poner,PF,future,near,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a poner,PF,future,near,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a estar,PF,future,nonspecific,1pers,estar,stative,no,NA,positive,animate,subordinate,declarative,29,fem,seq
+029,cesa,me gustaría continuar,cond,future,distant,1pers,continuar,dynamic,yes_spec,el año que entra,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a ser,PF,future,distant,1pers,ser,stative,yes_nonspec,cuando tenga hijos,negative,animate,main,declarative,29,fem,seq
+029,cesa,voy a ser,PF,future,distant,1pers,ser,stative,yes_nonspec,cuando tenga hijos,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a ser,PF,future,nonspecific,1pers,ser,stative,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,negative,animate,main,declarative,29,fem,seq
+029,cesa,voy a ser,PF,future,nonspecific,1pers,ser,stative,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,negative,animate,main,declarative,29,fem,seq
+029,cesa,voy a ser,PF,future,nonspecific,1pers,ser,stative,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,negative,animate,main,declarative,29,fem,seq
+029,cesa,voy a ser,PF,future,nonspecific,1pers,ser,stative,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,vamos a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,vamos a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,vas a tomar,PF,future,nonspecific,2pers,tomar,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+029,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,interrogative,29,fem,seq
+029,cesa,van a hacer,PF,future_hyp,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,main,declarative,29,fem,seq
+030,cesa,va a pasar,PF,future,nonspecific,3pers,pasar,dynamic,no,NA,positive,inanimate,subordinate,ind_interrogative,24,male,seq
+030,cesa,va a llegar,PF,future,nonspecific,3pers,llegar,motion,no,NA,positive,animate,subordinate,ind_interrogative,24,male,seq
+030,cesa,va a haber,PF,future_hyp,nonspecific,3pers,haber,stative,no,NA,positive,inanimate,main,declarative,24,male,seq
+030,cesa,voy a poder agarrarla,PF,future_hyp,nonspecific,1pers,poder agarrar,modal,no,NA,negative,animate,subordinate,declarative,24,male,seq
+030,cesa,va a estudiar,PF,future,near,3pers,estudiar,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,24,male,seq
+030,cesa,voy a estar viajando,PF,future,nonspecific,1pers,estar,stative,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,tengo planeado,lex_futures,future,nonspecific,1pers,tener,stative,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,van a tener,PF,future_hyp,nonspecific,3pers,tener,stative,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,me voy a morir,PF,future,nonspecific,1pers,morir,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,me voy a morir,PF,future,nonspecific,1pers,morir,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,te vas a morir,PF,future,nonspecific,2pers,morir,dynamic,no,NA,NA,NA,NA,NA,24,male,seq
+030,cesa,te vas a morir,PF,future,nonspecific,2pers,morir,dynamic,no,NA,NA,NA,NA,NA,24,male,seq
+030,cesa,voy a poder,PF,future,nonspecific,1pers,poder,modal,no,NA,negative,animate,subordinate,declarative,24,male,seq
+030,cesa,voy a poder,PF,future,nonspecific,1pers,poder,modal,no,NA,negative,animate,subordinate,declarative,24,male,seq
+030,cesa,daré,MF,future_hyp,nonspecific,1pers,dar,dynamic,yes_spec,cuando vea su cara,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,voy a trabajar,PF,future,near,1pers,trabajar,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,voy a tomar,PF,future,near,1pers,tomar,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,voy a tratar de hacer,PF,future,near,1pers,tratar,dynamic,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,van a explicar,PF,future,nonspecific,3pers,explicar,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,van a explicar,PF,future,nonspecific,3pers,explicar,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,van a explicar,PF,future,nonspecific,3pers,explicar,dynamic,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,van a hacer,PF,future,nonspecific,3pers,hacer,stative,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,vamos a estar transportando,PF,future,nonspecific,1pers,estar,stative,no,NA,positive,animate,subordinate,declarative,24,male,seq
+030,cesa,van a tener que entrenar,PF,future_hyp,nonspecific,3pers,tener que entrenar,modal,no,NA,positive,animate,main,declarative,24,male,seq
+030,cesa,va a gustar,PF,future,nonspecific,1pers,gustar,stative,no,NA,positive,animate,subordinate,ind_interrogative,24,male,seq
+031,cesa,voy a tener,PF,future,near,1pers,tener,stative,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,voy a tener,PF,future,near,1pers,tener,stative,no,NA,positive,animate,subordinate,declarative,20,male,seq
+031,cesa,vamos a poner,PF,future,near,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,vamos a decir,PF,future,near,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,voy a tener que echarle,PF,future,nonspecific,1pers,tener que echar,modal,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,va a descanar,PF,future,near,3pers,descansar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,se va a poner a trabajar,PF,future,near,3pers,ponerse a trabajar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,voy a tener,PF,future,nonspecific,1pers,tener,stative,no,NA,negative,animate,subordinate,declarative,20,male,seq
+031,cesa,te voy a dar,PF,future,immediate,1pers,dar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,va a cumplir,PF,future,nonspecific,3pers,cumplir,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,revisamos,PI,future,immediate,1pers,revisar,stative,yes_spec,ahorita,positive,animate,main,declarative,20,male,seq
+031,cesa,voy a ir,PF,future,immediate,1pers,ir,motion,yes_spec,ahorita,positive,animate,main,declarative,20,male,seq
+031,cesa,voy a ayudar,PF,future,immediate,1pers,ayudar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,20,male,seq
+031,cesa,voy a dar,PF,future,immediate,1pers,dar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,voy a invitar,PF,future_hyp,nonspecific,1pers,invitar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,va a andar,PF,future_hyp,nonspecific,3pers,andar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,va a haber,PF,future_hyp,nonspecific,3pers,haber,stative,no,NA,positive,inanimate,main,interrogative,20,male,seq
+031,cesa,voy a ir,PF,future_hyp,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,20,male,seq
+031,cesa,te los voy a dar,PF,future,immediate,1pers,dar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+032,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,voy a enseñar,PF,future,immediate,1pers,enseñar,dynamic,yes_spec,después del servicio,positive,animate,main,declarative,21,male,seq
+032,cesa,voy a ser,PF,future,nonspecific,1pers,ser,stative,yes_nonspec,cuando agarre mi segundo carro,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,se van a sentir,PF,future,nonspecific,3pers,sentirse,stative,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+032,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+032,cesa,van a caminar,PF,future,nonspecific,3pers,caminar,motion,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,van a caminar,PF,future,nonspecific,3pers,caminar,motion,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,van a pararse,PF,future,nonspecific,3pers,pararse,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,voy a escoger,PF,future,nonspecific,1pers,escoger,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,van a salir,PF,future,nonspecific,3pers,salir,motion,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,va a tener,PF,future,nonspecific,3pers,tener,stative,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,va a haber,PF,future_hyp,nonspecific,3pers,haber,stative,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+032,cesa,voy a decir,PF,future,nonspecific,1pers,decir,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,se van a desmayar,PF,future,nonspecific,3pers,desmayarse,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+032,cesa,va a salir,PF,future,nonspecific,3pers,salir,motion,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+032,cesa,va a haber,PF,future_hyp,nonspecific,3pers,haber,stative,no,NA,negative,inanimate,main,declarative,21,male,seq
+032,cesa,nos vamos a casar,PF,future_hyp,nonspecific,1pers,casarse,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,íbamos a ver,PF,future,nonspecific,1pers,ver,stative,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,va a estar,PF,future,nonspecific,3pers,estar,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+032,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+032,cesa,voy a estudiar,PF,future_hyp,nonspecific,1pers,estudiar,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,21,male,seq
+032,cesa,voy a aplicar,PF,future,near,1pers,aplicar,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,voy a hacer,PF,future,near,1pers,hacer,dynamic,no,NA,negative,animate,main,declarative,21,male,seq
+032,cesa,voy a estar,PF,future_hyp,nonspecific,1pers,estar,stative,yes_nonspec,nunca,negative,animate,subordinate,declarative,21,male,seq
+032,cesa,voy a estar llorando,PF,future_hyp,nonspecific,1pers,estar,stative,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,vamos a apoyar,PF,future,nonspecific,1pers,apoyar,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,vamos a apoyar,PF,future,nonspecific,1pers,apoyar,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,vas a hacer,PF,future_hyp,nonspecific,2pers,hacer,dynamic,no,NA,negative,animate,main,declarative,21,male,seq
+032,cesa,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,van a salir,PF,future,near,3pers,salir,motion,yes_spec,este fin de semana,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,va a pasar,PF,future,nonspecific,3pers,pasar,dynamic,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+032,cesa,van a confundir,PF,future,nonspecific,3pers,confundir,stative,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,van a agarrar,PF,future,nonspecific,3pers,agarrar,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,van a regresar,PF,future,nonspecific,3pers,regresar,motion,no,NA,negative,animate,subordinate,declarative,21,male,seq
+032,cesa,voy a ser,PF,future,distant,1pers,ser,stative,no,NA,positive,animate,subordinate,declarative,21,male,seq
+032,cesa,voy a tener,PF,future,distant,1pers,tener,stative,no,NA,positive,animate,main,declarative,21,male,seq
+032,cesa,va a durar,PF,future_hyp,nonspecific,3pers,durar,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+032,cesa,va a tener,PF,future,nonspecific,3pers,tener,stative,yes_nonspec,siempre,positive,animate,subordinate,declarative,21,male,seq
+033,cesa,va a dar,PF,future,immediate,3pers,dar,dynamic,no,NA,positive,animate,subordinate,declarative,20,fem,sim
+033,cesa,tendré que ver,MF,future,nonspecific,1pers,ver,stative,no,NA,positive,animate,main,declarative,20,fem,sim
+033,cesa,llegaré,MF,future,nonspecific,1pers,llegar,motion,no,NA,positive,animate,main,declarative,20,fem,sim
+033,cesa,tengo,PI,future,near,1pers,tener,stative,yes_spec,mañana,positive,animate,main,declarative,20,fem,sim
+033,cesa,podemos continuar,PI,future,near,1pers,poder continuar,dynamic,yes_spec,mañana,positive,animate,main,declarative,20,fem,sim
+033,cesa,va a venir,PF,future,near,3pers,venir,motion,yes_spec,en enero,positive,animate,main,declarative,20,fem,sim
+033,cesa,trabajo,PI,future,near,1pers,trabajar,dynamic,no,NA,positive,animate,main,declarative,20,fem,sim
+033,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,mañana,positive,inanimate,main,declarative,20,fem,sim
+033,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_spec,mañana,positive,inanimate,main,declarative,20,fem,sim
+033,cesa,trabajo,PI,future,near,1pers,trabajar,dynamic,yes_spec,este fin de semana,positive,animate,subordinate,declarative,20,fem,sim
+033,cesa,me toca hacer,PI,future,near,1pers,tocar hacer,dynamic,yes_spec,"este año, el día de gracias",positive,animate,main,declarative,20,fem,sim
+033,cesa,me toca hacer,PI,future,near,1pers,tocar hacer,dynamic,yes_spec,"este año, el día de gracias",positive,animate,main,declarative,20,fem,sim
+033,cesa,seremos,MF,future,near,1pers,ser,stative,yes_spec,este año,positive,animate,subordinate,declarative,20,fem,sim
+033,cesa,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,20,fem,sim
+033,cesa,va a verme,PF,future,near,3pers,ver,stative,yes_spec,el viernes,negative,animate,main,declarative,20,fem,sim
+033,cesa,será,MF,future,near,3pers,ser,stative,yes_spec,el viernes,positive,inanimate,main,declarative,20,fem,sim
+033,cesa,será,MF,future,near,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,20,fem,sim
+033,cesa,hablarán,MF,future_hyp,nonspecific,3pers,hablar,dynamic,no,NA,positive,inanimate,main,declarative,20,fem,sim
+034,cesa,será,MF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+034,cesa,será,MF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+034,cesa,pienso salir,lex_futures,future,near,1pers,pensar salir,modal,yes_spec,este verano,positive,animate,main,declarative,21,male,seq
+034,cesa,será,MF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+034,cesa,nos vamos a meter,PF,future,nonspecific,1pers,meterse,motion,no,NA,positive,animate,subordinate,ind_interrogative,21,male,seq
+034,cesa,vamos a terminar,PF,future,distant,1pers,terminar,dynamic,yes_spec,en junio,positive,animate,subordinate,declarative,21,male,seq
+034,cesa,va a entrar en vigor,PF,future,distant,3pers,entrar en vigor,motion,yes_spec,cincuenta años después,negative,inanimate,subordinate,declarative,21,male,seq
+034,cesa,vamos a cambiar,PF,future,nonspecific,1pers,cambiar,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+034,cesa,voy a tomar,PF,future,nonspecific,1pers,tomar,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+034,cesa,va a pagar,PF,future,distant,3pers,pagar,dynamic,yes_spec,en diez o quince años,positive,inanimate,main,interrogative,21,male,seq
+034,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,yes_spec,en esos años,positive,animate,main,interrogative,21,male,seq
+034,cesa,va[n] a seguir,PF,future,nonspecific,3pers,seguir,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+034,cesa,se va a enfocar,PF,future,nonspecific,3pers,enfocarse,dynamic,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+034,cesa,vamos a ver,PF,future,nonspecific,1pers,ver,stative,no,NA,positive,animate,subordinate,declarative,21,male,seq
+034,cesa,van a seguir,PF,future,nonspecific,3pers,seguir,dynamic,no,NA,positive,inanimate,main,declarative,21,male,seq
+034,cesa,vamos a ver,PF,future,nonspecific,1pers,ver,stative,no,NA,positive,animate,subordinate,declarative,21,male,seq
+034,cesa,vamos a seguir,PF,future,nonspecific,1pers,seguir,dynamic,no,NA,positive,animate,subordinate,declarative,21,male,seq
+034,cesa,van a tener,PF,future_hyp,nonspecific,3pers,tener,stative,no,NA,positive,animate,main,declarative,21,male,seq
+034,cesa,voy a tener,PF,future,nonspecific,1pers,tener,stative,yes_nonspec,en el futuro,positive,animate,subordinate,declarative,21,male,seq
+034,cesa,voy a tener,PF,future,nonspecific,1pers,tener,stative,yes_nonspec,después,positive,animate,subordinate,declarative,21,male,seq
+034,cesa,voy a volver,PF,future,nonspecific,1pers,volver,motion,yes_nonspec,antes de empezar a trabajar,positive,animate,main,declarative,21,male,seq
+035,cesa,voy a ir,PF,future,nonspecific,1pers,ir,motion,yes_nonspec,un día,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,va a estar grabado,PF,future,immediate,3pers,estar grabado,stative,no,NA,positive,inanimate,main,declarative,20,male,seq
+035,cesa,voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,yes_nonspec,nunca,negative,animate,main,declarative,20,male,seq
+035,cesa,va a matar,PF,future,nonspecific,3pers,matar,dynamic,no,NA,positive,inanimate,main,declarative,20,male,seq
+035,cesa,va a tener que dejar,PF,future_hyp,nonspecific,3pers,tener,modal,no,NA,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,voy a ponerte,PF,future_hyp,nonspecific,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,yes_nonspec,nunca,negative,animate,subordinate,interrogative,20,male,seq
+035,cesa,voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,no,NA,negative,animate,subordinate,interrogative,20,male,seq
+035,cesa,voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,no,NA,negative,animate,subordinate,declarative,20,male,seq
+035,cesa,vas a estar,PF,future,near,2pers,estar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,vas a entrar,PF,future,near,2pers,entrar,motion,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,va a pasar,PF,future,distant,3pers,pasar,dynamic,no,NA,negative,inanimate,main,declarative,20,male,seq
+035,cesa,me voy a escapar,PF,future,immediate,1pers,escaparse,motion,yes_spec,hoy,positive,animate,main,declarative,20,male,seq
+035,cesa,voy a salir,PF,future,immediate,1pers,salir,motion,yes_spec,hoy,positive,animate,main,declarative,20,male,seq
+035,cesa,voy a decir,PF,future,immediate,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,voy a entender,PF,future,nonspecific,1pers,entender,stative,yes_nonspec,nunca,negative,animate,main,declarative,20,male,seq
+035,cesa,vas a ir,PF,future,near,2pers,ir,motion,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,vas a ayudar,PF,future,near,2pers,ayudar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,voy a salir,PF,future,nonspecific,1pers,salir,motion,yes_nonspec,nunca,negative,animate,main,declarative,20,male,seq
+035,cesa,voy a salir,PF,future,nonspecific,1pers,salir,motion,yes_nonspec,nunca,negative,animate,subordinate,declarative,20,male,seq
+035,cesa,va a ir,PF,future,near,2pers,ir,motion,yes_spec,este mes,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,vas a ir,PF,future,near,2pers,ir,motion,no,NA,positive,animate,main,interrogative,20,male,seq
+035,cesa,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,van a ver,PF,future,near,3pers,ver,stative,no,NA,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,voy a salvar,PF,future,nonspecific,1pers,salvar,dynamic,no,NA,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,voy a escribirlo,PF,future,immediate,1pers,escribir,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,voy a hablar,PF,future,immediate,1pers,hablar,dynamic,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,voy a estudiar,PF,future,near,1pers,estudiar,dynamic,yes_spec,ahora,positive,animate,subordinate,declarative,20,male,seq
+035,cesa,vas a tener que trabajar,PF,future,near,2pers,tener que trabajar,modal,no,NA,positive,animate,main,declarative,20,male,seq
+035,cesa,vas a encontrar,PF,future_hyp,nonspecific,2pers,encontrar,stative,no,NA,positive,animate,main,declarative,20,male,seq
+036,cesa,voy a ir,PF,future,distant,1pers,ir,motion,yes_spec,me falta un año,positive,animate,subordinate,declarative,21,fem,seq
+036,cesa,quiero hacer,lex_futures,future,nonspecific,1pers,querer hacer,modal,yes_nonspec,en el futuro,positive,animate,subordinate,declarative,21,fem,seq
+036,cesa,me gustaría ir,cond,future,nonspecific,1pers,ir,motion,yes_nonspec,después que me gradúe de la universidad,positive,animate,main,declarative,21,fem,seq
+036,cesa,van a tener,PF,future,nonspecific,3pers,tener,stative,yes_nonspec,siempre,positive,animate,subordinate,declarative,21,fem,seq
+036,cesa,van a ver,PF,future,nonspecific,3pers,ver,stative,yes_nonspec,siempre,positive,animate,subordinate,declarative,21,fem,seq
+036,cesa,van a querer,PF,future,nonspecific,3pers,querer,stative,yes_nonspec,siempre,positive,animate,subordinate,declarative,21,fem,seq
+037,cesa,van a cubrir,PF,future,immediate,3pers,cubrir,dynamic,yes_spec,cuando van a terminar sus turnos,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,me voy a congelar,PF,future_hyp,nonspecific,1pers,congelarse,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,quiero vivir,lex_futures,future,distant,1pers,querer vivir,modal,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,va a moverse,PF,future,distant,3pers,moverse,motion,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,quiere estudiar,lex_futures,future,distant,3pers,querer estudiar,modal,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,voy a poner,PF,future,immediate,1pers,poner,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,van a tener que cocinar,PF,future,nonspecific,3pers,tener que cocinar,modal,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,voy a tener,PF,future,nonspecific,1pers,tener,stative,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,empiezo a hacer,PI,future,distant,1pers,empezar,dynamic,yes_spec,el año que viene,positive,animate,main,declarative,19,fem,seq
+037,cesa,voy a empezar,PF,future,distant,1pers,empezar,dynamic,yes_spec,el semestre que viene,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,voy a hacer,PF,future,immediate,1pers,hacer,dynamic,yes_spec,ahora,positive,animate,main,declarative,19,fem,seq
+037,cesa,tenemos,PI,future,near,1pers,tener,stative,yes_spec,la semana que viene,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,nos vamos a volver a reunir,PF,future,near,1pers,volver a reunirse,dynamic,yes_spec,el domingo,positive,animate,main,declarative,19,fem,seq
+037,cesa,quiero agarrar,lex_futures,future,distant,1pers,querer agarrar,modal,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,quiero tener,lex_futures,future,distant,1pers,querer tener,modal,yes_spec,cuando me gradúe,positive,animate,main,declarative,19,fem,seq
+037,cesa,quiero seguir,lex_futures,future,distant,1pers,querer seguir,modal,yes_nonspec,después de que me gradúe,positive,animate,main,declarative,19,fem,seq
+037,cesa,voy a hacer,PF,future_hyp,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,voy a poder,PF,future,distant,1pers,poder,modal,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,voy a poder,PF,future,distant,1pers,poder,modal,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,va a cumplir,PF,future,nonspecific,3pers,cumplir,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_nonspec,apenas,positive,animate,main,declarative,19,fem,seq
+037,cesa,van a entrar,PF,future,near,3pers,entrar,motion,yes_nonspec,ya,positive,animate,main,declarative,19,fem,seq
+037,cesa,voy a tener,PF,future_hyp,nonspecific,1pers,tener,stative,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,voy a estar,PF,future_hyp,nonspecific,1pers,estar,stative,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,van a tomar,PF,future,nonspecific,3pers,tomar,dynamic,yes_nonspec,nunca,negative,animate,subordinate,declarative,19,fem,seq
+037,cesa,voy a hablar,PF,future,nonspecific,1pers,hablar,dynamic,yes_nonspec,cuando yo quiera,positive,animate,main,declarative,19,fem,seq
+037,cesa,vas a decir,PF,future,nonspecific,2pers,decir,dynamic,yes_nonspec,ya,negative,animate,main,declarative,19,fem,seq
+037,cesa,voy a decir,PF,future,nonspecific,1pers,decir,dynamic,yes_nonspec,ya,negative,animate,main,declarative,19,fem,seq
+037,cesa,voy a parquerar,PF,future,immediate,1pers,parquear,dynamic,no,NA,positive,animate,main,declarative,19,fem,seq
+037,cesa,vamos a seguir practicando,PF,future,immediate,1pers,seguir practicando,dynamic,yes_spec,ahora ya,negative,animate,main,declarative,19,fem,seq
+037,cesa,van a aprender,PF,future,nonspecific,3pers,aprender,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+037,cesa,van a tener que aprender,PF,future,nonspecific,3pers,tener que aprender,modal,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+038,cesa,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,este fin de semana,positive,animate,main,declarative,21,fem,seq
+038,cesa,vamos a hacer,PF,future,immediate,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+038,cesa,me va a pegar,PF,future_hyp,nonspecific,3pers,pegar,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,van a pagar,PF,future,nonspecific,3pers,pagar,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,voy a aprovechar,PF,future,distant,1pers,aprovechar,dynamic,yes_spec,ese semestre,positive,animate,main,declarative,21,fem,seq
+038,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,yes_spec,ese semestre,positive,animate,main,declarative,21,fem,seq
+038,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,vamos a hablar,PF,future,near,1pers,hablar,dynamic,yes_spec,este martes,positive,animate,main,declarative,21,fem,seq
+038,cesa,vas a hacer,PF,future,immediate,2pers,hacer,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,vas a hacer,PF,future,immediate,2pers,hacer,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,vas a hacer,PF,future,immediate,2pers,hacer,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,voy a llegar,PF,future,nonspecific,1pers,llegar,motion,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,van a venir,PF,future,nonspecific,3pers,venir,motion,no,NA,positive,animate,main,declarative,21,fem,seq
+038,cesa,van a venir,PF,future,nonspecific,3pers,venir,motion,no,NA,positive,animate,main,interrogative,21,fem,seq
+038,cesa,van a venir,PF,future,nonspecific,3pers,venir,motion,no,NA,positive,animate,main,interrogative,21,fem,seq
+038,cesa,estarán,MF,future,nonspecific,3pers,estar,stative,no,NA,positive,animate,main,interrogative,21,fem,seq
+038,cesa,van a venir,PF,future,nonspecific,3pers,venir,motion,no,NA,positive,animate,main,interrogative,21,fem,seq
+039,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,yes_nonspec,nunca,negative,animate,main,declarative,21,fem,seq
+039,cesa,voy a regresar,PF,future,nonspecific,1pers,regresar,motion,no,NA,positive,animate,subordinate,ind_interrogative,21,fem,seq
+039,cesa,vamos a terminar,PF,future,nonspecific,1pers,terminar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+039,cesa,planeo ir,lex_futures,future,near,1pers,planear ir,modal,yes_spec,en mi graduación,positive,animate,main,declarative,21,fem,seq
+039,cesa,van a poder venir,PF,future,near,3pers,poder venir,modal,yes_spec,mi graduación,positive,animate,subordinate,ind_interrogative,21,fem,seq
+039,cesa,se te va a desenganchar,PF,future_hyp,nonspecific,3pers,desengancharse,dynamic,no,NA,positive,inanimate,subordinate,declarative,21,fem,seq
+039,cesa,van a hacer,PF,future,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,21,fem,seq
+039,cesa,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,21,fem,seq
+039,cesa,vas a querer hacer,PF,future,nonspecific,2pers,querer hacer,modal,no,NA,negative,animate,subordinate,declarative,21,fem,seq
+039,cesa,vas a tener que hacer,PF,future,nonspecific,2pers,tener que hacer,modal,no,NA,positive,animate,main,declarative,21,fem,seq
+039,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_nonspec,ya,positive,inanimate,subordinate,declarative,21,fem,seq
+039,cesa,van a ir,PF,future,near,3pers,ir,motion,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+039,cesa,se van a quedar,PF,future,near,3pers,quedarse,stative,no,NA,positive,animate,main,declarative,21,fem,seq
+039,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,fem,seq
+039,cesa,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,subordinate,declarative,21,fem,seq
+040,cesa,va a visitar,PF,future,distant,3pers,visitar,dynamic,yes_spec,cuando se retire [en uno o dos años],positive,animate,subordinate,declarative,25,male,sim
+040,cesa,me va a matar,PF,future,near,3pers,matar,dynamic,no,NA,positive,animate,main,declarative,25,male,sim
+040,cesa,va a ir,PF,future,near,3pers,ir,motion,yes_nonspec,luego,positive,animate,subordinate,declarative,25,male,sim
+040,cesa,voy,PI,future,immediate,1pers,ir,motion,yes_nonspec,ya,positive,animate,main,declarative,25,male,sim
+040,cesa,me voy a ir,PF,future_hyp,nonspecific,1pers,irse,motion,no,NA,positive,animate,main,declarative,25,male,sim
+040,cesa,va a afectar,PF,future,nonspecific,3pers,afectar,dynamic,no,NA,positive,inanimate,main,interrogative,25,male,sim
+040,cesa,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,25,male,sim
+040,cesa,se van a graduar,PF,future,near,3pers,graduarse,dynamic,yes_nonspec,apenas,positive,animate,subordinate,declarative,25,male,sim
+040,cesa,van a experimentar,PF,future,near,3pers,experimentar,stative,yes_nonspec,apenas,positive,animate,subordinate,declarative,25,male,sim
+040,cesa,va a hacer,PF,future_hyp,nonspecific,3pers,hacer,dynamic,no,NA,positive,inanimate,main,declarative,25,male,sim
+040,cesa,vamos a hacer,PF,future,near,1pers,hacer,dynamic,yes_spec,este año,positive,animate,main,interrogative,25,male,sim
+040,cesa,vamos a ir,PF,future,near,1pers,ir,motion,yes_spec,la víspera de navidad,positive,animate,main,interrogative,25,male,sim
+040,cesa,vamos a hacer,PF,future,near,1pers,hacer,dynamic,yes_spec,navidad,positive,animate,main,interrogative,25,male,sim
+040,cesa,vamos a hacer,PF,future,near,1pers,hacer,dynamic,yes_spec,día de gracias,positive,animate,main,interrogative,25,male,sim
+041,cesa,quiero ser,lex_futures,future,nonspecific,1pers,querer ser,modal,no,NA,positive,animate,subordinate,declarative,19,male,sim
+041,cesa,quisiera ser,lex_futures,future,nonspecific,1pers,querer ser,modal,no,NA,positive,animate,main,declarative,19,male,sim
+041,cesa,voy a llegar,PF,future,immediate,1pers,llegar,motion,no,NA,positive,animate,subordinate,declarative,19,male,sim
+041,cesa,quisiera ser,lex_futures,future,distant,1pers,querer ser,modal,yes_nonspec,cuando me gradúe,positive,animate,main,declarative,19,male,sim
+041,cesa,mandamos,PI,future,immediate,1pers,mandar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,19,male,sim
+041,cesa,voy a contar,PF,future,immediate,1pers,contar,dynamic,no,NA,positive,animate,main,declarative,19,male,sim
+041,cesa,va a pasar,PF,future,immediate,3pers,pasar,dynamic,no,NA,positive,inanimate,main,interrogative,19,male,sim
+042,cesa,van,PF,future,near,3pers,ir,motion,yes_spec,este viernes,positive,animate,main,declarative,23,male,seq
+042,cesa,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_spec,mañana,positive,animate,main,declarative,23,male,seq
+042,cesa,cumplo,PI,future,near,1pers,cumplir,dynamic,yes_spec,el miércoles,positive,animate,main,declarative,23,male,seq
+042,cesa,se va,PI,future,near,3pers,irse,motion,yes_spec,para Spring Break,positive,animate,main,declarative,23,male,seq
+042,cesa,va a comprar,PF,future,near,3pers,comprar,dynamic,yes_spec,la semana que entra,positive,animate,main,declarative,23,male,seq
+042,cesa,voy a comprar,PF,future,nonspecific,1pers,comprar,dynamic,no,NA,positive,animate,main,declarative,23,male,seq
+042,cesa,me gustaría cazar,cond,future,near,1pers,cazar,dynamic,yes_spec,este año,positive,animate,main,declarative,23,male,seq
+042,cesa,va a bajar,PF,future,nonspecific,3pers,bajarse,motion,no,NA,positive,inanimate,main,declarative,23,male,seq
+042,cesa,va a alcanzar,PF,future_hyp,nonspecific,3pers,alcanzar,dynamic,no,NA,negative,inanimate,main,declarative,23,male,seq
+042,cesa,olvidaré,MF,future,nonspecific,1pers,olvidar,stative,yes_nonspec,nunca,negative,animate,main,declarative,23,male,seq
+042,cesa,te vas a graduar,PF,future,nonspecific,2pers,graduarse,dynamic,no,NA,positive,animate,main,interrogative,23,male,seq
+042,cesa,se va a hacer,PF,future,near,3pers,hacerse,dynamic,yes_spec,este fin de semana,negative,inanimate,main,interrogative,23,male,seq
+042,cesa,me quedo,PF,future,near,1pers,quedarse,stative,yes_spec,este fin de semana,positive,animate,main,declarative,23,male,seq
+042,cesa,volveré a hacer,MF,future,nonspecific,1pers,volver a hacer,dynamic,yes_nonspec,nunca,negative,animate,main,declarative,23,male,seq
+042,cesa,voy a invitar,PF,future,nonspecific,1pers,invitar,dynamic,yes_nonspec,luego,positive,animate,main,declarative,23,male,seq
+042,cesa,voy a subir,PF,future,immediate,1pers,subir,motion,no,NA,positive,animate,main,declarative,23,male,seq
+042,cesa,voy a alzar,PF,future,immediate,1pers,alzar,dynamic,no,NA,positive,animate,main,declarative,23,male,seq
+042,cesa,se va a tirar,PF,future,immediate,3pers,tirarse,motion,no,NA,positive,inanimate,main,declarative,23,male,seq
+042,cesa,va a dar,PF,future,nonspecific,3pers,dar,dynamic,no,NA,positive,inanimate,main,declarative,23,male,seq
+042,cesa,te vas a asustar,PF,future,immediate,2pers,asustarse,stative,no,NA,negative,animate,main,interrogative,23,male,seq
+042,cesa,va a dejar,PF,future,immediate,3pers,dejar,dynamic,no,NA,positive,animate,main,declarative,23,male,seq
+042,cesa,va a querer salir,PF,future_hyp,nonspecific,3pers,querer salir,modal,no,NA,negative,animate,subordinate,declarative,23,male,seq
+042,cesa,te vas a tomar,PF,future,near,2pers,tomarse,dynamic,no,NA,positive,animate,main,interrogative,23,male,seq
+042,cesa,vas a agarrar,PF,future,immediate,3pers,agarrar,dynamic,no,NA,positive,animate,main,interrogative,23,male,seq
+042,cesa,va a dar,PF,future,nonspecific,3pers,dar,dynamic,no,NA,positive,inanimate,main,declarative,23,male,seq
+042,cesa,vamos a hacer,PF,future,near,1pers,hacer,dynamic,yes_spec,este fin de semana,positive,animate,main,interrogative,23,male,seq
+042,cesa,nos vamos a juntar,PF,future,near,1pers,juntarse,motion,yes_spec,este fin de semana,positive,animate,main,interrogative,23,male,seq
+042,cesa,tengo que madrugar,lex_futures,future,near,1pers,tener que madrugar,modal,yes_spec,mañana,positive,animate,main,declarative,23,male,seq
+042,cesa,vas a presentar,PF,future,nonspecific,2pers,presentar,dynamic,no,NA,positive,animate,main,interrogative,23,male,seq
+042,cesa,llegará,MF,future,nonspecific,3pers,llegar,motion,no,NA,positive,inanimate,main,declarative,23,male,seq
+042,cesa,va a aprender,PF,future,nonspecific,3pers,aprender,dynamic,no,NA,positive,animate,subordinate,declarative,23,male,seq
+042,cesa,vamos a ayudar,PF,future_hyp,nonspecific,1pers,ayudar,dynamic,no,NA,negative,animate,main,declarative,23,male,seq
+043,cesa,va a ser,PF,future,immediate,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,18,fem,seq
+043,cesa,voy a hacer,PF,future,immediate,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+043,cesa,voy a llevar,PF,future,nonspecific,1pers,llevar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+043,cesa,van a tener,PF,future,near,3pers,tener,stative,yes_nonspec,ahorita,positive,animate,subordinate,declarative,18,fem,seq
+043,cesa,vamos,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,18,fem,seq
+043,cesa,quiero ser,lex_futures,future,nonspecific,1pers,querer ser,modal,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+043,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,yes_spec,cuatro años,positive,animate,subordinate,declarative,18,fem,seq
+043,cesa,quiero enseñar,lex_futures,future,nonspecific,1pers,querer enseñar,modal,yes_nonspec,cuando tengo niños,positive,animate,subordinate,declarative,18,fem,seq
+044,cesa,vas a ir,PF,future,nonspecific,2pers,ir,motion,no,NA,positive,animate,main,interrogative,21,fem,sim
+044,cesa,vas a tomar,PF,future,immediate,2pers,tomarse,dynamic,yes_spec,hoy,positive,animate,main,interrogative,21,fem,sim
+044,cesa,van a dar,PF,future,near,3pers,dar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,van a dar,PF,future,near,3pers,dar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,fem,sim
+044,cesa,van a llegar,PF,future,near,3pers,llegar,motion,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,van a llevar,PF,future,near,3pers,llevar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a traer,PF,future,near,3pers,traer,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a ir,PF,future,near,3pers,ir,motion,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,fem,sim
+044,cesa,van a estar,PF,future,near,3pers,estar,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,se va a ir,PF,future,nonspecific,3pers,irse,motion,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,van a hacer,PF,future,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,vamos a hablar,PF,future,nonspecific,1pers,hablar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,va a ir,PF,future,nonspecific,3pers,ir,motion,no,NA,negative,animate,subordinate,declarative,21,fem,sim
+044,cesa,voy a ayudar,PF,future,nonspecific,1pers,ayudar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,voy a estar,PF,future,near,1pers,estar,stative,yes_spec,en el verano,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,va a hacer,PF,future,near,3pers,hacer,dynamic,yes_spec,en el verano,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a hacer,PF,future,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,va a terminar,PF,future,nonspecific,3pers,terminar,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,21,fem,sim
+044,cesa,va a empezar,PF,future,nonspecific,3pers,empezar,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,vas a tomar,PF,future,distant,2pers,tomar,dynamic,no,NA,positive,animate,main,interrogative,21,fem,sim
+044,cesa,voy a tomar,PF,future,distant,1pers,tomar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,voy a tomar,PF,future,distant,1pers,tomar,dynamic,yes_spec,ese semestre,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a ser,PF,future,near,3pers,ser,stative,yes_nonspec,ya,positive,inanimate,subordinate,declarative,21,fem,sim
+044,cesa,vamos a tomar,PF,future,immediate,1pers,tomar,dynamic,no,NA,positive,animate,main,interrogative,21,fem,sim
+044,cesa,vamos a ir,PF,future,immediate,1pers,tomar,dynamic,no,NA,positive,animate,main,interrogative,21,fem,sim
+044,cesa,vamos a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,voy a buscar,PF,future,immediate,1pers,buscar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,21,fem,sim
+044,cesa,voy a tomar,PF,future,distant,1pers,tomar,dynamic,yes_spec,en primavera,positive,animate,subordinate,ind_interrogative,21,fem,sim
+044,cesa,quiero tomar,lex_futures,future,distant,1pers,querer tomar,modal,yes_spec,en winter session,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,fem,sim
+044,cesa,van a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,fem,sim
+044,cesa,se va a ir,PF,future,nonspecific,3pers,irse,motion,no,NA,positive,animate,main,interrogative,21,fem,sim
+044,cesa,voy a hacer,PF,future,distant,1pers,hacer,dynamic,yes_spec,después que me gradúe,positive,animate,subordinate,ind_interrogative,21,fem,sim
+044,cesa,voy a poner,PF,future,nonspecific,1pers,poner,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,21,fem,sim
+044,cesa,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_nonspec,ya,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a ir,PF,future,near,3pers,ir,motion,yes_spec,en verano,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a ir,PF,future,near,3pers,ir,motion,yes_spec,en julio,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,trabajaré,MF,future,nonspecific,1pers,trabajar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,vas a pedir,PF,future,nonspecific,2pers,pedir,dynamic,no,NA,positive,animate,main,interrogative,21,fem,sim
+044,cesa,va a querer,PF,future,nonspecific,3pers,querer,stative,no,NA,negative,animate,subordinate,declarative,21,fem,sim
+044,cesa,va a hacer,PF,future,nonspecific,3pers,hacer,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,se va a quedar,PF,future,distant,3pers,quedarse,stative,yes_spec,otro semestre,positive,animate,main,declarative,21,fem,sim
+044,cesa,voy a quitar,PF,future,nonspecific,1pers,quitar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,va a ser,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,subordinate,ind_interrogative,21,fem,sim
+044,cesa,van a estar,PF,future_hyp,nonspecific,3pers,estar,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+044,cesa,voy a preguntar,PF,future,immediate,1pers,preguntar,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,voy a decir,PF,future,immediate,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+044,cesa,voy a decir,PF,future,immediate,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,21,fem,sim
+045,cesa,viene,PI,future,near,3pers,venir,motion,yes_nonspec,ahora,positive,inanimate,main,declarative,46,fem,seq
+045,cesa,nos vamos a ver,PF,future,near,1pers,verse,dynamic,no,NA,positive,animate,main,declarative,46,fem,seq
+045,cesa,voy a decir,PF,future,immediate,1pers,decir,dynamic,yes_spec,ahorita,positive,animate,main,declarative,46,fem,seq
+045,cesa,voy a tener que ver,PF,future,nonspecific,1pers,tener que ver,modal,no,NA,positive,animate,main,declarative,46,fem,seq
+045,cesa,voy a ver,PF,future,nonspecific,1pers,ver,stative,no,NA,positive,animate,subordinate,declarative,46,fem,seq
+045,cesa,voy a poner,PF,future,nonspecific,1pers,poner,dynamic,no,NA,positive,animate,main,declarative,46,fem,seq
+045,cesa,me voy a acordar,PF,future,nonspecific,1pers,acordarse,stative,no,NA,negative,animate,main,declarative,46,fem,seq
+046,cesa,va a llegar,PF,future_hyp,nonspecific,3pers,llegar,motion,no,NA,positive,inanimate,subordinate,declarative,23,male,seq
+047,cesa,me gustaría terminar,cond,future,nonspecific,1pers,terminar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,me gustaría graduarme,cond,future,nonspecific,1pers,graduarse,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,me gustaría mudarme,cond,future,nonspecific,1pers,terminar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,me gustaría trabajar,cond,future,nonspecific,1pers,trabajar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,voy a enseñar,PF,future_hyp,nonspecific,1pers,enseñar,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+047,cesa,voy a empezar,PF,future,near,1pers,empezar,dynamic,yes_nonspec,ya,positive,animate,main,declarative,18,fem,seq
+047,cesa,va a tener,PF,future,nonspecific,3pers,tener,stative,yes_nonspec,ya,negative,animate,main,declarative,18,fem,seq
+047,cesa,va a mejorar,PF,future,nonspecific,3pers,mejorar,dynamic,no,NA,positive,inanimate,subordinate,declarative,18,fem,seq
+047,cesa,va a entender,PF,future,nonspecific,3pers,entender,stative,no,NA,negative,animate,main,declarative,18,fem,seq
+047,cesa,va a bailar,PF,future,immediate,3pers,bailar,dynamic,no,NA,negative,animate,main,declarative,18,fem,seq
+047,cesa,va a quitar,PF,future,nonspecific,3pers,quitar,dynamic,no,NA,positive,inanimate,main,declarative,18,fem,seq
+047,cesa,van a seguir hablando,PF,future,nonspecific,3pers,seguir,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+048,cesa,voy a hacer,PF,future_hyp,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,voy a ser,PF,future,nonspecific,1pers,ser,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,quiero tener,lex_futures,future,distant,1pers,querer tener,modal,yes_spec,para los venticinco,positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,quiero ir,lex_futures,future,distant,1pers,querer ir,modal,no,NA,positive,animate,subordinate,ind_interrogative,21,fem,sim
+048,cesa,quiero,lex_futures,future,distant,1pers,querer,stative,yes_spec,"a los venticinco, ventiséis",positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,voy a ser,PF,future_hyp,nonspecific,1pers,ser,stative,no,NA,positive,animate,main,declarative,21,fem,sim
+048,cesa,me va a ayudar,PF,future,nonspecific,3pers,ayudar,dynamic,no,NA,positive,inanimate,subordinate,declarative,21,fem,sim
+048,cesa,me va a ayudar,PF,future,nonspecific,3pers,ayudar,dynamic,no,NA,positive,inanimate,subordinate,declarative,21,fem,sim
+048,cesa,voy a decirles,PF,future_hyp,nonspecific,1pers,decir,dynamic,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,voy a tener que ir,PF,future,nonspecific,1pers,tener que ir,modal,no,NA,positive,animate,main,declarative,21,fem,sim
+048,cesa,voy a saber,PF,future,nonspecific,1pers,saber,stative,no,NA,positive,animate,main,declarative,21,fem,sim
+048,cesa,van a estar,PF,future,nonspecific,3pers,estar,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,voy a extrañar,PF,future,nonspecific,1pers,extrañar,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+048,cesa,voy a ir,PF,future_hyp,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,21,fem,sim
+048,cesa,voy a extrañar,PF,future_hyp,nonspecific,1pers,extrañar,stative,no,NA,positive,animate,subordinate,declarative,21,fem,sim
+049,stc,se va a ir,PF,future,nonspecific,3pers,irse,motion,no,NA,positive,animate,main,interrogative,59,male,seq
+049,stc,tengo que ir,lex_futures,future,immediate,1pers,tener que ir,modal,yes_spec,en la tarde,positive,animate,subordinate,declarative,59,male,seq
+049,stc,se va a ir,PF,future,immediate,3pers,irse,motion,yes_spec,ahorita,positive,animate,main,declarative,59,male,seq
+049,stc,va a traer,PF,future,nonspecific,3pers,traer,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,doy,PI,future,immediate,1pers,dar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,59,male,seq
+049,stc,iré,MF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,vamos,PI,future,near,1pers,ir,motion,yes_spec,mañana,positive,animate,main,declarative,59,male,seq
+049,stc,van a enfermar,PF,future,nonspecific,3pers,enfermar,dynamic,no,NA,positive,animate,subordinate,declarative,59,male,seq
+049,stc,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,subordinate,declarative,59,male,seq
+049,stc,voy a ver,PF,future,nonspecific,1pers,ver,stative,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,salgo,PI,future,immediate,1pers,salir,motion,yes_spec,ahorita,positive,animate,main,declarative,59,male,seq
+049,stc,voy a ir,PF,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,llevo,PI,future,immediate,1pers,llevar,dynamic,yes_spec,ahorita al rato,positive,animate,main,declarative,59,male,seq
+049,stc,pido,PI,future,immediate,1pers,pedir,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,59,male,seq
+049,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,59,male,seq
+049,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,59,male,seq
+049,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,59,male,seq
+049,stc,voy a trabajar,PF,future,immediate,1pers,trabajar,dynamic,yes_spec,ahora,negative,animate,main,declarative,59,male,seq
+049,stc,voy a hablar,PF,future,immediate,1pers,hablar,dynamic,yes_spec,ahorita,positive,animate,main,declarative,59,male,seq
+049,stc,vengo,PI,future,immediate,1pers,venir,motion,yes_spec,ahorita,positive,animate,main,declarative,59,male,seq
+049,stc,voy,PI,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy,PI,future,immediate,1pers,ir,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy a trabajar,PF,future,near,1pers,trabajar,dynamic,yes_spec,mañana,negative,animate,subordinate,declarative,59,male,seq
+049,stc,voy a poder venir,PF,future,near,1pers,poder venir,modal,yes_spec,en la mañana,negative,animate,main,declarative,59,male,seq
+049,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,59,male,seq
+049,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,interrogative,59,male,seq
+049,stc,voy a encargar,PF,future,near,1pers,encargar,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy a ir a ordeñar,PF,future,near,1pers,ordeñar,dynamic,yes_nonspec,ya,negative,animate,main,declarative,59,male,seq
+049,stc,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy a ver,PF,future,nonspecific,1pers,ver,stative,no,NA,positive,animate,subordinate,declarative,59,male,seq
+049,stc,voy a dejar,PF,future,distant,1pers,dejar,dynamic,yes_nonspec,para cuando crezcan,positive,animate,main,declarative,59,male,seq
+049,stc,vamos a hacer,PF,future,immediate,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,59,male,seq
+049,stc,van a castigar,PF,future,near,3pers,castigar,dynamic,yes_spec,ahora,positive,animate,main,declarative,59,male,seq
+049,stc,van a detener,PF,future,near,3pers,detener,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,va a esculcar,PF,future,near,3pers,esculcar,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy a ser,PF,future_hyp,nonspecific,1pers,ser,stative,no,NA,negative,animate,main,declarative,59,male,seq
+049,stc,salgo,PI,future,immediate,1pers,salir,motion,yes_spec,ahorita,negative,animate,main,declarative,59,male,seq
+049,stc,salgo,PI,future,near,1pers,salir,motion,yes_spec,mañana,positive,animate,main,declarative,59,male,seq
+049,stc,te vas,PI,future,near,2pers,irse,motion,yes_spec,mañana,positive,animate,main,declarative,59,male,seq
+049,stc,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,el lunes,positive,animate,main,declarative,59,male,seq
+049,stc,voy a llevar,PF,future,nonspecific,1pers,llevar,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy,PI,future,near,1pers,ir,motion,yes_spec,mañana,positive,animate,main,declarative,59,male,seq
+049,stc,voy a ir,PF,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,59,male,seq
+049,stc,voy a comprar,PF,future,nonspecific,1pers,comprar,dynamic,no,NA,positive,animate,main,declarative,59,male,seq
+050,stc,quiero regresar,lex_futures,future,nonspecific,1pers,querer regresar,modal,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+050,stc,quisiera tener,lex_futures,future,nonspecific,1pers,querer tener,modal,no,NA,positive,animate,main,declarative,22,fem,seq
+050,stc,van a ser,PF,future,near,3pers,ser,stative,yes_nonspec,ya,positive,inanimate,main,declarative,22,fem,seq
+050,stc,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+050,stc,va a estudiar,PF,future,near,3pers,estudiar,dynamic,no,NA,positive,animate,main,declarative,22,fem,seq
+050,stc,va a ir,PF,future,near,3pers,ir,motion,no,NA,positive,animate,main,declarative,22,fem,seq
+050,stc,quiere terminar,PF,future,distant,3pers,querer terminar,modal,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+050,stc,quiere estudiar,PF,future,distant,3pers,querer estudiar,modal,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+051,stc,tienes que ir,lex_futures,future,distant,2pers,tener que ir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+051,stc,tienes que agarrar,lex_futures,future,distant,2pers,tener que agarrar,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+051,stc,se me va a olvidar,PF,future,nonspecific,3pers,olvidarse,stative,yes_nonspec,nunca,negative,inanimate,subordinate,declarative,18,fem,seq
+051,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,18,fem,seq
+051,stc,planeo ir,lex_futures,future,distant,1pers,planear ir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+051,stc,quiero estudiar,lex_futures,future,distant,1pers,querer estudiar,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+051,stc,va a ser,PF,future,distant,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,18,fem,seq
+051,stc,voy a poder venir,PF,future,distant,1pers,poder venir,modal,no,NA,positive,animate,main,declarative,18,fem,seq
+051,stc,puedo ser,lex_futures,future,distant,1pers,poder ser,modal,yes_spec,en cuatro años,positive,animate,subordinate,declarative,18,fem,seq
+051,stc,voy a andar trabajando,PF,future,nonspecific,1pers,andar trabajando,stative,yes_nonspec,en el futuro,positive,animate,subordinate,declarative,18,fem,seq
+051,stc,voy a estar ayudando,PF,future,nonspecific,1pers,estar ayudando,stative,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+051,stc,voy a estar cuidando,PF,future,nonspecific,1pers,estar cuidando,stative,no,NA,positive,animate,subordinate,declarative,18,fem,seq
+051,stc,voy a estar ayudando,PF,future,nonspecific,1pers,estar ayudando,stative,no,NA,positive,animate,main,declarative,18,fem,seq
+051,stc,voy a poder,PF,future,nonspecific,1pers,poder,modal,no,NA,negative,animate,main,declarative,18,fem,seq
+052,stc,va a ser,PF,future,near,3pers,ser,stative,yes_spec,"en octubre, este año",positive,inanimate,main,declarative,19,fem,seq
+052,stc,voy a comenzar,PF,future,near,1pers,comenzar,dynamic,yes_nonspec,ya,positive,animate,main,declarative,19,fem,seq
+052,stc,va a pasar,PF,future_hyp,nonspecific,3pers,pasar,dynamic,no,NA,positive,inanimate,main,declarative,19,fem,seq
+052,stc,va a entrar,PF,future,near,3pers,entrar,motion,yes_nonspec,ya,positive,animate,main,declarative,19,fem,seq
+052,stc,van a necesitar,PF,future,nonspecific,3pers,necesitar,stative,no,NA,positive,animate,subordinate,declarative,19,fem,seq
+053,stc,me voy a portar,PF,future,nonspecific,1pers,portarse,stative,no,NA,positive,animate,main,declarative,43,fem,seq
+053,stc,va a seguir viniendo,PF,future,nonspecific,3pers,seguir,motion,no,NA,positive,animate,main,declarative,43,fem,seq
+053,stc,va a venir,PF,future,nonspecific,3pers,venir,motion,no,NA,positive,animate,subordinate,declarative,43,fem,seq
+054,stc,voy a entrar,PF,future,nonspecific,1pers,entrar,motion,no,NA,positive,animate,main,declarative,23,male,seq
+054,stc,me meto,PI,future,nonspecific,1pers,meterse,dynamic,yes_nonspec,"más tarde, en el futuro",positive,animate,main,declarative,23,male,seq
+054,stc,voy a contar,PF,future,immediate,1pers,contar,dynamic,no,NA,positive,animate,main,declarative,23,male,seq
+054,stc,voy a pegar,PF,future_hyp,nonspecific,1pers,pegar,dynamic,no,NA,negative,animate,main,declarative,23,male,seq
+055,stc,voy a terminar,PF,future,distant,1pers,terminar,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,23,fem,seq
+055,stc,voy a decir,PF,future_hyp,nonspecific,1pers,decir,dynamic,no,NA,positive,animate,main,declarative,23,fem,seq
+055,stc,voy a enseñar,PF,future_hyp,nonspecific,1pers,enseñar,dynamic,no,NA,positive,animate,subordinate,declarative,23,fem,seq
+056,stc,voy a estar continuando,PF,future,near,1pers,estar continuando,stative,no,NA,positive,animate,main,declarative,24,fem,seq
+056,stc,voy a vivir,PF,future,distant,1pers,vivir,stative,yes_spec,el resto de mi vida,positive,animate,subordinate,declarative,24,fem,seq
+056,stc,[voy a] formar,PF,future,distant,1pers,formar,dynamic,no,NA,positive,animate,subordinate,declarative,24,fem,seq
+056,stc,estar,inf,future,nonspecific,inf,estar,stative,no,NA,positive,inanimate,main,declarative,24,fem,seq
+056,stc,tener,inf,future,nonspecific,inf,tener,stative,no,NA,negative,inanimate,main,declarative,24,fem,seq
+057,stc,va a ser,PF,future,near,3pers,ser,stative,yes_nonspec,ya,positive,inanimate,main,declarative,47,male,seq
+058,stc,quiero pasarlo,lex_futures,future,nonspecific,1pers,querer pasar,modal,yes_nonspec,cuando yo crezca,positive,animate,main,declarative,21,male,seq
+058,stc,voy a tratar de enseñarlo,PF,future,nonspecific,1pers,tratar de enseñar,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+058,stc,voy a hablar,PF,future,nonspecific,1pers,hablar,dynamic,yes_nonspec,"ya [i.e., en ese momento]",positive,animate,subordinate,declarative,21,male,seq
+058,stc,voy a tratar de hacer,PF,future,nonspecific,1pers,tratar de hacer,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,voy a llevar,PF,future,nonspecific,1pers,llevar,motion,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,voy a visitar,PF,future,nonspecific,1pers,visitar,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,voy a tratar de hablar,PF,future,nonspecific,1pers,tratar de hablar,dynamic,yes_nonspec,cuando estén creciendo,positive,animate,main,declarative,21,male,seq
+058,stc,voy a tratar de hablar,PF,future,nonspecific,1pers,tratar de hablar,dynamic,yes_nonspec,cuando son niños,positive,animate,main,declarative,21,male,seq
+058,stc,voy a tratar de hacer,PF,future,nonspecific,1pers,tratar de hacer,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,acabo,PI,future,distant,1pers,acabar,dynamic,yes_spec,un año más,positive,animate,main,declarative,21,male,seq
+058,stc,intentar encontrar,inf,future,distant,inf,intentar encontrar,dynamic,no,NA,positive,inanimate,main,declarative,21,male,seq
+058,stc,tratar de meterme,inf,future,distant,inf,tratar de meterse,dynamic,no,NA,positive,inanimate,main,declarative,21,male,seq
+058,stc,voy a ir,PF,future_hyp,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,voy a seguir,PF,future_hyp,nonspecific,1pers,seguir,motion,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,se perderá,MF,future,nonspecific,3pers,perderse,dynamic,yes_nonspec,alguna vez,positive,inanimate,subordinate,declarative,21,male,seq
+058,stc,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,21,male,seq
+058,stc,va a ser,PF,future,distant,3pers,ser,stative,yes_spec,unos diez años,positive,inanimate,subordinate,declarative,21,male,seq
+058,stc,voy a tener,PF,future_hyp,nonspecific,1pers,tener,stative,no,NA,positive,animate,subordinate,declarative,21,male,seq
+058,stc,va a ser,PF,future_hyp,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,21,male,seq
+058,stc,voy a tratar de hacer,PF,future_hyp,nonspecific,1pers,tratar de hacer,dynamic,no,NA,positive,animate,main,declarative,21,male,seq
+058,stc,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,negative,inanimate,subordinate,declarative,21,male,seq
+058,stc,va a ser,PF,future,nonspecific,3pers,ser,stative,yes_nonspec,cuando crezca,positive,inanimate,subordinate,declarative,21,male,seq
+059,stc,va a aprender,PF,future,distant,3pers,aprender,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,va a aprender,PF,future,near,3pers,aprender,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,va a aprender,PF,future,distant,3pers,aprender,dynamic,yes_spec,cuando entre a la escuela,positive,animate,main,declarative,20,fem,seq
+059,stc,va a aprender,PF,future,distant,3pers,aprender,dynamic,yes_nonspec,ya,positive,animate,main,declarative,20,fem,seq
+059,stc,quiero meterme,lex_futures,future,distant,1pers,querer meterse,modal,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,quiero ser,lex_futures,future,distant,1pers,querer ser,modal,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,voy a robar,PF,future,immediate,1pers,robar,dynamic,no,NA,positive,animate,subordinate,declarative,20,fem,seq
+059,stc,quiero tener,lex_futures,future,nonspecific,1pers,querer tener,modal,no,NA,negative,animate,subordinate,declarative,20,fem,seq
+059,stc,voy a hacer,PF,future_hyp,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,voy a hablarles,PF,future_hyp,nonspecific,1pers,hablar,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,voy a seguir hablando,PF,future_hyp,nonspecific,1pers,seguir hablando,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,voy a hablar,PF,future_hyp,nonspecific,1pers,hablar,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,me voy a sentar,PF,future,immediate,1pers,sentarse,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,voy a estar,PF,future_hyp,nonspecific,1pers,estar,stative,no,NA,positive,animate,subordinate,declarative,20,fem,seq
+059,stc,voy a estar,PF,future_hyp,nonspecific,1pers,estar,stative,no,NA,positive,animate,main,declarative,20,fem,seq
+059,stc,voy a decir,PF,future_hyp,nonspecific,1pers,decir,dynamic,no,NA,negative,animate,main,declarative,20,fem,seq
+059,stc,te voy a seguir hablando,PF,future,nonspecific,1pers,seguir hablando,dynamic,no,NA,positive,animate,subordinate,declarative,20,fem,seq
+060,stc,vamos a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,interrogative,25,male,seq
+060,stc,quiero,lex_futures,future,nonspecific,1pers,querer,stative,no,NA,negative,animate,main,declarative,25,male,seq
+060,stc,quiero seguir hablándolo,lex_futures,future,nonspecific,1pers,querer seguir,modal,no,NA,positive,animate,main,declarative,25,male,seq
+060,stc,serán,MF,future,nonspecific,3pers,ser,stative,yes_nonspec,siempre,positive,animate,subordinate,declarative,25,male,seq
+060,stc,voy a ser,PF,future,nonspecific,1pers,ser,stative,yes_nonspec,siempre,positive,animate,main,declarative,25,male,seq
+060,stc,se vuelva,subj,future,nonspecific,3pers,volverse,dynamic,yes_nonspec,en cierto tiempo,positive,inanimate,subordinate,declarative,25,male,seq
+061,stc,voy a estudiar,PF,future,distant,1pers,estudiar,dynamic,no,NA,positive,animate,main,declarative,23,fem,sim
+061,stc,voy a intentar,PF,future,distant,1pers,intentar,dynamic,yes_spec,cuando acabo la escuela,positive,animate,main,declarative,23,fem,sim
+061,stc,quiero escribir,PF,future,distant,1pers,querer escribir,modal,no,NA,positive,animate,main,declarative,23,fem,sim
+061,stc,quiero estudiar,PF,future,distant,1pers,querer estudiar,modal,no,NA,positive,animate,main,declarative,23,fem,sim
+061,stc,estudie,subj,future,nonspecific,1pers,estudiar,dynamic,no,NA,positive,animate,subordinate,declarative,23,fem,sim
+061,stc,puedo responder,lex_futures,future,nonspecific,1pers,poder responder,modal,yes_nonspec,cuando ya estudie más,positive,animate,main,declarative,23,fem,sim
+061,stc,va a entender,PF,future_hyp,nonspecific,3pers,entender,stative,no,NA,positive,animate,subordinate,declarative,23,fem,sim
+063,stc,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_spec,"este mes, esta semana que viene",positive,animate,main,declarative,29,male,sim
+063,stc,vuelva a vivir,subj,future,nonspecific,3pers,volver a vivir,stative,yes_nonspec,algún día,positive,animate,subordinate,declarative,29,male,sim
+063,stc,van a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,29,male,sim
+063,stc,vamos a vivir,PF,future,nonspecific,1pers,vivir,stative,no,NA,positive,animate,subordinate,declarative,29,male,sim
+063,stc,van a querer,PF,future,nonspecific,3pers,querer,stative,no,NA,positive,animate,subordinate,declarative,29,male,sim
+063,stc,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,29,male,sim
+063,stc,vamos a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,interrogative,29,male,sim
+063,stc,vamos a vivir,PF,future,nonspecific,1pers,vivir,stative,yes_nonspec,muchos años más adelante,positive,animate,main,declarative,29,male,sim
+064,stc,voy a tratar,PF,future_hyp,nonspecific,1pers,tratar,dynamic,no,NA,positive,animate,main,declarative,18,fem,sim
+064,stc,voy a hacer,PF,future_hyp,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,18,fem,sim
+064,stc,quiero trabajar,lex_futures,future,distant,1pers,querer trabajar,modal,no,NA,positive,animate,main,declarative,18,fem,sim
+064,stc,van a pagar,PF,future,distant,3pers,pagar,dynamic,no,NA,positive,animate,subordinate,declarative,18,fem,sim
+064,stc,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,main,declarative,18,fem,sim
+064,stc,va a ayudar,PF,future_hyp,nonspecific,3pers,ayudar,dynamic,yes_nonspec,en sus futuros,positive,inanimate,subordinate,declarative,18,fem,sim
+064,stc,va a requerir,PF,future,nonspecific,3pers,requerir,stative,no,NA,positive,inanimate,subordinate,declarative,18,fem,sim
+065,stc,voy a ser,PF,future,near,1pers,ser,stative,yes_nonspec,ya,positive,animate,subordinate,declarative,56,fem,seq
+065,stc,planeo quedarme,lex_futures,future,nonspecific,1pers,planear quedarse,stative,yes_nonspec,en el futuro,positive,animate,main,declarative,56,fem,seq
+066,stc,voy a iniciar,PF,future,near,1pers,iniciar,dynamic,yes_nonspec,apenas,positive,animate,subordinate,declarative,36,fem,seq
+066,stc,se va a oír,PF,future,immediate,3pers,oírse,stative,no,NA,positive,inanimate,main,declarative,36,fem,seq
+066,stc,va a salir,PF,future,nonspecific,3pers,salir,motion,no,NA,positive,animate,subordinate,ind_interrogative,36,fem,seq
+067,stc,encuentre,subj,future,distant,1pers,encontrar,dynamic,yes_spec,después de graduarme,positive,animate,subordinate,declarative,22,male,seq
+067,stc,quiero sacar,lex_futures,future,distant,1pers,querer sacar,modal,no,NA,positive,animate,main,declarative,22,male,seq
+068,stc,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_spec,en dos días,positive,animate,subordinate,declarative,19,fem,sim
+068,stc,voy a ser,PF,future,near,1pers,ser,stative,yes_spec,en otoño,positive,animate,main,declarative,19,fem,sim
+068,stc,me gradúe,subj,future,distant,1pers,graduarse,dynamic,no,NA,positive,animate,subordinate,declarative,19,fem,sim
+068,stc,voy a graduarme,PF,future,distant,1pers,graduarse,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a hacer,PF,future,distant,1pers,hacer,dynamic,yes_spec,cuando termine [la universidad],positive,animate,subordinate,ind_interrogative,19,fem,sim
+068,stc,me gustaría poder enseñarles,cond,future,nonspecific,1pers,poder enseñar,modal,no,NA,positive,animate,main,declarative,19,fem,sim
+068,stc,va a ser,PF,future,distant,3pers,ser,stative,yes_spec,para el 2025,positive,animate,subordinate,declarative,19,fem,sim
+068,stc,va a tener que hablar,PF,future,distant,1pers,tener que hablar,modal,yes_spec,NA,positive,animate,subordinate,declarative,19,fem,sim
+068,stc,voy a intentar de hablar,PF,future,nonspecific,1pers,intentar,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a intentar enseñarles,PF,future,nonspecific,1pers,intentar,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+068,stc,tendré que regresar,MF,future,nonspecific,1pers,tener que regresar,modal,no,NA,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a estudiar,PF,future,distant,1pers,estudiar,dynamic,yes_spec,el invierno-primavera que viene,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a estar,PF,future,distant,1pers,estar,stative,yes_spec,el invierno-primavera que viene,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a explorar,PF,future,distant,1pers,explorar,dynamic,yes_spec,cuando termine en Sevilla,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a estudiar,PF,future,distant,1pers,estudiar,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a tomar,PF,future,distant,1pers,tomar,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,19,fem,sim
+068,stc,voy a quedarme,PF,future,distant,1pers,quedarse,stative,no,NA,positive,animate,subordinate,declarative,19,fem,sim
+068,stc,me gustaría vivir,cond,future,distant,1pers,gustar vivir,stative,yes_spec,inmediatamente después de la universidad,positive,animate,main,declarative,19,fem,sim
+068,stc,voy a conseguir,PF,future,nonspecific,1pers,conseguir,dynamic,no,NA,positive,animate,subordinate,ind_interrogative,19,fem,sim
+069,stc,nos vamos,PI,future,near,1pers,irse,motion,no,NA,positive,animate,main,declarative,52,fem,seq
+069,stc,van a oír,PF,future,immediate,3pers,oírse,stative,no,NA,positive,animate,subordinate,declarative,52,fem,seq
+069,stc,va a ir,PF,future,near,3pers,ir,motion,no,NA,positive,animate,subordinate,declarative,52,fem,seq
+070,stc,voy a cumplir,PF,future,near,1pers,cumplir,dynamic,yes_spec,este octubre,positive,animate,main,declarative,20,male,seq
+070,stc,voy a tener que hablar,PF,future_hyp,nonspecific,1pers,tener que hablar,modal,no,NA,positive,animate,main,declarative,20,male,seq
+070,stc,tendremos de hablar,MF,future_hyp,nonspecific,1pers,tener que hablar,modal,no,NA,positive,animate,main,declarative,20,male,seq
+070,stc,quiero hacer,lex_futures,future,nonspecific,1pers,querer hacer,modal,no,NA,positive,animate,subordinate,declarative,20,male,seq
+070,stc,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,negative,inanimate,main,declarative,20,male,seq
+071,stc,voy a ir,PF,future,near,1pers,ir,motion,yes_nonspec,muy pronto,positive,animate,subordinate,declarative,20,male,seq
+071,stc,ser,inf,future,distant,inf,ser,stative,no,NA,positive,inanimate,main,declarative,20,male,seq
+071,stc,quiero ser,lex_futures,future,distant,1pers,querer ser,modal,no,NA,positive,animate,main,declarative,20,male,seq
+071,stc,voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,yes_nonspec,nunca,negative,animate,subordinate,declarative,20,male,seq
+072,stc,va a venir,PF,future,near,3pers,venir,motion,yes_spec,el próximo día,positive,animate,subordinate,declarative,19,male,seq
+072,stc,esté,subj,future,near,3pers,estar,stative,yes_spec,el próximo día,positive,inanimate,subordinate,declarative,19,male,seq
+072,stc,voy a ir,PF,future,distant,1pers,ir,motion,yes_spec,el próximo año,positive,animate,main,declarative,19,male,seq
+072,stc,pienso estudiar,lex_futures,future,distant,1pers,pensar estudiar,modal,no,NA,positive,animate,main,declarative,19,male,seq
+072,stc,voy a tener,PF,future,distant,1pers,tener,stative,yes_spec,en los años que vienen,positive,animate,subordinate,declarative,19,male,seq
+072,stc,voy a tomar,PF,future,nonspecific,1pers,tomar,dynamic,no,NA,positive,animate,subordinate,declarative,19,male,seq
+073,stc,me va a ayudar,PF,future,nonspecific,3pers,ayudar,dynamic,no,NA,positive,inanimate,main,declarative,19,male,seq
+073,stc,voy a tomar,PF,future,nonspecific,1pers,tomar,dynamic,no,NA,positive,animate,main,declarative,19,male,seq
+074,stc,pienso regresar,lex_futures,future,nonspecific,1pers,pensar regresar,modal,yes_nonspec,algún día,positive,animate,main,declarative,20,male,seq
+074,stc,vamos a ir,PF,future,near,1pers,ir,motion,yes_spec,en dos semanas,positive,animate,main,declarative,20,male,seq
+074,stc,vamos,PI,future,near,1pers,ir,motion,yes_spec,en dos semanas,positive,animate,main,declarative,20,male,seq
+074,stc,van a morir,PF,future,near,3pers,morir,dynamic,yes_nonspec,pronto,positive,animate,subordinate,declarative,20,male,seq
+075,stc,quiero trabajar,lex_futures,future,distant,1pers,querer trabajar,modal,no,NA,positive,animate,main,declarative,20,fem,seq
+075,stc,quiero ayudar,lex_futures,future,distant,1pers,querer ayudar,modal,no,NA,positive,animate,main,declarative,20,fem,seq
+075,stc,va a decir,PF,future_hyp,nonspecific,3pers,decir,dynamic,no,NA,positive,animate,main,declarative,20,fem,seq
+075,stc,vas a salir,PF,future,immediate,2pers,salir,motion,no,NA,positive,animate,subordinate,interrogative,20,fem,seq
+076,stc,se va a casar,PI,future,near,3pers,casarse,dynamic,yes_spec,"en unas cuantas semanas, en julio",positive,animate,main,declarative,21,fem,seq
+076,stc,voy a ver,PF,future,distant,1pers,ver,stative,yes_spec,en diciembre,negative,animate,main,declarative,21,fem,seq
+077,stc,me gradúo,PI,future,distant,1pers,graduarse,dynamic,yes_spec,"ya, en diciembre",positive,animate,main,declarative,22,male,seq
+077,stc,voy a poder,PF,future,nonspecific,1pers,poder,modal,no,NA,negative,animate,main,declarative,22,male,seq
+077,stc,voy a hacer,PF,future,distant,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,22,male,seq
+077,stc,me quedo,PI,future,distant,1pers,quedarse,stative,no,NA,positive,animate,main,declarative,22,male,seq
+077,stc,voy a poder,PF,future,nonspecific,1pers,poder,modal,no,NA,positive,animate,subordinate,declarative,22,male,seq
+077,stc,voy a tomar,PF,future,near,1pers,tomar,dynamic,yes_spec,en fall,positive,animate,main,declarative,22,male,seq
+077,stc,voy a acabar,PF,future,distant,1pers,acabar,dynamic,no,NA,positive,animate,subordinate,declarative,22,male,seq
+078,stc,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_spec,en agosto,positive,animate,main,declarative,22,fem,seq
+078,stc,haré,MF,future,nonspecific,1pers,hacer,dynamic,yes_nonspec,algún día,positive,animate,main,declarative,22,fem,seq
+078,stc,voy a aprender,PF,future,nonspecific,1pers,aprender,dynamic,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+078,stc,pienso ir,lex_futures,future,nonspecific,1pers,pensar ir,modal,no,NA,positive,animate,main,declarative,22,fem,seq
+078,stc,voy a trabajar,PF,future,near,1pers,trabajar,dynamic,yes_spec,este verano,positive,animate,subordinate,declarative,22,fem,seq
+078,stc,voy a estar,PF,future,nonspecific,1pers,estar,stative,no,NA,positive,animate,subordinate,declarative,22,fem,seq
+078,stc,va a ser,PF,future,near,3pers,ser,stative,yes_spec,en el próximo mes,positive,inanimate,subordinate,declarative,22,fem,seq
+078,stc,va a ser presentado,PF,future,near,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,22,fem,seq
+078,stc,voy a olvidar,PF,future,nonspecific,1pers,olvidar,stative,yes_nonspec,nunca,negative,animate,subordinate,declarative,22,fem,seq
+078,stc,voy a enseñar,PF,future,distant,1pers,enseñar,dynamic,no,NA,positive,animate,main,declarative,22,fem,seq
+079,stc,voy a ser,PF,future,nonspecific,1pers,ser,stative,no,NA,positive,animate,main,declarative,19,fem,sim
+079,stc,quiero hacer,PF,future,nonspecific,1pers,querer hacer,modal,no,NA,positive,animate,main,declarative,19,fem,sim
+079,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,main,declarative,19,fem,sim
+080,stc,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,51,fem,sim
+080,stc,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,main,declarative,51,fem,sim
+080,stc,va a tener,PF,future,nonspecific,3pers,tener,stative,no,NA,positive,animate,main,declarative,51,fem,sim
+080,stc,voy a hablar,PF,future,nonspecific,1pers,hablar,dynamic,no,NA,negative,animate,main,declarative,51,fem,sim
+081,stc,nos vamos a reunir,PF,future,near,1pers,reunirse,dynamic,yes_spec,este domingo,positive,animate,main,declarative,56,fem,sim
+081,stc,vamos a reunirnos,PF,future,near,1pers,reunirse,dynamic,no,NA,positive,animate,subordinate,declarative,56,fem,sim
+081,stc,vamos,PI,future,near,1pers,ir,motion,no,NA,positive,animate,main,declarative,56,fem,sim
+081,stc,vamos a ir,PF,future,near,1pers,ir,motion,yes_nonspec,luego,positive,animate,main,declarative,56,fem,sim
+081,stc,se va a descontinuarse,PF,future,nonspecific,3pers,descontinuarse,dynamic,no,NA,positive,inanimate,subordinate,declarative,56,fem,sim
+083,stc,van a extrañar,PF,future,nonspecific,3pers,extrañar,stative,no,NA,positive,animate,subordinate,declarative,23,male,seq
+083,stc,va a olvidar,PF,future,nonspecific,3pers,olvidar,stative,yes_nonspec,nunca,negative,inanimate,main,declarative,23,male,seq
+084,stc,voy a dar,PF,future,immediate,1pers,dar,dynamic,no,NA,positive,animate,main,declarative,50,fem,seq
+084,stc,voy a ser,PF,future,nonspecific,1pers,ser,stative,no,NA,positive,animate,subordinate,declarative,50,fem,seq
+084,stc,vas a agarrar,PF,future,near,2pers,agarrar,dynamic,no,NA,positive,animate,main,declarative,50,fem,seq
+084,stc,vas a estar,PF,future,near,2pers,estar,stative,no,NA,negative,animate,main,declarative,50,fem,seq
+084,stc,quiero ir,lex_futures,future,nonspecific,1pers,querer ir,modal,no,NA,positive,animate,main,declarative,50,fem,seq
+084,stc,va a servir,PF,future,nonspecific,3pers,servir,stative,no,NA,positive,inanimate,main,interrogative,50,fem,seq
+084,stc,voy a llevar,PF,future,nonspecific,1pers,llevar,motion,no,NA,positive,animate,main,declarative,50,fem,seq
+084,stc,va a quitar,PF,future,nonspecific,3pers,quitar,dynamic,no,NA,negative,inanimate,subordinate,declarative,50,fem,seq
+084,stc,voy a quitar,PF,future,nonspecific,1pers,quitar,dynamic,no,NA,positive,animate,main,declarative,50,fem,seq
+085,stc,vengo,PI,future,immediate,1pers,venir,motion,yes_spec,ahorita,positive,animate,main,declarative,22,fem,seq
+085,stc,termino,PI,future,distant,1pers,terminar,dynamic,yes_spec,en diciembre ya,positive,animate,main,declarative,22,fem,seq
+085,stc,quiero ser,lex_futures,future,distant,1pers,querer ser,modal,no,NA,positive,animate,main,declarative,22,fem,seq
+085,stc,cumplen,PI,future,near,3pers,cumplir,dynamic,yes_spec,en octubre,positive,animate,main,declarative,22,fem,seq
+085,stc,busco,PI,future,near,1pers,buscar,dynamic,yes_spec,después de octubre ya,positive,animate,main,declarative,22,fem,seq
+085,stc,va a ser,PF,future,distant,3pers,ser,stative,yes_spec,cuando termine la escuela,positive,inanimate,subordinate,declarative,22,fem,seq
+086,stc,pueda aprender,subj,future,nonspecific,1pers,poder aprender,modal,yes_nonspec,algún día,positive,animate,subordinate,declarative,36,fem,seq
+086,stc,vamos a enseñar,PF,future,nonspecific,1pers,enseñar,dynamic,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,van a ver,PF,future,nonspecific,3pers,ver,stative,no,NA,negative,animate,subordinate,declarative,36,fem,seq
+086,stc,vamos a tener,PF,future,nonspecific,1pers,tener,stative,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,tendremos que pensar,MF,future,nonspecific,1pers,tener que pensar,modal,no,NA,positive,animate,main,interrogative,36,fem,seq
+086,stc,van a escuchar,PF,future,nonspecific,3pers,escuchar,stative,no,NA,positive,animate,main,declarative,36,fem,seq
+086,stc,van a saber,PF,future_hyp,nonspecific,3pers,saber,stative,no,NA,negative,animate,main,declarative,36,fem,seq
+086,stc,sabrán,MF,future_hyp,nonspecific,3pers,saber,stative,no,NA,negative,animate,main,declarative,36,fem,seq
+086,stc,nos vemos,PI,future,immediate,1pers,verse,stative,yes_nonspec,"después, pronto",positive,animate,main,declarative,36,fem,seq
+087,stc,voy a cumplir,PF,future,nonspecific,1pers,cumplir,dynamic,no,NA,positive,animate,main,declarative,57,male,seq
+087,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,yes_nonspec,en el futuro,positive,animate,main,declarative,57,male,seq
+087,stc,voy a invitarlos,PF,future,nonspecific,1pers,invitar,dynamic,yes_nonspec,un día de estos,positive,animate,main,declarative,57,male,seq
+087,stc,voy a morir,PF,future,immediate,1pers,morir,dynamic,yes_spec,en este momento,positive,animate,main,declarative,57,male,seq
+087,stc,voy a acabar,PF,future,distant,1pers,acabar,dynamic,yes_spec,en tres o cuatro años,positive,animate,subordinate,declarative,57,male,seq
+087,stc,voy a retirar,PF,future,distant,1pers,acabar,dynamic,yes_spec,en tres o cuatro años,positive,animate,subordinate,declarative,57,male,seq
+087,stc,voy a ir,PF,future,nonspecific,1pers,ir,motion,no,NA,positive,animate,subordinate,declarative,57,male,seq
+089,stc,van a ir,PF,future,nonspecific,3pers,ir,motion,no,NA,positive,inanimate,subordinate,ind_interrogative,19,male,seq
+089,stc,quiero hacerme,PF,future,nonspecific,1pers,querer hacer,modal,yes_nonspec,en un futuro,positive,animate,main,declarative,19,male,seq
+089,stc,van a entender,PF,future_hyp,nonspecific,3pers,entender,stative,no,NA,negative,animate,subordinate,declarative,19,male,seq
+089,stc,voy a tratar de enseñarles,PF,future,nonspecific,1pers,tratar,dynamic,no,NA,positive,animate,main,declarative,19,male,seq
+090,stc,me voy a aburrir,PF,future_hyp,nonspecific,1pers,aburrirse,stative,no,NA,positive,animate,main,declarative,35,male,seq
+090,stc,se va a poner,PF,future,nonspecific,3pers,ponerse,dynamic,no,NA,positive,inanimate,subordinate,declarative,35,male,seq
+091,stc,voy a completar,PF,future,near,1pers,completar,dynamic,yes_spec,en agosto,positive,animate,main,declarative,29,fem,sim
+091,stc,va a cambiar,PF,future,distant,3pers,cambiar,dynamic,no,NA,positive,inanimate,main,declarative,29,fem,sim
+091,stc,va a cambiar,PF,future,distant,3pers,cambiar,dynamic,no,NA,positive,inanimate,main,declarative,29,fem,sim
+091,stc,va a cumplir,PF,future,near,3pers,cumplir,dynamic,yes_spec,en agosto,positive,animate,main,declarative,29,fem,sim
+091,stc,voy a ser,PF,future,distant,1pers,ser,stative,yes_spec,cuando voy a cruzar para el otro lado,positive,animate,main,declarative,29,fem,sim
+091,stc,quiero completar,lex_futures,future,distant,1pers,querer completar,modal,no,NA,positive,animate,main,declarative,29,fem,sim
+091,stc,va a ser,PF,future,nonspecific,3pers,ser,stative,no,NA,positive,inanimate,subordinate,declarative,29,fem,sim
+091,stc,va a estar,PF,future,distant,3pers,estar,stative,yes_spec,un año y medio más,positive,animate,main,declarative,29,fem,sim
+091,stc,va a completar,PF,future,distant,3pers,completar,dynamic,no,NA,positive,animate,main,declarative,29,fem,sim
+091,stc,gradúo,PI,future,distant,1pers,graduarse,dynamic,yes_spec,en un año,positive,animate,main,declarative,29,fem,sim
+091,stc,se va a quedar,PF,future,distant,3pers,quedarse,stative,yes_spec,por un año y medio,positive,animate,main,declarative,29,fem,sim
+091,stc,van a mover,PF,future,distant,3pers,mover,motion,yes_spec,cuando acaba con ese training,positive,collective,subordinate,ind_interrogative,29,fem,sim
+091,stc,va a tener que ir,PF,future,distant,3pers,tener que ir,modal,yes_nonspec,luego,positive,animate,main,declarative,29,fem,sim
+091,stc,voy a ir,PF,future,near,1pers,ir,motion,yes_spec,el 18 de este mes,positive,animate,main,declarative,29,fem,sim
+091,stc,voy a estar,PF,future,near,1pers,estar,stative,yes_spec,por un mes,positive,animate,main,declarative,29,fem,sim
+091,stc,van a quitar,PF,future,near,3pers,quitar,dynamic,no,NA,positive,animate,main,declarative,29,fem,sim
+091,stc,van a dar,PF,future,near,3pers,dar,dynamic,no,NA,positive,animate,main,declarative,29,fem,sim
+091,stc,van a dar,PF,future,near,3pers,dar,dynamic,no,NA,positive,animate,main,declarative,29,fem,sim
+091,stc,voy a hacer,PF,future,nonspecific,1pers,hacer,dynamic,no,NA,positive,animate,subordinate,declarative,29,fem,sim
+091,stc,vas a ir,PF,future,near,2pers,ir,motion,no,NA,positive,animate,subordinate,ind_interrogative,29,fem,sim

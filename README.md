@@ -3,8 +3,8 @@
 This is the repository for my dissertation. You will find the following folders and documents:
 
 - study_1
-    - data: final data + preliminary data (all of *cesa* + part of *stc*)
-    - scripts: 'descriptives.R', 'descriptives_prelim_data.R'
+    - data: final datasets + raw data + preliminary data (all of *cesa* + part of *stc*)
+    - scripts: 'descriptives.R', 'descriptives_prelim_data.R', 'tidy_data.R'
 - study_2
     - final_data: 3 .csv files
         - 'bls_final.csv': final dataset for bilinguals (Spanish and English)
@@ -47,5 +47,5 @@ This is the repository for my dissertation. You will find the following folders 
 - study_3
 
 
-Last updated: August 17, 2026
+Last updated: September 11, 2026
 
