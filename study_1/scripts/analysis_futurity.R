@@ -29,34 +29,29 @@ set.seed(20260911)
 data_corpus_futurity <- read_csv(here("study_1", "data", 
                                       "corpus_futurity_tidy.csv"))
 
-# Filter and recode form; convert characters into factors
-subset_corpus_futurity <- data_corpus_futurity |>
-  filter(form %in% c("MF", "PI"),
-         reading == "future") |>
-  mutate(form = fct_recode(form,
-                                "0" = "PI",
-                                "1" = "MF"),
-         form = as.numeric(as.character(form)))
-
-subset_corpus_futurity <- subset_corpus_futurity |>
+# Convert characters into factors and set reference level
+data_corpus_futurity <- data_corpus_futurity |>
   mutate(
     temp_dist = factor(
       temp_dist,
-      levels = c("immediate", "near", "distant", "nonspecific")))
-
-subset_corpus_futurity <- subset_corpus_futurity |>
+      levels = c("immediate", "near", "distant", "nonspecific"))) |>
   mutate(
-    gram_pers = factor(
-      gram_pers,
-      levels = c("1pers", "2pers", "3pers")))
-
-subset_corpus_futurity <- subset_corpus_futurity |>
-  mutate(verb_class = fct_recode(verb_class,
-                                 "stative" = "modal")) |>
+    gram_pers = fct_recode(gram_pers,
+                           "1pers" = "2pers")) |>
   mutate(
     verb_class = factor(
       verb_class,
       levels = c("dynamic", "motion", "stative")))
+
+# Filter and recode form
+subset_corpus_futurity <- data_corpus_futurity |>
+  filter(form %in% c("MF", "PI"),
+         reading == "future") |>
+  mutate(gram_pers = fct_drop(gram_pers),
+         form = fct_recode(form,
+                                "0" = "PI",
+                                "1" = "MF"),
+         form = as.numeric(as.character(form)))
 # ------------------------------------------------------------------------------
 
 
@@ -344,12 +339,7 @@ mod2_future_gp_table <- mod2_future_gp_post |>
     values_from = Estimate)
 
 
-
-
-
-
-
-# ----- 4.4. Model 3 (temp_dist + gram_pers + verb_class) ----------------------
+# ----- 4.4. Model 3 - FINAL (temp_dist + gram_pers + verb_class) --------------
 # Specify model formula
 form3_corpus <- bf(form ~ 0 + Intercept + temp_dist + gram_pers + verb_class + 
                      (1 | participant))
@@ -432,8 +422,6 @@ mod3_future_table <- mod3_future_post |>
     names_from = Form,
     values_from = Estimate)
 
-mod3_future_table
-
 # Table - posterior summary of mod3, verb_class ONLY (predicted prob of using MF 
 # and PI)
 mod3_future_verb_table <- mod3_future_verb_post |>
@@ -461,7 +449,7 @@ mod3_future_verb_table <- mod3_future_verb_post |>
     values_from = Estimate)
 
 
-# ----- 4.5. Model 4 (interaction term -- EXPLORATORY) -------------------------
+# ----- 4.5. Model 4 - EXPLORATORY (interaction term) --------------------------
 # Specify model formula
 form4_corpus <- bf(form ~ 0 + Intercept + temp_dist * gram_pers + verb_class + 
                      (1 | participant))
@@ -541,8 +529,8 @@ loo_compare(loo_mod3, loo_mod4)
 
 # Comments:
   # Adding the interaction does not make a difference: 
-  # elpd_diff is 0.0 (mod4) vs -0.1 (mod3)
-  # se_diff 0.0 (mod4) vs 0.5 (mod3).
+  # elpd_diff is 0.0 (mod3) vs -0.1 (mod4)
+  # se_diff 0.0 (mod3) vs 0.5 (mod4).
 
   # Rule of thumb: if 'elpd_diff' is less than 4, models are "very similar".
   # "If the raw ELPD difference is small (less than 4), it doesn't make much 

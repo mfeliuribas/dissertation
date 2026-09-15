@@ -80,12 +80,27 @@ data_futurity_tidy |>
 data_futurity_tidy <- data_futurity_tidy |>
   mutate(verb_class = fct_recode(verb_class,
                                 "dynamic" = "dynamic",
-                                "modal" = "modal",
-                                "motion" = "motion",
+                                "stative" = "modal",
+                                "motion"  = "motion",
                                 "dynamic" = "other",
                                 "stative" = "perception",
                                 "stative" = "psychological",
                                 "stative" = "stative"))
+
+# Convert characters into factors and set reference level
+data_futurity_tidy <- data_futurity_tidy |>
+  mutate(
+    temp_dist = factor(
+      temp_dist,
+      levels = c("immediate", "near", "distant", "nonspecific"))) |>
+  mutate(
+    gram_pers = factor(
+      gram_pers,
+      levels = c("1pers", "2pers", "3pers", "inf"))) |>
+  mutate(
+    verb_class = factor(
+      verb_class,
+      levels = c("dynamic", "motion", "stative")))
 
 # Create futurity dataset
 data_futurity_tidy |>
