@@ -46,7 +46,7 @@ post_td |>
         "Nonspecific − immediate"),
     Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
 
-# All comparisons
+# All comparisons (each factor level compared to all other levels)
 post_td_all <- avg_comparisons(
   mod3_future,
   variables = list(
@@ -90,6 +90,7 @@ post_td_all_PI |>
 # Obs:
   # There is no clear evidence of a difference among immediate vs. near, 
   #   immediate vs. distant, near vs. distant (all CrIs include 0).
+  #   --- For the MF, right?
   # There is clear evidence that nonspecific contexts have a higher probability 
   #   of MF (over the PI) than every other temporal-distance category.
   # The MF is strongly associated with nonspecific temporal contexts, while the 
@@ -99,5 +100,8 @@ post_td_all_PI |>
   #   the MF --- I think: if the model is estimating the P(MF), then the opposite 
   #   pattern must be true for the PI? Ask Austin/Joseph.
   #   Also, based on the 'reversed' plot that is not true. I think I am missing 
-  #   something --- Revise + Think about it. 
+  #   or confusing something --- Revise + Think about it.
+
+# Comparisons against level + form (e.g., MF immediate vs PI immediate)?
+
 # ------------------------------------------------------------------------------
