@@ -424,3 +424,103 @@ data_futurity_tidy |>
   # PI: 78 tokens produced by 36 speakers (40.9% of speakers in the dataset).
   # PF: 846 tokens produced by 86 speakers (97.7% of speakers in the dataset).
 # ------------------------------------------------------------------------------
+
+
+
+# ----- 5. Probability of choice: PF, MF, PI -----------------------------------
+# Load libs
+library("brms")
+library("marginaleffects")
+library("ggdist")
+library("glue")
+
+# Set seed
+set.seed(20260911)
+
+# Load data
+data_corpus_futurity <- read_csv(here("study_1", "data", 
+                                      "corpus_futurity_tidy.csv"))
+
+# Filter form
+subset_corpus_futurity <- data_corpus_futurity |>
+  filter(form %in% c("PF", "MF", "PI"),
+         reading == "future")
+
+# Specify model formula
+form_multi <- bf(form ~ 0 + Intercept)
+
+# Figure out priors
+get_prior(formula = form_multi, family = categorical(link = "logit"), 
+          data = subset_corpus_futurity)
+
+# Set priors
+priors_multi <- c(
+  prior(normal(0, 2), class = "b", dpar = "muPF"),
+  prior(normal(0, 2), class = "b", dpar = "muPI"))
+
+# Fit simple model
+mod0_multi <- brm(
+  formula = form_multi, 
+  prior = priors_multi, 
+  iter = 2000, warmup = 1000, cores = 4, 
+  data = subset_corpus_futurity, 
+  family = categorical(link = "logit"))#, 
+  #file = here("study_1", "models", "mod0_multi"))
+
+# Model output
+summary(mod0_multi)
+
+# Get posterior and store in vector
+mod0_multi_post <- predictions(model = mod0_multi) |>
+  posterior_draws() # |>
+# write_csv(here("mod0_post.csv"))
+
+# Table - posterior summary of intercept-only model
+mod0_multi_post |>
+  group_by(group) |>
+  median_qi(x = draw) |>
+  transmute(
+    Response = group, 
+    Estimate = glue("{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) 
+
+# Plot - posterior summary of intercept-only model
+prob_choice_multi <- mod0_multi_post |>
+  mutate(group = factor(group, levels = c("PI", "MF", "PF"))) |>
+  ggplot() +
+  aes(x = draw, y = group, fill = group) +
+  scale_fill_viridis_d(
+    name = "Probability of choice",
+    end = 0.9,
+    breaks = c("PI", "MF", "PF"),
+    labels = c("0.081 [0.065, 0.099]",
+               "0.037 [0.026, 0.050]",
+               "0.882 [0.860, 0.901]")) +
+  stat_slab() +
+  stat_pointinterval(show.legend = FALSE, pch = 21, 
+                     position = position_nudge(y = -0.05)) +
+  scale_x_continuous(
+    breaks = seq(0, 1, 0.1),
+    limits = c(0, 1)) +
+  labs(y = NULL, x = NULL, fill = "Probability of choice") +
+  theme(
+    text = element_text(family = "Palatino"),
+    legend.position = "right",
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 13),
+    axis.text.y = element_text(size = 14),
+    axis.text.x = element_text(size = 14))
+
+  ggsave(
+    here("study_1", "plots", "plot_multi_choice_futurity.png"),
+    plot = prob_choice_multi,
+    width = 8.5,
+    height = 5,
+    units = "in",
+    dpi = 300)
+
+
+# Response    Estimate             
+# MF          0.037 [0.026, 0.05]  
+# PF          0.882 [0.86, 0.901]  
+# PI          0.081 [0.065, 0.099] 
+# ------------------------------------------------------------------------------
