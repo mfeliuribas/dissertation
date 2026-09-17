@@ -20,19 +20,19 @@ set.seed(20260911)
 # ------------------------------------------------------------------------------
 
 
-# ----- 3. Load model and get posteriors ---------------------------------------
+# ----- 3. Load model ----------------------------------------------------------
 mod3_future <- readRDS(here("study_1", "models", "mod3_future.rds"))
-
-mod3_future_post <- avg_predictions(
-  model = mod3_future,
-  variables = c("temp_dist", "gram_pers", "verb_class"),
-  re_formula = NULL)|>
-  posterior_draws()
 # ------------------------------------------------------------------------------
 
 
 # ----- 4. Table: Temporal distance --------------------------------------------
-mod3_future_post |>
+mod3_future_post_temp <- avg_predictions(
+  model = mod3_future,
+  variables = "temp_dist",
+  re_formula = NULL)|>
+  posterior_draws()
+
+mod3_future_post_temp |>
   mutate(
     draw_PI = 1 - draw) |>
   pivot_longer(
@@ -60,7 +60,13 @@ mod3_future_post |>
 
 
 # ----- 5. Table: Grammatical person -------------------------------------------
-mod3_future_post |>
+mod3_future_post_pers <- avg_predictions(
+  model = mod3_future,
+  variables = "gram_pers",
+  re_formula = NULL)|>
+  posterior_draws()
+
+mod3_future_post_pers |>
   mutate(
     draw_PI = 1 - draw) |>
   pivot_longer(
@@ -88,7 +94,13 @@ mod3_future_post |>
 
 
 # ----- 6. Table: Verb Class ---------------------------------------------------
-mod3_future_post |>
+mod3_future_post_verb <- avg_predictions(
+  model = mod3_future,
+  variables = "verb_class",
+  re_formula = NULL)|>
+  posterior_draws()
+
+mod3_future_post_verb |>
   mutate(
     draw_PI = 1 - draw) |>
   pivot_longer(
@@ -116,6 +128,12 @@ mod3_future_post |>
 
 
 # ----- 6. Table: All predictors -----------------------------------------------
+mod3_future_post <- avg_predictions(
+  model = mod3_future, 
+  variables = c("temp_dist", "gram_pers", "verb_class"), 
+  re_formula = NULL) |>
+  posterior_draws()
+
 mod3_future_post |>
   mutate(
     draw_PI = 1 - draw) |>
