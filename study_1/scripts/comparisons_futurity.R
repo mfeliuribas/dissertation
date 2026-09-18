@@ -90,19 +90,19 @@ ggsave(
   dpi = 300)
 
 
-post_td_all_PI <- post_td_all |>
-  mutate(
-    draw = -draw)
-
-post_td_all_PI |>
-  group_by(contrast) |>
-  median_qi(draw)
-
-post_td_all_PI |>
-  ggplot() +
-  aes(x = draw, y = contrast) +
-  stat_halfeye(position = position_dodge(0.5)) +
-  labs(y = NULL, x = "Posterior diference PI")
+# post_td_all_PI <- post_td_all |>
+#   mutate(
+#     draw = -draw)
+# 
+# post_td_all_PI |>
+#   group_by(contrast) |>
+#   median_qi(draw)
+# 
+# post_td_all_PI |>
+#   ggplot() +
+#   aes(x = draw, y = contrast) +
+#   stat_halfeye(position = position_dodge(0.5)) +
+#   labs(y = NULL, x = "Posterior diference PI")
 
 # Obs:
   # There is no clear evidence of a difference among immediate vs. near, 
@@ -121,4 +121,43 @@ post_td_all_PI |>
 
 # Comparisons against level + form (e.g., MF immediate vs PI immediate)?
 
+# ------------------------------------------------------------------------------
+
+
+# ----- 4. Comparisons: Grammatical person -------------------------------------
+post_gp <- avg_comparisons(
+  mod3_future, 
+  variables = "gram_pers",
+  re_formula = NULL) |>
+  posterior_draws()
+
+post_gp |>
+  group_by(contrast) |>
+  median_qi(draw) |>
+  transmute(
+    Comparison = "3rd − 1st",
+    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+plot_futurity_comp_pers <- post_gp |>
+  mutate(
+    Comparison = "3rd person − 1st person") |>
+  ggplot() +
+  aes(x = draw, y = Comparison) +
+  stat_halfeye(position = position_dodge(0.5)) +
+  labs(y = NULL, x = "Posterior diference MF (grammatical person)")
+
+ggsave(
+  here("study_1", "plots", "plot_futurity_comp_pers.png"),
+  plot = plot_futurity_comp_pers,
+  width = 8.5,
+  height = 5,
+  units = "in",
+  dpi = 300)
+
+# Obs:
+# There is no clear evidence of a difference between 3rd vs 1st person (CrI 
+# includes 0).
+#   --- For the MF, right?
+# Since the estimate is positive (0.053 [-0.059, 0.19]), it may be the case that 
+# the third person favors the MF. More data is needed to verify this hypothesis.
 # ------------------------------------------------------------------------------
