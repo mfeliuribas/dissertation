@@ -161,3 +161,50 @@ ggsave(
 # Since the estimate is positive (0.053 [-0.059, 0.19]), it may be the case that 
 # the third person favors the MF. More data is needed to verify this hypothesis.
 # ------------------------------------------------------------------------------
+
+
+# ----- 5. Comparisons: Verb class ---------------------------------------------
+# All comparisons (each factor level compared to all other levels)
+post_vc_all <- avg_comparisons(
+  mod3_future,
+  variables = list(
+    verb_class = "pairwise"),
+  re_formula = NULL) |>
+  posterior_draws()
+
+post_vc_all |>
+  group_by(contrast) |>
+  median_qi(draw) |>
+  transmute(
+    Comparison = case_when(
+      contrast == "mean(motion) - mean(dynamic)" ~ "Motion − Dynamic",
+      contrast == "mean(stative) - mean(dynamic)" ~ "Stative − Dynamic",
+      contrast == "mean(stative) - mean(motion)" ~ "Stative − Motion"),
+    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+plot_futurity_comp_verb <- post_vc_all |>
+  mutate(
+    Comparison = case_when(
+      contrast == "mean(motion) - mean(dynamic)" ~ "Motion − Dynamic",
+      contrast == "mean(stative) - mean(dynamic)" ~ "Stative − Dynamic",
+      contrast == "mean(stative) - mean(motion)" ~ "Stative − Motion")) |>
+  ggplot() +
+  aes(x = draw, y = Comparison) +
+  stat_halfeye(position = position_dodge(0.5)) +
+  labs(y = NULL, x = "Posterior difference MF (verb class)")
+
+ggsave(
+  here("study_1", "plots", "plot_futurity_comp_verb.png"),
+  plot = plot_futurity_comp_verb,
+  width = 8.5,
+  height = 5,
+  units = "in",
+  dpi = 300)
+
+# Obs:
+# There is no clear evidence of a difference between motion and dynamic verbs 
+# for the MF (CrI includes 0; -0.06 [-0.183, 0.058]).
+# Conversely, the MF is favored with stative verbs over motion and dynamic. This 
+# observation is confirmed by the comparison: stative vs dynamic (0.201 [0.043, 
+# 0.393]) and stative vs motion (0.263 [0.079, 0.471]). 
+# ------------------------------------------------------------------------------
