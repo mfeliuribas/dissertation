@@ -67,11 +67,28 @@ post_td_all |>
       contrast == "mean(nonspecific) - mean(near)" ~ "Nonspecific − Near"),
     Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
 
-post_td_all |>
+plot_futurity_comp_temp <- post_td_all |>
+  mutate(
+    Comparison = case_when(
+      contrast == "mean(distant) - mean(immediate)" ~ "Distant − Immediate",
+      contrast == "mean(distant) - mean(near)" ~ "Distant − Near",
+      contrast == "mean(near) - mean(immediate)" ~ "Near − Immediate",
+      contrast == "mean(nonspecific) - mean(distant)" ~ "Nonspecific − Distant",
+      contrast == "mean(nonspecific) - mean(immediate)" ~ "Nonspecific − Immediate",
+      contrast == "mean(nonspecific) - mean(near)" ~ "Nonspecific − Near")) |>
   ggplot() +
-  aes(x = draw, y = contrast) +
+  aes(x = draw, y = Comparison) +
   stat_halfeye(position = position_dodge(0.5)) +
-  labs(y = NULL, x = "Posterior diference MF")
+  labs(y = NULL, x = "Posterior difference MF (temporal distance)")
+
+ggsave(
+  here("study_1", "plots", "plot_futurity_comp_temp.png"),
+  plot = plot_futurity_comp_temp,
+  width = 8.5,
+  height = 5,
+  units = "in",
+  dpi = 300)
+
 
 post_td_all_PI <- post_td_all |>
   mutate(
