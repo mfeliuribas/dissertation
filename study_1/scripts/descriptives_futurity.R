@@ -85,7 +85,7 @@ data_futurity_tidy |>
   theme_minimal()
 
 # Obs:
-  # There are 1,254 tokens labeled with either 'future' or 'future_hyp'.
+  # There are 1,253 tokens labeled with either 'future' or 'future_hyp'.
   # Of these, the majority (76%) are PF, followed by lexical futures (9.1%), 
   #   the PI (6.2%) and the MF (3.4%).
   # Around 5-6% of the tokens are other forms (cond., subj., inf.)
@@ -102,7 +102,7 @@ data_futurity_tidy |>
   arrange(desc(n))
 
 # Obs:
-  # Of the 1,254 tokens labeled with either 'future' or 'future_hyp', most of 
+  # Of the 1,253 tokens labeled with either 'future' or 'future_hyp', most of 
   #   them (~ 91%) are considered temporal futures, whereas 9% are 
   #   hypothetical futures, usually embedded in conditional clauses.
   # While a variety of forms is used to express future-time reference, in this
@@ -112,6 +112,22 @@ data_futurity_tidy |>
   #   futures are used to talk about hypothetical future situations. In the case 
   #   of the PI, that is probably not surprising and generally expected. 
 
+
+# See distribution within futurity: pure futures
+data_futurity_tidy |>
+  filter(reading == "future") |>
+  count(form) |>
+  mutate(pct = round(n / sum(n) * 100, 1)) |>
+  arrange(desc(n)) |>
+  write_csv(here("study_1", "tables", "table_futurity_descriptives.csv"))
+
+# See distribution within futurity: hypothetical futures
+data_futurity_tidy |>
+  filter(reading == "future_hyp") |>
+  count(form) |>
+  mutate(pct = round(n / sum(n) * 100, 1)) |>
+  arrange(desc(n)) |>
+  write_csv(here("study_1", "tables", "table_hyp-futurity_descriptives.csv"))
 
 # Table: Use of PF, MF, and PI to express futurity
 data_futurity_tidy |>
