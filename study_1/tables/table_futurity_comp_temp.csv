@@ -1,0 +1,7 @@
+Comparison,Estimate
+Distant − Immediate,"-0.064 [-0.222, 0.137]"
+Distant − Near,"0.031 [-0.124, 0.246]"
+Near − Immediate,"-0.095 [-0.247, 0.043]"
+Nonspecific − Distant,"0.555 [0.307, 0.753]"
+Nonspecific − Immediate,"0.492 [0.289, 0.674]"
+Nonspecific − Near,"0.59 [0.393, 0.755]"

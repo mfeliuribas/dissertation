@@ -16,12 +16,17 @@ library("glue")
 # ------------------------------------------------------------------------------
 
 
-# ----- 2. Load model -----------------------------------------------------------
+# ----- 2. Set seed for reproducibility ----------------------------------------
+set.seed(20260911)
+# ------------------------------------------------------------------------------
+
+
+# ----- 3. Load model -----------------------------------------------------------
 mod3_future <- readRDS(here("study_1", "models", "mod3_future.rds"))
 # ------------------------------------------------------------------------------
 
 
-# ----- 3. Comparisons: Temporal distance --------------------------------------
+# ----- 4. Comparisons: Temporal distance --------------------------------------
 # Comparisons against the reference level
 post_td <- avg_comparisons(
   mod3_future, 
@@ -65,7 +70,8 @@ post_td_all |>
       contrast == "mean(nonspecific) - mean(distant)" ~ "Nonspecific − Distant",
       contrast == "mean(nonspecific) - mean(immediate)" ~ "Nonspecific − Immediate",
       contrast == "mean(nonspecific) - mean(near)" ~ "Nonspecific − Near"),
-    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))|>
+  write_csv(here("study_1", "tables", "table_futurity_comp_temp.csv"))
 
 plot_futurity_comp_temp <- post_td_all |>
   mutate(
@@ -136,7 +142,8 @@ post_gp |>
   median_qi(draw) |>
   transmute(
     Comparison = "3rd − 1st",
-    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
+  write_csv(here("study_1", "tables", "table_futurity_comp_pers.csv"))
 
 plot_futurity_comp_pers <- post_gp |>
   mutate(
@@ -180,7 +187,8 @@ post_vc_all |>
       contrast == "mean(motion) - mean(dynamic)" ~ "Motion − Dynamic",
       contrast == "mean(stative) - mean(dynamic)" ~ "Stative − Dynamic",
       contrast == "mean(stative) - mean(motion)" ~ "Stative − Motion"),
-    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+    Estimate = glue("{round(draw, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))|>
+  write_csv(here("study_1", "tables", "table_futurity_comp_verb.csv"))
 
 plot_futurity_comp_verb <- post_vc_all |>
   mutate(
