@@ -1,6 +1,11 @@
-# ----- Analysis: Modality -----------------------------------------------------
+# ----- Exploratory Analysis: Modality -----------------------------------------
 #
-# This script contains the code used to analyze the modality data for Study 1.
+# This script contains the code used to make an exploratory analysis of the 
+# modality data for Study 1. After fitting several models, I concluded that the 
+# data were too sparse and limited to support reliable modeling, so the final 
+# analysis of modality is purely descriptive (see ´analysis_modality´).
+#
+# This code is kept here for reference. It is NOT part of the data analysis.
 #
 # ------------------------------------------------------------------------------
 
@@ -357,7 +362,7 @@ mod2_modality_vc_table <- mod2_modality_vc_post |>
 # statives together and see if this makes a difference.
 
 
-# ----- 4.4. Model 3 - FINAL (reading + stative_class + type_bil) --------------
+# ----- 4.4. Model 3 (reading + stative_class + type_bil) ----------------------
 # Specify model formula
 form3_corpus_modality <- bf(form ~ 0 + Intercept + reading + stative_class + 
                               type_bil +
@@ -498,4 +503,83 @@ mod3_modality_bil_table <- mod3_modality_bil_post |>
 #   - Based on this, it would be probably better to do descriptive stats for the 
 #     modality data and perhaps support the observations with very simple models,
 #     such as mod1.
+
+
+# ----- 4.4. Model 4 (reading * stative_class) ------------------------------------
+# Specify model formula
+form4_corpus_modality <- bf(form ~ 0 + Intercept + reading * stative_class +
+                              (1 | participant))
+
+# Figure out the priors
+get_prior(formula = form4_corpus_modality, 
+          family = bernoulli(link = "logit"), 
+          data = subset_corpus_modality)
+
+# Set priors
+priors4_modality <- c(
+  prior("normal(0, 1.5)", class = "b", coef = "Intercept"),
+  prior("normal(0, 1)",   class = "b"),
+  prior("student_t(3, 0, 1.5)", class = "sd"))
+
+
+# Fit simple model
+mod4_modality <- brm(
+  formula = form4_corpus_modality, 
+  prior = priors4_modality, 
+  iter = 2000, warmup = 1000, cores = 4, 
+  data = subset_corpus_modality, 
+  family = bernoulli(link = "logit"),
+  control = list(adapt_delta = 0.95), 
+  file = here("study_1", "models", "mod4_modality"))
+
+# Model output
+summary(mod4_modality)
+
+# Get posteriors
+mod4_modality_preds <- avg_predictions(
+  model = mod4_modality,
+  variables = c("reading", "stative_class"),
+  re_formula = NULL)
+
+mod4_modality_post <- mod4_modality_preds |>
+  posterior_draws()
+
+
+# Table - posterior summary of mod4 (predicted prob of using MF)
+mod4_modality_post |>
+  group_by(reading, stative_class) |>
+  median_qi(x = draw) |>
+  transmute(
+    Reading = reading,
+    Verb = stative_class,
+    Estimate = glue(
+      "{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]"))
+
+# Table - posterior summary of mod2 (predicted prob of using MF and PI)
+mod4_modality_table <- mod4_modality_post |>
+  mutate(
+    draw_PF = 1 - draw) |>
+  pivot_longer(
+    cols = c(draw, draw_PF),
+    names_to = "form",
+    values_to = "draw") |>
+  mutate(
+    form = recode(
+      form,
+      draw = "MF",
+      draw_PF = "PF")) |>
+  group_by(reading, stative_class, form) |>
+  median_qi(x = draw) |>
+  mutate(
+    Reading = reading,
+    Verb = stative_class,
+    Form = form,
+    Estimate = glue(
+      "{round(x, 3)} [{round(.lower, 3)}, {round(.upper, 3)}]")) |>
+  select(Reading, Verb, Form, Estimate) |>
+  pivot_wider(
+    names_from = Form,
+    values_from = Estimate)
+
+mod4_modality_table
 # ------------------------------------------------------------------------------
