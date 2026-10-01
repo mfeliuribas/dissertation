@@ -40,7 +40,26 @@ data_corpus_subset <- data_corpus_subset |>
 # ------------------------------------------------------------------------------
 
 
-# ----- 4. Check overall distribution: PF vs MF --------------------------------
+# ----- 4. Total instances of PF and MF ----------------------------------------
+data_corpus |>
+  count(form)
+
+data_corpus |>
+  filter(form %in% c("PF", "PF/PI")) |>
+  mutate(domain = case_when(
+    reading %in% future_readings ~ "future",
+    reading %in% modal_readings  ~ "modal",
+    TRUE                         ~ "other")) |>
+  count(domain) |>
+  mutate(pct = round(n / sum(n) * 100, 2))
+
+data_corpus |>
+  filter(form == "MF") |>
+  count(reading, form)
+# ------------------------------------------------------------------------------
+
+
+# ----- 5. Check overall distribution: PF vs MF --------------------------------
 # Create 'domain' category (futurity vs modality)
 data_corpus_subset <- data_corpus_subset |>
   mutate(domain = case_when(
@@ -76,9 +95,9 @@ data_corpus_subset |>
   group_by(form) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
   arrange(form, desc(n)) |>
-  ungroup() |>
-  write_csv(
-    here("study_1", "tables", "table_distribution_pfmf_v2.csv"))
+  ungroup() # |>
+  # write_csv(
+  #   here("study_1", "tables", "table_distribution_pfmf_v2.csv"))
 
 # Distribution within the domains (pcts calculated within forms)
 # Hypothetical futures EXCLUDED
@@ -88,7 +107,34 @@ data_corpus_subset |>
   group_by(form) |>
   mutate(pct = round(n / sum(n) * 100, 1)) |>
   arrange(form, desc(n)) |>
+  ungroup() #|>
+  # write_csv(
+  #   here("study_1", "tables", "table_distribution_pfmf_v3.csv"))
+# ------------------------------------------------------------------------------
+
+
+# ----- 4. Modal uses of the PF and the MF -------------------------------------
+epistemic_readings <- c("inf_cert", "epistemic", "epistemic_dm", "attenuation")
+
+data_corpus_subset |>
+  mutate(reading = case_when(
+    reading %in% epistemic_readings ~ "epistemic",
+    TRUE ~ reading)) |>
+  filter(domain == "modality") |>
+  group_by(reading) |>
+  count(reading)
+
+data_corpus_subset |>
+  mutate(reading = case_when(
+    reading %in% epistemic_readings ~ "epistemic",
+                               TRUE ~ reading)) |>
+  filter(domain == "modality") |>
+  group_by(form) |>
+  count(form, reading) |>
+  mutate(pct = round(n / sum(n) * 100, 2)) |>
   ungroup() |>
   write_csv(
-    here("study_1", "tables", "table_distribution_pfmf_v3.csv"))
+    here("study_1", "tables", "table_modality.csv"))
+
+
 # ------------------------------------------------------------------------------
