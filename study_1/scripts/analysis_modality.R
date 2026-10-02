@@ -480,12 +480,12 @@ data_corpus_modality_subset |>
 # with the verb 'decir'.
 
 data_corpus_modality_subset |>
-  filter(form == "PF", reading == "epistemic_dm", verb_class == "dynamic")
+  filter( form == "PF", reading != "inf_cert", verb_class == "dynamic") |>
+  count(form, reading, inf)
 
-data_corpus_modality_subset |>
-  filter(form == "PF", reading == "attenuation", verb_class == "dynamic")
-
-# In these two cases, the PF is also used with 'decir'. 
+# Excluding inferred certainty (does not seem to be constrained) and probability 
+# (only occurs with stative verbs), the discourse marker and attenuation only 
+# occur with 'decir'-like verbs (e.g., 'echar mentiras' and 'mentir').
 # ------------------------------------------------------------------------------
 
 
