@@ -265,10 +265,6 @@ mod_modality_table <- mod_modality_post |>
 # ------------------------------------------------------------------------------
 
 
-
-
-
-
 # ----- 5. Epistemic uses of the PF and the MF ---------------------------------
 # Convert characters into factors and set reference levels
 data_corpus_modality_subset <- data_corpus_modality |>
@@ -448,6 +444,91 @@ ggsave(
   height = 5,
   units = "in",
   dpi = 300)
+# ------------------------------------------------------------------------------
 
 
+# ----- 6. Verb class on the epistemic uses of the PF and the MF ---------------
+data_corpus_modality_subset |>
+  count(form, reading, verb_class) |>
+  group_by(form, reading) |>
+  mutate(prop = n / sum(n) * 100) |>
+  ungroup() |>
+  transmute(
+    Form = form,
+    Reading = reading,
+    Verb = verb_class,
+    `N (%)` = glue("{n} ({round(prop, 1)}%)")) |>
+  pivot_wider(names_from = Verb,
+              values_from = `N (%)`,
+              values_fill = "0",
+              names_sort = TRUE) |>
+  write_csv(here("study_1", "tables", "table_epistemic_vc.csv"))
+
+data_corpus_modality_subset |>
+  filter(form == "MF", reading == "epistemic", verb_class == "dynamic")
+
+data_corpus_modality_subset |>
+  filter(form == "MF", reading == "inf_cert", verb_class == "dynamic")
+
+data_corpus_modality_subset |>
+  filter(form == "MF", reading == "epistemic_dm", verb_class == "dynamic")
+
+data_corpus_modality_subset |>
+  filter(form == "MF", reading == "attenuation", verb_class == "dynamic")
+
+# In all cases, when the MF is not used with a stative verb, it is only employed 
+# with the verb 'decir'.
+
+data_corpus_modality_subset |>
+  filter(form == "PF", reading == "epistemic_dm", verb_class == "dynamic")
+
+data_corpus_modality_subset |>
+  filter(form == "PF", reading == "attenuation", verb_class == "dynamic")
+
+# In these two cases, the PF is also used with 'decir'. 
+# ------------------------------------------------------------------------------
+
+
+# ----- 7. Bilingualism on the epistemic uses of the PF and the MF -------------
+data_corpus_modality_subset |>
+  count(form, reading, type_bil) |>
+  group_by(form, reading) |>
+  mutate(prop = n / sum(n) * 100) |>
+  ungroup() 
+
+# Since most data come from seq bilinguals, it may be more informative to 
+# calculate the proportions within groups (i.e., based on type of bilingualism) 
+# rather than between groups. 
+
+data_corpus_modality_subset |>
+  count(type_bil, form, reading) |>
+  group_by(type_bil, form) |>
+  mutate(prop = n / sum(n) * 100) |>
+  ungroup() |>
+  transmute(
+    Form = form,
+    Reading = reading,
+    Acq = type_bil,
+    `N (%)` = glue("{n} ({round(prop, 1)}%)")) |>
+  pivot_wider(names_from = Acq,
+              values_from = `N (%)`,
+              values_fill = "0",
+              names_sort = TRUE) 
+
+data_corpus_modality_subset |>
+  count(form, type_bil, reading) |>
+  group_by(form, type_bil) |>
+  mutate(prop = n / sum(n) * 100,
+         total = sum(n)) |>
+  ungroup() |>
+  transmute(
+    Form = form,
+    Acq = type_bil,
+    N = total,
+    Reading = reading,
+    `N (%)` = glue("{n} ({round(prop, 1)}%)")) |>
+  pivot_wider(names_from = Reading,
+              values_from = `N (%)`,
+              values_fill = "0") |>
+  write_csv(here("study_1", "tables", "table_epistemic_bil.csv"))
 # ------------------------------------------------------------------------------
