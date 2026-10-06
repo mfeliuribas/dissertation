@@ -132,6 +132,20 @@ spanish_mls_final <- spanish_mls_final |>
   select(-rating_pct) |>
   relocate(rating, .after = form)
 
+# Adapt 0s and 1s for beta regression
+spanish_mls_final <- spanish_mls_final |>
+  mutate(
+    rating_beta = if_else(rating == 1, 1 - 0.001,
+                          if_else(rating == 0, 0 + 0.001, rating))) |>
+  relocate(rating_beta, .after = rating)
+
+any(spanish_mls_final$rating_beta == 0, na.rm = TRUE)
+any(spanish_mls_final$rating_beta == 1, na.rm = TRUE)
+
+spanish_mls_final |>
+  filter(rating != rating_beta) |>
+  count(rating, rating_beta)
+
 # Rename BLP columns
 spanish_mls_final <- spanish_mls_final |>
   rename(
@@ -414,6 +428,20 @@ english_mls_final <- english_mls_final |>
   rename(rating = rating_scaled) |>
   select(-rating_pct) |>
   relocate(rating, .after = form)
+
+# Adapt 0s and 1s for beta regression
+english_mls_final <- english_mls_final |>
+  mutate(
+    rating_beta = if_else(rating == 1, 1 - 0.001,
+                          if_else(rating == 0, 0 + 0.001, rating))) |>
+  relocate(rating_beta, .after = rating)
+
+any(english_mls_final$rating_beta == 0, na.rm = TRUE)
+any(english_mls_final$rating_beta == 1, na.rm = TRUE)
+
+english_mls_final |>
+  filter(rating != rating_beta) |>
+  count(rating, rating_beta)
 
 # Fix LexTale labels/trainings
 english_mls_final <- english_mls_final |>

@@ -46,11 +46,11 @@ setdiff(colnames(experiment_bls_raw), colnames(experiment_bls_tidy))
 # Remove participants who did not finish Session 1 (e.g. no BLP data), who 
 # completed the same session twice by mistake, or who showed inconsistent data 
 # (e.g., between the responses in the interest form and the BLP)
-
 experiment_bls_tidy <- experiment_bls_tidy |>
   filter(!participant %in% c("HS_006", "HS_010","HS_019", "HS_023", "HS_024", 
                              "HS_025", "HS_026", "HS_027", "HS_028","HS_045",
                              "HS_048", "HS_055")) |>
+  filter(!participant %in% c("HS_017", "HS_039", "HS_067", "HS_073")) |>
   filter(!is.na(participant))
 
 experiment_bls_tidy <- experiment_bls_tidy |>
@@ -123,7 +123,7 @@ experiment_bls_final <- experiment_bls_final |>
 experiment_bls_final |>
   count(participant, Trial, stim_lang, list, list_assigned) |>
   arrange(n) |>
-  print(n = 168)
+  print(n = 160)
 
 # Create new (i.e., manipulated) variables: temporal distance and plan certainty
 experiment_bls_final <- experiment_bls_final |>
@@ -185,6 +185,19 @@ experiment_bls_final <- experiment_bls_final |>
   rename(rating_pct = rating) |>
   rename(rating = rating_scaled) |>
   select(-rating_pct)
+
+# Adapt 0s and 1s for beta regression
+experiment_bls_final <- experiment_bls_final |>
+  mutate(
+    rating_beta = if_else(rating == 1, 1 - 0.001,
+                         if_else(rating == 0, 0 + 0.001, rating)))
+
+any(experiment_bls_final$rating_beta == 0, na.rm = TRUE)
+any(experiment_bls_final$rating_beta == 1, na.rm = TRUE)
+
+experiment_bls_final |>
+  filter(rating != rating_beta) |>
+  count(rating, rating_beta)
 
 # Write csv for tidy experiment data
 write_csv(experiment_bls_final,
@@ -601,6 +614,7 @@ lextale_bls_tidy <- lextale_bls_raw |>
   filter(!participant %in% c("HS_006", "HS_010","HS_019", "HS_023", "HS_024", 
                              "HS_025", "HS_026", "HS_027", "HS_028","HS_045",
                              "HS_048", "HS_055")) |>
+  filter(!participant %in% c("HS_017", "HS_039", "HS_067", "HS_073")) |>
   filter(!is.na(participant))
 
 lextale_bls_tidy <- lextale_bls_tidy |>

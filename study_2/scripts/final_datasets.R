@@ -61,15 +61,23 @@ data_bls_final <- data_bls |>
   # Z-score LexTale by language (lextale-esp separate from lextale-eng)
 data_bls_final <- data_bls_final |>
   mutate(
-    blp_z = (blp_score - mean(blp_score)) / sd(blp_score)) |>
+    blp_z = (blp_score - mean(blp_score)) / sd(blp_score),
+    blp_updated_z = (blp_score_updated - mean(blp_score_updated)) / 
+      sd(blp_score_updated)) |>
   #mutate(
     #blp_z = round(blp_z, 2)) |>
-  relocate(blp_z, .after = blp_score)
+  relocate(blp_z, .after = blp_score) |>
+  relocate(blp_updated_z, .after = blp_score_updated)
 
 data_bls_final |>
   summarize(
     mean_blp_z = mean(blp_z),
     sd_blp_z = sd(blp_z))
+
+data_bls_final |>
+  summarize(
+    mean_blp_updated_z = mean(blp_updated_z),
+    sd_blp_updated_z = sd(blp_updated_z))
 
 data_bls_final <- data_bls_final |>
   group_by(language) |>
@@ -90,6 +98,10 @@ data_bls_final |>
     sd_lextale_trad_z = sd(lextale_trad_z),
     mean_lextale_avg_z = mean(lextale_avg_z),
     sd_lextale_avg_z = sd(lextale_avg_z))
+
+# Remove global columns (BLP -- not needed)
+data_bls_final <- data_bls_final |>
+  select(-c("global_sp_updated", "global_en_updated"))
 
 # Write final dataset
 data_bls_final |>
@@ -135,7 +147,8 @@ spanish_bls |>
 
 # Drop columns not necessary for Spanish analysis (BL data)
 spanish_bls <- spanish_bls |>
-  select(-c(session, blp_score, global_sp, global_en))
+  select(-c(session, blp_score, blp_score_updated, global_sp, global_en,
+            global_sp_updated, global_en_updated))
 
 # Prepare ML dataset for merging (i.e., delete BLP/LexTale columns, transform 
 # gender options to lowercase)
@@ -214,7 +227,8 @@ english_bls |>
 
 # Drop columns not necessary for English analysis (BL data)
 english_bls <- english_bls |>
-  select(-c(session, blp_score, global_sp, global_en))
+  select(-c(session, blp_score, blp_score_updated, global_sp, global_en,
+            global_sp_updated, global_en_updated))
 
 # Prepare ML dataset for merging (i.e., delete BLP/LexTale columns)
 data.frame(colnames(english_mls))
