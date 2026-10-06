@@ -16,7 +16,8 @@ library("ggplot2")
 
 # ----- 2. Load data -----------------------------------------------------------
 data_bls <- read.csv(here("study_2", "final_data", "bls_final.csv"))
-data_blp_raw <- read.csv(here("study_2", "raw_data", "questionnaire_bls_raw.csv"))
+data_blp_bls <- read.csv(here("study_2", "tidy_data", 
+                              "questionnaire_updated_bls.csv")) |> select(-X)
 data_mls_sp <- read.csv(here("study_2", "tidy_data", "spanish_mls_tidy.csv"))
 data_mls_en <- read.csv(here("study_2", "tidy_data", "english_mls_tidy.csv"))
 # ------------------------------------------------------------------------------
@@ -34,8 +35,8 @@ data_bls |>
   summarise(language = first(language))
 
 # Obs:
-  # A total of 89 bilinguals were included in the final dataset. However, of 
-  # them, five only completed the English version and six only completed the 
+  # A total of 85 bilinguals were included in the final dataset. However, of 
+  # them, four only completed the English version and six only completed the 
   # Spanish version.
 
 # Family origin
@@ -83,8 +84,8 @@ data_bls |>
   count(born)
 
 # Obs:
-  # 68 participants were born in the U.S.
-  # 21 were born abroad.
+  # 65 participants were born in the U.S.
+  # 20 were born abroad.
 
 # Self-reported gender
 data_bls |>
@@ -94,9 +95,9 @@ data_bls |>
   mutate(pct = round(100 * n / sum(n), 1))
 
 # Obs:
-  # Female = 66 (74.2%)
-  # Male = 22 (24.7%)
-  # Non-binary = 1 (1.1%)
+  # Female = 63 (74.1%)
+  # Male = 21 (24.7%)
+  # Non-binary = 1 (1.2%)
 
 # Age
 data_bls |>
@@ -110,161 +111,67 @@ data_bls |>
 
 # Obs:
   # Range: 18-47
-  # Mean: 20.9
-  # SD: 4.40
+  # Mean: 21.0
+  # SD: 4.43
 
 # Language dominance
 data_bls |>
   group_by(participant) |>
-  summarize(blp_score = first(blp_score)) |>
   summarize(
-    mean_blp_score = mean(blp_score),
-    sd_blp_score   = sd(blp_score),
-    min_blp_score  = min(blp_score),
-    max_blp_score  = max(blp_score))
+    original = first(blp_score),
+    updated  = first(blp_score_updated)) |>
+  pivot_longer(c(original, updated),
+               names_to = "version", values_to = "blp_score") |>
+  group_by(version) |>
+  summarize(
+    mean = mean(blp_score),
+    sd   = sd(blp_score),
+    min  = min(blp_score),
+    max  = max(blp_score))
 
 # Obs:
-  # Range: -155 to 53.9
-  # Mean: -53.4
-  # SD: 41.6
+  # version     mean    sd      min      max
+  # original   -51.7    37.5    -123.    48.5
+  # updated    -51.6    37.2    -126.    48.5
 
 # AoA
-data_blp <- data_blp_raw |>
-  filter(!participant %in% c("HS_006", "HS_010","HS_019", "HS_023", "HS_024", 
-                             "HS_025", "HS_026", "HS_027", "HS_028","HS_045",
-                             "HS_048", "HS_055")) |>
-  filter(!is.na(participant))
-
-data_blp <- data_blp |>
-  filter(!(participant == "HS_002" & session == 2 & Trial == "Span" 
-           & Lista == 2)) |>
-  filter(!(participant == "HS_004" & session == 2 & Trial == "Span" 
-           & Lista == 2)) |>
-  filter(!(participant == "HS_005" & session == 2 & Trial == "Span" 
-           & Lista == 3)) |>
-  filter(!(participant == "HS_007" & session == 2 & Trial == "Span" 
-           & Lista == 2)) |>
-  filter(!(participant == "HS_013" & session == 1 & Trial == "Span"  
-           & Lista  == 1)) |>
-  filter(!(participant == "HS_014" & session == 1 & Trial == "Eng"  
-           & List  == 3)) |>
-  filter(!(participant == "HS_029" & session == 1 & Trial == "Eng"  
-           & List  == 1)) |>
-  filter(!(participant == "HS_036" & session == 1 & Trial == "Span" 
-           & is.na(Lista))) |>
-  filter(!(participant == "HS_043" & session == 1 & Trial == "Span" 
-           & is.na(Lista))) |>
-  filter(!(participant == "HS_050" & session == 1 & Trial == "Span" 
-           & Lista == 2))
-
-data_blp <- data_blp |>
-  rename(
-    # Biographical Information
-    age                = Q3,
-    gender             = Q4,
-    gender_other       = Q4_3_TEXT,
-    residence_city     = Q5,
-    residence_count    = Q6,
-    country_origin     = Q7,
-    origin_mom         = Q8,
-    origin_dad         = Q9,
-    education          = Q10,
-    # Module 1: Language History
-    age_acq_sp         = Q11_1,
-    age_acq_en         = Q11_2,
-    age_comfort_sp     = Q12_1,
-    age_comfort_en     = Q12_2,
-    years_school_sp    = Q13_1,
-    years_school_en    = Q13_2,
-    years_country_sp   = Q14_1,
-    years_country_en   = Q14_2,
-    years_family_sp    = Q15_1,
-    years_family_en    = Q15_2,
-    years_work_sp      = Q16_1,
-    years_work_en      = Q16_2,
-    # Module 2: Language Use
-    use_family_sp      = Q17_1,
-    use_family_en      = Q17_2,
-    use_family_other   = Q17_3,
-    use_friends_sp     = Q18_1,
-    use_friends_en     = Q18_2,
-    use_friends_other  = Q18_3,
-    use_work_sp        = Q19_1,
-    use_work_en        = Q19_2,
-    use_work_other     = Q19_3,
-    use_self_sp        = Q20_1,
-    use_self_en        = Q20_2,
-    use_self_other     = Q20_3,
-    use_count_sp       = Q21_1,
-    use_count_en       = Q21_2,
-    use_count_other    = Q21_3,
-    # Module 3: Language Proficiency
-    prof_speak_sp      = Q22_1,
-    prof_speak_en      = Q22_2,
-    prof_understand_sp = Q23_1,
-    prof_understand_en = Q23_2,
-    prof_read_sp       = Q24_1,
-    prof_read_en       = Q24_2,
-    prof_write_sp      = Q25_1,
-    prof_write_en      = Q25_2,
-    # Module 4: Language Attitudes
-    att_self_sp        = Q26_1,
-    att_self_en        = Q26_2,
-    att_culture_sp     = Q27_1,
-    att_culture_en     = Q27_2,
-    att_native_sp      = Q28_1,
-    att_native_en      = Q28_2,
-    att_perceived_sp   = Q29_1,
-    att_perceived_en   = Q29_2)
-
-data.frame(colnames(data_blp))
-
-data_blp |>
-  group_by(participant) |>
-  summarize(age_acq_sp = first(age_acq_sp), .groups = "drop") |>
-  count(age_acq_sp, sort = TRUE)
-
-data_blp |>
-  group_by(participant) |>
-  summarize(age_acq_en = first(age_acq_en), .groups = "drop") |>
-  count(age_acq_en, sort = TRUE)
-
-data_blp |>
+data_blp_bls |>
   group_by(participant) |>
   summarize(
-    age_acq_sp = first(age_acq_sp),
-    age_acq_en = first(age_acq_en),
-    .groups = "drop") |>
-  mutate(
-    age_acq_sp = if_else(age_acq_sp == "Since birth", "0", age_acq_sp),
-    age_acq_en = if_else(age_acq_en == "Since birth", "0", age_acq_en),
-    age_acq_sp = as.numeric(age_acq_sp),
-    age_acq_en = as.numeric(age_acq_en)) |>
-  filter(age_acq_sp <= 8 & age_acq_en <= 8)
-
-aoa_bls <- data_blp |>
-  group_by(participant) |>
+    original = first(age_acq_sp),
+    updated  = first(age_acq_sp_updated)) |>
+  pivot_longer(c(original, updated),
+               names_to = "version", values_to = "age_acq_sp") |>
+  group_by(version) |>
   summarize(
-    age_acq_sp = first(age_acq_sp),
-    age_acq_en = first(age_acq_en),
-    .groups = "drop") |>
-  mutate(
-    age_acq_sp = if_else(age_acq_sp == "Since birth", "0", age_acq_sp),
-    age_acq_en = if_else(age_acq_en == "Since birth", "0", age_acq_en),
-    age_acq_sp = as.numeric(age_acq_sp),
-    age_acq_en = as.numeric(age_acq_en)) |>
-  mutate(both_before_9 = age_acq_sp <= 9 & age_acq_en <= 9)
-
-aoa_bls |> 
-  filter(!both_before_9 | is.na(both_before_9))
+    mean = mean(age_acq_sp),
+    sd   = sd(age_acq_sp),
+    min  = min(age_acq_sp),
+    max  = max(age_acq_sp))
 
 # Obs:
-  # The final dataset have to be re-done. 
-  # HS_017, HS_030, and HS_099 report learning English after the age of 11. 
-  # HS_039, HS_042, HS_071, HS_073, HS_087, HS_100 report learning Spanish after 
-    # age 11. However, I feel that they interpreted this question as taking 
-    # classes, because they report spending their whole lives in a family where 
-    # Spanish is spoken.
+  # version     mean      sd        min   max
+  # original    1.24      3.10      0     13
+  # updated     0.224     0.762     0     4
+
+data_blp_bls |>
+  group_by(participant) |>
+  summarize(
+    original = first(age_acq_en),
+    updated  = first(age_acq_en_updated)) |>
+  pivot_longer(c(original, updated),
+               names_to = "version", values_to = "age_acq_en") |>
+  group_by(version) |>
+  summarize(
+    mean = mean(age_acq_en, na.rm = TRUE),
+    sd   = sd(age_acq_en, na.rm = TRUE),
+    min  = min(age_acq_en, na.rm = TRUE),
+    max  = max(age_acq_en, na.rm = TRUE))
+
+# Obs:
+  # version     mean      sd      min   max
+  # original    2.21    3.36      0     20
+  # updated     1.51    2.18      0     9
 # ------------------------------------------------------------------------------
 
 
