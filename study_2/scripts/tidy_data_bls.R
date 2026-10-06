@@ -206,7 +206,7 @@ data.frame(colnames(questionnaire_bls_raw))
 #Q26-Q29: Module 4 (Lang. Attitudes)
 
 # Remove participants who did not finish Session 1 (e.g. no BLP data), who 
-# completed the samesession twice by mistake, or who showed inconsistent data 
+# completed the same session twice by mistake, or who showed inconsistent data 
 # (e.g., between the responses in the interest form and the BLP)
 
 questionnaire_bls_tidy <- questionnaire_bls_raw |>
@@ -314,6 +314,8 @@ data.frame(colnames(questionnaire_bls_tidy))
 # Tidy responses in Module 1: Language History
 questionnaire_bls_final <- questionnaire_bls_tidy |>
   mutate(
+    family_whole_life_sp = years_family_sp == "My whole life",
+    family_whole_life_en = years_family_en == "My whole life",
     age_acq_sp = case_when(
       age_acq_sp == "Since birth" ~ "0",
       TRUE ~ age_acq_sp),
@@ -342,6 +344,100 @@ questionnaire_bls_final <- questionnaire_bls_tidy |>
       TRUE ~ years_family_en)) |>
   mutate(across(age_acq_sp:years_work_en, as.numeric))
 
+# Check participants who must be recoded for AoA and recode them
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    flagged_sp       = age_acq_sp >= 5,
+    whole_life_sp    = family_whole_life_sp | years_family_sp >= age - 2,
+    classes_match_sp = abs(years_school_sp - (age - age_acq_sp)) <= 2,
+    family_use_sp    = use_family_sp > 0,
+    flagged_en       = age_acq_en >= 5,
+    whole_life_en    = family_whole_life_en | years_family_en >= age - 2,
+    classes_match_en = abs(years_school_en - (age - age_acq_en)) <= 2,
+    family_use_en    = use_family_en > 0)
+
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    flag_aoa_sp = case_when(
+      is.na(age_acq_sp) ~ "missing",
+      flagged_sp == FALSE ~ "not flagged",
+      whole_life_sp == TRUE & (classes_match_sp == TRUE | family_use_sp == TRUE) ~ "recode",
+      whole_life_sp == TRUE ~ "ambiguous",
+      years_family_sp > (age - age_acq_sp) + 2 ~ "ambiguous",
+      years_school_sp > (age - age_acq_sp) + 2 ~ "ambiguous",
+      TRUE ~ "keep"),
+    flag_aoa_en = case_when(
+      is.na(age_acq_en) ~ "missing",
+      flagged_en == FALSE ~ "not flagged",
+      whole_life_en == TRUE & (classes_match_en == TRUE | family_use_en == TRUE) ~ "recode",
+      whole_life_en == TRUE ~ "ambiguous",
+      years_family_en > (age - age_acq_en) + 2 ~ "ambiguous",
+      years_school_en > (age - age_acq_en) + 2 ~ "ambiguous",
+      TRUE ~ "keep"),
+    age_acq_sp_updated = if_else(flag_aoa_sp == "recode", 0, age_acq_sp),
+    age_acq_en_updated = if_else(flag_aoa_en == "recode", 0, age_acq_en))
+
+questionnaire_bls_final |> count(flag_aoa_sp)
+questionnaire_bls_final |> count(flag_aoa_en)
+
+questionnaire_bls_final |>
+  filter(flag_aoa_sp != "not flagged" | flag_aoa_en != "not flagged") |>
+  select(participant, age,
+         age_acq_sp, flag_aoa_sp, age_acq_sp_updated,
+         age_acq_en, flag_aoa_en, age_acq_en_updated)
+
+questionnaire_bls_final <- questionnaire_bls_final |>
+  relocate(age_acq_sp_updated, .after = age_acq_sp,
+           age_acq_en_updated, .after = age_acq_en) |>
+  filter(-c(57:68))
+
+questionnaire_bls_final <- questionnaire_bls_final |>
+  relocate(age_acq_sp_updated, .after = age_acq_sp) |>
+  relocate(age_acq_en_updated, .after = age_acq_en) |>
+  select(-c(family_whole_life_sp:flag_aoa_en))
+
+# See what participants got recorded
+questionnaire_bls_final |>
+  filter(age_acq_sp != age_acq_sp_updated | age_acq_en != age_acq_en_updated) |>
+  select(participant, age,
+         age_acq_sp, age_acq_sp_updated,
+         age_acq_en, age_acq_en_updated)
+
+# Check if any participant should be excluded after transformations
+cutoff <- 8
+
+questionnaire_bls_final |>
+  filter(age_acq_sp_updated >= cutoff | age_acq_en_updated >= cutoff) |>
+  select(participant, age_acq_sp_updated, age_acq_en_updated)
+
+# Check the participants listed above one more time, to confirm if they should 
+# be excluded or not.
+# Recode values for HS_057, HS_071 and HS_099 based on education information and 
+# actual age. 
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    # HS_057: 20 years of English classes at age 20 -> English AoA = 0
+    age_acq_en_updated = case_when(
+      participant == "HS_057" ~ 0,
+      TRUE ~ age_acq_en_updated),
+  
+    # HS_071 and HS_099: evidence of early exposure -> Spanish AoA = 2
+    age_acq_sp_updated = case_when(
+      participant %in% c("HS_071", "HS_099") ~ 2,
+      TRUE ~ age_acq_sp_updated))
+
+# Remove participants who do not qualify as HSs
+  # HS_017 - AoA English: 12
+  # HS_039 - AoA Spanish: 13
+  # HS_067 - AoA Spanish: 9
+  # HS_073 - AoA Spanish: 13
+questionnaire_bls_final <- questionnaire_bls_final |>
+  filter(!participant %in% c("HS_017", "HS_039","HS_067", "HS_073"))
+
+# Save this updated dataset
+questionnaire_bls_final |>
+  write.csv(here("study_2", "tidy_data", "questionnaire_updated_bls.csv"))
+
 # Score responses in Module 1: Language History
   # 6 questions: each worth between 0 and 20
   # Each item is worth the numerical value given in the response, with three 
@@ -353,18 +449,20 @@ questionnaire_bls_final <- questionnaire_bls_tidy |>
     # (3) “Not yet” is worth 0 points
 questionnaire_bls_final <- questionnaire_bls_final |>
   mutate(
-    age_acq_sp_score     = 20 - age_acq_sp,
-    age_acq_en_score     = 20 - age_acq_en,
-    age_comfort_sp_score = 20 - age_comfort_sp,
-    age_comfort_en_score = 20 - age_comfort_en,
-    years_school_sp_score  = years_school_sp,
-    years_school_en_score  = years_school_en,
-    years_country_sp_score = years_country_sp,
-    years_country_en_score = years_country_en,
-    years_family_sp_score  = years_family_sp,
-    years_family_en_score  = years_family_en,
-    years_work_sp_score    = years_work_sp,
-    years_work_en_score    = years_work_en) 
+    age_acq_sp_score             = 20 - age_acq_sp,
+    age_acq_en_score             = 20 - age_acq_en,
+    age_acq_sp_score_updated     = 20 - age_acq_sp_updated,
+    age_acq_en_score_updated     = 20 - age_acq_en_updated,
+    age_comfort_sp_score         = 20 - age_comfort_sp,
+    age_comfort_en_score         = 20 - age_comfort_en,
+    years_school_sp_score        = years_school_sp,
+    years_school_en_score        = years_school_en,
+    years_country_sp_score       = years_country_sp,
+    years_country_en_score       = years_country_en,
+    years_family_sp_score        = years_family_sp,
+    years_family_en_score        = years_family_en,
+    years_work_sp_score          = years_work_sp,
+    years_work_en_score          = years_work_en) 
 
 questionnaire_bls_final <- questionnaire_bls_final |>
   mutate(
@@ -376,6 +474,19 @@ questionnaire_bls_final <- questionnaire_bls_final |>
                                   years_school_en,years_country_en, 
                                   years_family_en, years_work_en)), 
                          na.rm = TRUE))
+
+questionnaire_bls_final <- questionnaire_bls_final |>
+  mutate(
+    history_sp_updated = rowSums(across(c(age_acq_sp_score_updated, 
+                                          age_comfort_sp_score, years_school_sp, 
+                                          years_country_sp, years_family_sp, 
+                                          years_work_sp)),
+                                 na.rm = TRUE),
+    history_en_updated = rowSums(across(c(age_acq_en_score_updated, 
+                                          age_comfort_en_score, years_school_en, 
+                                          years_country_en, years_family_en, 
+                                          years_work_en)),
+                                 na.rm = TRUE))
 
 # Score responses in Module 2: Language Use
   # 5 questions: each worth between 0 and 10
@@ -425,16 +536,22 @@ questionnaire_bls_final <- questionnaire_bls_final |>
   # Add the adjusted module totals together to yield a global score for each 
   # language. Total points possible is 218.
 blp_scores_bls <- questionnaire_bls_final |>
-  relocate(history_sp, history_en, use_sp, use_en, proficiency_sp, 
-           proficiency_en, attitudes_sp, attitudes_en, .after = education) 
+  relocate(history_sp, history_en, history_sp_updated, history_en_updated, 
+           use_sp, use_en, proficiency_sp, proficiency_en, attitudes_sp, 
+           attitudes_en, .after = education) 
 
 blp_scores_bls <- blp_scores_bls |>
   mutate(
     global_sp = (history_sp * 0.454) + (use_sp * 1.09) + (proficiency_sp * 2.27) 
     + (attitudes_sp * 2.27),
     global_en = (history_en * 0.454) + (use_en * 1.09) + (proficiency_en * 2.27) 
-    + (attitudes_en * 2.27)) |>
-  relocate(global_sp, global_en, .after = education)
+    + (attitudes_en * 2.27),
+    global_sp_updated = (history_sp_updated * 0.454) + (use_sp * 1.09) +
+      (proficiency_sp * 2.27) + (attitudes_sp * 2.27),
+    global_en_updated = (history_en_updated * 0.454) + (use_en * 1.09) +
+      (proficiency_en * 2.27) + (attitudes_en * 2.27)) |>
+  relocate(global_sp, global_en, global_sp_updated, global_en_updated, 
+           .after = education)
 
 # Calculate dominance index
   # To obtain the language dominance index, subtract one language total from the 
@@ -444,8 +561,9 @@ blp_scores_bls <- blp_scores_bls |>
   # More positive scores = Spanish dominant
   # More negative scores = English dominant
 blp_scores_bls <- blp_scores_bls |>
-  mutate(blp_score = global_sp - global_en) |>
-  relocate(blp_score, .after = education)
+  mutate(blp_score = global_sp - global_en,
+         blp_score_updated = global_sp_updated - global_en_updated) |>
+  relocate(blp_score, blp_score_updated, .after = education)
 
 # Prepare and write final dataset
 blp_scores_bls |>

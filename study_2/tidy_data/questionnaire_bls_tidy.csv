@@ -1,90 +1,86 @@
-participant,session,language,list,age,gender,country_origin,origin_mom,origin_dad,education,blp_score,global_sp,global_en
-HS_001,1,en,1,19,female,United States of America,United States of America,Mexico,High school,-25.464,149.81,175.274
-HS_002,1,sp,2,18,female,United States of America,Ecuador,Argentina,Some college,-112.44600000000003,88.386,200.83200000000002
-HS_003,1,en,3,20,male,United States of America,United States of America,United States of America,Some college,-101.24000000000001,96.94,198.18
-HS_004,1,en,1,20,male,United States of America,El Salvador,United States of America,Some college,-59.121999999999986,120.49600000000001,179.618
-HS_005,1,sp,2,18,female,United States of America,Mexico,United States of America,High school,-56.54600000000002,134.042,190.58800000000002
-HS_007,1,sp,3,21,female,United States of America,United States of America,United States of America,Some college,-86.728,113.95700000000001,200.685
-HS_008,1,en,2,47,female,Dominican Republic,Dominican Republic,Dominican Republic,"Some graduate school (M.A., M.S.)",3.268000000000029,161.63300000000004,158.365
-HS_009,1,en,3,20,male,United States of America,El Salvador,United States of America,High school,-61.84599999999999,117.318,179.164
-HS_011,1,sp,1,20,male,United States of America,Spain,Chile,Some college,-77.93800000000002,115.174,193.11200000000002
-HS_012,1,en,3,19,female,Colombia,Colombia,Colombia,High school,32.23400000000001,175.25400000000002,143.02
-HS_013,1,en,1,19,female,United States of America,Peru,United States of America,Some college,-82.82400000000003,118.86,201.68400000000003
-HS_014,1,en,2,19,female,United States of America,Peru,Peru,High school,-98.49800000000002,106.71000000000001,205.20800000000003
-HS_015,1,sp,3,24,female,United States of America,Ecuador,Spain,"College (B.A., B.S.)",-25.28800000000001,136.349,161.637
-HS_016,1,en,1,27,male,United States of America,Mexico,Mexico,"Some graduate school (M.A., M.S.)",-50.662000000000035,142.777,193.43900000000002
-HS_017,1,sp,3,27,female,Guatemala,Guatemala,Guatemala,"College (B.A., B.S.)",53.937999999999974,177.253,123.31500000000001
-HS_018,1,en,3,25,female,United States of America,Guatemala,Guatemala,"College (B.A., B.S.)",48.486000000000004,162.723,114.23700000000001
-HS_020,1,en,3,21,female,United States of America,Honduras,El Salvador,Some college,-10.864000000000033,139.404,150.26800000000003
-HS_021,1,en,1,27,female,Dominican Republic,Dominican Republic,Dominican Republic,"Some graduate school (M.A., M.S.)",34.156000000000006,179.847,145.691
-HS_022,1,en,2,22,female,United States of America,Ecuador,Ecuador,Some college,-10.900000000000034,160.724,171.62400000000002
-HS_029,1,sp,3,22,female,United States of America,Ecuador,Ecuador,"College (B.A., B.S.)",-39.360000000000014,135.371,174.73100000000002
-HS_030,1,en,3,35,male,United States of America,Costa Rica,Costa Rica,"College (B.A., B.S.)",-15.691999999999979,145.616,161.308
-HS_031,1,sp,1,22,female,United States of America,Ecuador,Peru,Some college,-14.146000000000015,162.05200000000002,176.19800000000004
-HS_032,1,en,1,26,female,United States of America,United States of America,Mexico,"Some graduate school (M.A., M.S.)",-31.24399999999997,157.81600000000003,189.06
-HS_033,1,en,3,19,male,United States of America,Cuba,Cuba,High school,-60.572,122.94900000000001,183.52100000000002
-HS_034,1,en,1,21,female,United States of America,Guatemala,Guatemala,Some college,-35.18199999999999,146.54000000000002,181.722
-HS_035,1,sp,2,21,male,United States of America,NA,Argentina,Some college,-78.555,109.59899999999999,188.154
-HS_036,1,sp,3,19,female,Colombia,Colombia,Colombia,High school,-28.03200000000001,146.937,174.96900000000002
-HS_037,1,sp,3,24,female,United States of America,United States of America,United States of America,Some college,-103.438,92.89,196.328
-HS_038,1,sp,2,24,male,Colombia,Dominican Republic,Colombia,"College (B.A., B.S.)",-24.97800000000001,145.74,170.71800000000002
-HS_039,1,sp,2,18,female,United States of America,Peru,United States of America,Some college,-140.214,59.293000000000006,199.507
-HS_040,1,sp,3,18,female,United States of America,Dominican Republic,Guatemala,Some college,-61.388000000000005,129.578,190.966
-HS_041,1,sp,2,35,female,Mexico,Mexico,Mexico,Some college,-0.09400000000002251,165.446,165.54000000000002
-HS_042,1,sp,1,23,female,United States of America,United States of America,Guatemala,Some college,-111.88400000000001,79.36000000000001,191.24400000000003
-HS_044,1,sp,1,18,female,United States of America,Mexico,Mexico,Some college,-10.990000000000009,154.55,165.54000000000002
-HS_046,1,sp,3,24,female,United States of America,Colombia,Colombia,"College (B.A., B.S.)",-37.871999999999986,137.477,175.349
-HS_047,1,sp,2,20,non-binary,United States of America,Peru,Mexico,Some college,-84.84000000000003,108.09100000000001,192.93100000000004
-HS_049,1,sp,3,21,female,United States of America,Mexico,Mexico,Some college,-76.41200000000003,131.827,208.23900000000003
-HS_050,1,sp,1,19,female,United States of America,Ecuador,Ecuador,Some college,-16.062000000000012,151.787,167.84900000000002
-HS_051,1,sp,3,19,female,Spain,Spain,Spain,Some college,-37.73399999999998,131.19,168.92399999999998
-HS_052,1,sp,3,19,male,United States of America,El Salvador,El Salvador,Some college,-18.47399999999999,147.17600000000002,165.65
-HS_053,1,sp,2,21,female,United States of America,Colombia,Mexico,"College (B.A., B.S.)",-36.02199999999999,140.672,176.694
-HS_054,1,sp,3,22,female,United States of America,Mexico,Mexico,"College (B.A., B.S.)",-29.700000000000017,142.017,171.717
-HS_056,1,sp,2,20,female,United States of America,El Salvador,El Salvador,Some college,-38.01500000000004,145.995,184.01000000000005
-HS_057,1,sp,2,20,female,United States of America,Mexico,Mexico,Some college,-12.348000000000013,156.822,169.17000000000002
-HS_058,1,en,1,20,female,United States of America,Colombia,Mexico,Some college,-33.581999999999994,155.966,189.548
-HS_059,1,en,2,19,female,United States of America,Peru,Peru,Menos de la escuela secundaria,-78.37200000000004,127.215,205.58700000000005
-HS_060,1,en,3,19,male,United States of America,Guatemala,Guatemala,Some college,-27.611999999999995,144.65,172.262
-HS_061,1,en,1,19,female,United States of America,Peru,United States of America,Some college,-54.09300000000002,130.683,184.776
-HS_062,1,en,1,19,male,United States of America,Ecuador,Ecuador,High school,-38.60000000000002,164.80700000000002,203.40700000000004
-HS_063,1,en,1,21,female,Peru,Peru,Peru,Some college,-84.328,84.285,168.613
-HS_064,1,en,1,19,female,United States of America,Dominican Republic,United States of America,Some college,-104.52600000000001,103.696,208.222
-HS_065,1,en,1,20,female,United States of America,United States of America,Uruguay,Some college,-82.28,120.94800000000001,203.228
-HS_066,1,en,3,18,female,United States of America,Chile,Colombia,Some college,-77.357,115.864,193.221
-HS_067,1,en,1,19,female,United States of America,NA,Dominican Republic,Some college,-155.068,47.907000000000004,202.97500000000002
-HS_068,1,en,3,18,male,Mexico,Mexico,Mexico,Some college,-0.8199999999999932,151.00900000000001,151.829
-HS_069,1,en,3,18,female,Guatemala,Guatemala,Guatemala,Some college,-20.706000000000017,152.643,173.34900000000002
-HS_070,1,en,3,21,female,United States of America,Guatemala,Guatemala,Some college,-26.19599999999997,135.26100000000002,161.457
-HS_071,1,en,1,21,male,Mexico,Mexico,Mexico,Some college,-91.464,99.55799999999999,191.022
-HS_072,1,en,3,19,female,United States of America,Panamá,Panamá,Some college,-65.44399999999999,113.703,179.147
-HS_073,1,en,1,19,male,United States of America,United States of America,Dominican Republic,Some college,-118.91,80.16,199.07
-HS_074,1,en,1,19,female,United States of America,United States of America,United States of America,Some college,-120.32600000000002,81.268,201.59400000000002
-HS_075,1,en,3,18,female,United States of America,United States of America,NA,Some college,-86.11200000000002,92.92699999999999,179.03900000000002
-HS_076,1,en,2,19,female,United States of America,Nicaragua,Nicaragua,Some college,-13.681999999999988,170.45600000000002,184.138
-HS_077,1,en,1,18,male,United States of America,El Salvador,Cuba,High school,-88.63400000000003,90.985,179.61900000000003
-HS_078,1,en,2,18,female,United States of America,Mexico,Mexico,Some college,-58.866000000000014,100.648,159.514
-HS_079,1,en,1,19,female,United States of America,Cuba,United States of America,Some college,-78.60600000000001,102.355,180.961
-HS_080,1,en,3,19,female,United States of America,United States of America,United States of America,Some college,-83.24200000000002,117.97,201.21200000000002
-HS_081,1,en,3,19,female,United States of America,Colombia,Colombia,Some college,-35.638000000000005,151.98700000000002,187.62500000000003
-HS_082,1,en,1,18,female,Dominican Republic,Dominican Republic,Spain,Some college,-49.317999999999984,131.3,180.618
-HS_083,1,en,3,20,female,Ecuador,Ecuador,United States of America,Some college,-91.866,105.71300000000001,197.579
-HS_084,1,en,3,21,female,United States of America,Guatemala,Guatemala,Some college,-36.599999999999994,153.09500000000003,189.69500000000002
-HS_085,1,en,3,18,male,United States of America,United States of America,Spain,Some college,-82.73600000000005,115.04499999999999,197.78100000000003
-HS_086,1,en,2,21,male,United States of America,Honduras,Mexico,Some college,-17.256,155.276,172.532
-HS_087,1,en,2,19,male,United States of America,Dominican Republic,United States of America,Some college,-92.21400000000003,102.588,194.80200000000002
-HS_088,1,sp,2,22,female,United States of America,Ecuador,Ecuador,Some college,-34.154000000000025,145.91899999999998,180.073
-HS_089,1,en,3,21,male,United States of America,Spain,NA,High school,-94.61400000000003,119.548,214.16200000000003
-HS_090,1,sp,3,19,female,Ecuador,NA,Ecuador,Some college,-13.312000000000012,150.5,163.812
-HS_091,1,sp,3,20,female,Colombia,Colombia,Colombia,Some college,-27.704000000000008,152.095,179.799
-HS_092,1,sp,2,19,female,United States of America,Uruguay,Uruguay,Some college,-110.41000000000003,83.95599999999999,194.366
-HS_093,1,sp,1,18,female,Dominican Republic,Dominican Republic,Dominican Republic,Some college,-71.834,118.68,190.514
-HS_094,1,sp,1,20,female,Colombia,Colombia,Honduras,Some college,-123.05400000000002,93.07000000000001,216.12400000000002
-HS_095,1,sp,3,19,male,Mexico,Mexico,Mexico,Some college,-4.322000000000003,165.375,169.697
-HS_096,1,sp,1,20,female,Dominican Republic,Dominican Republic,Dominican Republic,Some college,-81.00600000000001,112.051,193.05700000000002
-HS_097,1,sp,3,19,female,United States of America,NA,Ecuador,Some college,-54.58200000000002,140.472,195.05400000000003
-HS_098,1,sp,3,18,female,United States of America,Guatemala,El Salvador,Some college,-65.97200000000004,117.298,183.27000000000004
-HS_099,1,sp,1,19,female,United States of America,NA,Guatemala,Some college,-119.892,59.239000000000004,179.131
-HS_100,1,sp,3,20,male,United States of America,Colombia,Ecuador,Some college,-33.184000000000026,134.373,167.55700000000002
-HS_101,1,sp,2,34,female,Dominican Republic,Dominican Republic,Dominican Republic,Some college,-39.89,120.35100000000001,160.241
-HS_102,1,sp,2,18,female,United States of America,Peru,Peru,Some college,-56.126000000000005,109.963,166.089
+participant,session,language,list,age,gender,country_origin,origin_mom,origin_dad,education,blp_score,blp_score_updated,global_sp,global_en,global_sp_updated,global_en_updated
+HS_001,1,en,1,19,female,United States of America,United States of America,Mexico,High school,-25.464,-25.464,149.81,175.274,149.81,175.274
+HS_002,1,sp,2,18,female,United States of America,Ecuador,Argentina,Some college,-112.44600000000003,-112.44600000000003,88.386,200.83200000000002,88.386,200.83200000000002
+HS_003,1,en,3,20,male,United States of America,United States of America,United States of America,Some college,-101.24000000000001,-101.24000000000001,96.94,198.18,96.94,198.18
+HS_004,1,en,1,20,male,United States of America,El Salvador,United States of America,Some college,-59.121999999999986,-59.121999999999986,120.49600000000001,179.618,120.49600000000001,179.618
+HS_005,1,sp,2,18,female,United States of America,Mexico,United States of America,High school,-56.54600000000002,-56.54600000000002,134.042,190.58800000000002,134.042,190.58800000000002
+HS_007,1,sp,3,21,female,United States of America,United States of America,United States of America,Some college,-86.728,-86.728,113.95700000000001,200.685,113.95700000000001,200.685
+HS_008,1,en,2,47,female,Dominican Republic,Dominican Republic,Dominican Republic,"Some graduate school (M.A., M.S.)",3.268000000000029,3.268000000000029,161.63300000000004,158.365,161.63300000000004,158.365
+HS_009,1,en,3,20,male,United States of America,El Salvador,United States of America,High school,-61.84599999999999,-61.84599999999999,117.318,179.164,117.318,179.164
+HS_011,1,sp,1,20,male,United States of America,Spain,Chile,Some college,-77.93800000000002,-77.93800000000002,115.174,193.11200000000002,115.174,193.11200000000002
+HS_012,1,en,3,19,female,Colombia,Colombia,Colombia,High school,32.23400000000001,32.23400000000001,175.25400000000002,143.02,175.25400000000002,143.02
+HS_013,1,en,1,19,female,United States of America,Peru,United States of America,Some college,-82.82400000000003,-82.82400000000003,118.86,201.68400000000003,118.86,201.68400000000003
+HS_014,1,en,2,19,female,United States of America,Peru,Peru,High school,-98.49800000000002,-98.49800000000002,106.71000000000001,205.20800000000003,106.71000000000001,205.20800000000003
+HS_015,1,sp,3,24,female,United States of America,Ecuador,Spain,"College (B.A., B.S.)",-25.28800000000001,-25.28800000000001,136.349,161.637,136.349,161.637
+HS_016,1,en,1,27,male,United States of America,Mexico,Mexico,"Some graduate school (M.A., M.S.)",-50.662000000000035,-50.662000000000035,142.777,193.43900000000002,142.777,193.43900000000002
+HS_018,1,en,3,25,female,United States of America,Guatemala,Guatemala,"College (B.A., B.S.)",48.486000000000004,48.486000000000004,162.723,114.23700000000001,162.723,114.23700000000001
+HS_020,1,en,3,21,female,United States of America,Honduras,El Salvador,Some college,-10.864000000000033,-10.864000000000033,139.404,150.26800000000003,139.404,150.26800000000003
+HS_021,1,en,1,27,female,Dominican Republic,Dominican Republic,Dominican Republic,"Some graduate school (M.A., M.S.)",34.156000000000006,34.156000000000006,179.847,145.691,179.847,145.691
+HS_022,1,en,2,22,female,United States of America,Ecuador,Ecuador,Some college,-10.900000000000034,-10.900000000000034,160.724,171.62400000000002,160.724,171.62400000000002
+HS_029,1,sp,3,22,female,United States of America,Ecuador,Ecuador,"College (B.A., B.S.)",-39.360000000000014,-39.360000000000014,135.371,174.73100000000002,135.371,174.73100000000002
+HS_030,1,en,3,35,male,United States of America,Costa Rica,Costa Rica,"College (B.A., B.S.)",-15.691999999999979,-22.048000000000002,145.616,161.308,145.616,167.66400000000002
+HS_031,1,sp,1,22,female,United States of America,Ecuador,Peru,Some college,-14.146000000000015,-14.146000000000015,162.05200000000002,176.19800000000004,162.05200000000002,176.19800000000004
+HS_032,1,en,1,26,female,United States of America,United States of America,Mexico,"Some graduate school (M.A., M.S.)",-31.24399999999997,-31.24399999999997,157.81600000000003,189.06,157.81600000000003,189.06
+HS_033,1,en,3,19,male,United States of America,Cuba,Cuba,High school,-60.572,-60.572,122.94900000000001,183.52100000000002,122.94900000000001,183.52100000000002
+HS_034,1,en,1,21,female,United States of America,Guatemala,Guatemala,Some college,-35.18199999999999,-35.18199999999999,146.54000000000002,181.722,146.54000000000002,181.722
+HS_035,1,sp,2,21,male,United States of America,NA,Argentina,Some college,-78.555,-78.555,109.59899999999999,188.154,109.59899999999999,188.154
+HS_036,1,sp,3,19,female,Colombia,Colombia,Colombia,High school,-28.03200000000001,-28.03200000000001,146.937,174.96900000000002,146.937,174.96900000000002
+HS_037,1,sp,3,24,female,United States of America,United States of America,United States of America,Some college,-103.438,-103.438,92.89,196.328,92.89,196.328
+HS_038,1,sp,2,24,male,Colombia,Dominican Republic,Colombia,"College (B.A., B.S.)",-24.97800000000001,-24.97800000000001,145.74,170.71800000000002,145.74,170.71800000000002
+HS_040,1,sp,3,18,female,United States of America,Dominican Republic,Guatemala,Some college,-61.388000000000005,-61.388000000000005,129.578,190.966,129.578,190.966
+HS_041,1,sp,2,35,female,Mexico,Mexico,Mexico,Some college,-0.09400000000002251,-0.09400000000002251,165.446,165.54000000000002,165.446,165.54000000000002
+HS_042,1,sp,1,23,female,United States of America,United States of America,Guatemala,Some college,-111.88400000000001,-106.89000000000001,79.36000000000001,191.24400000000003,84.35400000000001,191.24400000000003
+HS_044,1,sp,1,18,female,United States of America,Mexico,Mexico,Some college,-10.990000000000009,-10.990000000000009,154.55,165.54000000000002,154.55,165.54000000000002
+HS_046,1,sp,3,24,female,United States of America,Colombia,Colombia,"College (B.A., B.S.)",-37.871999999999986,-37.871999999999986,137.477,175.349,137.477,175.349
+HS_047,1,sp,2,20,non-binary,United States of America,Peru,Mexico,Some college,-84.84000000000003,-84.84000000000003,108.09100000000001,192.93100000000004,108.09100000000001,192.93100000000004
+HS_049,1,sp,3,21,female,United States of America,Mexico,Mexico,Some college,-76.41200000000003,-72.32600000000002,131.827,208.23900000000003,135.913,208.23900000000003
+HS_050,1,sp,1,19,female,United States of America,Ecuador,Ecuador,Some college,-16.062000000000012,-16.062000000000012,151.787,167.84900000000002,151.787,167.84900000000002
+HS_051,1,sp,3,19,female,Spain,Spain,Spain,Some college,-37.73399999999998,-37.73399999999998,131.19,168.92399999999998,131.19,168.92399999999998
+HS_052,1,sp,3,19,male,United States of America,El Salvador,El Salvador,Some college,-18.47399999999999,-18.474000000000018,147.17600000000002,165.65,149.9,168.37400000000002
+HS_053,1,sp,2,21,female,United States of America,Colombia,Mexico,"College (B.A., B.S.)",-36.02199999999999,-36.02199999999999,140.672,176.694,140.672,176.694
+HS_054,1,sp,3,22,female,United States of America,Mexico,Mexico,"College (B.A., B.S.)",-29.700000000000017,-29.700000000000017,142.017,171.717,142.017,171.717
+HS_056,1,sp,2,20,female,United States of America,El Salvador,El Salvador,Some college,-38.01500000000004,-38.01500000000004,145.995,184.01000000000005,145.995,184.01000000000005
+HS_057,1,sp,2,20,female,United States of America,Mexico,Mexico,Some college,-12.348000000000013,-16.434000000000026,156.822,169.17000000000002,156.822,173.25600000000003
+HS_058,1,en,1,20,female,United States of America,Colombia,Mexico,Some college,-33.581999999999994,-33.581999999999994,155.966,189.548,155.966,189.548
+HS_059,1,en,2,19,female,United States of America,Peru,Peru,Menos de la escuela secundaria,-78.37200000000004,-76.10200000000003,127.215,205.58700000000005,129.485,205.58700000000005
+HS_060,1,en,3,19,male,United States of America,Guatemala,Guatemala,Some college,-27.611999999999995,-27.611999999999995,144.65,172.262,144.65,172.262
+HS_061,1,en,1,19,female,United States of America,Peru,United States of America,Some college,-54.09300000000002,-54.09300000000002,130.683,184.776,130.683,184.776
+HS_062,1,en,1,19,male,United States of America,Ecuador,Ecuador,High school,-38.60000000000002,-38.60000000000002,164.80700000000002,203.40700000000004,164.80700000000002,203.40700000000004
+HS_063,1,en,1,21,female,Peru,Peru,Peru,Some college,-84.328,-84.328,84.285,168.613,84.285,168.613
+HS_064,1,en,1,19,female,United States of America,Dominican Republic,United States of America,Some college,-104.52600000000001,-104.52600000000001,103.696,208.222,103.696,208.222
+HS_065,1,en,1,20,female,United States of America,United States of America,Uruguay,Some college,-82.28,-82.28,120.94800000000001,203.228,120.94800000000001,203.228
+HS_066,1,en,3,18,female,United States of America,Chile,Colombia,Some college,-77.357,-77.357,115.864,193.221,115.864,193.221
+HS_068,1,en,3,18,male,Mexico,Mexico,Mexico,Some college,-0.8199999999999932,-0.8199999999999932,151.00900000000001,151.829,151.00900000000001,151.829
+HS_069,1,en,3,18,female,Guatemala,Guatemala,Guatemala,Some college,-20.706000000000017,-20.706000000000017,152.643,173.34900000000002,152.643,173.34900000000002
+HS_070,1,en,3,21,female,United States of America,Guatemala,Guatemala,Some college,-26.19599999999997,-26.19599999999997,135.26100000000002,161.457,135.26100000000002,161.457
+HS_071,1,en,1,21,male,Mexico,Mexico,Mexico,Some college,-91.464,-86.47,99.55799999999999,191.022,104.55199999999999,191.022
+HS_072,1,en,3,19,female,United States of America,Panamá,Panamá,Some college,-65.44399999999999,-65.44399999999999,113.703,179.147,113.703,179.147
+HS_074,1,en,1,19,female,United States of America,United States of America,United States of America,Some college,-120.32600000000002,-116.69400000000002,81.268,201.59400000000002,84.9,201.59400000000002
+HS_075,1,en,3,18,female,United States of America,United States of America,NA,Some college,-86.11200000000002,-86.11200000000002,92.92699999999999,179.03900000000002,92.92699999999999,179.03900000000002
+HS_076,1,en,2,19,female,United States of America,Nicaragua,Nicaragua,Some college,-13.681999999999988,-15.951999999999998,170.45600000000002,184.138,170.45600000000002,186.40800000000002
+HS_077,1,en,1,18,male,United States of America,El Salvador,Cuba,High school,-88.63400000000003,-86.36400000000003,90.985,179.61900000000003,93.255,179.61900000000003
+HS_078,1,en,2,18,female,United States of America,Mexico,Mexico,Some college,-58.866000000000014,-58.866000000000014,100.648,159.514,100.648,159.514
+HS_079,1,en,1,19,female,United States of America,Cuba,United States of America,Some college,-78.60600000000001,-78.60600000000001,102.355,180.961,102.355,180.961
+HS_080,1,en,3,19,female,United States of America,United States of America,United States of America,Some college,-83.24200000000002,-83.24200000000002,117.97,201.21200000000002,117.97,201.21200000000002
+HS_081,1,en,3,19,female,United States of America,Colombia,Colombia,Some college,-35.638000000000005,-35.638000000000005,151.98700000000002,187.62500000000003,151.98700000000002,187.62500000000003
+HS_082,1,en,1,18,female,Dominican Republic,Dominican Republic,Spain,Some college,-49.317999999999984,-49.317999999999984,131.3,180.618,131.3,180.618
+HS_083,1,en,3,20,female,Ecuador,Ecuador,United States of America,Some college,-91.866,-91.866,105.71300000000001,197.579,105.71300000000001,197.579
+HS_084,1,en,3,21,female,United States of America,Guatemala,Guatemala,Some college,-36.599999999999994,-36.599999999999994,153.09500000000003,189.69500000000002,153.09500000000003,189.69500000000002
+HS_085,1,en,3,18,male,United States of America,United States of America,Spain,Some college,-82.73600000000005,-82.73600000000005,115.04499999999999,197.78100000000003,115.04499999999999,197.78100000000003
+HS_086,1,en,2,21,male,United States of America,Honduras,Mexico,Some college,-17.256,-17.256,155.276,172.532,155.276,172.532
+HS_087,1,en,2,19,male,United States of America,Dominican Republic,United States of America,Some college,-92.21400000000003,-86.31200000000001,102.588,194.80200000000002,108.49000000000001,194.80200000000002
+HS_088,1,sp,2,22,female,United States of America,Ecuador,Ecuador,Some college,-34.154000000000025,-34.154000000000025,145.91899999999998,180.073,145.91899999999998,180.073
+HS_089,1,en,3,21,male,United States of America,Spain,NA,High school,-94.61400000000003,-94.61400000000003,119.548,214.16200000000003,119.548,214.16200000000003
+HS_090,1,sp,3,19,female,Ecuador,NA,Ecuador,Some college,-13.312000000000012,-13.312000000000012,150.5,163.812,150.5,163.812
+HS_091,1,sp,3,20,female,Colombia,Colombia,Colombia,Some college,-27.704000000000008,-27.704000000000008,152.095,179.799,152.095,179.799
+HS_092,1,sp,2,19,female,United States of America,Uruguay,Uruguay,Some college,-110.41000000000003,-110.41000000000003,83.95599999999999,194.366,83.95599999999999,194.366
+HS_093,1,sp,1,18,female,Dominican Republic,Dominican Republic,Dominican Republic,Some college,-71.834,-71.834,118.68,190.514,118.68,190.514
+HS_094,1,sp,1,20,female,Colombia,Colombia,Honduras,Some college,-123.05400000000002,-123.05400000000002,93.07000000000001,216.12400000000002,93.07000000000001,216.12400000000002
+HS_095,1,sp,3,19,male,Mexico,Mexico,Mexico,Some college,-4.322000000000003,-4.322000000000003,165.375,169.697,165.375,169.697
+HS_096,1,sp,1,20,female,Dominican Republic,Dominican Republic,Dominican Republic,Some college,-81.00600000000001,-81.00600000000001,112.051,193.05700000000002,112.051,193.05700000000002
+HS_097,1,sp,3,19,female,United States of America,NA,Ecuador,Some college,-54.58200000000002,-54.58200000000002,140.472,195.05400000000003,140.472,195.05400000000003
+HS_098,1,sp,3,18,female,United States of America,Guatemala,El Salvador,Some college,-65.97200000000004,-68.24200000000002,117.298,183.27000000000004,117.298,185.54000000000002
+HS_099,1,sp,1,19,female,United States of America,NA,Guatemala,Some college,-119.892,-125.79400000000001,59.239000000000004,179.131,62.417,188.211
+HS_100,1,sp,3,20,male,United States of America,Colombia,Ecuador,Some college,-33.184000000000026,-28.190000000000026,134.373,167.55700000000002,139.367,167.55700000000002
+HS_101,1,sp,2,34,female,Dominican Republic,Dominican Republic,Dominican Republic,Some college,-39.89,-39.89,120.35100000000001,160.241,120.35100000000001,160.241
+HS_102,1,sp,2,18,female,United States of America,Peru,Peru,Some college,-56.126000000000005,-56.126000000000005,109.963,166.089,109.963,166.089
