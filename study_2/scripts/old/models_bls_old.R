@@ -1,6 +1,8 @@
-# ----- Build models: Bilinguals -----------------------------------------------
+# ----- Build models: Bilinguals (OLD) -----------------------------------------
 #
 # This script contains the code used to build the bilingual models for Study 2.
+#
+# This code is kept here for reference. It is NOT part of the data analysis.
 #
 # ------------------------------------------------------------------------------
 

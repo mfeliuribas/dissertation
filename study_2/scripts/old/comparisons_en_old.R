@@ -1,7 +1,9 @@
-# ----- Comparisons: English ---------------------------------------------------
+# ----- Comparisons: English (OLD) ---------------------------------------------
 #
 # This script contains the code used to compare the English groups (bilinguals + 
 # monolinguals) for Study 2.
+#
+# This code is kept here for reference. It is NOT part of the data analysis.
 #
 # ------------------------------------------------------------------------------
 

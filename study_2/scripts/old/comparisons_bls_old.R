@@ -1,7 +1,8 @@
-# ----- Comparisons: Spanish ---------------------------------------------------
+# ----- Comparisons: Bilinguals (OLD) ------------------------------------------
 #
-# This script contains the code used to compare the Spanish groups (bilinguals + 
-# monolinguals) for Study 2.
+# This script contains the code used to compare the bilingual group for Study 2. 
+#
+# This code is kept here for reference. It is NOT part of the data analysis.
 #
 # ------------------------------------------------------------------------------
 
