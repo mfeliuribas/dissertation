@@ -408,7 +408,7 @@ compare_draws <- bind_rows(
 compare_draws |> print(n = Inf)
 
 compare_draws |>
-  summarise(
+  summarize(
     max_diff_estimate = max(abs(estimate_d8000 - estimate_d2000)),
     max_diff_lower    = max(abs(lower_d8000 - lower_d2000)),
     max_diff_upper    = max(abs(upper_d8000 - upper_d2000)))
