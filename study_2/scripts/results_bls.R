@@ -36,7 +36,7 @@ post_blp_bls <- readRDS(here("study_2", "models", "bilinguals", "posteriors",
 # Average over contexts within each draw
 post_bls_form_lang <- post_ling_bls |>
   group_by(drawid, form, language) |>
-  summarise(draw = mean(draw), .groups = "drop")
+  summarize(draw = mean(draw), .groups = "drop")
 
 table_bls_form_lang <- post_bls_form_lang |>
   group_by(form, language) |>
@@ -48,6 +48,26 @@ table_bls_form_lang <- post_bls_form_lang |>
     names_from = language,
     values_from = Estimate)
 
-# write_csv(table_bls_form_lang, here("study_2", "tables", "bilinguals",
-#                                "table_bls_form_lang.csv"))
+write_csv(table_bls_form_lang, here("study_2", "tables", "bilinguals", 
+                                    "table_bls_form_lang.csv"))
+# ------------------------------------------------------------------------------
+
+# ----- 4. Predicted ratings by form, context, and language --------------------
+table_bls_ling <- post_ling_bls |>
+  group_by(form, temp_dist, plan_cert, language) |>
+  median_qi(x = draw * 100) |>
+  mutate(
+    Estimate = glue("{round(x, 1)} [{round(.lower, 1)}, {round(.upper, 1)}]")) |>
+  select(Language = language,
+         Time = temp_dist, 
+         Certainty = plan_cert, 
+         form, 
+         Estimate) |>
+  pivot_wider(
+    names_from = form,
+    values_from = Estimate) |>
+  arrange(Language)
+
+write_csv(table_bls_ling, here("study_2", "tables", "bilinguals", 
+                               "table_bls_ling.csv"))
 # ------------------------------------------------------------------------------

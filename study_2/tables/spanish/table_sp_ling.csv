@@ -1,0 +1,13 @@
+Group,Time,Certainty,PF,PI,PP
+monolingual,immediate,certain,"91.8 [89.1, 94]","80.3 [75.5, 84.5]","20.1 [15.5, 25.7]"
+monolingual,immediate,uncertain,"80.7 [75.7, 85]","38.8 [32.7, 45.2]","10.6 [7.6, 14.5]"
+monolingual,near,certain,"90.8 [87.7, 93.2]","80.8 [76, 84.9]","17.1 [13, 22.3]"
+monolingual,near,uncertain,"74.6 [69, 79.8]","12.4 [9.3, 16.3]","6.8 [4.7, 9.7]"
+monolingual,distant,certain,"88.4 [84.6, 91.4]","15.6 [11.8, 20.1]","8.6 [6, 12.1]"
+monolingual,distant,uncertain,"77.9 [72.6, 82.4]","8.8 [6.5, 11.9]","6.2 [4.2, 9]"
+bilingual,immediate,certain,"84.9 [81.8, 87.6]","62.9 [57.8, 67.7]","47 [42.1, 52.1]"
+bilingual,immediate,uncertain,"77.1 [72.9, 80.7]","50.8 [45.4, 56.3]","39.3 [34.7, 44.2]"
+bilingual,near,certain,"84.4 [81.2, 87.2]","64.4 [59.2, 69.1]","53.1 [48.1, 58]"
+bilingual,near,uncertain,"83.8 [80.6, 86.6]","63 [57.8, 68]","42.9 [38.1, 47.8]"
+bilingual,distant,certain,"83.2 [79.8, 86.2]","52.3 [47, 57.7]","46.9 [42.1, 52]"
+bilingual,distant,uncertain,"81.1 [77.6, 84.2]","50 [44.8, 55.3]","41.2 [36.5, 46.1]"

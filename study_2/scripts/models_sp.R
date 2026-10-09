@@ -378,9 +378,8 @@ mod_sp_final_preds <- avg_predictions(
 
 mod_sp_final_post <- posterior_draws(mod_sp_final_preds)
 
-
 # 2) Doing a for loop
-post_list <- list()
+post_sp_list <- list()
 
 for (f in c("PF", "PI", "PP")) {
   for (g in c("monolingual", "bilingual")) {
@@ -391,9 +390,9 @@ for (f in c("PF", "PI", "PP")) {
                         plan_cert    = c("certain", "uncertain"),
                         ling_profile = g),
       re_formula = NULL)
-    post_list[[paste(f, g)]] <- posterior_draws(pred)}}
+    post_sp_list[[paste(f, g)]] <- posterior_draws(pred)}}
 
-mod_sp_final_post_loop <- bind_rows(post_list)
+mod_sp_final_post_loop <- bind_rows(post_sp_list)
 
 # Compare approaches
 compare_draws <- bind_rows(
@@ -417,12 +416,18 @@ compare_draws |>
   # The estimates given by both approaches are very similar: either they are the 
   # same or they differ by 0.1 (e.g., 6.18 vs 6.19).
 
+# Save posteriors
+write_csv(mod_sp_final_post, here("study_2", "models", "spanish", "posteriors",
+                                  "mod_sp_final_post_2000.csv"))
+saveRDS(mod_sp_final_post, here("study_2", "models", "spanish", "posteriors",
+                                "mod_final_post_200.rds"))
 
-# write_csv(mod_sp_final_post, here("study_2", "models", "spanish", 
-#                                 "mod_sp_final_post.csv"))
-# 
-# saveRDS(mod_sp_final_post, here("study_2", "models", "spanish", 
-#                               "mod_final_post.rds"))
+write_csv(mod_sp_final_post_loop, here("study_2", "models", "spanish", 
+                                       "posteriors", 
+                                       "mod_sp_final_post_loop.csv"))
+saveRDS(mod_sp_final_post_loop, here("study_2", "models", "spanish", 
+                                     "posteriors", 
+                                     "mod_sp_final_post_loop.rds"))
 # ------------------------------------------------------------------------------
 
 
